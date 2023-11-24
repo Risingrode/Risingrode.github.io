@@ -1,0 +1,270 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>面试高频考点 | 阿威的代码小站</title><meta name="author" content="fcw,3185087246@protonmail.com"><meta name="copyright" content="fcw"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言根据一个大佬的收集整理而来  链接网站：http:&#x2F;&#x2F;localhost:4000&#x2F;post&#x2F;csdn.html  对JVM的理解(8-24)JDK包括什么Java Development Kit (JDK) 是用于开发和编译 Java 应用程序的软件包。  编译器（javac）： 它将 Java 源代码编译成 Java 字节码，这是 Java 虚拟机（JVM）可以理解和执行的中间代码。 运行">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试高频考点">
+<meta property="og:url" content="https://risingrode.github.io/post/Interview/%E9%9D%A2%E8%AF%95%E9%AB%98%E9%A2%91%E8%80%83%E7%82%B9.html">
+<meta property="og:site_name" content="阿威的代码小站">
+<meta property="og:description" content="前言根据一个大佬的收集整理而来  链接网站：http:&#x2F;&#x2F;localhost:4000&#x2F;post&#x2F;csdn.html  对JVM的理解(8-24)JDK包括什么Java Development Kit (JDK) 是用于开发和编译 Java 应用程序的软件包。  编译器（javac）： 它将 Java 源代码编译成 Java 字节码，这是 Java 虚拟机（JVM）可以理解和执行的中间代码。 运行">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i0.hippopx.com/photos/997/702/475/road-train-landscape-storm-thumb.jpg">
+<meta property="article:published_time" content="2023-08-24T14:47:14.000Z">
+<meta property="article:modified_time" content="2023-11-24T10:35:43.553Z">
+<meta property="article:author" content="fcw">
+<meta property="article:tag" content="面试高频考点">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i0.hippopx.com/photos/997/702/475/road-train-landscape-storm-thumb.jpg"><link rel="shortcut icon" href="/img/favicon.jpg"><link rel="canonical" href="https://risingrode.github.io/post/Interview/%E9%9D%A2%E8%AF%95%E9%AB%98%E9%A2%91%E8%80%83%E7%82%B9.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '面试高频考点',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-11-24 18:35:43'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = url => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      link.onload = () => resolve()
+      link.onerror = () => reject()
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script src="/live2d-widget-master/autoload.js"></script><link rel="stylesheet" href="/css/mouse.css"><meta name="generator" content="Hexo 6.3.0"></head><body><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js/themes/blue/pace-theme-minimal.min.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/girl.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">77</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">67</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">35</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 优质网站链接</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 媒体</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书单</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/talk/"><i class="fa-fw far fa-comment"></i><span> 微语</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i0.hippopx.com/photos/997/702/475/road-train-landscape-storm-thumb.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="阿威的代码小站"><span class="site-name">阿威的代码小站</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 优质网站链接</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 媒体</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书单</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/talk/"><i class="fa-fw far fa-comment"></i><span> 微语</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">面试高频考点</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-08-24T14:47:14.000Z" title="发表于 2023-08-24 22:47:14">2023-08-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-11-24T10:35:43.553Z" title="更新于 2023-11-24 18:35:43">2023-11-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="面试高频考点"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>根据一个大佬的收集整理而来</p>
+<blockquote>
+<p>链接网站：<a target="_blank" rel="noopener" href="http://localhost:4000/post/csdn.html">http://localhost:4000/post/csdn.html</a></p>
+</blockquote>
+<h1 id="对JVM的理解-8-24"><a href="#对JVM的理解-8-24" class="headerlink" title="对JVM的理解(8-24)"></a>对JVM的理解(8-24)</h1><h2 id="JDK包括什么"><a href="#JDK包括什么" class="headerlink" title="JDK包括什么"></a>JDK包括什么</h2><p>Java Development Kit (JDK) 是用于开发和编译 Java 应用程序的软件包。</p>
+<ol>
+<li><strong>编译器（javac）：</strong> 它将 Java 源代码编译成 Java 字节码，这是 Java 虚拟机（JVM）可以理解和执行的中间代码。</li>
+<li><strong>运行时环境（JRE）：</strong> JRE 包括了 JVM 以及 Java 标准库，允许你运行已编译的 Java 程序。</li>
+</ol>
+<h2 id="JVM包括什么"><a href="#JVM包括什么" class="headerlink" title="JVM包括什么"></a>JVM包括什么</h2><p>主要分为下面五个部分：</p>
+<ul>
+<li>类加载器（Class Loader）：加载字节码文件到内存。</li>
+<li>运行时数据区（Runtime Data Area）：JVM 核心内存空间结构模型。</li>
+<li>执行引擎（Execution Engine）：对 JVM 指令进行解析，翻译成机器码，解析完成后提交到操作系统中。</li>
+<li>本地库接口（Native Interface）：供 Java 调用的融合了不同开发语言的原生库。</li>
+<li>本地方法库（Native Libraies）：Java 本地方法的具体实现。</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/post/%E9%9D%A2%E7%BB%8F/1-1.jpg"></p>
+<p>这其中最复杂的是运行时数据区，它也是 JVM 内存结构最重要的部分。运行时数据区又可以分为方法区、虚拟机栈、本地方法栈、堆以及程序计数器，并且方法区和堆是线程共享的，虚拟机栈、本地方法栈、程序计数器是线程隔离的。下面详细讲解运行时数据区的各个组成部分。</p>
+<h3 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h3><p>方法区存储虚拟机加载的类信息、常量、静态变量以及即时编译器编译后的代码等数据。方法区是一种规范，它的其中一种实现是永久代。JDK 7 以前的版本字符串常量池是放在永久代中的，JDK 7 将字符串常量池移动到了堆中，JDK 8 直接删除了永久代，改用元空间替代永久代。</p>
+<h3 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h3><p>本地方法栈与 Java 栈的作用和原理基本相同，都可以用来执行方法，不同点在于 Java 栈执行的是 Java 方法，本地方法栈执行的是本地方法。</p>
+<h3 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h3><p>程序计数器占用的内存空间较小，是当前线程所执行的字节码行号指示器，通过改变这个计数器的值来选取下一条需要执行的字节码指令。多个线程之间的程序计数器相互独立，为了保证每个线程恢复后都可以找到具体的执行位置。</p>
+<h3 id="Java-堆"><a href="#Java-堆" class="headerlink" title="Java 堆"></a>Java 堆</h3><p>Java 堆用来存放实例化对象，它被所有线程共享，在虚拟机启动时创建，用来存放对象实例，其占用了 Java 内存的大部分空间，是 GC 的主要管理区域，又可分为年轻代、老年代、永久代。</p>
+<h3 id="虚拟机栈"><a href="#虚拟机栈" class="headerlink" title="虚拟机栈"></a>虚拟机栈</h3><p>Java 栈中存放的是多个栈帧，每个栈帧对应一个被调用的方法，主要包括局部变量表、操作数栈、动态链接、方法返回地址（方法出口）。每一个方法的执行，JVM 都会创建一个栈帧，并且将栈帧压入 Java 栈，方法执行完毕，该栈帧出栈。也就是说，每个方法的执行都是一个栈帧的入栈和出栈过程，Java 虚拟机栈用来存储栈帧，方法调用结束之后，帧会被销毁。</p>
+<h2 id="为什么编译成字节码"><a href="#为什么编译成字节码" class="headerlink" title="为什么编译成字节码"></a>为什么编译成字节码</h2><ol>
+<li><p><strong>跨平台性（平台无关性）：</strong> Java 字节码具有跨平台性，也就是说，一旦将源代码编译成字节码，它就可以在任何支持 Java 虚拟机（JVM）的平台上运行，而不需要重新编译。这使得 Java 成为一种具有很高可移植性的编程语言。</p>
+</li>
+<li><p><strong>动态执行：</strong> Java 字节码由 JVM 解释和执行。这意味着字节码可以在运行时动态加载和执行，而不需要在编译时确定所有细节。这种灵活性使得 Java 支持许多动态特性，如反射、动态代理等。</p>
+</li>
+</ol>
+<h2 id="面向对象、面向过程"><a href="#面向对象、面向过程" class="headerlink" title="面向对象、面向过程"></a>面向对象、面向过程</h2><p><strong>面向对象：</strong><br>考虑一个图书馆管理系统，其中有图书、读者和图书管理员。在面向对象编程中，我们可以创建三个类：<code>Book</code>（图书类）、<code>Reader</code>（读者类）和<code>Librarian</code>（图书管理员类）。每个类都有自己的属性和方法。例如，<code>Book</code> 类可以有属性如书名、作者、出版日期等，以及方法如借阅和归还。通过创建这些类，我们可以创建图书对象、读者对象和图书管理员对象，并通过它们的交互来模拟图书馆管理系统。</p>
+<p><strong>面向过程：</strong><br>考虑一个简单的计算器程序，它可以执行加法、减法、乘法和除法操作。在面向过程编程中，我们可以编写不同的函数来执行每个操作，例如 <code>add(a, b)</code>、<code>subtract(a, b)</code>、<code>multiply(a, b)</code> 和 <code>divide(a, b)</code>。然后，我们可以按照需要调用这些函数，以便完成计算器的功能。</p>
+<p>面向对象编程将程序组织为对象的集合，强调对象之间的关系和交互。而面向过程编程将程序组织为一系列的步骤或过程，强调问题解决的步骤和顺序。</p>
+<h1 id="内存溢出和内存泄漏的区别-8-28"><a href="#内存溢出和内存泄漏的区别-8-28" class="headerlink" title="内存溢出和内存泄漏的区别(8-28)"></a>内存溢出和内存泄漏的区别(8-28)</h1><blockquote>
+<p>内存溢出 out of memory，是指程序在申请内存时，没有足够的内存空间供其使用，出现out of memory；比如申请了一个integer,但给它存了long才能存下的数，那就是内存溢出。<br>内存泄露 memory leak，是指程序在申请内存后，无法释放已申请的内存空间，一次内存泄露危害可以忽略，但内存泄露堆积后果很严重，无论多少内存,迟早会被占光。</p>
+<blockquote>
+<p>内存泄漏是指你向系统申请分配内存进行使用(new)，可是使用完了以后却不归还(delete)，结果你申请到的那块内存你自己也不能再访问（也许你把它的地址给弄丢了），而系统也不能再次将它分配给需要的程序。</p>
+</blockquote>
+</blockquote>
+<ol>
+<li>常发性内存泄漏。发生内存泄漏的代码会被多次执行到，<code>每执行一次都会导致一块内存泄漏</code>。 </li>
+<li>偶发性内存泄漏。发生内存泄漏的代码只有<code>在某些特定环境或操作过程下</code>才会发生。常发性和偶发性是相对的。对于特定的环境，偶发性的也许就变成了常发性的。所以<code>测试环境</code>和测试方法对检测内存泄漏至关重要。 </li>
+<li>一次性内存泄漏。<code>发生内存泄漏的代码只会被执行一次</code>，或者由于算法上的缺陷，导致总会有一块仅且一块内存发生泄漏。比如，在类的构造函数中分配内存，在析构函数中却没有释放该内存，所以内存泄漏只会发生一次。 </li>
+<li>隐式内存泄漏。<code>程序在运行过程中不停的分配内存，但是直到结束的时候才释放内存</code>。严格的说这里并没有发生内存泄漏，因为最终程序释放了所有申请的内存。但是对于一个服务器程序，需要运行几天，几周甚至几个月，不及时释放内存也可能导致最终耗尽系统的所有内存。所以，我们称这类内存泄漏为隐式内存泄漏。</li>
+</ol>
+<p>自己的理解：溢出：空间不足。泄露：不去释放。</p>
+<hr>
+<h1 id="JDK1-7和JDK1-8的内存模型比较"><a href="#JDK1-7和JDK1-8的内存模型比较" class="headerlink" title="JDK1.7和JDK1.8的内存模型比较"></a>JDK1.7和JDK1.8的内存模型比较</h1><h1 id="java一日游"><a href="#java一日游" class="headerlink" title="java一日游"></a>java一日游</h1><p><a target="_blank" rel="noopener" href="http://t.csdn.cn/EMBz3">点我</a></p>
+<h1 id="Hello-World-是如何运行的"><a href="#Hello-World-是如何运行的" class="headerlink" title="Hello World 是如何运行的"></a>Hello World 是如何运行的</h1><p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1012907?areaId=106001">点我</a></p>
+<h1 id="链接推荐"><a href="#链接推荐" class="headerlink" title="链接推荐"></a>链接推荐</h1><p><a target="_blank" rel="noopener" href="http://t.csdnimg.cn/ed69B">点我</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://risingrode.github.io">fcw</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://risingrode.github.io/post/Interview/%E9%9D%A2%E8%AF%95%E9%AB%98%E9%A2%91%E8%80%83%E7%82%B9.html">https://risingrode.github.io/post/Interview/面试高频考点.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://risingrode.github.io" target="_blank">阿威的代码小站</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E9%9D%A2%E8%AF%95%E9%AB%98%E9%A2%91%E8%80%83%E7%82%B9/">面试高频考点</a></div><div class="post_share"><div class="social-share" data-image="https://i0.hippopx.com/photos/997/702/475/road-train-landscape-storm-thumb.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/Competition/2023%E5%9B%BD%E8%B5%9B.html" title="2023国赛"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://i0.hippopx.com/photos/356/657/107/beach-beverage-caribbean-cocktail-thumb.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">2023国赛</div></div></a></div><div class="next-post pull-right"><a href="/post/Project/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E/gulimall-es.html" title="谷粒商城-es篇"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://i0.hippopx.com/photos/583/885/292/tianjin-twilight-city-scenery-preview.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">谷粒商城-es篇</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/girl.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">fcw</div><div class="author-info__description">一个收藏回忆与分享技术的地方！</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">77</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">67</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">35</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Risingrode"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到cwRising的博客</div></div><div class="card-widget"><div class="item-headline"><i></i><span></span></div><div class="item-content"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AF%B9JVM%E7%9A%84%E7%90%86%E8%A7%A3-8-24"><span class="toc-number">2.</span> <span class="toc-text">对JVM的理解(8-24)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#JDK%E5%8C%85%E6%8B%AC%E4%BB%80%E4%B9%88"><span class="toc-number">2.1.</span> <span class="toc-text">JDK包括什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JVM%E5%8C%85%E6%8B%AC%E4%BB%80%E4%B9%88"><span class="toc-number">2.2.</span> <span class="toc-text">JVM包括什么</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E5%8C%BA"><span class="toc-number">2.2.1.</span> <span class="toc-text">方法区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95%E6%A0%88"><span class="toc-number">2.2.2.</span> <span class="toc-text">本地方法栈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8"><span class="toc-number">2.2.3.</span> <span class="toc-text">程序计数器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Java-%E5%A0%86"><span class="toc-number">2.2.4.</span> <span class="toc-text">Java 堆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%88"><span class="toc-number">2.2.5.</span> <span class="toc-text">虚拟机栈</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E7%BC%96%E8%AF%91%E6%88%90%E5%AD%97%E8%8A%82%E7%A0%81"><span class="toc-number">2.3.</span> <span class="toc-text">为什么编译成字节码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E3%80%81%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B"><span class="toc-number">2.4.</span> <span class="toc-text">面向对象、面向过程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%92%8C%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB-8-28"><span class="toc-number">3.</span> <span class="toc-text">内存溢出和内存泄漏的区别(8-28)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JDK1-7%E5%92%8CJDK1-8%E7%9A%84%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E6%AF%94%E8%BE%83"><span class="toc-number">4.</span> <span class="toc-text">JDK1.7和JDK1.8的内存模型比较</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#java%E4%B8%80%E6%97%A5%E6%B8%B8"><span class="toc-number">5.</span> <span class="toc-text">java一日游</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hello-World-%E6%98%AF%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C%E7%9A%84"><span class="toc-number">6.</span> <span class="toc-text">Hello World 是如何运行的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%93%BE%E6%8E%A5%E6%8E%A8%E8%8D%90"><span class="toc-number">7.</span> <span class="toc-text">链接推荐</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/Interview/%E7%BC%93%E5%AD%98%E4%BC%98%E5%8C%96.html" title="缓存优化"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/11/22/QUNpGAm1nozKJ7s.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="缓存优化"/></a><div class="content"><a class="title" href="/post/Interview/%E7%BC%93%E5%AD%98%E4%BC%98%E5%8C%96.html" title="缓存优化">缓存优化</a><time datetime="2023-11-24T04:27:47.000Z" title="发表于 2023-11-24 12:27:47">2023-11-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/Project/%E5%9F%BA%E7%A1%80/redis.html" title="redis"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/11/22/Y65fK7QPnFLEzjs.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="redis"/></a><div class="content"><a class="title" href="/post/Project/%E5%9F%BA%E7%A1%80/redis.html" title="redis">redis</a><time datetime="2023-11-24T04:23:56.000Z" title="发表于 2023-11-24 12:23:56">2023-11-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/Project/%E5%9F%BA%E7%A1%80/nginx.html" title="nginx"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/11/22/Y65fK7QPnFLEzjs.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="nginx"/></a><div class="content"><a class="title" href="/post/Project/%E5%9F%BA%E7%A1%80/nginx.html" title="nginx">nginx</a><time datetime="2023-11-24T04:19:16.000Z" title="发表于 2023-11-24 12:19:16">2023-11-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/Project/%E5%9F%BA%E7%A1%80/Linux.html" title="Linux"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/11/22/vn34S5LkA1BwDgH.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux"/></a><div class="content"><a class="title" href="/post/Project/%E5%9F%BA%E7%A1%80/Linux.html" title="Linux">Linux</a><time datetime="2023-11-24T04:06:04.000Z" title="发表于 2023-11-24 12:06:04">2023-11-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/Other/Typora%E8%AF%B4%E6%98%8E.html" title="Typora说明"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/11/22/vn34S5LkA1BwDgH.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Typora说明"/></a><div class="content"><a class="title" href="/post/Other/Typora%E8%AF%B4%E6%98%8E.html" title="Typora说明">Typora说明</a><time datetime="2023-11-24T01:43:36.000Z" title="发表于 2023-11-24 09:43:36">2023-11-24</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 By fcw</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'https://risingrode.github.io/post/Interview/%E9%9D%A2%E8%AF%95%E9%AB%98%E9%A2%91%E8%80%83%E7%82%B9.html'
+    this.page.identifier = '/post/Interview/%E9%9D%A2%E8%AF%95%E9%AB%98%E9%A2%91%E8%80%83%E7%82%B9.html'
+    this.page.title = '面试高频考点'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+
+  document.getElementById('darkmode').addEventListener('click', () => {
+    setTimeout(() => window.disqusReset(), 200)
+  })
+}
+
+if ('Valine' === 'Disqus' || !false) {
+  if (false) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script></div><link rel="stylesheet" href="/dist/APlayer.min.css"> <div id="aplayer"></div> <script type="text/javascript" src="/dist/APlayer.min.js"></script> <script type="text/javascript" src="/js/aplayer/music.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
