@@ -6,6 +6,41 @@ const ap = new APlayer({
     autoHide: true,
     audio: [
         {
+            name: 'Void',
+            artist: '如履薄冰',
+            url: 'http://music.163.com/song/media/outer/url?id=2089730107.mp3',
+            cover: 'http://p1.music.126.net/w4hRgWfI4YEz6v2e5Qooiw==/109951168974017795.jpg?param=130y130',
+            lrc: ''
+        },
+        {
+            name: '虚拟',
+            artist: '陈粒',
+            url: 'http://music.163.com/song/media/outer/url?id=421423808.mp3',
+            cover: 'http://p1.music.126.net/HQxTggMCB7AHUXN-ZFEtmA==/1371091013186741.jpg?param=130y130',
+            lrc: ''
+        },
+        {
+            name: '草木',
+            artist: '糯米',
+            url: 'http://music.163.com/song/media/outer/url?id=1390477348.mp3',
+            cover: 'http://p1.music.126.net/-uzvFAlBT5ba0ClUKHeX0Q==/109951164358651637.jpg?param=130y130',
+            lrc: ''
+        },
+        {
+            name: '悬溺',
+            artist: '葛东琪',
+            url: 'http://music.163.com/song/media/outer/url?id=1397345903.mp3',
+            cover: 'http://p1.music.126.net/CDhYcShQKH2VAMENuCxWWQ==/109951164166513349.jpg?param=130y130',
+            lrc: ''
+        },
+        {
+            name: '浮光',
+            artist: 'Jannik',
+            url: 'http://music.163.com/song/media/outer/url?id=1394601255.mp3',
+            cover: 'http://p1.music.126.net/c55oo6_xrGMZP8vIrSGTZg==/109951164401545279.jpg?param=130y130',
+            lrc: ''
+        },
+        {
             name: '纪念',
             artist: '雷雨心',
             url: 'http://music.163.com/song/media/outer/url?id=36229053.mp3',
