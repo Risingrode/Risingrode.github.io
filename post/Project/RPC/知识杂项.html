@@ -1,0 +1,630 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>RPC知识杂项 | 阿威的代码小站</title><meta name="author" content="fcw,3185087246@protonmail.com"><meta name="copyright" content="fcw"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="RPCpackage-info.java 文件是 Java 语言中的一种特殊文件，它用于提供有关 Java 包（package）的元数据信息。这个文件可以包含包级别的注释、文档信息和其他与包相关的元数据。 &#x2F;** * 这是一个示例包级别的注释文档。 *&#x2F;@SomeAnnotationpackage com.example.mypackage;import com.example.SomeAnnot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RPC知识杂项">
+<meta property="og:url" content="https://risingrode.github.io/post/Project/RPC/%E7%9F%A5%E8%AF%86%E6%9D%82%E9%A1%B9.html">
+<meta property="og:site_name" content="阿威的代码小站">
+<meta property="og:description" content="RPCpackage-info.java 文件是 Java 语言中的一种特殊文件，它用于提供有关 Java 包（package）的元数据信息。这个文件可以包含包级别的注释、文档信息和其他与包相关的元数据。 &#x2F;** * 这是一个示例包级别的注释文档。 *&#x2F;@SomeAnnotationpackage com.example.mypackage;import com.example.SomeAnnot">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2023/11/22/Y65fK7QPnFLEzjs.jpg">
+<meta property="article:published_time" content="2023-11-12T00:04:40.000Z">
+<meta property="article:modified_time" content="2023-11-25T03:49:31.717Z">
+<meta property="article:author" content="fcw">
+<meta property="article:tag" content="RPC知识杂项">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2023/11/22/Y65fK7QPnFLEzjs.jpg"><link rel="shortcut icon" href="/img/favicon.jpg"><link rel="canonical" href="https://risingrode.github.io/post/Project/RPC/%E7%9F%A5%E8%AF%86%E6%9D%82%E9%A1%B9.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'RPC知识杂项',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-11-25 11:49:31'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = url => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      link.onload = () => resolve()
+      link.onerror = () => reject()
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script src="/live2d-widget-master/autoload.js"></script><link rel="stylesheet" href="/css/mouse.css"><meta name="generator" content="Hexo 6.3.0"></head><body><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js/themes/blue/pace-theme-minimal.min.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/girl.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">81</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">70</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">38</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 优质网站链接</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 媒体</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书单</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/talk/"><i class="fa-fw far fa-comment"></i><span> 微语</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s2.loli.net/2023/11/22/Y65fK7QPnFLEzjs.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="阿威的代码小站"><span class="site-name">阿威的代码小站</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 优质网站链接</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 媒体</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书单</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/talk/"><i class="fa-fw far fa-comment"></i><span> 微语</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">RPC知识杂项</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-11-12T00:04:40.000Z" title="发表于 2023-11-12 08:04:40">2023-11-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-11-25T03:49:31.717Z" title="更新于 2023-11-25 11:49:31">2023-11-25</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/RPC%E7%9F%A5%E8%AF%86%E6%9D%82%E9%A1%B9/">RPC知识杂项</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">9.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>32分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="RPC知识杂项"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="RPC"><a href="#RPC" class="headerlink" title="RPC"></a>RPC</h1><p><code>package-info.java</code> 文件是 Java 语言中的一种特殊文件，它用于提供有关 Java 包（package）的元数据信息。这个文件可以包含包级别的注释、文档信息和其他与包相关的元数据。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 这是一个示例包级别的注释文档。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@SomeAnnotation</span></span><br><span class="line"><span class="keyword">package</span> com.example.mypackage;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.example.SomeAnnotation;</span><br></pre></td></tr></table></figure>
+
+<p>Arrays.asList<code>返回的列表是不可修改的（immutable）列表。这意味着在这个列表上调用</code>add<code>、</code>remove<code>等修改操作会导致</code>UnsupportedOperationException&#96; 异常。</p>
+<p>这段代码看起来是使用 JMH（Java Microbenchmarking Harness）进行性能测试的注解配置。JMH 是 Java 专用的微基准测试工具，用于测量和评估 Java 程序的性能。</p>
+<p>下面是对你提供的注解的简要解释：</p>
+<ol>
+<li><p><code>@BenchmarkMode(&#123;Mode.All&#125;)</code>:</p>
+<ul>
+<li>指定性能测试的模式。<code>Mode.All</code> 表示使用所有可用的基准测试模式（如<code>Throughput</code>、<code>AverageTime</code>等）。</li>
+</ul>
+</li>
+<li><p><code>@Warmup(iterations = 3, time = 5, timeUnit = TimeUnit.SECONDS)</code>:</p>
+<ul>
+<li>设置预热阶段的配置。在性能测试开始之前，JMH 会先运行几个迭代（<code>iterations</code>）来预热 JVM，以避免因为 JIT 编译的影响导致测试结果不准确。<code>time</code> 指定预热阶段的持续时间，单位是秒。</li>
+</ul>
+</li>
+<li><p><code>@Measurement(iterations = 3, time = 5, timeUnit = TimeUnit.SECONDS)</code>:</p>
+<ul>
+<li>设置实际测量性能的阶段的配置。<code>iterations</code> 指定测量阶段的迭代次数，<code>time</code> 指定测量阶段的持续时间，单位是秒。</li>
+</ul>
+</li>
+<li><p><code>@Threads(10000)</code>:</p>
+<ul>
+<li>指定并发线程的数量。在这里，设置为 10000 个线程。</li>
+</ul>
+</li>
+<li><p><code>@Fork(1)</code>:</p>
+<ul>
+<li>指定进行性能测试时 fork 的次数。在这里，设置为 1，表示每个测试运行在单独的 JVM 进程中。</li>
+</ul>
+</li>
+<li><p><code>@State(Scope.Benchmark)</code>:</p>
+<ul>
+<li>指定测试类的状态范围。在这里，设置为 <code>Scope.Benchmark</code>，表示每个测试运行时都会创建一个新的实例。</li>
+</ul>
+</li>
+<li><p><code>@OutputTimeUnit(TimeUnit.SECONDS)</code>:</p>
+<ul>
+<li>指定输出结果的时间单位，这里设置为秒。</li>
+</ul>
+</li>
+<li><p><code>@Slf4j</code>:</p>
+<ul>
+<li>使用 Lombok 注解，自动生成日志记录器（Logger）。</li>
+</ul>
+</li>
+</ol>
+<p>这些注解配置使得你的测试类能够以指定的配置运行性能测试，并且通过日志记录器（Slf4j）记录相关的信息。确保你的测试方法被正确实现，并且符合 JMH 的规范，以获得准确的性能测量结果。</p>
+<p><code>@PathVariable</code> 是 Spring Framework 中的一个注解，用于从请求路径中获取变量的值。它主要用于处理带有动态参数的 URL 地址，将 URL 中的变量提取出来并作为方法参数进行使用。</p>
+<p>在 Spring MVC 中，<code>@PathVariable</code> 的用法如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;/example/&#123;id&#125;&quot;)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">exampleMethod</span><span class="params">(<span class="meta">@PathVariable(&quot;id&quot;)</span> String id)</span> &#123;</span><br><span class="line">    <span class="comment">// 方法体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>@PathVariable(&quot;id&quot;)</code> 注解用于标注方法参数 <code>id</code>，表示从路径中提取名为 “id” 的变量的值。当请求匹配到 “&#x2F;example&#x2F;{id}” 路径时，其中的 <code>&#123;id&#125;</code> 部分会被提取出来，然后传递给方法参数 <code>id</code>。</p>
+<p>举例来说，如果请求的路径是 “&#x2F;example&#x2F;123”，那么 <code>id</code> 的值将是 “123”。</p>
+<p>除了基本的用法外，<code>@PathVariable</code> 还支持一些其他的配置项，例如指定默认值、正则表达式匹配等。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;/example/&#123;id&#125;/&#123;name&#125;&quot;)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">exampleMethod</span><span class="params">(</span></span><br><span class="line"><span class="params">    <span class="meta">@PathVariable(&quot;id&quot;)</span> String id,</span></span><br><span class="line"><span class="params">    <span class="meta">@PathVariable(&quot;name&quot;)</span> String name,</span></span><br><span class="line"><span class="params">    <span class="meta">@PathVariable(value = &quot;age&quot;, required = false)</span> Integer age)</span> &#123;</span><br><span class="line">    <span class="comment">// 方法体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，有两个路径变量 “id” 和 “name”，还有一个可选的路径变量 “age”，其中 “age” 是可选的，因为设置了 <code>required = false</code>。这样，请求 “&#x2F;example&#x2F;123&#x2F;Alice” 可以匹配这个方法，而请求 “&#x2F;example&#x2F;123&#x2F;Alice&#x2F;25” 也可以匹配，并且 “age” 的值为 25。</p>
+<p>这是 Spring MVC 中使用的两个注解：<code>@RestController</code> 和 <code>@RequestMapping</code>。</p>
+<ol>
+<li><p><strong><code>@RestController</code>：</strong></p>
+<ul>
+<li><code>@RestController</code> 是一个组合注解，它相当于 <code>@Controller</code> 和 <code>@ResponseBody</code> 的结合。它表示这个类是一个控制器（Controller），并且处理请求时返回的结果是直接写入 HTTP 响应体而不是渲染到视图。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyController</span> &#123;</span><br><span class="line">    <span class="comment">// Controller methods</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong><code>@RequestMapping</code>：</strong></p>
+<ul>
+<li><code>@RequestMapping</code> 用于映射请求路径到相应的处理方法。它可以标注在类级别和方法级别上。</li>
+<li>在类级别上，它可以指定该类中所有处理方法的基础路径。</li>
+<li>在方法级别上，它用于具体的请求路径映射。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;/example&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyController</span> &#123;</span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/hello&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">hello</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Hello, World!&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，类 <code>MyController</code> 的基础路径是 “&#x2F;example”，而 <code>hello()</code> 方法处理的请求路径是 “&#x2F;example&#x2F;hello”。</p>
+</li>
+</ol>
+<p>综合使用这两个注解，可以创建一个处理 HTTP 请求的控制器，并定义请求路径与处理方法的映射关系。例如：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/api&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyRestController</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/hello&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">hello</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Hello from API!&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/greet/&#123;name&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">greet</span><span class="params">(<span class="meta">@PathVariable</span> String name)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Hello, &quot;</span> + name + <span class="string">&quot;!&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>MyRestController</code> 类被标记为 <code>@RestController</code>，基础路径是 “&#x2F;api”。它包含两个处理方法，分别处理 “&#x2F;api&#x2F;hello” 和 “&#x2F;api&#x2F;greet&#x2F;{name}” 的请求路径。 <code>@PathVariable</code> 用于获取路径中的变量值。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">package com.wxy.rpc.server.annotation;  </span><br><span class="line">  </span><br><span class="line">import java.lang.annotation.*;  </span><br><span class="line">  </span><br><span class="line">/**  </span><br><span class="line">* Rpc Service 注解，标注该类为服务实现类  </span><br><span class="line">*  </span><br><span class="line">* @author Wuxy  </span><br><span class="line">* @version 1.0  </span><br><span class="line">* @ClassName RpcService  </span><br><span class="line">* @Date 2023/1/6 17:15  </span><br><span class="line">*/  </span><br><span class="line">@Target(ElementType.TYPE)  </span><br><span class="line">@Retention(RetentionPolicy.RUNTIME)  </span><br><span class="line">@Documented  </span><br><span class="line">@Inherited  </span><br><span class="line">public @interface RpcService &#123;  </span><br><span class="line">  </span><br><span class="line">/**  </span><br><span class="line">* 对外暴露服务的接口类型，默认为 void.class  </span><br><span class="line">*/  </span><br><span class="line">Class&lt;?&gt; interfaceClass() default void.class;  </span><br><span class="line">  </span><br><span class="line">/**  </span><br><span class="line">* 对外暴露服务的接口名（全限定名），默认为 &quot;&quot;  </span><br><span class="line">*/  </span><br><span class="line">String interfaceName() default &quot;&quot;;  </span><br><span class="line">  </span><br><span class="line">/**  </span><br><span class="line">* 版本号，默认 1.0  </span><br><span class="line">*/  </span><br><span class="line">String version() default &quot;1.0&quot;;  </span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>看起来这是一个自定义的注解 <code>@RpcService</code>，用于标注类为RPC服务实现类。让我们分析一下这个注解的属性：</p>
+<ol>
+<li><code>interfaceClass()</code>：指定对外暴露服务的接口类型，默认为 <code>void.class</code>。这表示该服务可能是没有明确的接口，或者该服务的实现类直接实现了某个接口。</li>
+<li><code>interfaceName()</code>：指定对外暴露服务的接口名（全限定名），默认为 <code>&quot;&quot;</code>。如果 <code>interfaceClass</code> 不为 <code>void.class</code>，则通过 <code>interfaceName</code> 可以指定明确的接口名。</li>
+<li><code>version()</code>：指定服务的版本号，默认为 <code>&quot;1.0&quot;</code>。在一些RPC框架中，可以根据版本号来管理和调用不同版本的服务。</li>
+</ol>
+<p>这个注解可能是在自定义的RPC框架中使用的，用于标识哪些类是RPC服务实现类。通过这个注解，框架可以扫描并注册这些服务，然后提供远程调用的能力。</p>
+<p>如果你有与这个注解相关的其他类或者框架的使用说明，可以提供更多上下文，我可以提供更详细的解释。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@Target(ElementType.TYPE)  </span><br><span class="line">@Retention(RetentionPolicy.RUNTIME)  </span><br><span class="line">@Documented  </span><br><span class="line">@Inherited</span><br></pre></td></tr></table></figure>
+
+<p>这部分是Java注解的元注解，用于定义注解的行为和范围。让我们逐个解释：</p>
+<ol>
+<li><code>@Target(ElementType.TYPE)</code>：指定了这个注解可以应用在类、接口、枚举类等类型上。在这里，<code>@RpcService</code> 注解只能标注在类上。</li>
+<li><code>@Retention(RetentionPolicy.RUNTIME)</code>：指定了这个注解在运行时保留。这意味着这个注解可以通过反射机制在运行时获取到，这通常是自定义注解用于实现一些运行时处理逻辑的必要条件。</li>
+<li><code>@Documented</code>：指定了这个注解应该被 javadoc 工具记录。这样，在生成文档时，使用了这个注解的类的文档中会包含这个注解的信息。</li>
+<li><code>@Inherited</code>：指定了这个注解可以被继承。通常情况下，注解不会被子类继承。但是使用 <code>@Inherited</code> 注解后，如果一个类使用了这个注解，它的子类也会继承这个注解。</li>
+</ol>
+<p>这些元注解是用于约束 <code>@RpcService</code> 注解的使用方式和生命周期。例如，通过 <code>@Target</code> 约束只能标注在类上，通过 <code>@Retention</code> 约束它在运行时可见，通过 <code>@Inherited</code> 约束它可以被继承。</p>
+<ul>
+<li><code>random</code>：随机选择一个可用的服务实例。  </li>
+<li><code>roundrobin</code>：轮询选择可用的服务实例。  </li>
+<li><code>leastactive</code>：选择活跃度最低的服务实例。</li>
+</ul>
+<h1 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h1><p>反射就是把java类中的各种成分映射成一个个的Java对象</p>
+<h3 id="在运行期间，一个类，只有一个Class对象产生。"><a href="#在运行期间，一个类，只有一个Class对象产生。" class="headerlink" title="在运行期间，一个类，只有一个Class对象产生。"></a>在运行期间，一个类，只有一个Class对象产生。</h3><p><a target="_blank" rel="noopener" href="http://t.csdnimg.cn/yAax4">http://t.csdnimg.cn/yAax4</a></p>
+<p><code>invoke</code> 是 Java 反射机制中的一个方法，用于动态地调用类的方法。具体来说，<code>invoke</code> 方法允许在运行时通过反射调用一个方法，可以是静态方法或实例方法，私有方法或公有方法。</p>
+<p>堆和栈是计算机内存中两个重要的区域，它们分别用于存储不同类型的数据和执行不同的任务。</p>
+<ol>
+<li><p><strong>栈（Stack）:</strong></p>
+<ul>
+<li>栈是一种线性数据结构，采用后进先出（LIFO）的原则。</li>
+<li>主要用于存储方法调用时的局部变量、方法参数、返回地址等信息。</li>
+<li>栈的操作是非常快速的，仅涉及栈顶的数据的入栈和出栈操作。</li>
+<li>栈的大小通常是有限制的，由系统设置，如果栈溢出了，通常是由于递归调用层次太深或者无限循环。</li>
+</ul>
+</li>
+<li><p><strong>堆（Heap）:</strong></p>
+<ul>
+<li>堆是一种用于动态分配内存的区域，也称为动态内存。</li>
+<li>主要用于存储程序运行中动态创建的对象和数据。</li>
+<li>堆的大小通常较大，受到系统总内存的限制，动态分配和释放内存的速度较慢。</li>
+<li>在堆上分配的内存需要手动释放，否则可能会导致内存泄漏。</li>
+</ul>
+</li>
+<li><p><strong>区别与用途:</strong></p>
+<ul>
+<li>栈是一种有限且相对较小的内存区域，用于存储方法调用时的局部数据，操作速度快。</li>
+<li>堆是一种动态分配内存的区域，用于存储程序运行时动态创建的对象和数据，容量较大。</li>
+</ul>
+</li>
+</ol>
+<p>心跳检查在网络通信中起到了多个重要的作用：</p>
+<ol>
+<li><strong>连接保活：</strong> 在一些长连接的场景中，为了确保连接的稳定性，可以通过定期发送心跳包来检测连接是否正常。如果长时间没有数据交流，服务器或客户端可能会认为连接已经失效，通过心跳检查可以避免因为连接长时间空闲而被关闭。</li>
+<li><strong>检测对方存活状态：</strong> 心跳检查可以用于检测对方是否存活。通过定期发送心跳包，可以判断连接的另一端是否正常运行，从而及时处理连接异常情况。</li>
+<li><strong>网络故障排查：</strong> 在复杂的网络环境中，可能会出现网络故障或不稳定的情况。通过心跳检查，可以及时发现连接状态异常，有助于排查网络问题。</li>
+<li><strong>释放资源：</strong> 在某些情况下，连接异常或失效时需要及时释放相关资源，例如关闭连接、清理缓存等。心跳检查可以在连接异常时触发相应的处理逻辑。</li>
+</ol>
+<p>总的来说，心跳检查是一种保障通信稳定性和实时性的机制，特别在长连接的应用场景中更为重要。</p>
+<hr>
+<p><code>invoke</code> 是 <code>InvocationHandler</code> 接口中的方法，用于处理动态代理中的方法调用。在动态代理中，当代理对象调用方法时，实际上是调用 <code>invoke</code> 方法。<code>invoke</code> 方法接收三个参数：</p>
+<ol>
+<li><code>proxy</code>：代理对象。</li>
+<li><code>method</code>：被调用的方法。</li>
+<li><code>args</code>：方法的参数。</li>
+</ol>
+<p><code>invoke</code> 方法的主要作用是在真实对象方法执行前后进行一些额外的操作，例如记录日志、性能监控、事务管理等。通常，<code>invoke</code> 方法的实现会调用真实对象的相应方法，并在调用前后执行一些附加逻辑。</p>
+<p>在动态代理中，<code>invoke</code> 方法的返回值会成为代理方法的返回值。如果 <code>invoke</code> 方法返回 <code>null</code>，那么代理方法的返回值也是 <code>null</code>。如果 <code>invoke</code> 方法抛出异常，那么代理方法也会抛出异常。</p>
+<p>下面是一个简单的例子，演示了 <code>invoke</code> 方法的使用：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.reflect.InvocationHandler;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Proxy;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 接口</span></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">Subject</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">request</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 真实主题类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">RealSubject</span> <span class="keyword">implements</span> <span class="title class_">Subject</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">request</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;RealSubject: Handling request.&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 动态代理处理器</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DynamicProxyHandler</span> <span class="keyword">implements</span> <span class="title class_">InvocationHandler</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Object realSubject;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">DynamicProxyHandler</span><span class="params">(Object realSubject)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.realSubject = realSubject;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;DynamicProxy: Pre-processing&quot;</span>);</span><br><span class="line">        <span class="type">Object</span> <span class="variable">result</span> <span class="operator">=</span> method.invoke(realSubject, args);</span><br><span class="line">        System.out.println(<span class="string">&quot;DynamicProxy: Post-processing&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 客户端</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Client</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">RealSubject</span> <span class="variable">realSubject</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">RealSubject</span>();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建动态代理</span></span><br><span class="line">        <span class="type">Subject</span> <span class="variable">proxy</span> <span class="operator">=</span> (Subject) Proxy.newProxyInstance(</span><br><span class="line">                Subject.class.getClassLoader(),</span><br><span class="line">                <span class="keyword">new</span> <span class="title class_">Class</span>[]&#123;Subject.class&#125;,</span><br><span class="line">                <span class="keyword">new</span> <span class="title class_">DynamicProxyHandler</span>(realSubject)</span><br><span class="line">        );</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 调用代理对象的方法</span></span><br><span class="line">        proxy.request();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在上述例子中，<code>DynamicProxyHandler</code> 类实现了 <code>InvocationHandler</code> 接口，其中的 <code>invoke</code> 方法负责调用真实对象的 <code>request</code> 方法，并在前后输出一些信息。</p>
+<hr>
+<p>这段说明是关于 Java 动态代理的基本原理和核心类的解释。让我简要解释一下：</p>
+<ol>
+<li><strong>InvocationHandler 接口：</strong> 该接口定义了一个方法 <code>invoke</code>，在实际使用时，它接收三个参数：<code>Object obj</code> 代表代理类，<code>Method method</code> 代表被代理的方法，<code>Object[] args</code> 代表该方法的参数数组。该方法在动态代理类中被实现，负责处理被代理方法的调用。</li>
+<li><strong>Proxy 类：</strong> 该类是动态代理的核心类。它的构造函数 <code>protected Proxy(InvocationHandler h)</code> 接收一个 <code>InvocationHandler</code> 对象，用于给内部的 <code>h</code> 赋值。<code>Proxy</code> 类中的 <code>getProxyClass</code> 方法用于获取一个代理类，其中 <code>loader</code> 是类装载器，<code>interfaces</code> 是真实类所拥有的全部接口的数组。<code>newProxyInstance</code> 方法返回代理类的一个实例，返回后的代理类可以当作被代理类使用，可以调用被代理类在接口中声明过的方法。</li>
+</ol>
+<p>这些类和接口的组合，使得在运行时动态生成一个类，该类具有与指定接口相同的方法，且这些方法的实现由 <code>InvocationHandler</code> 中的 <code>invoke</code> 方法来定义。这种机制允许在运行时创建代理类，避免了静态代理需要手动编写代理类的繁琐过程。</p>
+<hr>
+<p>在计算机网络中，<strong>请求（Request）和</strong>响应（Response）**是客户端与服务器之间进行通信的基本概念。这两个术语通常用于描述客户端向服务器发送消息以请求某种服务，而服务器则响应客户端的请求。</p>
+<ol>
+<li><p><strong>请求（Request）：</strong></p>
+<ul>
+<li>一种信息传递的行为，通常由客户端发起，用于向服务器请求某种服务或资源。</li>
+<li>请求通常包含客户端需要的信息，如要执行的操作、要访问的资源、参数等。</li>
+<li>请求的例子包括浏览器向服务器请求网页、移动应用向服务器请求数据等。</li>
+</ul>
+</li>
+<li><p><strong>响应（Response）：</strong></p>
+<ul>
+<li>对请求的回应，由服务器发起，用于向客户端提供请求的结果或执行的服务。</li>
+<li>响应通常包含服务器处理请求的状态、数据等信息。</li>
+<li>响应的例子包括服务器返回网页内容、返回API调用的结果等。</li>
+</ul>
+</li>
+</ol>
+<p>在Web开发中，HTTP协议是常用的通信协议，而HTTP请求和响应的结构如下：</p>
+<ul>
+<li><strong>HTTP请求结构：</strong><ul>
+<li>请求行：包含请求方法（GET、POST等）、请求的URL、HTTP协议版本。</li>
+<li>请求头：包含关于请求的一些附加信息，如User-Agent、Host等。</li>
+<li>请求体（对于POST请求等有内容的请求）：包含实际发送的数据。</li>
+</ul>
+</li>
+<li><strong>HTTP响应结构：</strong><ul>
+<li>状态行：包含HTTP协议版本、状态码和状态描述。</li>
+<li>响应头：包含关于响应的一些附加信息，如Content-Type、Content-Length等。</li>
+<li>响应体：包含服务器返回的实际数据。</li>
+</ul>
+</li>
+</ul>
+<p>总体而言，请求和响应是网络通信中两个关键的概念，描述了信息在客户端和服务器之间的传递和处理过程。</p>
+<hr>
+<p><code>private static final AtomicInteger ai = new AtomicInteger();</code></p>
+<p><code>AtomicInteger</code>是<code>java.util.concurrent</code>包中的一个原子整数类。在这个代码中，<code>private static final AtomicInteger ai = new AtomicInteger();</code>创建了一个静态的、不可变的<code>AtomicInteger</code>实例，用于生成递增的序列号。</p>
+<p>每次调用<code>getSequenceId()</code>方法时，<code>ai.getAndIncrement()</code>会原子地将当前值增加1，并返回增加前的值，用作数据包的序列号。这确保了在多线程环境下，序列号的生成是线程安全的，不会出现竞态条件。</p>
+<p>粘包（Packet Concatenation）和拆包（Packet Fragmentation）是在网络通信中常见的两个问题，涉及到数据的传输和接收。</p>
+<ol>
+<li><p><strong>粘包（Packet Concatenation）：</strong></p>
+<ul>
+<li><strong>定义：</strong> 粘包是指发送方发送的多个小数据包被接收方一次性接收，形成一个大的数据包。</li>
+<li><strong>原因：</strong> 发送方在发送数据时，可能会将多个小的数据包放在一起发送，接收方在接收时无法知道何时是一个完整的数据包，从而导致多个数据包被接收成一个。</li>
+<li><strong>影响：</strong> 如果不处理粘包，接收方可能无法正确解析数据包，导致数据处理错误。</li>
+</ul>
+</li>
+<li><p><strong>拆包（Packet Fragmentation）：</strong></p>
+<ul>
+<li><strong>定义：</strong> 拆包是指发送方发送的一个大的数据包被接收方拆分成多个小的数据包接收。</li>
+<li><strong>原因：</strong> 发送方在发送数据时，数据包的大小可能大于接收方的缓冲区大小，因此接收方需要将大的数据包拆分成小的数据包进行接收。</li>
+<li><strong>影响：</strong> 如果不处理拆包，接收方可能无法正确组装数据包，导致数据包解析错误。</li>
+</ul>
+</li>
+</ol>
+<p>在网络通信中，解决粘包和拆包的问题通常需要借助协议或者特定的技术手段。上面提到的 <code>RpcFrameDecoder</code> 类就是使用了长度字段进行帧解码，以解决粘包和拆包问题。通过在数据包中添加长度字段，接收方可以根据长度信息准确地划分出完整的数据包。</p>
+<p>以下是一个简单的Java实现的建造者模式的示例代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 产品类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Product</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String part1;</span><br><span class="line">    <span class="keyword">private</span> String part2;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setPart1</span><span class="params">(String part1)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.part1 = part1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setPart2</span><span class="params">(String part2)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.part2 = part2;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Product&#123;&quot;</span> +</span><br><span class="line">                <span class="string">&quot;part1=&#x27;&quot;</span> + part1 + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&quot;, part2=&#x27;&quot;</span> + part2 + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&#x27;&#125;&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 抽象建造者接口</span></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">Builder</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">buildPart1</span><span class="params">(String part1)</span>;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">buildPart2</span><span class="params">(String part2)</span>;</span><br><span class="line">    Product <span class="title function_">getResult</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 具体建造者实现</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ConcreteBuilder</span> <span class="keyword">implements</span> <span class="title class_">Builder</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">Product</span> <span class="variable">product</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Product</span>();</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">buildPart1</span><span class="params">(String part1)</span> &#123;</span><br><span class="line">        product.setPart1(part1);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">buildPart2</span><span class="params">(String part2)</span> &#123;</span><br><span class="line">        product.setPart2(part2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Product <span class="title function_">getResult</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> product;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 指导者</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Director</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">construct</span><span class="params">(Builder builder, String part1, String part2)</span> &#123;</span><br><span class="line">        builder.buildPart1(part1);</span><br><span class="line">        builder.buildPart2(part2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 客户端</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BuilderPatternExample</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 创建具体建造者</span></span><br><span class="line">        <span class="type">Builder</span> <span class="variable">builder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ConcreteBuilder</span>();</span><br><span class="line">        <span class="comment">// 创建指导者</span></span><br><span class="line">        <span class="type">Director</span> <span class="variable">director</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Director</span>();</span><br><span class="line">        <span class="comment">// 指导建造者构建产品</span></span><br><span class="line">        director.construct(builder, <span class="string">&quot;Part1&quot;</span>, <span class="string">&quot;Part2&quot;</span>);</span><br><span class="line">        <span class="comment">// 获取构建好的产品</span></span><br><span class="line">        <span class="type">Product</span> <span class="variable">product</span> <span class="operator">=</span> builder.getResult();</span><br><span class="line">        <span class="comment">// 打印产品信息</span></span><br><span class="line">        System.out.println(product);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在这个示例中，<code>Product</code> 是要构建的复杂对象，<code>Builder</code> 是抽象建造者接口，<code>ConcreteBuilder</code> 是具体建造者的实现，<code>Director</code> 是指导者，负责使用建造者构建产品。在客户端中，通过指导者和具体建造者来创建最终的产品。这样的设计允许你通过不同的建造者构建不同的产品，同时保持了产品的构建过程与表示的分离。</p>
+<p>链式调用，相当于一个模板，可以换不同的产品。<br>先构建Product的实体类，在写一个接口类，把这个实体类的属性和方法抽离出来，<br>写一个实现类，这个类里面有一个new好的Product实体类，里面相当于是getter和setter方法，链式调用的话解返回this，最后还有个返回product。<br>指导者类：接受product对象和参数即可。</p>
+<p><code>public RpcFrameDecoder(int maxFrameLength, int lengthFieldOffset, int lengthFieldLength) &#123;  super(maxFrameLength, lengthFieldOffset, lengthFieldLength);  &#125;</code></p>
+<p>这个构造函数用于创建一个<code>RpcFrameDecoder</code>实例，它是<code>LengthFieldBasedFrameDecoder</code>的子类。以下是参数的解释：</p>
+<ul>
+<li><p><code>maxFrameLength</code>：数据帧的最大长度。如果超过这个长度，就会触发<code>LengthFieldBasedFrameDecoder</code>的<code>exceptionCaught</code>方法，通常用于处理解码时的异常情况，比如超出预期的帧长度。</p>
+</li>
+<li><p><code>lengthFieldOffset</code>：长度域的偏移字节数。指的是长度域的起始位置距离整个帧起始位置的字节数。</p>
+</li>
+<li><p><code>lengthFieldLength</code>：长度域的字节数。这个参数指定了长度域的大小。它决定了用来表示数据帧长度的字节数，比如，如果设置为 4，那么长度域将占用 4 个字节，表示一个 32 位的整数。</p>
+</li>
+</ul>
+<hr>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> --------------------------------------------------------------------</span><br><span class="line">| 魔数 (4byte) | 版本号 (1byte)  | 序列化算法 (1byte) | 消息类型 (1byte) |</span><br><span class="line">--------------------------------------------------------------------</span><br><span class="line">| 状态类型 (1byte) | 消息序列号 (4byte) | 消息长度 (4byte) |</span><br><span class="line">--------------------------------------------------------------------</span><br><span class="line">|                   消息内容 (不固定长度)                      |</span><br><span class="line">--------------------------------------------------------------------</span><br></pre></td></tr></table></figure>
+
+<p>这段注释描述了消息的协议格式，每个字段的含义如下：</p>
+<ol>
+<li><strong>魔数 (4byte):</strong> 用于第一时间判断是否为无效数据包，通常是一个特定的字节序列，这里是<code>wrpc</code>。</li>
+<li><strong>版本号 (1byte):</strong> 用于表示协议的版本号，这里是1。</li>
+<li><strong>序列化算法 (1byte):</strong> 用于表示消息体的序列化算法，例如JSON、Kryo等。</li>
+<li><strong>消息类型 (1byte):</strong> 表示消息的类型，包括请求消息、响应消息、心跳检查请求、心跳检查响应等。</li>
+<li><strong>消息状态 (1byte):</strong> 表示消息的状态类型，可能用于标识消息处理的状态。</li>
+<li><strong>消息序列号 (4byte):</strong> 表示消息的序列号，用于唯一标识一次请求-响应的过程。</li>
+<li><strong>消息长度 (4byte):</strong> 表示消息体的长度，即后续的消息内容字段的字节数。</li>
+<li><strong>消息内容 (不固定长度):</strong> 实际的消息体内容，长度由前面的消息长度字段指定。</li>
+</ol>
+<p>这种消息格式的设计使得协议在传输过程中能够准确解析消息的各个部分，确保消息的完整性和可靠性。不同字段的组合形成一个完整的消息协议，通过这样的方式进行通信，可以有效地在网络中传输各种类型的消息。</p>
+<p><code>Serializable</code> 是 Java 中的一个接口，用于标识一个类的对象可以被序列化。序列化是将对象的状态转换为字节流的过程，而反序列化则是将字节流转换回对象的状态。实现 <code>Serializable</code> 接口的类可以通过序列化将其对象保存到文件、数据库或者通过网络传输。</p>
+<p>主要作用包括：</p>
+<ol>
+<li><strong>对象持久化：</strong> 序列化允许将对象的状态保存到文件或数据库中，以便在程序重新启动时恢复对象的状态。</li>
+<li><strong>网络通信：</strong> 序列化也常用于在网络中传输对象。例如，通过 Java 的 Socket 进行通信时，可以将对象序列化后通过网络传输，接收方再进行反序列化还原为对象。</li>
+<li><strong>分布式系统：</strong> 在分布式系统中，不同计算机节点之间需要进行对象的传输，序列化就是一种方便的方式，例如，在使用 Java RMI（远程方法调用）时。</li>
+</ol>
+<p>要实现 <code>Serializable</code> 接口，类中的所有成员变量（字段）也必须是可序列化的，或者标记为 <code>transient</code>，表示不参与序列化。这是因为序列化是递归的，会将对象的所有成员变量进行序列化。</p>
+<p><code>Throwable</code> 是 Java 中表示可抛出异常的根类，是异常处理机制的核心。<code>Throwable</code> 继承自 <code>Object</code> 类，它有两个主要的子类：<code>Error</code> 和 <code>Exception</code>。</p>
+<ol>
+<li><p><strong>Error：</strong> 代表着严重的问题，通常是系统无法恢复的错误，比如虚拟机错误、内存溢出等。程序不应该捕获 <code>Error</code> 类及其子类的实例，因为它们表示系统级错误，程序无法通过捕获它们来进行修复。</p>
+</li>
+<li><p><strong>Exception：</strong> 是一个更具体的异常类，它包括了程序运行时可能遇到的各种异常情况。<code>Exception</code> 又分为受检查异常（Checked Exception）和非受检查异常（Unchecked Exception）。</p>
+<ul>
+<li><strong>受检查异常（Checked Exception）：</strong> 继承自 <code>Exception</code> 但不继承自 <code>RuntimeException</code> 的异常。程序在编译时必须对其进行处理，要么通过 <code>try-catch</code> 块捕获并处理，要么在方法声明中使用 <code>throws</code> 关键字声明抛出。</li>
+<li><strong>非受检查异常（Unchecked Exception）：</strong> 继承自 <code>RuntimeException</code> 或其子类的异常。这类异常通常是由程序错误导致的，程序员应该尽量避免它们的发生。与受检查异常不同，编译器不会强制要求对非受检查异常进行处理，但良好的编程实践通常也会处理它们。</li>
+</ul>
+</li>
+</ol>
+<p><code>Throwable</code> 类提供了一些重要的方法，如 <code>getMessage()</code> 用于获取异常的详细信息，<code>printStackTrace()</code> 用于打印异常堆栈信息等。在实际编程中，通常使用 <code>Exception</code> 的子类来表示具体的异常情况。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@Target(&#123;ElementType.TYPE, ElementType.METHOD, ElementType.CONSTRUCTOR&#125;)  </span><br><span class="line">@Retention(RetentionPolicy.SOURCE)  </span><br><span class="line">public @interface Builder &#123;  </span><br><span class="line">String builderMethodName() default &quot;builder&quot;;  </span><br><span class="line">  </span><br><span class="line">String buildMethodName() default &quot;build&quot;;  </span><br><span class="line">  </span><br><span class="line">String builderClassName() default &quot;&quot;;  </span><br><span class="line">  </span><br><span class="line">boolean toBuilder() default false;  </span><br><span class="line">  </span><br><span class="line">AccessLevel access() default AccessLevel.PUBLIC;  </span><br><span class="line">  </span><br><span class="line">String setterPrefix() default &quot;&quot;;  </span><br><span class="line">  </span><br><span class="line">@Target(&#123;ElementType.FIELD&#125;)  </span><br><span class="line">@Retention(RetentionPolicy.SOURCE)  </span><br><span class="line">public @interface Default &#123;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line">@Target(&#123;ElementType.FIELD, ElementType.PARAMETER&#125;)  </span><br><span class="line">@Retention(RetentionPolicy.SOURCE)  </span><br><span class="line">public @interface ObtainVia &#123;  </span><br><span class="line">String field() default &quot;&quot;;  </span><br><span class="line">  </span><br><span class="line">String method() default &quot;&quot;;  </span><br><span class="line">  </span><br><span class="line">boolean isStatic() default false;  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这段代码定义了一个 Java 注解 <code>@Builder</code>，用于在编译期间生成与建造者模式相关的代码。让我们逐行解释：</p>
+<ol>
+<li><code>@Target(&#123;ElementType.TYPE, ElementType.METHOD, ElementType.CONSTRUCTOR&#125;)</code>: 指定了注解可以应用的目标元素类型，包括类、方法和构造函数。</li>
+<li><code>@Retention(RetentionPolicy.SOURCE)</code>: 指定了注解的保留策略，即注解在源代码中有效，而在编译后的类文件和运行时不保留。</li>
+<li><code>public @interface Builder</code>: 声明了一个注解类型 <code>Builder</code>。</li>
+<li><code>String builderMethodName() default &quot;builder&quot;;</code>: 定义了一个 String 类型的成员变量 <code>builderMethodName</code>，表示生成的 Builder 类的方法名，默认值为 “builder”。</li>
+<li><code>String buildMethodName() default &quot;build&quot;;</code>: 定义了一个 String 类型的成员变量 <code>buildMethodName</code>，表示生成的 Builder 类的构建方法名，默认值为 “build”。</li>
+<li><code>String builderClassName() default &quot;&quot;;</code>: 定义了一个 String 类型的成员变量 <code>builderClassName</code>，表示生成的 Builder 类的名称，默认为空字符串。</li>
+<li><code>boolean toBuilder() default false;</code>: 定义了一个 boolean 类型的成员变量 <code>toBuilder</code>，表示是否生成一个用于构建 Builder 对象的方法，默认值为 <code>false</code>。</li>
+<li><code>AccessLevel access() default AccessLevel.PUBLIC;</code>: 定义了一个 <code>AccessLevel</code> 类型的成员变量 <code>access</code>，表示生成的 Builder 类的访问级别，默认为 <code>AccessLevel.PUBLIC</code>。</li>
+<li><code>String setterPrefix() default &quot;&quot;;</code>: 定义了一个 String 类型的成员变量 <code>setterPrefix</code>，表示生成的 setter 方法的前缀，默认为空字符串。</li>
+<li><code>@Target(&#123;ElementType.FIELD&#125;)</code>: 定义了一个注解类型 <code>Default</code>，表示默认值的注解，应用于字段。</li>
+<li><code>@Retention(RetentionPolicy.SOURCE)</code>: 定义了注解类型 <code>Default</code> 的保留策略。</li>
+<li><code>public @interface ObtainVia &#123; ... &#125;</code>: 定义了一个注解类型 <code>ObtainVia</code>，表示通过字段或参数获取默认值的注解。</li>
+<li><code>String field() default &quot;&quot;;</code>: 定义了一个 String 类型的成员变量 <code>field</code>，表示通过字段获取默认值时的字段名称，默认为空字符串。</li>
+<li><code>String method() default &quot;&quot;;</code>: 定义了一个 String 类型的成员变量 <code>method</code>，表示通过方法获取默认值时的方法名称，默认为空字符串。</li>
+<li><code>boolean isStatic() default false;</code>: 定义了一个 boolean 类型的成员变量 <code>isStatic</code>，表示获取默认值的方法是否是静态方法，默认值为 <code>false</code>。</li>
+</ol>
+<p>总体而言，这个注解用于配置生成 Builder 模式相关代码的各种参数，使得使用者可以根据需要自定义生成的代码的各个方面。</p>
+<p><strong>修饰参数：</strong> 在方法的参数中使用 <code>final</code>，表示该参数是只读的，方法体内不能修改这个参数的值。</p>
+<p>这段代码定义了一个名为 <code>SPI</code> 的注解（Annotation）。下面是对该注解的解释：</p>
+<ul>
+<li><code>@Target(ElementType.TYPE)</code>: 表示该注解仅能用于类（class），具体来说，是用于标注类的声明。</li>
+<li><code>@Retention(RetentionPolicy.RUNTIME)</code>: 表示该注解在运行时可以被通过反射机制读取。这意味着你可以在运行时检查类是否使用了该注解，然后进行相应的处理。</li>
+<li><code>@Documented</code>: 表示该注解应该包含在生成的 Java 文档中。</li>
+<li><code>public @interface SPI &#123; &#125;</code>: 定义了一个注解 <code>SPI</code>，该注解本身没有任何成员变量。注解的名字通常被用来表示一种特定的行为或配置。</li>
+</ul>
+<p>一般来说，这样的注解在框架中用于标识可插拔的组件或服务提供者接口（Service Provider Interface，SPI）。在运行时，框架可以通过反射机制扫描并加载具有该注解的类，以实现一些动态的配置或扩展机制。</p>
+<p><code>namingService.getAllInstances(serverName)</code>：从 <code>namingService</code> 中获取所有指定服务名（<code>serverName</code>）的实例。</p>
+<p><a target="_blank" rel="noopener" href="https://cn.dubbo.apache.org/zh-cn/docsv2.7/dev/source/loadbalance/#23-consistenthashloadbalance">负载均衡 | Apache Dubbo</a></p>
+<p><code>TreeMap</code>是Java中的一个有序映射（SortedMap）实现，基于红黑树数据结构。它继承自<code>AbstractMap</code>类，并实现了<code>NavigableMap</code>接口。</p>
+<p>以下是<code>TreeMap</code>的一些关键特性：</p>
+<ol>
+<li><p><strong>有序性：</strong> <code>TreeMap</code>中的元素是有序的，它按照键的自然顺序或者通过构造函数提供的<code>Comparator</code>进行排序。这使得在遍历<code>TreeMap</code>时，元素是按照排序顺序返回的。</p>
+</li>
+<li><p><strong>红黑树：</strong> <code>TreeMap</code>的底层数据结构是一颗红黑树。红黑树是一种自平衡二叉查找树，确保了在插入、删除等操作后，树依然能够保持相对平衡，以保证对数级别的查询、插入和删除复杂度。</p>
+</li>
+<li><p><strong>键的唯一性：</strong> <code>TreeMap</code>中的键是唯一的，每个键只能对应一个值。如果插入一个已经存在的键，新的值将会替代原来的值。</p>
+</li>
+<li><p><strong><code>NavigableMap</code>接口：</strong> <code>TreeMap</code>实现了<code>NavigableMap</code>接口，提供了一系列用于导航映射的方法，比如获取子映射、获取首尾元素等。</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ByteArrayOutputStream baos = new ByteArrayOutputStream();  </span><br><span class="line">HessianSerializerOutput hso = new HessianSerializerOutput(baos);  </span><br><span class="line">hso.writeObject(object);  </span><br><span class="line">hso.flush();</span><br></pre></td></tr></table></figure>
+<p>这段代码使用了 Hessian 序列化库来将对象序列化为字节数组。让我简单解释一下：</p>
+<ol>
+<li><p><code>ByteArrayOutputStream</code>: 这是 Java 内置的一个字节数组输出流。它的作用是在内存中创建一个字节数组缓冲区，所有通过 <code>write</code> 方法写入的数据都会存储在这个缓冲区中。</p>
+</li>
+<li><p><code>HessianSerializerOutput</code>: 这是 Hessian 序列化库的类，用于将对象序列化为 Hessian 格式的数据。Hessian 是一种二进制序列化格式，通常用于在网络上传输对象。</p>
+</li>
+<li><p><code>hso.writeObject(object)</code>: 这一行代码调用了 <code>HessianSerializerOutput</code> 的 <code>writeObject</code> 方法，将指定的对象 <code>object</code> 序列化到字节数组输出流中。</p>
+</li>
+<li><p><code>hso.flush()</code>: 这一行代码调用了 <code>flush</code> 方法，将缓冲区的数据刷新到 <code>ByteArrayOutputStream</code> 中。在序列化过程中，数据通常被先写入缓冲区，最后再刷新到输出流。</p>
+</li>
+</ol>
+<p>综合起来，这段代码的作用是将一个对象使用 Hessian 序列化库序列化为字节数组，并存储在 <code>ByteArrayOutputStream</code> 中。最终，你可以通过 <code>baos.toByteArray()</code> 获取序列化后的字节数组。这通常用于将对象转换为可在网络上传输的形式，或者进行持久化存储。</p>
+<hr>
+<p><code>OutputStream</code> 是 Java 中用于写入字节流的抽象类。它的作用是将字节写入输出流，从而实现数据的输出。具体来说，<code>OutputStream</code> 提供了一系列的 <code>write</code> 方法，可以将字节、字节数组等数据写入输出流。</p>
+<p>它的工作原理是，当你调用 <code>write</code> 方法写入数据时，数据会被发送到输出流的目的地。这个目的地可以是文件、网络连接、内存缓冲区等。具体的目的地由 <code>OutputStream</code> 的子类实现决定。</p>
+<p>例如，在上述提到的代码中，<code>ByteArrayOutputStream</code> 就是 <code>OutputStream</code> 的一个实现，它的作用是将数据写入内存中的字节数组缓冲区。你可以通过调用 <code>toByteArray()</code> 方法获取这个缓冲区中的数据。</p>
+<p>总的来说，<code>OutputStream</code> 提供了一个通用的字节输出接口，使得程序可以将字节数据写入不同的目的地，包括文件、网络、内存等。</p>
+<hr>
+<p><a target="_blank" rel="noopener" href="http://t.csdnimg.cn/whMni">java反射</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/lxyit/p/12511645.html">序列化 — Kryo序列化</a></p>
+<p>假设 <code>ServiceInfo</code> 类有以下属性：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ServiceInfo</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String serviceName;</span><br><span class="line">    <span class="keyword">private</span> String address;</span><br><span class="line">    <span class="keyword">private</span> Integer port;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 其他属性和方法省略</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果 <code>serviceInfo</code> 的实例的属性值为：</p>
+<ul>
+<li><code>serviceName</code>: “exampleService”</li>
+<li><code>address</code>: “192.168.1.100”</li>
+<li><code>port</code>: 8080</li>
+</ul>
+<p>那么通过 <code>toMap</code> 方法，将会生成一个包含键值对的 <code>Map</code>，其内容类似于：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;serviceName&quot;</span><span class="punctuation">:</span> <span class="string">&quot;exampleService&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;address&quot;</span><span class="punctuation">:</span> <span class="string">&quot;192.168.1.100&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;port&quot;</span><span class="punctuation">:</span> <span class="string">&quot;8080&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>请注意，<code>port</code> 的值在 <code>ServiceInfo</code> 中是 <code>Integer</code> 类型，但在 <code>Map</code> 中会被转换为字符串。这是因为 <code>toMap</code> 方法对 <code>port</code> 进行了额外的处理，将其转为字符串类型。</p>
+<h1 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MapTest</span> &#123;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Gson</span> <span class="variable">gson</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">GsonBuilder</span>().create();  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Map&lt;String, Object&gt; <span class="title function_">toMap</span><span class="params">(ServiceInfo serviceInfo)</span> &#123;  </span><br><span class="line"><span class="keyword">if</span> (serviceInfo == <span class="literal">null</span>) &#123;  </span><br><span class="line"><span class="keyword">return</span> Collections.emptyMap();  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="type">Map</span> <span class="variable">map</span> <span class="operator">=</span> gson.fromJson(gson.toJson(serviceInfo), Map.class);  </span><br><span class="line">map.put(<span class="string">&quot;port&quot;</span>, serviceInfo.getPort().toString());  </span><br><span class="line"><span class="keyword">return</span> map;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;  </span><br><span class="line"><span class="comment">// 创建 ServiceInfo 对象  </span></span><br><span class="line"><span class="type">ServiceInfo</span> <span class="variable">serviceInfo</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ServiceInfo</span>();  </span><br><span class="line">serviceInfo.setServiceName(<span class="string">&quot;exampleService&quot;</span>);  </span><br><span class="line">serviceInfo.setAddress(<span class="string">&quot;localhost&quot;</span>);  </span><br><span class="line">serviceInfo.setPort(<span class="number">8080</span>);  </span><br><span class="line">  </span><br><span class="line"><span class="comment">// 使用 toMap 方法将 ServiceInfo 转换为 MapMap&lt;String, Object&gt; map = toMap(serviceInfo);  </span></span><br><span class="line">  </span><br><span class="line"><span class="comment">// 打印结果  </span></span><br><span class="line">System.out.println(map);  </span><br><span class="line"><span class="comment">// 运行结果： &#123;serviceName=exampleService, address=localhost, port=8080&#125;&#125;  </span></span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><code>0xfff</code> 是十六进制表示法，它表示的是十六进制数。将 <code>0xfff</code> 转换为十进制，可以按照十六进制到十进制的转换规则进行：</p>
+<p>0xfff&#x3D;15*16^2+15*16^1+15*16^0</p>
+<p>Snowflake算法是一种生成分布式唯一ID的算法，通常用于分布式系统中，确保在分布式环境中生成的ID不会重复。Snowflake算法的核心思想是利用一个64位的整数，其中各个部分表示不同的信息。具体结构如下：</p>
+<ul>
+<li><strong>1位标志位（不使用）：</strong> 最高位是一个符号位，正数为0，负数为1。</li>
+<li><strong>41位时间戳（毫秒级）：</strong> 41位可以表示的时间戳数为2^41 - 1，即69年。</li>
+<li><strong>10位机器ID：</strong> 可以分配的机器ID数为2^10 - 1，即1023台机器。</li>
+<li><strong>12位序列号：</strong> 可以生成的序列号为2^12 - 1，即每毫秒可以生成4095个唯一ID。</li>
+</ul>
+<p>Snowflake算法的生成过程是：</p>
+<ol>
+<li>从当前时间戳获取41位，表示毫秒级的时间戳。</li>
+<li>获取机器ID和数据中心ID，分别占用10位，用于区分不同的机器和数据中心。</li>
+<li>获取12位序列号，用于在同一毫秒内区分不同的ID。</li>
+<li>将上述四部分信息合并成一个64位整数，即生成的唯一ID。</li>
+</ol>
+<p>Snowflake算法具有以下特点：</p>
+<ul>
+<li><strong>唯一性：</strong> 在同一时刻，相同机器和数据中心生成的ID是唯一的。</li>
+<li><strong>有序性：</strong> 生成的ID是递增的，因为时间戳是按照毫秒递增的。</li>
+<li><strong>分布式：</strong> 可以在分布式环境中使用，通过不同的机器ID和数据中心ID来保证唯一性。</li>
+</ul>
+<p>这种算法简单、高效，并且在很多分布式系统中得到了广泛应用。</p>
+<p><code>spring.factories</code> 是 Spring Boot 中的一个重要的配置文件，用于自动装配和加载 Spring Boot 启动器（starter）、自动配置（auto-configuration）、和一些其他的 Spring 相关组件。该文件通常位于项目的 <code>META-INF</code> 目录下。</p>
+<p>具体来说，<code>spring.factories</code> 文件的作用如下：</p>
+<ol>
+<li><p><strong>自动装配（Auto-Configuration）</strong>：在 Spring Boot 项目中，自动装配是通过 <code>spring.factories</code> 文件来声明的。该文件中列出了自动配置类的全限定名，这些类包含了一些自动配置的逻辑。Spring Boot 在启动时会自动检测并应用这些自动配置，以简化开发者的配置工作。</p>
+</li>
+<li><p><strong>启动器（Starter）</strong>：启动器是一种依赖，它包含了一组预配置的依赖项，以及一些在 Spring Boot 项目中通常一起使用的库。<code>spring.factories</code> 文件也用于声明启动器。当项目依赖了某个启动器时，其中的配置和依赖项会被自动引入。</p>
+</li>
+<li><p><strong>其他扩展机制</strong>：除了自动装配和启动器之外，<code>spring.factories</code> 还可以用于声明其他 Spring 扩展机制的实现类，如监听器、事件等。</p>
+</li>
+</ol>
+<p>下面是一个简化的 <code>spring.factories</code> 文件示例：</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 自动配置</span></span><br><span class="line"><span class="attr">org.springframework.boot.autoconfigure.EnableAutoConfiguration</span>=<span class="string">\</span></span><br><span class="line"><span class="string">com.example.CustomAutoConfiguration,\</span></span><br><span class="line"><span class="string">com.example.AnotherAutoConfiguration</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 启动器</span></span><br><span class="line"><span class="attr">org.springframework.boot.autoconfigure.EnableAutoConfiguration</span>=<span class="string">\</span></span><br><span class="line"><span class="string">com.example:example-starter:1.0.0</span></span><br></pre></td></tr></table></figure>
+
+<p>在这个示例中，<code>EnableAutoConfiguration</code> 键后面列出了两个自动配置类的全限定名，以及一个启动器的坐标（groupId:artifactId:version）。</p>
+<p>通过使用 <code>spring.factories</code>，Spring Boot 实现了一种基于约定的自动化配置机制，让开发者能够更方便地构建和扩展 Spring Boot 项目。</p>
+<p>在Spring框架中，配置类是用来声明配置信息的类。这些类通常使用<code>@Configuration</code>注解进行标记，用于定义Spring容器中的Bean、配置项等。</p>
+<p>主要作用包括：</p>
+<ol>
+<li><p><strong>定义Bean：</strong> 配置类中可以通过<code>@Bean</code>注解声明Bean，Spring容器会根据这些配置在运行时创建相应的Bean实例。</p>
+ <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyConfig</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> MyBean <span class="title function_">myBean</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">MyBean</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>外部配置：</strong> 配置类可以通过<code>@Value</code>注解等方式引入外部的配置信息，使得配置更加灵活。</p>
+ <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@PropertySource(&quot;classpath:my.properties&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyConfig</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;my.property&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String myProperty;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>组件扫描：</strong> 配置类可以使用<code>@ComponentScan</code>注解启用组件扫描，自动发现和注册Spring组件（包括Bean）。</p>
+ <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@ComponentScan(&quot;com.example&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AppConfig</span> &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>条件化配置：</strong> 通过<code>@Conditional</code>相关注解，可以根据条件选择性地应用某些配置。</p>
+ <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@ConditionalOnProperty(name = &quot;my.feature.enabled&quot;, havingValue = &quot;true&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyFeatureConfig</span> &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>AOP配置：</strong> 配置类可以定义切面、通知等，实现面向切面编程（AOP）。</p>
+ <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableAspectJAutoProxy</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AopConfig</span> &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>其他配置：</strong> 配置类还可以用于配置事务、国际化、缓存等其他方面的配置。</p>
+</li>
+</ol>
+<p>配置类的使用使得应用程序配置更加模块化、可维护，提高了代码的可读性和可测试性。 Spring Boot应用通常会包含一个或多个配置类，用于集中管理应用的配置。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://risingrode.github.io">fcw</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://risingrode.github.io/post/Project/RPC/%E7%9F%A5%E8%AF%86%E6%9D%82%E9%A1%B9.html">https://risingrode.github.io/post/Project/RPC/知识杂项.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://risingrode.github.io" target="_blank">阿威的代码小站</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/RPC%E7%9F%A5%E8%AF%86%E6%9D%82%E9%A1%B9/">RPC知识杂项</a></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2023/11/22/Y65fK7QPnFLEzjs.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/Interview/System%20Design.html" title="System Design"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/11/22/Y65fK7QPnFLEzjs.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">System Design</div></div></a></div><div class="next-post pull-right"><a href="/post/Interview/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.html" title="操作系统"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/11/22/Y65fK7QPnFLEzjs.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">操作系统</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/Project/RPC/%E7%9F%A5%E8%AF%86%E6%9D%82%E9%A1%B92.html" title="RPC知识杂项"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/11/22/Y65fK7QPnFLEzjs.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-12</div><div class="title">RPC知识杂项</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/girl.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">fcw</div><div class="author-info__description">一个收藏回忆与分享技术的地方！</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">81</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">70</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">38</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Risingrode"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到cwRising的博客</div></div><div class="card-widget"><div class="item-headline"><i></i><span></span></div><div class="item-content"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#RPC"><span class="toc-number">1.</span> <span class="toc-text">RPC</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84"><span class="toc-number">2.</span> <span class="toc-text">反射</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E8%BF%90%E8%A1%8C%E6%9C%9F%E9%97%B4%EF%BC%8C%E4%B8%80%E4%B8%AA%E7%B1%BB%EF%BC%8C%E5%8F%AA%E6%9C%89%E4%B8%80%E4%B8%AAClass%E5%AF%B9%E8%B1%A1%E4%BA%A7%E7%94%9F%E3%80%82"><span class="toc-number">2.0.1.</span> <span class="toc-text">在运行期间，一个类，只有一个Class对象产生。</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Map"><span class="toc-number">3.</span> <span class="toc-text">Map</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/Interview/%E7%BC%93%E5%AD%98%E4%BC%98%E5%8C%96.html" title="缓存优化"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/11/22/QUNpGAm1nozKJ7s.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="缓存优化"/></a><div class="content"><a class="title" href="/post/Interview/%E7%BC%93%E5%AD%98%E4%BC%98%E5%8C%96.html" title="缓存优化">缓存优化</a><time datetime="2023-11-24T04:27:47.000Z" title="发表于 2023-11-24 12:27:47">2023-11-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/Project/%E5%9F%BA%E7%A1%80/redis.html" title="redis"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/11/22/Y65fK7QPnFLEzjs.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="redis"/></a><div class="content"><a class="title" href="/post/Project/%E5%9F%BA%E7%A1%80/redis.html" title="redis">redis</a><time datetime="2023-11-24T04:23:56.000Z" title="发表于 2023-11-24 12:23:56">2023-11-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/Project/%E5%9F%BA%E7%A1%80/nginx.html" title="nginx"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/11/22/Y65fK7QPnFLEzjs.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="nginx"/></a><div class="content"><a class="title" href="/post/Project/%E5%9F%BA%E7%A1%80/nginx.html" title="nginx">nginx</a><time datetime="2023-11-24T04:19:16.000Z" title="发表于 2023-11-24 12:19:16">2023-11-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/Project/%E5%9F%BA%E7%A1%80/Linux.html" title="Linux"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/11/22/vn34S5LkA1BwDgH.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux"/></a><div class="content"><a class="title" href="/post/Project/%E5%9F%BA%E7%A1%80/Linux.html" title="Linux">Linux</a><time datetime="2023-11-24T04:06:04.000Z" title="发表于 2023-11-24 12:06:04">2023-11-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/Other/Typora%E8%AF%B4%E6%98%8E.html" title="Typora说明"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/11/22/vn34S5LkA1BwDgH.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Typora说明"/></a><div class="content"><a class="title" href="/post/Other/Typora%E8%AF%B4%E6%98%8E.html" title="Typora说明">Typora说明</a><time datetime="2023-11-24T01:43:36.000Z" title="发表于 2023-11-24 09:43:36">2023-11-24</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 By fcw</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'https://risingrode.github.io/post/Project/RPC/%E7%9F%A5%E8%AF%86%E6%9D%82%E9%A1%B9.html'
+    this.page.identifier = '/post/Project/RPC/%E7%9F%A5%E8%AF%86%E6%9D%82%E9%A1%B9.html'
+    this.page.title = 'RPC知识杂项'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+
+  document.getElementById('darkmode').addEventListener('click', () => {
+    setTimeout(() => window.disqusReset(), 200)
+  })
+}
+
+if ('Valine' === 'Disqus' || !false) {
+  if (false) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script></div><link rel="stylesheet" href="/dist/APlayer.min.css"> <div id="aplayer"></div> <script type="text/javascript" src="/dist/APlayer.min.js"></script> <script type="text/javascript" src="/js/aplayer/music.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
