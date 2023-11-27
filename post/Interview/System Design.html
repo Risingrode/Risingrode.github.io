@@ -11,7 +11,7 @@
 <meta property="article:author" content="fcw">
 <meta property="article:tag" content="System Design">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s2.loli.net/2023/11/22/Y65fK7QPnFLEzjs.jpg"><link rel="shortcut icon" href="/img/favicon.jpg"><link rel="canonical" href="https://risingrode.github.io/post/Interview/System%20Design.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<meta name="twitter:image" content="https://s2.loli.net/2023/11/22/Y65fK7QPnFLEzjs.jpg"><link rel="shortcut icon" href="/img/favicon.jpg"><link rel="canonical" href="https://risingrode.github.io/post/Interview/System%20Design.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
@@ -155,7 +155,7 @@
       }
     }
     detectApple()
-    })(window)</script><script src="/live2d-widget-master/autoload.js"></script><link rel="stylesheet" href="/css/mouse.css"><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 6.3.0"></head><body><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js/themes/blue/pace-theme-minimal.min.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/girl.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">82</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">71</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">40</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 优质网站链接</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 媒体</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书单</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/talk/"><i class="fa-fw far fa-comment"></i><span> 微语</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s2.loli.net/2023/11/22/Y65fK7QPnFLEzjs.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="代码有点萌"><span class="site-name">代码有点萌</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 优质网站链接</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 媒体</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书单</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/talk/"><i class="fa-fw far fa-comment"></i><span> 微语</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">System Design</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-11-12T00:04:50.000Z" title="发表于 2023-11-12 08:04:50">2023-11-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-11-25T03:48:23.858Z" title="更新于 2023-11-25 11:48:23">2023-11-25</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/System-Design/">System Design</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">11.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>74分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="System Design"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="System-Design-101"><a href="#System-Design-101" class="headerlink" title="System Design 101"></a>System Design 101</h1><p>Explain complex systems using visuals and simple terms. </p>
+    })(window)</script><script src="/live2d-widget-master/autoload.js"></script><link rel="stylesheet" href="/css/mouse.css"><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/modify.css"><meta name="generator" content="Hexo 6.3.0"></head><body><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js/themes/blue/pace-theme-minimal.min.css"><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/girl.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">82</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">71</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">40</div></a></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 优质网站链接</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 媒体</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书单</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/talk/"><i class="fa-fw far fa-comment"></i><span> 微语</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s2.loli.net/2023/11/22/Y65fK7QPnFLEzjs.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="代码有点萌"><span class="site-name">代码有点萌</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 优质网站链接</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 媒体</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书单</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/talk/"><i class="fa-fw far fa-comment"></i><span> 微语</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">System Design</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-11-12T00:04:50.000Z" title="发表于 2023-11-12 08:04:50">2023-11-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-11-25T03:48:23.858Z" title="更新于 2023-11-25 11:48:23">2023-11-25</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/System-Design/">System Design</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">11.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>74分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="System Design"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><div class="top-img" style="background-image: url('https://s2.loli.net/2023/11/22/Y65fK7QPnFLEzjs.jpg');"></div><article class="post-content" id="article-container"><h1 id="System-Design-101"><a href="#System-Design-101" class="headerlink" title="System Design 101"></a>System Design 101</h1><p>Explain complex systems using visuals and simple terms. </p>
 <p>Whether you’re preparing for a System Design Interview or you simply want to understand how systems work beneath the surface, we hope this repository will help you achieve that.</p>
 <h1 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h1><!-- TOC toc.levels=2 -->
 
@@ -171,15 +171,15 @@
 <li><a href="#http-status-codes">HTTP status codes</a></li>
 <li><a href="#what-does-api-gateway-do">What does API gateway do?</a></li>
 <li><a href="#how-do-we-design-effective-and-safe-apis">How do we design effective and safe APIs?</a></li>
-<li><a href="#tcpip-encapsulation">TCP&#x2F;IP encapsulation</a></li>
+<li><a href="#tcpip-encapsulation">TCP/IP encapsulation</a></li>
 <li><a href="#why-is-nginx-called-a-reverse-proxy">Why is Nginx called a “reverse” proxy?</a></li>
 <li><a href="#what-are-the-common-load-balancing-algorithms">What are the common load-balancing algorithms?</a></li>
 <li><a href="#url-uri-urn---do-you-know-the-differences">URL, URI, URN - Do you know the differences?</a></li>
 </ul>
 </li>
-<li><a href="#cicd">CI&#x2F;CD</a><ul>
-<li><a href="#cicd-pipeline-explained-in-simple-terms">CI&#x2F;CD Pipeline Explained in Simple Terms</a></li>
-<li><a href="#netflix-tech-stack-cicd-pipeline">Netflix Tech Stack (CI&#x2F;CD Pipeline)</a></li>
+<li><a href="#cicd">CI/CD</a><ul>
+<li><a href="#cicd-pipeline-explained-in-simple-terms">CI/CD Pipeline Explained in Simple Terms</a></li>
+<li><a href="#netflix-tech-stack-cicd-pipeline">Netflix Tech Stack (CI/CD Pipeline)</a></li>
 </ul>
 </li>
 <li><a href="#architecture-patterns">Architecture patterns</a><ul>
@@ -213,7 +213,7 @@
 </li>
 <li><a href="#payment-systems">Payment systems</a><ul>
 <li><a href="#how-to-learn-payment-systems">How to learn payment systems?</a></li>
-<li><a href="#why-is-the-credit-card-called-the-most-profitable-product-in-banks-how-does-visamastercard-make-money">Why is the credit card called “the most profitable product in banks”? How does VISA&#x2F;Mastercard make money?</a></li>
+<li><a href="#why-is-the-credit-card-called-the-most-profitable-product-in-banks-how-does-visamastercard-make-money">Why is the credit card called “the most profitable product in banks”? How does VISA/Mastercard make money?</a></li>
 <li><a href="#how-does-visa-work-when-we-swipe-a-credit-card-at-a-merchants-shop">How does VISA work when we swipe a credit card at a merchant’s shop?</a></li>
 <li><a href="#payment-systems-around-the-world-series-part-1-unified-payments-interface-upi-in-india">Payment Systems Around The World Series (Part 1): Unified Payments Interface (UPI) in India</a></li>
 </ul>
@@ -274,28 +274,28 @@
 <h2 id="Communication-protocols"><a href="#Communication-protocols" class="headerlink" title="Communication protocols"></a>Communication protocols</h2><p>Architecture styles define how different components of an application programming interface (API) interact with one another. As a result, they ensure efficiency, reliability, and ease of integration with other systems by providing a standard approach to designing and building APIs. Here are the most used styles:</p>
 <p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/"><br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/api-architecture-styles.png"></p>
 <ul>
-<li><p>SOAP: </p>
+<li><p>SOAP:&nbsp;</p>
 <p>Mature, comprehensive, XML-based</p>
-<p>Best for enterprise applications </p>
+<p>Best for enterprise applications&nbsp;</p>
 </li>
-<li><p>RESTful: </p>
-<p>Popular, easy-to-implement, HTTP methods </p>
-<p>Ideal for web services </p>
+<li><p>RESTful:&nbsp;</p>
+<p>Popular, easy-to-implement, HTTP methods&nbsp;</p>
+<p>Ideal for web services&nbsp;</p>
 </li>
-<li><p>GraphQL: </p>
-<p>Query language, request specific data </p>
-<p>Reduces network overhead, faster responses </p>
+<li><p>GraphQL:&nbsp;</p>
+<p>Query language, request specific data&nbsp;</p>
+<p>Reduces network overhead, faster responses&nbsp;</p>
 </li>
-<li><p>gRPC: </p>
-<p>Modern, high-performance, Protocol Buffers </p>
-<p>Suitable for microservices architectures </p>
+<li><p>gRPC:&nbsp;</p>
+<p>Modern, high-performance, Protocol Buffers&nbsp;</p>
+<p>Suitable for microservices architectures&nbsp;</p>
 </li>
-<li><p>WebSocket: </p>
-<p>Real-time, bidirectional, persistent connections </p>
-<p>Perfect for low-latency data exchange </p>
+<li><p>WebSocket:&nbsp;</p>
+<p>Real-time, bidirectional, persistent connections&nbsp;</p>
+<p>Perfect for low-latency data exchange&nbsp;</p>
 </li>
-<li><p>Webhook: </p>
-<p>Event-driven, HTTP callbacks, asynchronous </p>
+<li><p>Webhook:&nbsp;</p>
+<p>Event-driven, HTTP callbacks, asynchronous&nbsp;</p>
 <p>Notifies systems when events occur</p>
 </li>
 </ul>
@@ -305,7 +305,7 @@
 <p>REST</p>
 <ul>
 <li>Uses standard HTTP methods like GET, POST, PUT, DELETE for CRUD operations.</li>
-<li>Works well when you need simple, uniform interfaces between separate services&#x2F;applications.</li>
+<li>Works well when you need simple, uniform interfaces between separate services/applications.</li>
 <li>Caching strategies are straightforward to implement.</li>
 <li>The downside is it may require multiple roundtrips to assemble related data from separate endpoints.</li>
 </ul>
@@ -328,22 +328,22 @@
 <p>Steps 6 - 8: The payment service (gRPC server) receives the packets from the network, decodes them, and invokes the server application.</p>
 <p>Steps 9 - 11: The result is returned from the server application, and gets encoded and sent to the transport layer.</p>
 <p>Steps 12 - 14: The order service receives the packets, decodes them, and sends the result to the client application.</p>
-<h3 id="What-is-a-webhook"><a href="#What-is-a-webhook" class="headerlink" title="What is a webhook?"></a>What is a webhook?</h3><p>The diagram below shows a comparison between polling and Webhook. </p>
+<h3 id="What-is-a-webhook"><a href="#What-is-a-webhook" class="headerlink" title="What is a webhook?"></a>What is a webhook?</h3><p>The diagram below shows a comparison between polling and Webhook.&nbsp;</p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/webhook.jpeg" style="width: 680px" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/webhook.jpeg" style="width: 680px">
 </p>
 
-<p>Assume we run an eCommerce website. The clients send orders to the order service via the API gateway, which goes to the payment service for payment transactions. The payment service then talks to an external payment service provider (PSP) to complete the transactions. </p>
-<p>There are two ways to handle communications with the external PSP. </p>
-<p><strong>1. Short polling</strong> </p>
-<p>After sending the payment request to the PSP, the payment service keeps asking the PSP about the payment status. After several rounds, the PSP finally returns with the status. </p>
-<p>Short polling has two drawbacks: </p>
+<p>Assume we run an eCommerce website. The clients send orders to the order service via the API gateway, which goes to the payment service for payment transactions. The payment service then talks to an external payment service provider (PSP) to complete the transactions.&nbsp;</p>
+<p>There are two ways to handle communications with the external PSP.&nbsp;</p>
+<p><strong>1. Short polling</strong>&nbsp;</p>
+<p>After sending the payment request to the PSP, the payment service keeps asking the PSP about the payment status. After several rounds, the PSP finally returns with the status.&nbsp;</p>
+<p>Short polling has two drawbacks:&nbsp;</p>
 <ul>
-<li>Constant polling of the status requires resources from the payment service. </li>
+<li>Constant polling of the status requires resources from the payment service.&nbsp;</li>
 <li>The External service communicates directly with the payment service, creating security vulnerabilities.</li>
 </ul>
-<p> </p>
-<p><strong>2. Webhook</strong> </p>
+<p>&nbsp;</p>
+<p><strong>2. Webhook</strong>&nbsp;</p>
 <p>We can register a webhook with the external service. It means: call me back at a certain URL when you have updates on the request. When the PSP has completed the processing, it will invoke the HTTP request to update the payment status.</p>
 <p>In this way, the programming paradigm is changed, and the payment service doesn’t need to waste resources to poll the payment status anymore.</p>
 <p>What if the PSP never calls back? We can set up a housekeeping job to check payment status every hour.</p>
@@ -361,14 +361,14 @@
 <p>Pagination</p>
 <p>This is a common optimization when the size of the result is large. The results are streaming back to the client to improve the service responsiveness.</p>
 <p>Asynchronous Logging</p>
-<p>Synchronous logging deals with the disk for every call and can slow down the system. Asynchronous logging sends logs to a lock-free buffer first and immediately returns. The logs will be flushed to the disk periodically. This significantly reduces the I&#x2F;O overhead.</p>
+<p>Synchronous logging deals with the disk for every call and can slow down the system. Asynchronous logging sends logs to a lock-free buffer first and immediately returns. The logs will be flushed to the disk periodically. This significantly reduces the I/O overhead.</p>
 <p>Caching</p>
 <p>We can cache frequently accessed data into a cache. The client can query the cache first instead of visiting the database directly. If there is a cache miss, the client can query from the database. Caches like Redis store data in memory, so the data access is much faster than the database.</p>
 <p>Payload Compression</p>
 <p>The requests and responses can be compressed using gzip etc so that the transmitted data size is much smaller. This speeds up the upload and download.</p>
 <p>Connection Pool</p>
 <p>When accessing resources, we often need to load data from the database. Opening the closing db connections adds significant overhead. So we should connect to the db via a pool of open connections. The connection pool is responsible for managing the connection lifecycle.</p>
-<h3 id="HTTP-1-0-gt-HTTP-1-1-gt-HTTP-2-0-gt-HTTP-3-0-QUIC"><a href="#HTTP-1-0-gt-HTTP-1-1-gt-HTTP-2-0-gt-HTTP-3-0-QUIC" class="headerlink" title="HTTP 1.0 -&gt; HTTP 1.1 -&gt; HTTP 2.0 -&gt; HTTP 3.0 (QUIC)"></a>HTTP 1.0 -&gt; HTTP 1.1 -&gt; HTTP 2.0 -&gt; HTTP 3.0 (QUIC)</h3><p>What problem does each generation of HTTP solve?</p>
+<h3 id="HTTP-1-0-gt-HTTP-1-1-gt-HTTP-2-0-gt-HTTP-3-0-QUIC"><a href="#HTTP-1-0-gt-HTTP-1-1-gt-HTTP-2-0-gt-HTTP-3-0-QUIC" class="headerlink" title="HTTP 1.0 -> HTTP 1.1 -> HTTP 2.0 -> HTTP 3.0 (QUIC)"></a>HTTP 1.0 -&gt; HTTP 1.1 -&gt; HTTP 2.0 -&gt; HTTP 3.0 (QUIC)</h3><p>What problem does each generation of HTTP solve?</p>
 <p>The diagram below illustrates the key features.</p>
 <p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/http3.jpg"></p>
 <ul>
@@ -390,7 +390,7 @@
 <p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/11/21/AFWanPE2uJiGhOI.jpg" alt="SR.jpeg"></p>
 <h3 id="Code-First-vs-API-First"><a href="#Code-First-vs-API-First" class="headerlink" title="Code First vs. API First"></a>Code First vs. API First</h3><p>The diagram below shows the differences between code-first development and API-first development. Why do we want to consider API first design?</p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/api_first.jpg" style="width: 680px" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/api_first.jpg" style="width: 680px">
 </p>
 
 
@@ -409,7 +409,7 @@
 <p>The possibility of having surprises toward the end of the project lifecycle is reduced.</p>
 <p>Because we have designed the API first, the tests can be designed while the code is being developed. In a way, we also have TDD (Test Driven Design) when using API first development.</p>
 <h3 id="HTTP-status-codes"><a href="#HTTP-status-codes" class="headerlink" title="HTTP status codes"></a>HTTP status codes</h3><p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/http-status-code.jpg" style="width: 540px" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/http-status-code.jpg" style="width: 540px">
 </p>
 
 
@@ -417,12 +417,12 @@
 <p>Informational (100-199)<br>Success (200-299)<br>Redirection (300-399)<br>Client Error (400-499)<br>Server Error (500-599) </p>
 <h3 id="What-does-API-gateway-do"><a href="#What-does-API-gateway-do" class="headerlink" title="What does API gateway do?"></a>What does API gateway do?</h3><p>The diagram below shows the details. </p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/api_gateway.jpg" style="width: 520px" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/api_gateway.jpg" style="width: 520px">
 </p>
 
 <p>Step 1 - The client sends an HTTP request to the API gateway. </p>
 <p>Step 2 - The API gateway parses and validates the attributes in the HTTP request. </p>
-<p>Step 3 - The API gateway performs allow-list&#x2F;deny-list checks. </p>
+<p>Step 3 - The API gateway performs allow-list/deny-list checks. </p>
 <p>Step 4 - The API gateway talks to an identity provider for authentication and authorization. </p>
 <p>Step 5 - The rate limiting rules are applied to the request. If it is over the limit, the request is rejected. </p>
 <p>Steps 6 and 7 - Now that the request has passed basic checks, the API gateway finds the relevant service to route to by path matching. </p>
@@ -430,27 +430,27 @@
 <p>Steps 9-12: The API gateway can handle errors properly, and deals with faults if the error takes a longer time to recover (circuit break). It can also leverage ELK (Elastic-Logstash-Kibana) stack for logging and monitoring. We sometimes cache data in the API gateway. </p>
 <h3 id="How-do-we-design-effective-and-safe-APIs"><a href="#How-do-we-design-effective-and-safe-APIs" class="headerlink" title="How do we design effective and safe APIs?"></a>How do we design effective and safe APIs?</h3><p>The diagram below shows typical API designs with a shopping cart example. </p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/safe-apis.jpg" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/safe-apis.jpg">
 </p>
 
 
 <p>Note that API design is not just URL path design. Most of the time, we need to choose the proper resource names, identifiers, and path patterns. It is equally important to design proper HTTP header fields or to design effective rate-limiting rules within the API gateway. </p>
-<h3 id="TCP-x2F-IP-encapsulation"><a href="#TCP-x2F-IP-encapsulation" class="headerlink" title="TCP&#x2F;IP encapsulation"></a>TCP&#x2F;IP encapsulation</h3><p>How is data sent over the network? Why do we need so many layers in the OSI model?</p>
+<h3 id="TCP-x2F-IP-encapsulation"><a href="#TCP-x2F-IP-encapsulation" class="headerlink" title="TCP/IP encapsulation"></a>TCP/IP encapsulation</h3><p>How is data sent over the network? Why do we need so many layers in the OSI model?</p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/osi model.jpeg" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/osi model.jpeg">
 </p>
 
 <p>The diagram below shows how data is encapsulated and de-encapsulated when transmitting over the network.</p>
 <p>Step 1: When Device A sends data to Device B over the network via the HTTP protocol, it is first added an HTTP header at the application layer.</p>
 <p>Step 2: Then a TCP or a UDP header is added to the data. It is encapsulated into TCP segments at the transport layer. The header contains the source port, destination port, and sequence number.</p>
-<p>Step 3: The segments are then encapsulated with an IP header at the network layer. The IP header contains the source&#x2F;destination IP addresses.</p>
-<p>Step 4: The IP datagram is added a MAC header at the data link layer, with source&#x2F;destination MAC addresses.</p>
+<p>Step 3: The segments are then encapsulated with an IP header at the network layer. The IP header contains the source/destination IP addresses.</p>
+<p>Step 4: The IP datagram is added a MAC header at the data link layer, with source/destination MAC addresses.</p>
 <p>Step 5: The encapsulated frames are sent to the physical layer and sent over the network in binary bits.</p>
 <p>Steps 6-10: When Device B receives the bits from the network, it performs the de-encapsulation process, which is a reverse processing of the encapsulation process. The headers are removed layer by layer, and eventually, Device B can read the data.</p>
 <p>We need layers in the network model because each layer focuses on its own responsibilities. Each layer can rely on the headers for processing instructions and does not need to know the meaning of the data from the last layer.</p>
 <h3 id="Why-is-Nginx-called-a-“reverse”-proxy"><a href="#Why-is-Nginx-called-a-“reverse”-proxy" class="headerlink" title="Why is Nginx called a “reverse” proxy?"></a>Why is Nginx called a “reverse” proxy?</h3><p>The diagram below shows the differences between a 𝐟𝐨𝐫𝐰𝐚𝐫𝐝 𝐩𝐫𝐨𝐱𝐲 and a 𝐫𝐞𝐯𝐞𝐫𝐬𝐞 𝐩𝐫𝐨𝐱𝐲.</p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/Forward Proxy v.s. Reverse Proxy2x.jpg" style="width: 720px" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/Forward Proxy v.s. Reverse Proxy2x.jpg" style="width: 720px">
 </p>
 
 <p>A forward proxy is a server that sits between user devices and the internet.</p>
@@ -470,7 +470,7 @@
 </ol>
 <h3 id="What-are-the-common-load-balancing-algorithms"><a href="#What-are-the-common-load-balancing-algorithms" class="headerlink" title="What are the common load-balancing algorithms?"></a>What are the common load-balancing algorithms?</h3><p>The diagram below shows 6 common algorithms. </p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/lb-algorithms.jpg" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/lb-algorithms.jpg">
 </p>
 
 <ul>
@@ -503,14 +503,14 @@
 </ol>
 <h3 id="URL-URI-URN-Do-you-know-the-differences"><a href="#URL-URI-URN-Do-you-know-the-differences" class="headerlink" title="URL, URI, URN - Do you know the differences?"></a>URL, URI, URN - Do you know the differences?</h3><p>The diagram below shows a comparison of URL, URI, and URN. </p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/url-uri-urn.jpg" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/url-uri-urn.jpg">
 </p>
 
 <ul>
 <li>URI</li>
 </ul>
 <p>URI stands for Uniform Resource Identifier. It identifies a logical or physical resource on the web. URL and URN are subtypes of URI. URL locates a resource, while URN names a resource. </p>
-<p>A URI is composed of the following parts:<br>scheme:[&#x2F;&#x2F;authority]path[?query][#fragment] </p>
+<p>A URI is composed of the following parts:<br>scheme:[//authority]path[?query][#fragment] </p>
 <ul>
 <li>URL</li>
 </ul>
@@ -520,18 +520,18 @@
 </ul>
 <p>URN stands for Uniform Resource Name. It uses the urn scheme. URNs cannot be used to locate a resource. A simple example given in the diagram is composed of a namespace and a namespace-specific string. </p>
 <p>If you would like to learn more detail on the subject, I would recommend <a target="_blank" rel="noopener" href="https://www.w3.org/TR/uri-clarification/">W3C’s clarification</a>.</p>
-<h2 id="CI-x2F-CD"><a href="#CI-x2F-CD" class="headerlink" title="CI&#x2F;CD"></a>CI&#x2F;CD</h2><h3 id="CI-x2F-CD-Pipeline-Explained-in-Simple-Terms"><a href="#CI-x2F-CD-Pipeline-Explained-in-Simple-Terms" class="headerlink" title="CI&#x2F;CD Pipeline Explained in Simple Terms"></a>CI&#x2F;CD Pipeline Explained in Simple Terms</h3><p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/ci-cd-pipeline.jpg" style="width: 680px" />
+<h2 id="CI-x2F-CD"><a href="#CI-x2F-CD" class="headerlink" title="CI/CD"></a>CI/CD</h2><h3 id="CI-x2F-CD-Pipeline-Explained-in-Simple-Terms"><a href="#CI-x2F-CD-Pipeline-Explained-in-Simple-Terms" class="headerlink" title="CI/CD Pipeline Explained in Simple Terms"></a>CI/CD Pipeline Explained in Simple Terms</h3><p>
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/ci-cd-pipeline.jpg" style="width: 680px">
 </p>
 
-<p>Section 1 - SDLC with CI&#x2F;CD</p>
-<p>The software development life cycle (SDLC) consists of several key stages: development, testing, deployment, and maintenance. CI&#x2F;CD automates and integrates these stages to enable faster and more reliable releases.</p>
-<p>When code is pushed to a git repository, it triggers an automated build and test process. End-to-end (e2e) test cases are run to validate the code. If tests pass, the code can be automatically deployed to staging&#x2F;production. If issues are found, the code is sent back to development for bug fixing. This automation provides fast feedback to developers and reduces the risk of bugs in production.</p>
+<p>Section 1 - SDLC with CI/CD</p>
+<p>The software development life cycle (SDLC) consists of several key stages: development, testing, deployment, and maintenance. CI/CD automates and integrates these stages to enable faster and more reliable releases.</p>
+<p>When code is pushed to a git repository, it triggers an automated build and test process. End-to-end (e2e) test cases are run to validate the code. If tests pass, the code can be automatically deployed to staging/production. If issues are found, the code is sent back to development for bug fixing. This automation provides fast feedback to developers and reduces the risk of bugs in production.</p>
 <p>Section 2 - Difference between CI and CD</p>
 <p>Continuous Integration (CI) automates the build, test, and merge process. It runs tests whenever code is committed to detect integration issues early. This encourages frequent code commits and rapid feedback.</p>
 <p>Continuous Delivery (CD) automates release processes like infrastructure changes and deployment. It ensures software can be released reliably at any time through automated workflows. CD may also automate the manual testing and approval steps required before production deployment.</p>
-<p>Section 3 - CI&#x2F;CD Pipeline</p>
-<p>A typical CI&#x2F;CD pipeline has several connected stages:</p>
+<p>Section 3 - CI/CD Pipeline</p>
+<p>A typical CI/CD pipeline has several connected stages:</p>
 <ul>
 <li>The developer commits code changes to the source control</li>
 <li>CI server detects changes and triggers the build</li>
@@ -541,8 +541,8 @@
 <li>Further testing may be done on staging before release</li>
 <li>CD system deploys approved changes to production</li>
 </ul>
-<h3 id="Netflix-Tech-Stack-CI-x2F-CD-Pipeline"><a href="#Netflix-Tech-Stack-CI-x2F-CD-Pipeline" class="headerlink" title="Netflix Tech Stack (CI&#x2F;CD Pipeline)"></a>Netflix Tech Stack (CI&#x2F;CD Pipeline)</h3><p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/netflix-ci-cd.jpg" style="width: 720px" />
+<h3 id="Netflix-Tech-Stack-CI-x2F-CD-Pipeline"><a href="#Netflix-Tech-Stack-CI-x2F-CD-Pipeline" class="headerlink" title="Netflix Tech Stack (CI/CD Pipeline)"></a>Netflix Tech Stack (CI/CD Pipeline)</h3><p>
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/netflix-ci-cd.jpg" style="width: 720px">
 </p>
 
 <p>Planning: Netflix Engineering uses JIRA for planning and Confluence for documentation. </p>
@@ -555,7 +555,7 @@
 <p>Incident report: Incidents are dispatched according to priority, and PagerDuty is used for incident handling. </p>
 <h2 id="Architecture-patterns"><a href="#Architecture-patterns" class="headerlink" title="Architecture patterns"></a>Architecture patterns</h2><h3 id="MVC-MVP-MVVM-MVVM-C-and-VIPER"><a href="#MVC-MVP-MVVM-MVVM-C-and-VIPER" class="headerlink" title="MVC, MVP, MVVM, MVVM-C, and VIPER"></a>MVC, MVP, MVVM, MVVM-C, and VIPER</h3><p>These architecture patterns are among the most commonly used in app development, whether on iOS or Android platforms. Developers have introduced them to overcome the limitations of earlier patterns. So, how do they differ? </p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/client arch patterns.png" style="width: 720px" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/client arch patterns.png" style="width: 720px">
 </p>
 
 <ul>
@@ -566,7 +566,7 @@
 </ul>
 <h3 id="18-Key-Design-Patterns-Every-Developer-Should-Know"><a href="#18-Key-Design-Patterns-Every-Developer-Should-Know" class="headerlink" title="18 Key Design Patterns Every Developer Should Know"></a>18 Key Design Patterns Every Developer Should Know</h3><p>Patterns are reusable solutions to common design problems, resulting in a smoother, more efficient development process. They serve as blueprints for building better software structures. These are some of the most popular patterns: </p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/18-oo-patterns.png" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/18-oo-patterns.png">
 </p>
 
 <ul>
@@ -590,7 +590,7 @@
 <li>Visitor: Skillful Guest - Adds new operations to a class without altering it.</li>
 </ul>
 <h2 id="Database"><a href="#Database" class="headerlink" title="Database"></a>Database</h2><h3 id="A-nice-cheat-sheet-of-different-databases-in-cloud-services"><a href="#A-nice-cheat-sheet-of-different-databases-in-cloud-services" class="headerlink" title="A nice cheat sheet of different databases in cloud services"></a>A nice cheat sheet of different databases in cloud services</h3><p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/cloud-dbs2.png" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/cloud-dbs2.png">
 </p>
 
 <p>Choosing the right database for your project is a complex task. Many database options, each suited to distinct use cases, can quickly lead to decision fatigue. </p>
@@ -598,7 +598,7 @@
 <p>Note: Google has limited documentation for their database use cases. Even though we did our best to look at what was available and arrived at the best option, some of the entries may need to be more accurate. </p>
 <h3 id="8-Data-Structures-That-Power-Your-Databases"><a href="#8-Data-Structures-That-Power-Your-Databases" class="headerlink" title="8 Data Structures That Power Your Databases"></a>8 Data Structures That Power Your Databases</h3><p>The answer will vary depending on your use case. Data can be indexed in memory or on disk. Similarly, data formats vary, such as numbers, strings, geographic coordinates, etc. The system might be write-heavy or read-heavy. All of these factors affect your choice of database index format. </p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/8-ds-db.jpg" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/8-ds-db.jpg">
 </p>
 
 <p>The following are some of the most popular data structures used for indexing data: </p>
@@ -607,14 +607,14 @@
 <li>Hash index: a very common implementation of the “Map” data structure (or “Collection”) </li>
 <li>SSTable: immutable on-disk “Map” implementation </li>
 <li>LSM tree: Skiplist + SSTable. High write throughput </li>
-<li>B-tree: disk-based solution. Consistent read&#x2F;write performance </li>
+<li>B-tree: disk-based solution. Consistent read/write performance </li>
 <li>Inverted index: used for document indexing. Used in Lucene </li>
 <li>Suffix tree: for string pattern search </li>
 <li>R-tree: multi-dimension search, such as finding the nearest neighbor</li>
 </ul>
 <h3 id="How-is-an-SQL-statement-executed-in-the-database"><a href="#How-is-an-SQL-statement-executed-in-the-database" class="headerlink" title="How is an SQL statement executed in the database?"></a>How is an SQL statement executed in the database?</h3><p>The diagram below shows the process. Note that the architectures for different databases are different, the diagram demonstrates some common designs.</p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/sql execution order in db.jpeg" style="width: 580px" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/sql execution order in db.jpeg" style="width: 580px">
 </p>
 
 
@@ -628,7 +628,7 @@
 <p>Step 8 - During a transaction, the data is in lock mode. This is guaranteed by the lock manager. It also ensures the transaction’s ACID properties. </p>
 <h3 id="CAP-theorem"><a href="#CAP-theorem" class="headerlink" title="CAP theorem"></a>CAP theorem</h3><p>The CAP theorem is one of the most famous terms in computer science, but I bet different developers have different understandings. Let’s examine what it is and why it can be confusing. </p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/cap theorem.jpeg" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/cap theorem.jpeg">
 </p>
 
 <p>CAP theorem states that a distributed system can’t provide more than two of these three guarantees simultaneously.</p>
@@ -644,12 +644,12 @@
 <p><strong>Is the CAP theorem actually useful?</strong></p>
 <p>I think it is still useful as it opens our minds to a set of tradeoff discussions, but it is only part of the story. We need to dig deeper when picking the right database.</p>
 <h3 id="Types-of-Memory-and-Storage"><a href="#Types-of-Memory-and-Storage" class="headerlink" title="Types of Memory and Storage"></a>Types of Memory and Storage</h3><p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/Types_of_Memory_and_Storage.jpeg" style="width: 420px" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/Types_of_Memory_and_Storage.jpeg" style="width: 420px">
 </p>
 
 
 <h3 id="Visualizing-a-SQL-query"><a href="#Visualizing-a-SQL-query" class="headerlink" title="Visualizing a SQL query"></a>Visualizing a SQL query</h3><p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/sql-execution-order.jpg" style="width: 580px" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/sql-execution-order.jpg" style="width: 580px">
 </p>
 
 <p>SQL statements are executed by the database system in several steps, including: </p>
@@ -668,7 +668,7 @@
 </ul>
 <h3 id="SQL-language"><a href="#SQL-language" class="headerlink" title="SQL language"></a>SQL language</h3><p>In 1986, SQL (Structured Query Language) became a standard. Over the next 40 years, it became the dominant language for relational database management systems. Reading the latest standard (ANSI SQL 2016) can be time-consuming. How can I learn it? </p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/how-to-learn-sql.jpg" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/how-to-learn-sql.jpg">
 </p>
 
 <p>There are 5 components of the SQL language: </p>
@@ -682,7 +682,7 @@
 <p>For a backend engineer, you may need to know most of it. As a data analyst, you may need to have a good understanding of DQL. Select the topics that are most relevant to you. </p>
 <h2 id="Cache"><a href="#Cache" class="headerlink" title="Cache"></a>Cache</h2><h3 id="Data-is-cached-everywhere"><a href="#Data-is-cached-everywhere" class="headerlink" title="Data is cached everywhere"></a>Data is cached everywhere</h3><p>This diagram illustrates where we cache data in a typical architecture.</p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/where do we cache data.jpeg" style="width: 720px" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/where do we cache data.jpeg" style="width: 720px">
 </p>
 
 
@@ -693,7 +693,7 @@
 <li>Load Balancer: The load Balancer can cache resources as well.</li>
 <li>Messaging infra: Message brokers store messages on disk first, and then consumers retrieve them at their own pace. Depending on the retention policy, the data is cached in Kafka clusters for a period of time.</li>
 <li>Services: There are multiple layers of cache in a service. If the data is not cached in the CPU cache, the service will try to retrieve the data from memory. Sometimes the service has a second-level cache to store data on disk.</li>
-<li>Distributed Cache: Distributed cache like Redis holds key-value pairs for multiple services in memory. It provides much better read&#x2F;write performance than the database.</li>
+<li>Distributed Cache: Distributed cache like Redis holds key-value pairs for multiple services in memory. It provides much better read/write performance than the database.</li>
 <li>Full-text Search: we sometimes need to use full-text searches like Elastic Search for document search or log search. A copy of data is indexed in the search engine as well.</li>
 <li>Database: Even in the database, we have different levels of caches:</li>
 </ol>
@@ -706,7 +706,7 @@
 </ul>
 <h3 id="Why-is-Redis-so-fast"><a href="#Why-is-Redis-so-fast" class="headerlink" title="Why is Redis so fast?"></a>Why is Redis so fast?</h3><p>There are 3 main reasons as shown in the diagram below.</p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/why_redis_fast.jpeg" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/why_redis_fast.jpeg">
 </p>
 
 
@@ -718,7 +718,7 @@
 <p>Question: Another popular in-memory store is Memcached. Do you know the differences between Redis and Memcached?</p>
 <p>You might have noticed the style of this diagram is different from my previous posts. Please let me know which one you prefer.</p>
 <h3 id="How-can-Redis-be-used"><a href="#How-can-Redis-be-used" class="headerlink" title="How can Redis be used?"></a>How can Redis be used?</h3><p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/top-redis-use-cases.jpg" style="width: 520px" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/top-redis-use-cases.jpg" style="width: 520px">
 </p>
 
 
@@ -758,13 +758,13 @@
 </ul>
 <h3 id="Top-caching-strategies"><a href="#Top-caching-strategies" class="headerlink" title="Top caching strategies"></a>Top caching strategies</h3><p>Designing large-scale systems usually requires careful consideration of caching.<br>Below are five caching strategies that are frequently utilized. </p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/top_caching_strategy.jpeg" style="width: 680px" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/top_caching_strategy.jpeg" style="width: 680px">
 </p>
 
 
 
 <h2 id="Microservice-architecture"><a href="#Microservice-architecture" class="headerlink" title="Microservice architecture"></a>Microservice architecture</h2><h3 id="What-does-a-typical-microservice-architecture-look-like"><a href="#What-does-a-typical-microservice-architecture-look-like" class="headerlink" title="What does a typical microservice architecture look like?"></a>What does a typical microservice architecture look like?</h3><p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/typical-microservice-arch.jpg" style="width: 520px" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/typical-microservice-arch.jpg" style="width: 520px">
 </p>
 
 
@@ -786,7 +786,7 @@
 </ul>
 <h3 id="Microservice-Best-Practices"><a href="#Microservice-Best-Practices" class="headerlink" title="Microservice Best Practices"></a>Microservice Best Practices</h3><p>A picture is worth a thousand words: 9 best practices for developing microservices.</p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/microservice-best-practices.jpeg" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/microservice-best-practices.jpeg">
 </p>
 
 
@@ -804,20 +804,20 @@
 </ol>
 <h3 id="What-tech-stack-is-commonly-used-for-microservices"><a href="#What-tech-stack-is-commonly-used-for-microservices" class="headerlink" title="What tech stack is commonly used for microservices?"></a>What tech stack is commonly used for microservices?</h3><p>Below you will find a diagram showing the microservice tech stack, both for the development phase and for production.</p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/microservice-tech.jpeg" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/microservice-tech.jpeg">
 </p>
 
 
 <p>▶️ 𝐏𝐫𝐞-𝐏𝐫𝐨𝐝𝐮𝐜𝐭𝐢𝐨𝐧</p>
 <ul>
 <li>Define API - This establishes a contract between frontend and backend. We can use Postman or OpenAPI for this.</li>
-<li>Development - Node.js or react is popular for frontend development, and java&#x2F;python&#x2F;go for backend development. Also, we need to change the configurations in the API gateway according to API definitions.</li>
+<li>Development - Node.js or react is popular for frontend development, and java/python/go for backend development. Also, we need to change the configurations in the API gateway according to API definitions.</li>
 <li>Continuous Integration - JUnit and Jenkins for automated testing. The code is packaged into a Docker image and deployed as microservices.</li>
 </ul>
 <p>▶️ 𝐏𝐫𝐨𝐝𝐮𝐜𝐭𝐢𝐨𝐧</p>
 <ul>
 <li>NGinx is a common choice for load balancers. Cloudflare provides CDN (Content Delivery Network). </li>
-<li>API Gateway - We can use spring boot for the gateway, and use Eureka&#x2F;Zookeeper for service discovery.</li>
+<li>API Gateway - We can use spring boot for the gateway, and use Eureka/Zookeeper for service discovery.</li>
 <li>The microservices are deployed on clouds. We have options among AWS, Microsoft Azure, or Google GCP.<br>Cache and Full-text Search - Redis is a common choice for caching key-value pairs. Elasticsearch is used for full-text search.</li>
 <li>Communications - For services to talk to each other, we can use messaging infra Kafka or RPC.</li>
 <li>Persistence - We can use MySQL or PostgreSQL for a relational database, and Amazon S3 for object store. We can also use Cassandra for the wide-column store if necessary.</li>
@@ -825,11 +825,11 @@
 </ul>
 <h3 id="Why-is-Kafka-fast"><a href="#Why-is-Kafka-fast" class="headerlink" title="Why is Kafka fast"></a>Why is Kafka fast</h3><p>There are many design decisions that contributed to Kafka’s performance. In this post, we’ll focus on two. We think these two carried the most weight.</p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/why_is_kafka_fast.jpeg" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/why_is_kafka_fast.jpeg">
 </p>
 
 <ol>
-<li>The first one is Kafka’s reliance on Sequential I&#x2F;O.</li>
+<li>The first one is Kafka’s reliance on Sequential I/O.</li>
 <li>The second design choice that gives Kafka its performance advantage is its focus on efficiency: zero copy principle.</li>
 </ol>
 <p>The diagram illustrates how the data is transmitted between producer and consumer, and what zero-copy means.</p>
@@ -848,12 +848,12 @@
 <p>3.1: The data is loaded from disk to OS cache<br>3.2 OS cache directly copies the data to the network card via sendfile() command<br>3.3 The network card sends data out to the consumer</p>
 <p>Zero copy is a shortcut to save the multiple data copies between application context and kernel context.</p>
 <h2 id="Payment-systems"><a href="#Payment-systems" class="headerlink" title="Payment systems"></a>Payment systems</h2><h3 id="How-to-learn-payment-systems"><a href="#How-to-learn-payment-systems" class="headerlink" title="How to learn payment systems?"></a>How to learn payment systems?</h3><p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/learn-payments.jpg" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/learn-payments.jpg">
 </p>
 
-<h3 id="Why-is-the-credit-card-called-“the-most-profitable-product-in-banks”-How-does-VISA-x2F-Mastercard-make-money"><a href="#Why-is-the-credit-card-called-“the-most-profitable-product-in-banks”-How-does-VISA-x2F-Mastercard-make-money" class="headerlink" title="Why is the credit card called “the most profitable product in banks”? How does VISA&#x2F;Mastercard make money?"></a>Why is the credit card called “the most profitable product in banks”? How does VISA&#x2F;Mastercard make money?</h3><p>The diagram below shows the economics of the credit card payment flow.</p>
+<h3 id="Why-is-the-credit-card-called-“the-most-profitable-product-in-banks”-How-does-VISA-x2F-Mastercard-make-money"><a href="#Why-is-the-credit-card-called-“the-most-profitable-product-in-banks”-How-does-VISA-x2F-Mastercard-make-money" class="headerlink" title="Why is the credit card called “the most profitable product in banks”? How does VISA/Mastercard make money?"></a>Why is the credit card called “the most profitable product in banks”? How does VISA/Mastercard make money?</h3><p>The diagram below shows the economics of the credit card payment flow.</p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/how does visa makes money.jpg" style="width: 640px" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/how does visa makes money.jpg" style="width: 640px">
 </p>
 
 <p>1.&amp;nbsp;&amp;nbsp;The cardholder pays a merchant $100 to buy a product.</p>
@@ -869,7 +869,7 @@
 <li>The issuer has other operating costs, including managing customer accounts, providing statements, fraud detection, risk management, clearing &amp; settlement, etc.</li>
 </ul>
 <h3 id="How-does-VISA-work-when-we-swipe-a-credit-card-at-a-merchant’s-shop"><a href="#How-does-VISA-work-when-we-swipe-a-credit-card-at-a-merchant’s-shop" class="headerlink" title="How does VISA work when we swipe a credit card at a merchant’s shop?"></a>How does VISA work when we swipe a credit card at a merchant’s shop?</h3><p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/visa_payment.jpeg" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/visa_payment.jpeg">
 </p>
 
 
@@ -894,15 +894,15 @@
 <p>In the process, the card network takes on the burden of talking to each bank and receives service fees in return.</p>
 <h3 id="Payment-Systems-Around-The-World-Series-Part-1-Unified-Payments-Interface-UPI-in-India"><a href="#Payment-Systems-Around-The-World-Series-Part-1-Unified-Payments-Interface-UPI-in-India" class="headerlink" title="Payment Systems Around The World Series (Part 1): Unified Payments Interface (UPI) in India"></a>Payment Systems Around The World Series (Part 1): Unified Payments Interface (UPI) in India</h3><p>What’s UPI? UPI is an instant real-time payment system developed by the National Payments Corporation of India.</p>
 <p>It accounts for 60% of digital retail transactions in India today.</p>
-<p>UPI &#x3D; payment markup language + standard for interoperable payments</p>
+<p>UPI = payment markup language + standard for interoperable payments</p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/how-does-upi-work.png" style="width: 600px" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/how-does-upi-work.png" style="width: 600px">
 </p>
 
 
 <h2 id="DevOps"><a href="#DevOps" class="headerlink" title="DevOps"></a>DevOps</h2><h3 id="DevOps-vs-SRE-vs-Platform-Engineering-What-is-the-difference"><a href="#DevOps-vs-SRE-vs-Platform-Engineering-What-is-the-difference" class="headerlink" title="DevOps vs. SRE vs. Platform Engineering. What is the difference?"></a>DevOps vs. SRE vs. Platform Engineering. What is the difference?</h3><p>The concepts of DevOps, SRE, and Platform Engineering have emerged at different times and have been developed by various individuals and organizations. </p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/devops-sre-platform.jpg" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/devops-sre-platform.jpg">
 </p>
 
 <p>DevOps as a concept was introduced in 2009 by Patrick Debois and Andrew Shafer at the Agile conference. They sought to bridge the gap between software development and operations by promoting a collaborative culture and shared responsibility for the entire software development lifecycle. </p>
@@ -911,7 +911,7 @@
 <p>It’s worth noting that while these concepts emerged at different times. They are all related to the broader trend of improving collaboration, automation, and efficiency in software development and operations. </p>
 <h3 id="What-is-k8s-Kubernetes"><a href="#What-is-k8s-Kubernetes" class="headerlink" title="What is k8s (Kubernetes)?"></a>What is k8s (Kubernetes)?</h3><p>K8s is a container orchestration system. It is used for container deployment and management. Its design is greatly impacted by Google’s internal system Borg.</p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/k8s.jpeg" style="width: 680px" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/k8s.jpeg" style="width: 680px">
 </p>
 
 <p>A k8s cluster consists of a set of worker machines, called nodes, that run containerized applications. Every cluster has at least one worker node.</p>
@@ -948,7 +948,7 @@
 </li>
 </ol>
 <h3 id="Docker-vs-Kubernetes-Which-one-should-we-use"><a href="#Docker-vs-Kubernetes-Which-one-should-we-use" class="headerlink" title="Docker vs. Kubernetes. Which one should we use?"></a>Docker vs. Kubernetes. Which one should we use?</h3><p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/docker-vs-k8s.jpg" style="width: 680px" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/docker-vs-k8s.jpg" style="width: 680px">
 </p>
 
 
@@ -963,7 +963,7 @@
 <p>In short, Docker focuses on containerization and running containers on individual hosts, while Kubernetes specializes in managing and orchestrating containers at scale across a cluster of hosts. </p>
 <h3 id="How-does-Docker-work"><a href="#How-does-Docker-work" class="headerlink" title="How does Docker work?"></a>How does Docker work?</h3><p>The diagram below shows the architecture of Docker and how it works when we run “docker build”, “docker pull”<br>and “docker run”. </p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/docker.jpg" style="width: 680px" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/docker.jpg" style="width: 680px">
 </p>
 
 <p>There are 3 components in Docker architecture: </p>
@@ -988,7 +988,7 @@
 </ol>
 <h2 id="GIT"><a href="#GIT" class="headerlink" title="GIT"></a>GIT</h2><h3 id="How-Git-Commands-work"><a href="#How-Git-Commands-work" class="headerlink" title="How Git Commands work"></a>How Git Commands work</h3><p>To begin with, it’s essential to identify where our code is stored. The common assumption is that there are only two locations - one on a remote server like Github and the other on our local machine. However, this isn’t entirely accurate. Git maintains three local storages on our machine, which means that our code can be found in four places: </p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/git-commands.png" style="width: 600px" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/git-commands.png" style="width: 600px">
 </p>
 
 
@@ -1001,7 +1001,7 @@
 <p>Most Git commands primarily move files between these four locations. </p>
 <h3 id="How-does-Git-Work"><a href="#How-does-Git-Work" class="headerlink" title="How does Git Work?"></a>How does Git Work?</h3><p>The diagram below shows the Git workflow. </p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/git-workflow.jpeg" style="width: 520px" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/git-workflow.jpeg" style="width: 520px">
 </p>
 
 
@@ -1011,7 +1011,7 @@
 <p>If the remote repository crashes, the files can be recovered from the local repositories. </p>
 <h3 id="Git-merge-vs-Git-rebase"><a href="#Git-merge-vs-Git-rebase" class="headerlink" title="Git merge vs. Git rebase"></a>Git merge vs. Git rebase</h3><p>What are the differences?</p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/git-merge-git-rebase.jpeg" style="width: 680px" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/git-merge-git-rebase.jpeg" style="width: 680px">
 </p>
 
 
@@ -1026,13 +1026,13 @@
 <p><strong>The Golden Rule of Git Rebase</strong></p>
 <p>Never use it on public branches!</p>
 <h2 id="Cloud-Services"><a href="#Cloud-Services" class="headerlink" title="Cloud Services"></a>Cloud Services</h2><h3 id="A-nice-cheat-sheet-of-different-cloud-services-2023-edition"><a href="#A-nice-cheat-sheet-of-different-cloud-services-2023-edition" class="headerlink" title="A nice cheat sheet of different cloud services (2023 edition)"></a>A nice cheat sheet of different cloud services (2023 edition)</h3><p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/cloud-compare.jpg" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/cloud-compare.jpg">
 </p>
 
 
 <h3 id="What-is-cloud-native"><a href="#What-is-cloud-native" class="headerlink" title="What is cloud native?"></a>What is cloud native?</h3><p>Below is a diagram showing the evolution of architecture and processes since the 1980s. </p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/cloud-native.jpeg" style="width: 640px" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/cloud-native.jpeg" style="width: 640px">
 </p>
 
 <p>Organizations can build and run scalable applications on public, private, and hybrid clouds using cloud native technologies. </p>
@@ -1056,12 +1056,12 @@
 <p><strong>JsonCrack</strong> generates graph diagrams from JSON files and makes them easy to read.</p>
 <p>Additionally, the generated diagrams can be downloaded as images.</p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/json-cracker.jpeg" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/json-cracker.jpeg">
 </p>
 
 
 <h3 id="Automatically-turn-code-into-architecture-diagrams"><a href="#Automatically-turn-code-into-architecture-diagrams" class="headerlink" title="Automatically turn code into architecture diagrams"></a>Automatically turn code into architecture diagrams</h3><p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/diagrams_as_code.jpeg" style="width: 640px" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/diagrams_as_code.jpeg" style="width: 640px">
 </p>
 
 
@@ -1074,15 +1074,15 @@
 </ul>
 <p><a target="_blank" rel="noopener" href="https://github.com/mingrammer/diagrams">Github repo</a></p>
 <h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><h3 id="Linux-file-system-explained"><a href="#Linux-file-system-explained" class="headerlink" title="Linux file system explained"></a>Linux file system explained</h3><p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/linux-file-systems.jpg" style="width: 680px" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/linux-file-systems.jpg" style="width: 680px">
 </p>
 
 <p>The Linux file system used to resemble an unorganized town where individuals constructed their houses wherever they pleased. However, in 1994, the Filesystem Hierarchy Standard (FHS) was introduced to bring order to the Linux file system.</p>
-<p>By implementing a standard like the FHS, software can ensure a consistent layout across various Linux distributions. Nonetheless, not all Linux distributions strictly adhere to this standard. They often incorporate their own unique elements or cater to specific requirements.<br>To become proficient in this standard, you can begin by exploring. Utilize commands such as “cd” for navigation and “ls” for listing directory contents. Imagine the file system as a tree, starting from the root (&#x2F;). With time, it will become second nature to you, transforming you into a skilled Linux administrator.</p>
+<p>By implementing a standard like the FHS, software can ensure a consistent layout across various Linux distributions. Nonetheless, not all Linux distributions strictly adhere to this standard. They often incorporate their own unique elements or cater to specific requirements.<br>To become proficient in this standard, you can begin by exploring. Utilize commands such as “cd” for navigation and “ls” for listing directory contents. Imagine the file system as a tree, starting from the root (/). With time, it will become second nature to you, transforming you into a skilled Linux administrator.</p>
 <h3 id="18-Most-used-Linux-Commands-You-Should-Know"><a href="#18-Most-used-Linux-Commands-You-Should-Know" class="headerlink" title="18 Most-used Linux Commands You Should Know"></a>18 Most-used Linux Commands You Should Know</h3><p>Linux commands are instructions for interacting with the operating system. They help manage files, directories, system processes, and many other aspects of the system. You need to become familiar with these commands in order to navigate and maintain Linux-based systems efficiently and effectively. </p>
 <p>This diagram below shows popular Linux commands: </p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/18 Most-Used Linux Commands You Should Know-01.jpeg" style="width: 680px" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/18 Most-Used Linux Commands You Should Know-01.jpeg" style="width: 680px">
 </p>
 
 
@@ -1108,7 +1108,7 @@
 </ul>
 <h2 id="Security"><a href="#Security" class="headerlink" title="Security"></a>Security</h2><h3 id="How-does-HTTPS-work"><a href="#How-does-HTTPS-work" class="headerlink" title="How does HTTPS work?"></a>How does HTTPS work?</h3><p>Hypertext Transfer Protocol Secure (HTTPS) is an extension of the Hypertext Transfer Protocol (HTTP.) HTTPS transmits encrypted data using Transport Layer Security (TLS.) If the data is hijacked online, all the hijacker gets is binary code. </p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/https.jpg" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/https.jpg">
 </p>
 
 
@@ -1125,7 +1125,7 @@
 </ol>
 <h3 id="Oauth-2-0-Explained-With-Simple-Terms"><a href="#Oauth-2-0-Explained-With-Simple-Terms" class="headerlink" title="Oauth 2.0 Explained With Simple Terms."></a>Oauth 2.0 Explained With Simple Terms.</h3><p>OAuth 2.0 is a powerful and secure framework that allows different applications to securely interact with each other on behalf of users without sharing sensitive credentials. </p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/oAuth2.jpg" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/oAuth2.jpg">
 </p>
 
 <p>The entities involved in OAuth are the User, the Server, and the Identity Provider (IDP). </p>
@@ -1136,7 +1136,7 @@
 <p>Accessing User Profile: Apps with an OAuth token can access certain parts of your user profile that you allow, but they won’t see everything. </p>
 <p>Remember, OAuth 2.0 is all about keeping you and your data safe while making your online experiences seamless and hassle-free across different applications and services.</p>
 <h3 id="Top-4-Forms-of-Authentication-Mechanisms"><a href="#Top-4-Forms-of-Authentication-Mechanisms" class="headerlink" title="Top 4 Forms of Authentication Mechanisms"></a>Top 4 Forms of Authentication Mechanisms</h3><p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/top4-most-used-auth.jpg" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/top4-most-used-auth.jpg">
 </p>
 
 <ol>
@@ -1155,7 +1155,7 @@
 </ol>
 <h3 id="Session-cookie-JWT-token-SSO-and-OAuth-2-0-what-are-they"><a href="#Session-cookie-JWT-token-SSO-and-OAuth-2-0-what-are-they" class="headerlink" title="Session, cookie, JWT, token, SSO, and OAuth 2.0 - what are they?"></a>Session, cookie, JWT, token, SSO, and OAuth 2.0 - what are they?</h3><p>These terms are all related to user identity management. When you log into a website, you declare who you are (identification). Your identity is verified (authentication), and you are granted the necessary permissions (authorization). Many solutions have been proposed in the past, and the list keeps growing.</p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/session.jpeg" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/session.jpeg">
 </p>
 
 <p>From simple to complex, here is my understanding of user identity management:</p>
@@ -1168,7 +1168,7 @@
 <li>By using OAuth 2.0, you can authorize one website to access your information on another website.</li>
 </ul>
 <h3 id="How-to-store-passwords-safely-in-the-database-and-how-to-validate-a-password"><a href="#How-to-store-passwords-safely-in-the-database-and-how-to-validate-a-password" class="headerlink" title="How to store passwords safely in the database and how to validate a password?"></a>How to store passwords safely in the database and how to validate a password?</h3><p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/salt.jpg" style="width: 720px" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/salt.jpg" style="width: 720px">
 </p>
 
 
@@ -1194,7 +1194,7 @@
 <li>The system compares H1 and H2, where H2 is the hash stored in the database. If they are the same, the password is valid.</li>
 </ol>
 <h3 id="Explaining-JSON-Web-Token-JWT-to-a-10-year-old-Kid"><a href="#Explaining-JSON-Web-Token-JWT-to-a-10-year-old-Kid" class="headerlink" title="Explaining JSON Web Token (JWT) to a 10 year old Kid"></a>Explaining JSON Web Token (JWT) to a 10 year old Kid</h3><p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/jwt.jpg" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/jwt.jpg">
 </p>
 
 <p>Imagine you have a special box called a JWT. Inside this box, there are three parts: a header, a payload, and a signature.</p>
@@ -1204,7 +1204,7 @@
 <h3 id="How-does-Google-Authenticator-or-other-types-of-2-factor-authenticators-work"><a href="#How-does-Google-Authenticator-or-other-types-of-2-factor-authenticators-work" class="headerlink" title="How does Google Authenticator (or other types of 2-factor authenticators) work?"></a>How does Google Authenticator (or other types of 2-factor authenticators) work?</h3><p>Google Authenticator is commonly used for logging into our accounts when 2-factor authentication is enabled. How does it guarantee security?</p>
 <p>Google Authenticator is a software-based authenticator that implements a two-step verification service. The diagram below provides detail. </p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/google_authenticate.jpeg" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/google_authenticate.jpeg">
 </p>
 
 
@@ -1232,26 +1232,26 @@
 </ul>
 <h2 id="Real-World-Case-Studies"><a href="#Real-World-Case-Studies" class="headerlink" title="Real World Case Studies"></a>Real World Case Studies</h2><h3 id="Netflix’s-Tech-Stack"><a href="#Netflix’s-Tech-Stack" class="headerlink" title="Netflix’s Tech Stack"></a>Netflix’s Tech Stack</h3><p>This post is based on research from many Netflix engineering blogs and open-source projects. If you come across any inaccuracies, please feel free to inform us.</p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/netflix tech stack.png" style="width: 680px" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/netflix tech stack.png" style="width: 680px">
 </p>
 
 <p><strong>Mobile and web</strong>: Netflix has adopted Swift and Kotlin to build native mobile apps. For its web application, it uses React.</p>
-<p><strong>Frontend&#x2F;server communication</strong>: Netflix uses GraphQL.</p>
+<p><strong>Frontend/server communication</strong>: Netflix uses GraphQL.</p>
 <p><strong>Backend services</strong>: Netflix relies on ZUUL, Eureka, the Spring Boot framework, and other technologies.</p>
 <p><strong>Databases</strong>: Netflix utilizes EV cache, Cassandra, CockroachDB, and other databases.</p>
-<p><strong>Messaging&#x2F;streaming</strong>: Netflix employs Apache Kafka and Fink for messaging and streaming purposes.</p>
+<p><strong>Messaging/streaming</strong>: Netflix employs Apache Kafka and Fink for messaging and streaming purposes.</p>
 <p><strong>Video storage</strong>: Netflix uses S3 and Open Connect for video storage.</p>
 <p><strong>Data processing</strong>: Netflix utilizes Flink and Spark for data processing, which is then visualized using Tableau. Redshift is used for processing structured data warehouse information.</p>
-<p><strong>CI&#x2F;CD</strong>: Netflix employs various tools such as JIRA, Confluence, PagerDuty, Jenkins, Gradle, Chaos Monkey, Spinnaker, Atlas, and more for CI&#x2F;CD processes.</p>
+<p><strong>CI/CD</strong>: Netflix employs various tools such as JIRA, Confluence, PagerDuty, Jenkins, Gradle, Chaos Monkey, Spinnaker, Atlas, and more for CI/CD processes.</p>
 <h3 id="Twitter-Architecture-2022"><a href="#Twitter-Architecture-2022" class="headerlink" title="Twitter Architecture 2022"></a>Twitter Architecture 2022</h3><p>Yes, this is the real Twitter architecture. It is posted by Elon Musk and redrawn by us for better readability. </p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/twitter-arch.jpeg" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/twitter-arch.jpeg">
 </p>
 
 
 <h3 id="Evolution-of-Airbnb’s-microservice-architecture-over-the-past-15-years"><a href="#Evolution-of-Airbnb’s-microservice-architecture-over-the-past-15-years" class="headerlink" title="Evolution of Airbnb’s microservice architecture over the past 15 years"></a>Evolution of Airbnb’s microservice architecture over the past 15 years</h3><p>Airbnb’s microservice architecture went through 3 main stages. </p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/airbnb_arch.jpeg" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/airbnb_arch.jpeg">
 </p>
 
 
@@ -1277,7 +1277,7 @@
 <p>This is what Airbnb is working on now. The micro and macroservice hybrid model focuses on the unification of APIs.</p>
 <h3 id="Monorepo-vs-Microrepo"><a href="#Monorepo-vs-Microrepo" class="headerlink" title="Monorepo vs. Microrepo."></a>Monorepo vs. Microrepo.</h3><p>Which is the best? Why do different companies choose different options? </p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/monorepo-microrepo.jpg" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/monorepo-microrepo.jpg">
 </p>
 
 
@@ -1289,10 +1289,10 @@
 <p>In Microrepo, dependencies are controlled within each repository. Businesses choose when to upgrade their versions based on their own schedules. </p>
 <p>Monorepo has a standard for check-ins. Google’s code review process is famously known for setting a high bar, ensuring a coherent quality standard for Monorepo, regardless of the business. </p>
 <p>Microrepo can either set its own standard or adopt a shared standard by incorporating the best practices. It can scale faster for business, but the code quality might be a bit different.<br>Google engineers built Bazel, and Meta built Buck. There are other open-source tools available, including Nix, Lerna, and others. </p>
-<p>Over the years, Microrepo has had more supported tools, including Maven and Gradle for Java, NPM for NodeJS, and CMake for C&#x2F;C++, among others. </p>
+<p>Over the years, Microrepo has had more supported tools, including Maven and Gradle for Java, NPM for NodeJS, and CMake for C/C++, among others. </p>
 <h3 id="How-will-you-design-the-Stack-Overflow-website"><a href="#How-will-you-design-the-Stack-Overflow-website" class="headerlink" title="How will you design the Stack Overflow website?"></a>How will you design the Stack Overflow website?</h3><p>If your answer is on-premise servers and monolith (on the bottom of the following image), you would likely fail the interview, but that’s how it is built in reality!</p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/stackoverflow.jpg" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/stackoverflow.jpg">
 </p>
 
 
@@ -1311,7 +1311,7 @@
 <p>This is contrary to all our popular beliefs these days. </p>
 <h3 id="Why-did-Amazon-Prime-Video-monitoring-move-from-serverless-to-monolithic-How-can-it-save-90-cost"><a href="#Why-did-Amazon-Prime-Video-monitoring-move-from-serverless-to-monolithic-How-can-it-save-90-cost" class="headerlink" title="Why did Amazon Prime Video monitoring move from serverless to monolithic? How can it save 90% cost?"></a>Why did Amazon Prime Video monitoring move from serverless to monolithic? How can it save 90% cost?</h3><p>The diagram below shows the architecture comparison before and after the migration. </p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/serverless-to-monolithic.jpeg" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/serverless-to-monolithic.jpeg">
 </p>
 
 
@@ -1340,7 +1340,7 @@
 </ul>
 <p>Ex Amazon VP Sustainability Adrian Cockcroft: “The Prime Video team had followed a path I call <strong>Serverless First</strong>…I don’t advocate <strong>Serverless Only</strong>”. </p>
 <h3 id="How-does-Disney-Hotstar-capture-5-Billion-Emojis-during-a-tournament"><a href="#How-does-Disney-Hotstar-capture-5-Billion-Emojis-during-a-tournament" class="headerlink" title="How does Disney Hotstar capture 5 Billion Emojis during a tournament?"></a>How does Disney Hotstar capture 5 Billion Emojis during a tournament?</h3><p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/hotstar_emojis.jpeg" style="width: 720px" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/hotstar_emojis.jpeg" style="width: 720px">
 </p>
 
 
@@ -1352,10 +1352,10 @@
 <li>The PubSub consumers pull aggregated emoji data from Kafka. </li>
 <li>Emojis are delivered to other clients in real-time through the PubSub infrastructure. The PubSub infrastructure is interesting. Hotstar considered the following protocols: Socketio, NATS, MQTT, and gRPC, and settled with MQTT.</li>
 </ol>
-<p>A similar design is adopted by LinkedIn which streams a million likes&#x2F;sec.</p>
+<p>A similar design is adopted by LinkedIn which streams a million likes/sec.</p>
 <h3 id="How-Discord-Stores-Trillions-Of-Messages"><a href="#How-Discord-Stores-Trillions-Of-Messages" class="headerlink" title="How Discord Stores Trillions Of Messages"></a>How Discord Stores Trillions Of Messages</h3><p>The diagram below shows the evolution of message storage at Discord: </p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/discord-store-messages.jpg" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/discord-store-messages.jpg">
 </p>
 
 
@@ -1374,7 +1374,7 @@
 <h3 id="How-do-video-live-streamings-work-on-YouTube-TikTok-live-or-Twitch"><a href="#How-do-video-live-streamings-work-on-YouTube-TikTok-live-or-Twitch" class="headerlink" title="How do video live streamings work on YouTube, TikTok live, or Twitch?"></a>How do video live streamings work on YouTube, TikTok live, or Twitch?</h3><p>Live streaming differs from regular streaming because the video content is sent via the internet in real-time, usually with a latency of just a few seconds.</p>
 <p>The diagram below explains what happens behind the scenes to make this possible.</p>
 <p>
-  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/live_streaming_updated.jpg" style="width: 640px" />
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/live_streaming_updated.jpg" style="width: 640px">
 </p>
 
 
@@ -1392,10 +1392,10 @@
 <li>DASH (Dynamic Adaptive Streaming over HTTP): DASH does not support Apple devices.</li>
 <li>Both HLS and DASH support adaptive bitrate streaming.</li>
 </ul>
-<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p xmlns:cc="http://creativecommons.org/ns#" >This work is licensed under <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"></a></p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://risingrode.github.io">fcw</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://risingrode.github.io/post/Interview/System%20Design.html">https://risingrode.github.io/post/Interview/System Design.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://risingrode.github.io" target="_blank">代码有点萌</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/System-Design/">System Design</a></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2023/11/22/Y65fK7QPnFLEzjs.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/Project/RPC/%E7%9F%A5%E8%AF%86%E6%9D%82%E9%A1%B92.html" title="RPC知识杂项"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/11/22/Y65fK7QPnFLEzjs.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">RPC知识杂项</div></div></a></div><div class="next-post pull-right"><a href="/post/Project/RPC/%E7%9F%A5%E8%AF%86%E6%9D%82%E9%A1%B9.html" title="RPC知识杂项"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/11/22/Y65fK7QPnFLEzjs.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">RPC知识杂项</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/girl.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">fcw</div><div class="author-info__description">一个收藏回忆与分享技术的地方！</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">82</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">71</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">40</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Risingrode"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到cwRising的博客</div></div><div class="card-widget"><div class="item-headline"><i></i><span></span></div><div class="item-content"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#System-Design-101"><span class="toc-number">1.</span> <span class="toc-text">System Design 101</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Table-of-Contents"><span class="toc-number">2.</span> <span class="toc-text">Table of Contents</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Communication-protocols"><span class="toc-number">2.1.</span> <span class="toc-text">Communication protocols</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#REST-API-vs-GraphQL"><span class="toc-number">2.1.1.</span> <span class="toc-text">REST API vs. GraphQL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-does-gRPC-work"><span class="toc-number">2.1.2.</span> <span class="toc-text">How does gRPC work?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#What-is-a-webhook"><span class="toc-number">2.1.3.</span> <span class="toc-text">What is a webhook?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-to-improve-API-performance"><span class="toc-number">2.1.4.</span> <span class="toc-text">How to improve API performance?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-1-0-gt-HTTP-1-1-gt-HTTP-2-0-gt-HTTP-3-0-QUIC"><span class="toc-number">2.1.5.</span> <span class="toc-text">HTTP 1.0 -&gt; HTTP 1.1 -&gt; HTTP 2.0 -&gt; HTTP 3.0 (QUIC)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SOAP-vs-REST-vs-GraphQL-vs-RPC"><span class="toc-number">2.1.6.</span> <span class="toc-text">SOAP vs REST vs GraphQL vs RPC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Code-First-vs-API-First"><span class="toc-number">2.1.7.</span> <span class="toc-text">Code First vs. API First</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-status-codes"><span class="toc-number">2.1.8.</span> <span class="toc-text">HTTP status codes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#What-does-API-gateway-do"><span class="toc-number">2.1.9.</span> <span class="toc-text">What does API gateway do?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-do-we-design-effective-and-safe-APIs"><span class="toc-number">2.1.10.</span> <span class="toc-text">How do we design effective and safe APIs?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-x2F-IP-encapsulation"><span class="toc-number">2.1.11.</span> <span class="toc-text">TCP&#x2F;IP encapsulation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Why-is-Nginx-called-a-%E2%80%9Creverse%E2%80%9D-proxy"><span class="toc-number">2.1.12.</span> <span class="toc-text">Why is Nginx called a “reverse” proxy?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#What-are-the-common-load-balancing-algorithms"><span class="toc-number">2.1.13.</span> <span class="toc-text">What are the common load-balancing algorithms?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#URL-URI-URN-Do-you-know-the-differences"><span class="toc-number">2.1.14.</span> <span class="toc-text">URL, URI, URN - Do you know the differences?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CI-x2F-CD"><span class="toc-number">2.2.</span> <span class="toc-text">CI&#x2F;CD</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CI-x2F-CD-Pipeline-Explained-in-Simple-Terms"><span class="toc-number">2.2.1.</span> <span class="toc-text">CI&#x2F;CD Pipeline Explained in Simple Terms</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Netflix-Tech-Stack-CI-x2F-CD-Pipeline"><span class="toc-number">2.2.2.</span> <span class="toc-text">Netflix Tech Stack (CI&#x2F;CD Pipeline)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Architecture-patterns"><span class="toc-number">2.3.</span> <span class="toc-text">Architecture patterns</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MVC-MVP-MVVM-MVVM-C-and-VIPER"><span class="toc-number">2.3.1.</span> <span class="toc-text">MVC, MVP, MVVM, MVVM-C, and VIPER</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#18-Key-Design-Patterns-Every-Developer-Should-Know"><span class="toc-number">2.3.2.</span> <span class="toc-text">18 Key Design Patterns Every Developer Should Know</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Database"><span class="toc-number">2.4.</span> <span class="toc-text">Database</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A-nice-cheat-sheet-of-different-databases-in-cloud-services"><span class="toc-number">2.4.1.</span> <span class="toc-text">A nice cheat sheet of different databases in cloud services</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-Data-Structures-That-Power-Your-Databases"><span class="toc-number">2.4.2.</span> <span class="toc-text">8 Data Structures That Power Your Databases</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-is-an-SQL-statement-executed-in-the-database"><span class="toc-number">2.4.3.</span> <span class="toc-text">How is an SQL statement executed in the database?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CAP-theorem"><span class="toc-number">2.4.4.</span> <span class="toc-text">CAP theorem</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Types-of-Memory-and-Storage"><span class="toc-number">2.4.5.</span> <span class="toc-text">Types of Memory and Storage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Visualizing-a-SQL-query"><span class="toc-number">2.4.6.</span> <span class="toc-text">Visualizing a SQL query</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SQL-language"><span class="toc-number">2.4.7.</span> <span class="toc-text">SQL language</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cache"><span class="toc-number">2.5.</span> <span class="toc-text">Cache</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Data-is-cached-everywhere"><span class="toc-number">2.5.1.</span> <span class="toc-text">Data is cached everywhere</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Why-is-Redis-so-fast"><span class="toc-number">2.5.2.</span> <span class="toc-text">Why is Redis so fast?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-can-Redis-be-used"><span class="toc-number">2.5.3.</span> <span class="toc-text">How can Redis be used?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top-caching-strategies"><span class="toc-number">2.5.4.</span> <span class="toc-text">Top caching strategies</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Microservice-architecture"><span class="toc-number">2.6.</span> <span class="toc-text">Microservice architecture</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-does-a-typical-microservice-architecture-look-like"><span class="toc-number">2.6.1.</span> <span class="toc-text">What does a typical microservice architecture look like?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Microservice-Best-Practices"><span class="toc-number">2.6.2.</span> <span class="toc-text">Microservice Best Practices</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#What-tech-stack-is-commonly-used-for-microservices"><span class="toc-number">2.6.3.</span> <span class="toc-text">What tech stack is commonly used for microservices?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Why-is-Kafka-fast"><span class="toc-number">2.6.4.</span> <span class="toc-text">Why is Kafka fast</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Payment-systems"><span class="toc-number">2.7.</span> <span class="toc-text">Payment systems</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#How-to-learn-payment-systems"><span class="toc-number">2.7.1.</span> <span class="toc-text">How to learn payment systems?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Why-is-the-credit-card-called-%E2%80%9Cthe-most-profitable-product-in-banks%E2%80%9D-How-does-VISA-x2F-Mastercard-make-money"><span class="toc-number">2.7.2.</span> <span class="toc-text">Why is the credit card called “the most profitable product in banks”? How does VISA&#x2F;Mastercard make money?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-does-VISA-work-when-we-swipe-a-credit-card-at-a-merchant%E2%80%99s-shop"><span class="toc-number">2.7.3.</span> <span class="toc-text">How does VISA work when we swipe a credit card at a merchant’s shop?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Payment-Systems-Around-The-World-Series-Part-1-Unified-Payments-Interface-UPI-in-India"><span class="toc-number">2.7.4.</span> <span class="toc-text">Payment Systems Around The World Series (Part 1): Unified Payments Interface (UPI) in India</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DevOps"><span class="toc-number">2.8.</span> <span class="toc-text">DevOps</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DevOps-vs-SRE-vs-Platform-Engineering-What-is-the-difference"><span class="toc-number">2.8.1.</span> <span class="toc-text">DevOps vs. SRE vs. Platform Engineering. What is the difference?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#What-is-k8s-Kubernetes"><span class="toc-number">2.8.2.</span> <span class="toc-text">What is k8s (Kubernetes)?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-vs-Kubernetes-Which-one-should-we-use"><span class="toc-number">2.8.3.</span> <span class="toc-text">Docker vs. Kubernetes. Which one should we use?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-does-Docker-work"><span class="toc-number">2.8.4.</span> <span class="toc-text">How does Docker work?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GIT"><span class="toc-number">2.9.</span> <span class="toc-text">GIT</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#How-Git-Commands-work"><span class="toc-number">2.9.1.</span> <span class="toc-text">How Git Commands work</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-does-Git-Work"><span class="toc-number">2.9.2.</span> <span class="toc-text">How does Git Work?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-merge-vs-Git-rebase"><span class="toc-number">2.9.3.</span> <span class="toc-text">Git merge vs. Git rebase</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cloud-Services"><span class="toc-number">2.10.</span> <span class="toc-text">Cloud Services</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A-nice-cheat-sheet-of-different-cloud-services-2023-edition"><span class="toc-number">2.10.1.</span> <span class="toc-text">A nice cheat sheet of different cloud services (2023 edition)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#What-is-cloud-native"><span class="toc-number">2.10.2.</span> <span class="toc-text">What is cloud native?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Developer-productivity-tools"><span class="toc-number">2.11.</span> <span class="toc-text">Developer productivity tools</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Visualize-JSON-files"><span class="toc-number">2.11.1.</span> <span class="toc-text">Visualize JSON files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Automatically-turn-code-into-architecture-diagrams"><span class="toc-number">2.11.2.</span> <span class="toc-text">Automatically turn code into architecture diagrams</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux"><span class="toc-number">2.12.</span> <span class="toc-text">Linux</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-file-system-explained"><span class="toc-number">2.12.1.</span> <span class="toc-text">Linux file system explained</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#18-Most-used-Linux-Commands-You-Should-Know"><span class="toc-number">2.12.2.</span> <span class="toc-text">18 Most-used Linux Commands You Should Know</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Security"><span class="toc-number">2.13.</span> <span class="toc-text">Security</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#How-does-HTTPS-work"><span class="toc-number">2.13.1.</span> <span class="toc-text">How does HTTPS work?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Oauth-2-0-Explained-With-Simple-Terms"><span class="toc-number">2.13.2.</span> <span class="toc-text">Oauth 2.0 Explained With Simple Terms.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top-4-Forms-of-Authentication-Mechanisms"><span class="toc-number">2.13.3.</span> <span class="toc-text">Top 4 Forms of Authentication Mechanisms</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Session-cookie-JWT-token-SSO-and-OAuth-2-0-what-are-they"><span class="toc-number">2.13.4.</span> <span class="toc-text">Session, cookie, JWT, token, SSO, and OAuth 2.0 - what are they?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-to-store-passwords-safely-in-the-database-and-how-to-validate-a-password"><span class="toc-number">2.13.5.</span> <span class="toc-text">How to store passwords safely in the database and how to validate a password?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Explaining-JSON-Web-Token-JWT-to-a-10-year-old-Kid"><span class="toc-number">2.13.6.</span> <span class="toc-text">Explaining JSON Web Token (JWT) to a 10 year old Kid</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-does-Google-Authenticator-or-other-types-of-2-factor-authenticators-work"><span class="toc-number">2.13.7.</span> <span class="toc-text">How does Google Authenticator (or other types of 2-factor authenticators) work?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Real-World-Case-Studies"><span class="toc-number">2.14.</span> <span class="toc-text">Real World Case Studies</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Netflix%E2%80%99s-Tech-Stack"><span class="toc-number">2.14.1.</span> <span class="toc-text">Netflix’s Tech Stack</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Twitter-Architecture-2022"><span class="toc-number">2.14.2.</span> <span class="toc-text">Twitter Architecture 2022</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Evolution-of-Airbnb%E2%80%99s-microservice-architecture-over-the-past-15-years"><span class="toc-number">2.14.3.</span> <span class="toc-text">Evolution of Airbnb’s microservice architecture over the past 15 years</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Monorepo-vs-Microrepo"><span class="toc-number">2.14.4.</span> <span class="toc-text">Monorepo vs. Microrepo.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-will-you-design-the-Stack-Overflow-website"><span class="toc-number">2.14.5.</span> <span class="toc-text">How will you design the Stack Overflow website?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Why-did-Amazon-Prime-Video-monitoring-move-from-serverless-to-monolithic-How-can-it-save-90-cost"><span class="toc-number">2.14.6.</span> <span class="toc-text">Why did Amazon Prime Video monitoring move from serverless to monolithic? How can it save 90% cost?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-does-Disney-Hotstar-capture-5-Billion-Emojis-during-a-tournament"><span class="toc-number">2.14.7.</span> <span class="toc-text">How does Disney Hotstar capture 5 Billion Emojis during a tournament?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-Discord-Stores-Trillions-Of-Messages"><span class="toc-number">2.14.8.</span> <span class="toc-text">How Discord Stores Trillions Of Messages</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-do-video-live-streamings-work-on-YouTube-TikTok-live-or-Twitch"><span class="toc-number">2.14.9.</span> <span class="toc-text">How do video live streamings work on YouTube, TikTok live, or Twitch?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#License"><span class="toc-number">2.15.</span> <span class="toc-text">License</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/Interview/byteDance.html" title="byteDance"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://i0.hippopx.com/photos/997/702/475/road-train-landscape-storm-thumb.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="byteDance"/></a><div class="content"><a class="title" href="/post/Interview/byteDance.html" title="byteDance">byteDance</a><time datetime="2023-11-25T08:13:09.000Z" title="发表于 2023-11-25 16:13:09">2023-11-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/Interview/%E7%BC%93%E5%AD%98%E4%BC%98%E5%8C%96.html" title="缓存优化"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/11/22/QUNpGAm1nozKJ7s.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="缓存优化"/></a><div class="content"><a class="title" href="/post/Interview/%E7%BC%93%E5%AD%98%E4%BC%98%E5%8C%96.html" title="缓存优化">缓存优化</a><time datetime="2023-11-24T04:27:47.000Z" title="发表于 2023-11-24 12:27:47">2023-11-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/Project/%E5%9F%BA%E7%A1%80/redis.html" title="redis"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/11/22/Y65fK7QPnFLEzjs.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="redis"/></a><div class="content"><a class="title" href="/post/Project/%E5%9F%BA%E7%A1%80/redis.html" title="redis">redis</a><time datetime="2023-11-24T04:23:56.000Z" title="发表于 2023-11-24 12:23:56">2023-11-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/Project/%E5%9F%BA%E7%A1%80/nginx.html" title="nginx"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/11/22/Y65fK7QPnFLEzjs.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="nginx"/></a><div class="content"><a class="title" href="/post/Project/%E5%9F%BA%E7%A1%80/nginx.html" title="nginx">nginx</a><time datetime="2023-11-24T04:19:16.000Z" title="发表于 2023-11-24 12:19:16">2023-11-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/Project/%E5%9F%BA%E7%A1%80/Linux.html" title="Linux"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/11/22/vn34S5LkA1BwDgH.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux"/></a><div class="content"><a class="title" href="/post/Project/%E5%9F%BA%E7%A1%80/Linux.html" title="Linux">Linux</a><time datetime="2023-11-24T04:06:04.000Z" title="发表于 2023-11-24 12:06:04">2023-11-24</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 By fcw</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a><br>
-<imgsrc="https://haiyong.site/img/icp.png">
-<a href="https://beian.miit.gov.cn/#/Integrated/index"  style="color:white" target="_blank">豫ICP备2023032527号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p xmlns:cc="http://creativecommons.org/ns#">This work is licensed under <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"></a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://risingrode.github.io">fcw</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://risingrode.github.io/post/Interview/System%20Design.html">https://risingrode.github.io/post/Interview/System Design.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://risingrode.github.io" target="_blank">代码有点萌</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/System-Design/">System Design</a></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2023/11/22/Y65fK7QPnFLEzjs.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer=""></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/wechat.jpg" alt="微信"></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/alipay.jpg" alt="支付宝"></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/Project/RPC/%E7%9F%A5%E8%AF%86%E6%9D%82%E9%A1%B92.html" title="RPC知识杂项"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/11/22/Y65fK7QPnFLEzjs.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">RPC知识杂项</div></div></a></div><div class="next-post pull-right"><a href="/post/Project/RPC/%E7%9F%A5%E8%AF%86%E6%9D%82%E9%A1%B9.html" title="RPC知识杂项"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/11/22/Y65fK7QPnFLEzjs.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">RPC知识杂项</div></div></a></div></nav><hr><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/girl.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="author-info__name">fcw</div><div class="author-info__description">一个收藏回忆与分享技术的地方！</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">82</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">71</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">40</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Risingrode"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到cwRising的博客</div></div><div class="card-widget"><div class="item-headline"><i></i><span></span></div><div class="item-content"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#System-Design-101"><span class="toc-number">1.</span> <span class="toc-text">System Design 101</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Table-of-Contents"><span class="toc-number">2.</span> <span class="toc-text">Table of Contents</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Communication-protocols"><span class="toc-number">2.1.</span> <span class="toc-text">Communication protocols</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#REST-API-vs-GraphQL"><span class="toc-number">2.1.1.</span> <span class="toc-text">REST API vs. GraphQL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-does-gRPC-work"><span class="toc-number">2.1.2.</span> <span class="toc-text">How does gRPC work?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#What-is-a-webhook"><span class="toc-number">2.1.3.</span> <span class="toc-text">What is a webhook?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-to-improve-API-performance"><span class="toc-number">2.1.4.</span> <span class="toc-text">How to improve API performance?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-1-0-gt-HTTP-1-1-gt-HTTP-2-0-gt-HTTP-3-0-QUIC"><span class="toc-number">2.1.5.</span> <span class="toc-text">HTTP 1.0 -&gt; HTTP 1.1 -&gt; HTTP 2.0 -&gt; HTTP 3.0 (QUIC)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SOAP-vs-REST-vs-GraphQL-vs-RPC"><span class="toc-number">2.1.6.</span> <span class="toc-text">SOAP vs REST vs GraphQL vs RPC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Code-First-vs-API-First"><span class="toc-number">2.1.7.</span> <span class="toc-text">Code First vs. API First</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-status-codes"><span class="toc-number">2.1.8.</span> <span class="toc-text">HTTP status codes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#What-does-API-gateway-do"><span class="toc-number">2.1.9.</span> <span class="toc-text">What does API gateway do?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-do-we-design-effective-and-safe-APIs"><span class="toc-number">2.1.10.</span> <span class="toc-text">How do we design effective and safe APIs?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-x2F-IP-encapsulation"><span class="toc-number">2.1.11.</span> <span class="toc-text">TCP/IP encapsulation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Why-is-Nginx-called-a-%E2%80%9Creverse%E2%80%9D-proxy"><span class="toc-number">2.1.12.</span> <span class="toc-text">Why is Nginx called a “reverse” proxy?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#What-are-the-common-load-balancing-algorithms"><span class="toc-number">2.1.13.</span> <span class="toc-text">What are the common load-balancing algorithms?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#URL-URI-URN-Do-you-know-the-differences"><span class="toc-number">2.1.14.</span> <span class="toc-text">URL, URI, URN - Do you know the differences?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CI-x2F-CD"><span class="toc-number">2.2.</span> <span class="toc-text">CI/CD</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CI-x2F-CD-Pipeline-Explained-in-Simple-Terms"><span class="toc-number">2.2.1.</span> <span class="toc-text">CI/CD Pipeline Explained in Simple Terms</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Netflix-Tech-Stack-CI-x2F-CD-Pipeline"><span class="toc-number">2.2.2.</span> <span class="toc-text">Netflix Tech Stack (CI/CD Pipeline)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Architecture-patterns"><span class="toc-number">2.3.</span> <span class="toc-text">Architecture patterns</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MVC-MVP-MVVM-MVVM-C-and-VIPER"><span class="toc-number">2.3.1.</span> <span class="toc-text">MVC, MVP, MVVM, MVVM-C, and VIPER</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#18-Key-Design-Patterns-Every-Developer-Should-Know"><span class="toc-number">2.3.2.</span> <span class="toc-text">18 Key Design Patterns Every Developer Should Know</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Database"><span class="toc-number">2.4.</span> <span class="toc-text">Database</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A-nice-cheat-sheet-of-different-databases-in-cloud-services"><span class="toc-number">2.4.1.</span> <span class="toc-text">A nice cheat sheet of different databases in cloud services</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-Data-Structures-That-Power-Your-Databases"><span class="toc-number">2.4.2.</span> <span class="toc-text">8 Data Structures That Power Your Databases</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-is-an-SQL-statement-executed-in-the-database"><span class="toc-number">2.4.3.</span> <span class="toc-text">How is an SQL statement executed in the database?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CAP-theorem"><span class="toc-number">2.4.4.</span> <span class="toc-text">CAP theorem</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Types-of-Memory-and-Storage"><span class="toc-number">2.4.5.</span> <span class="toc-text">Types of Memory and Storage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Visualizing-a-SQL-query"><span class="toc-number">2.4.6.</span> <span class="toc-text">Visualizing a SQL query</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SQL-language"><span class="toc-number">2.4.7.</span> <span class="toc-text">SQL language</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cache"><span class="toc-number">2.5.</span> <span class="toc-text">Cache</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Data-is-cached-everywhere"><span class="toc-number">2.5.1.</span> <span class="toc-text">Data is cached everywhere</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Why-is-Redis-so-fast"><span class="toc-number">2.5.2.</span> <span class="toc-text">Why is Redis so fast?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-can-Redis-be-used"><span class="toc-number">2.5.3.</span> <span class="toc-text">How can Redis be used?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top-caching-strategies"><span class="toc-number">2.5.4.</span> <span class="toc-text">Top caching strategies</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Microservice-architecture"><span class="toc-number">2.6.</span> <span class="toc-text">Microservice architecture</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-does-a-typical-microservice-architecture-look-like"><span class="toc-number">2.6.1.</span> <span class="toc-text">What does a typical microservice architecture look like?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Microservice-Best-Practices"><span class="toc-number">2.6.2.</span> <span class="toc-text">Microservice Best Practices</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#What-tech-stack-is-commonly-used-for-microservices"><span class="toc-number">2.6.3.</span> <span class="toc-text">What tech stack is commonly used for microservices?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Why-is-Kafka-fast"><span class="toc-number">2.6.4.</span> <span class="toc-text">Why is Kafka fast</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Payment-systems"><span class="toc-number">2.7.</span> <span class="toc-text">Payment systems</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#How-to-learn-payment-systems"><span class="toc-number">2.7.1.</span> <span class="toc-text">How to learn payment systems?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Why-is-the-credit-card-called-%E2%80%9Cthe-most-profitable-product-in-banks%E2%80%9D-How-does-VISA-x2F-Mastercard-make-money"><span class="toc-number">2.7.2.</span> <span class="toc-text">Why is the credit card called “the most profitable product in banks”? How does VISA/Mastercard make money?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-does-VISA-work-when-we-swipe-a-credit-card-at-a-merchant%E2%80%99s-shop"><span class="toc-number">2.7.3.</span> <span class="toc-text">How does VISA work when we swipe a credit card at a merchant’s shop?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Payment-Systems-Around-The-World-Series-Part-1-Unified-Payments-Interface-UPI-in-India"><span class="toc-number">2.7.4.</span> <span class="toc-text">Payment Systems Around The World Series (Part 1): Unified Payments Interface (UPI) in India</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DevOps"><span class="toc-number">2.8.</span> <span class="toc-text">DevOps</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DevOps-vs-SRE-vs-Platform-Engineering-What-is-the-difference"><span class="toc-number">2.8.1.</span> <span class="toc-text">DevOps vs. SRE vs. Platform Engineering. What is the difference?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#What-is-k8s-Kubernetes"><span class="toc-number">2.8.2.</span> <span class="toc-text">What is k8s (Kubernetes)?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-vs-Kubernetes-Which-one-should-we-use"><span class="toc-number">2.8.3.</span> <span class="toc-text">Docker vs. Kubernetes. Which one should we use?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-does-Docker-work"><span class="toc-number">2.8.4.</span> <span class="toc-text">How does Docker work?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GIT"><span class="toc-number">2.9.</span> <span class="toc-text">GIT</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#How-Git-Commands-work"><span class="toc-number">2.9.1.</span> <span class="toc-text">How Git Commands work</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-does-Git-Work"><span class="toc-number">2.9.2.</span> <span class="toc-text">How does Git Work?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-merge-vs-Git-rebase"><span class="toc-number">2.9.3.</span> <span class="toc-text">Git merge vs. Git rebase</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cloud-Services"><span class="toc-number">2.10.</span> <span class="toc-text">Cloud Services</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A-nice-cheat-sheet-of-different-cloud-services-2023-edition"><span class="toc-number">2.10.1.</span> <span class="toc-text">A nice cheat sheet of different cloud services (2023 edition)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#What-is-cloud-native"><span class="toc-number">2.10.2.</span> <span class="toc-text">What is cloud native?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Developer-productivity-tools"><span class="toc-number">2.11.</span> <span class="toc-text">Developer productivity tools</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Visualize-JSON-files"><span class="toc-number">2.11.1.</span> <span class="toc-text">Visualize JSON files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Automatically-turn-code-into-architecture-diagrams"><span class="toc-number">2.11.2.</span> <span class="toc-text">Automatically turn code into architecture diagrams</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux"><span class="toc-number">2.12.</span> <span class="toc-text">Linux</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-file-system-explained"><span class="toc-number">2.12.1.</span> <span class="toc-text">Linux file system explained</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#18-Most-used-Linux-Commands-You-Should-Know"><span class="toc-number">2.12.2.</span> <span class="toc-text">18 Most-used Linux Commands You Should Know</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Security"><span class="toc-number">2.13.</span> <span class="toc-text">Security</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#How-does-HTTPS-work"><span class="toc-number">2.13.1.</span> <span class="toc-text">How does HTTPS work?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Oauth-2-0-Explained-With-Simple-Terms"><span class="toc-number">2.13.2.</span> <span class="toc-text">Oauth 2.0 Explained With Simple Terms.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top-4-Forms-of-Authentication-Mechanisms"><span class="toc-number">2.13.3.</span> <span class="toc-text">Top 4 Forms of Authentication Mechanisms</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Session-cookie-JWT-token-SSO-and-OAuth-2-0-what-are-they"><span class="toc-number">2.13.4.</span> <span class="toc-text">Session, cookie, JWT, token, SSO, and OAuth 2.0 - what are they?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-to-store-passwords-safely-in-the-database-and-how-to-validate-a-password"><span class="toc-number">2.13.5.</span> <span class="toc-text">How to store passwords safely in the database and how to validate a password?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Explaining-JSON-Web-Token-JWT-to-a-10-year-old-Kid"><span class="toc-number">2.13.6.</span> <span class="toc-text">Explaining JSON Web Token (JWT) to a 10 year old Kid</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-does-Google-Authenticator-or-other-types-of-2-factor-authenticators-work"><span class="toc-number">2.13.7.</span> <span class="toc-text">How does Google Authenticator (or other types of 2-factor authenticators) work?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Real-World-Case-Studies"><span class="toc-number">2.14.</span> <span class="toc-text">Real World Case Studies</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Netflix%E2%80%99s-Tech-Stack"><span class="toc-number">2.14.1.</span> <span class="toc-text">Netflix’s Tech Stack</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Twitter-Architecture-2022"><span class="toc-number">2.14.2.</span> <span class="toc-text">Twitter Architecture 2022</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Evolution-of-Airbnb%E2%80%99s-microservice-architecture-over-the-past-15-years"><span class="toc-number">2.14.3.</span> <span class="toc-text">Evolution of Airbnb’s microservice architecture over the past 15 years</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Monorepo-vs-Microrepo"><span class="toc-number">2.14.4.</span> <span class="toc-text">Monorepo vs. Microrepo.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-will-you-design-the-Stack-Overflow-website"><span class="toc-number">2.14.5.</span> <span class="toc-text">How will you design the Stack Overflow website?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Why-did-Amazon-Prime-Video-monitoring-move-from-serverless-to-monolithic-How-can-it-save-90-cost"><span class="toc-number">2.14.6.</span> <span class="toc-text">Why did Amazon Prime Video monitoring move from serverless to monolithic? How can it save 90% cost?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-does-Disney-Hotstar-capture-5-Billion-Emojis-during-a-tournament"><span class="toc-number">2.14.7.</span> <span class="toc-text">How does Disney Hotstar capture 5 Billion Emojis during a tournament?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-Discord-Stores-Trillions-Of-Messages"><span class="toc-number">2.14.8.</span> <span class="toc-text">How Discord Stores Trillions Of Messages</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-do-video-live-streamings-work-on-YouTube-TikTok-live-or-Twitch"><span class="toc-number">2.14.9.</span> <span class="toc-text">How do video live streamings work on YouTube, TikTok live, or Twitch?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#License"><span class="toc-number">2.15.</span> <span class="toc-text">License</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/Interview/byteDance.html" title="byteDance"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://i0.hippopx.com/photos/997/702/475/road-train-landscape-storm-thumb.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="byteDance"></a><div class="content"><a class="title" href="/post/Interview/byteDance.html" title="byteDance">byteDance</a><time datetime="2023-11-25T08:13:09.000Z" title="发表于 2023-11-25 16:13:09">2023-11-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/Interview/%E7%BC%93%E5%AD%98%E4%BC%98%E5%8C%96.html" title="缓存优化"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/11/22/QUNpGAm1nozKJ7s.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="缓存优化"></a><div class="content"><a class="title" href="/post/Interview/%E7%BC%93%E5%AD%98%E4%BC%98%E5%8C%96.html" title="缓存优化">缓存优化</a><time datetime="2023-11-24T04:27:47.000Z" title="发表于 2023-11-24 12:27:47">2023-11-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/Project/%E5%9F%BA%E7%A1%80/redis.html" title="redis"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/11/22/Y65fK7QPnFLEzjs.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="redis"></a><div class="content"><a class="title" href="/post/Project/%E5%9F%BA%E7%A1%80/redis.html" title="redis">redis</a><time datetime="2023-11-24T04:23:56.000Z" title="发表于 2023-11-24 12:23:56">2023-11-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/Project/%E5%9F%BA%E7%A1%80/nginx.html" title="nginx"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/11/22/Y65fK7QPnFLEzjs.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="nginx"></a><div class="content"><a class="title" href="/post/Project/%E5%9F%BA%E7%A1%80/nginx.html" title="nginx">nginx</a><time datetime="2023-11-24T04:19:16.000Z" title="发表于 2023-11-24 12:19:16">2023-11-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/Project/%E5%9F%BA%E7%A1%80/Linux.html" title="Linux"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/11/22/vn34S5LkA1BwDgH.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux"></a><div class="content"><a class="title" href="/post/Project/%E5%9F%BA%E7%A1%80/Linux.html" title="Linux">Linux</a><time datetime="2023-11-24T04:06:04.000Z" title="发表于 2023-11-24 12:06:04">2023-11-24</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">©2023 By fcw</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a><br>
+<imgsrc="https: haiyong.site="" img="" icp.png"="">
+<a href="https://beian.miit.gov.cn/#/Integrated/index" style="color:white" target="_blank">豫ICP备2023032527号</a></imgsrc="https:></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div></div><hr><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
   function initValine () {
     const valine = new Valine(Object.assign({
       el: '#vcomment',
@@ -1457,4 +1457,4 @@ if ('Valine' === 'Disqus' || !false) {
     loadDisqus()
   }
 }
-</script></div><link rel="stylesheet" href="/dist/APlayer.min.css"> <div id="aplayer"></div> <script type="text/javascript" src="/dist/APlayer.min.js"></script> <script type="text/javascript" src="/js/aplayer/music.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+</script></div><link rel="stylesheet" href="/dist/APlayer.min.css"> <div id="aplayer"></div> <script type="text/javascript" src="/dist/APlayer.min.js"></script> <script type="text/javascript" src="/js/aplayer/music.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zindex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script async="" data-pjax="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
