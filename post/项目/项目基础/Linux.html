@@ -1,0 +1,342 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>Linux | 代码有点萌</title><meta name="author" content="fcw,3185087246@protonmail.com"><meta name="copyright" content="fcw"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="学习😁vim修改配置 退出vim   esc  保存退出  :wq  强制退出  :q!   Xshell 找到 ip addr  拿到ip地址  ens33 下面的东西   新建文件->配置文件   在xshell中需要输入用户名和密码 Linux常用命令 ls  list        查看当前目录下的内容 pwd             print work directory,查看">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux">
+<meta property="og:url" content="https://risingrode.github.io/post/%E9%A1%B9%E7%9B%AE/%E9%A1%B9%E7%9B%AE%E5%9F%BA%E7%A1%80/Linux.html">
+<meta property="og:site_name" content="代码有点萌">
+<meta property="og:description" content="学习😁vim修改配置 退出vim   esc  保存退出  :wq  强制退出  :q!   Xshell 找到 ip addr  拿到ip地址  ens33 下面的东西   新建文件->配置文件   在xshell中需要输入用户名和密码 Linux常用命令 ls  list        查看当前目录下的内容 pwd             print work directory,查看">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2023/11/22/vn34S5LkA1BwDgH.jpg">
+<meta property="article:published_time" content="2023-11-24T04:06:04.000Z">
+<meta property="article:modified_time" content="2023-12-01T09:03:11.040Z">
+<meta property="article:author" content="fcw">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2023/11/22/vn34S5LkA1BwDgH.jpg"><link rel="shortcut icon" href="/img/favicon.jpg"><link rel="canonical" href="https://risingrode.github.io/post/%E9%A1%B9%E7%9B%AE/%E9%A1%B9%E7%9B%AE%E5%9F%BA%E7%A1%80/Linux.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Linux',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-12-01 17:03:11'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = url => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      link.onload = () => resolve()
+      link.onerror = () => reject()
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script src="/live2d-widget-master/autoload.js"></script><link rel="stylesheet" href="/css/mouse.css"><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 6.3.0"></head><body><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js/themes/blue/pace-theme-minimal.min.css"><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/girl.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">87</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">73</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">40</div></a></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 优质网站链接</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 媒体</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书单</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/talk/"><i class="fa-fw far fa-comment"></i><span> 微语</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s2.loli.net/2023/11/22/vn34S5LkA1BwDgH.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="代码有点萌"><span class="site-name">代码有点萌</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 优质网站链接</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 媒体</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书单</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/talk/"><i class="fa-fw far fa-comment"></i><span> 微语</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Linux</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-11-24T04:06:04.000Z" title="发表于 2023-11-24 12:06:04">2023-11-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-12-01T09:03:11.040Z" title="更新于 2023-12-01 17:03:11">2023-12-01</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Linux/">Linux</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">943</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Linux"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><div class="top-img" style="background-image: url('https://s2.loli.net/2023/11/22/vn34S5LkA1BwDgH.jpg');"></div><article class="post-content" id="article-container"><h1 id="学习😁"><a href="#学习😁" class="headerlink" title="学习😁"></a>学习😁</h1><h2 id="vim修改配置"><a href="#vim修改配置" class="headerlink" title="vim修改配置"></a>vim修改配置</h2><ul>
+<li><p>退出vim </p>
+</li>
+<li><p>esc</p>
+</li>
+<li><p>保存退出</p>
+</li>
+<li><p>:wq</p>
+</li>
+<li><p>强制退出</p>
+</li>
+<li><p>:q!</p>
+</li>
+</ul>
+<h2 id="Xshell"><a href="#Xshell" class="headerlink" title="Xshell"></a>Xshell</h2><ol>
+<li>找到 ip addr </li>
+<li>拿到ip地址  ens33 下面的东西</li>
+</ol>
+<blockquote>
+<p>新建文件-&gt;配置文件 </p>
+</blockquote>
+<p>在xshell中需要输入用户名和密码</p>
+<h2 id="Linux常用命令"><a href="#Linux常用命令" class="headerlink" title="Linux常用命令"></a>Linux常用命令</h2><ul>
+<li>ls  list        查看当前目录下的内容</li>
+<li>pwd             print work directory,查看当期那所在目录</li>
+<li>touch [文件名]   如果文件不存在，新建文件</li>
+<li>rm [文件名]      删除指定文件</li>
+<li>rmdir [文件名]   删除文件夹</li>
+</ul>
+<blockquote>
+<p>在执行Linux时，显示乱码,修改其编码模式。</p>
+</blockquote>
+<h1 id="默认语言为英语（美国）并使用UTF-8编码。"><a href="#默认语言为英语（美国）并使用UTF-8编码。" class="headerlink" title="默认语言为英语（美国）并使用UTF-8编码。"></a>默认语言为英语（美国）并使用UTF-8编码。</h1><p>  echo ‘LANG =”en_US.UTF-8”‘ &gt;&gt; /etc/profile</p>
+<h1 id="重新加载配置文件"><a href="#重新加载配置文件" class="headerlink" title="重新加载配置文件"></a>重新加载配置文件</h1><p>  source /etc/profile</p>
+<h2 id="命令使用技巧"><a href="#命令使用技巧" class="headerlink" title="命令使用技巧"></a>命令使用技巧</h2><p> Tab键 自动补全<br> 使用上下键调出曾经使用过的命令<br> ctrl+l 实现清屏的效果</p>
+<h2 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h2><ul>
+<li>-a 显示所有文件及其目录</li>
+<li>-l 显示文件详细信息</li>
+<li>-al 上面两个的综合</li>
+</ul>
+<p>简化：ll</p>
+<h2 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h2><p> cat [文件]     显示文件内容<br> cat -n [文件]  显示文件内容，并且显示行号</p>
+<h2 id="more"><a href="#more" class="headerlink" title="more"></a>more</h2><blockquote>
+<p>如果文件太多，分页看</p>
+</blockquote>
+<p>more [文件]</p>
+<p> 回车键 向下滚动一行<br> 空格键 向下滚动一屏<br> b     返回上一屏<br> q     退出</p>
+<h2 id="tail"><a href="#tail" class="headerlink" title="tail"></a>tail</h2><blockquote>
+<p>查看文件末尾内容</p>
+</blockquote>
+<p><code>tail [-n]  filename</code></p>
+<p>显示文件最后n行内容,通常用于 log 查询</p>
+<h2 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h2><p>创建双层目录</p>
+<p><code>mkdir -p it/test</code></p>
+<blockquote>
+<p>-p选项表示递归创建目录，即如果父级目录不存在，则同时创建父级目录和子级目录。</p>
+</blockquote>
+<h2 id="rmdir"><a href="#rmdir" class="headerlink" title="rmdir"></a>rmdir</h2><blockquote>
+<p>rmdir是一个用于删除空目录的命令。它只能删除空目录，如果目录中包含文件或其他子目录，则无法删除。</p>
+</blockquote>
+<h2 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h2><blockquote>
+<p>删除文件或者目录</p>
+</blockquote>
+<p>-r  把目录中的所有文件逐一删除<br>-f  强制删除<br>-rf 随便删除   使用频率最多</p>
+<p><code> rm -r directory</code></p>
+<h2 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h2><blockquote>
+<p>复制文件或者目录</p>
+</blockquote>
+<p><code>cp [-r] src tar</code></p>
+<ul>
+<li>-r 代表着复制的是文件夹</li>
+<li>cp -r it/ ./it1  把it目录下的所有文件复制到it1下面</li>
+<li>cp -r it/  ./it1  把it目录和其目录下的内容复制到it1下面</li>
+</ul>
+<h2 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h2><blockquote>
+<p>重命名或者移动位置</p>
+</blockquote>
+<p><code>mv src tar</code></p>
+<ul>
+<li>mv 1.txt 2.txt <pre>把1.txt 该名成 2.txt</pre></li>
+<li>mv 1.txt it/   <pre>把1.txt 移动到 it目录下面</pre></li>
+<li>mv it/ it1/    <pre>把it目录移动到it1目录中</pre></li>
+<li>mv 1.txt it/2.txt  <pre>把1.txt移动到it目录中,并且改名为2.txt</pre></li>
+<li>mv 1.txt it/   <pre>把1.txt 移动到it目录下面</pre></li>
+</ul>
+<h2 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h2><p><code>tar [-zcxvf] filename [files]</code></p>
+<h4 id="打包命令-十分重要"><a href="#打包命令-十分重要" class="headerlink" title="打包命令,十分重要"></a>打包命令,十分重要</h4><p>包文件后缀是.tar 只是对文件进行了打包,并没有压缩<br><br>后缀是 .tar.gz 表示打包的时候还进行了压缩</p>
+<ul>
+<li>z 对文件进行压缩或者解压</li>
+<li>c 打包</li>
+<li>x 解包</li>
+<li>v 显示命令的执行过程</li>
+<li>f 指定包文件名称</li>
+</ul>
+<h4 id="常用组合-："><a href="#常用组合-：" class="headerlink" title="常用组合 ："></a>常用组合 ：</h4><ul>
+<li>cvf  打包</li>
+<li>zcvf 打包且压缩 </li>
+<li>xvf  解包</li>
+<li>zxvf 解压缩包</li>
+</ul>
+<h2 id="vi-和-vim"><a href="#vi-和-vim" class="headerlink" title="vi 和 vim"></a>vi 和 vim</h2><blockquote>
+<p>vim 是从vi 进化的</p>
+</blockquote>
+<p><code>yum install vim</code></p>
+<h4 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h4><h4 id="插入模式"><a href="#插入模式" class="headerlink" title="插入模式"></a>插入模式</h4><p>按下a i o 任意一个键即可</p>
+<h4 id="底行模式"><a href="#底行模式" class="headerlink" title="底行模式"></a>底行模式</h4><p> 可以对文件内容进行查找，显示行号，退出等操作<br> 在命令模式下按下[:,/]就可以进入底行模式<br> 按下/ ,可以对文件内容进行查找<br> 按下： ,wq 保存退出 q! 不保存退出  set nu 显示行号</p>
+<h2 id="find"><a href="#find" class="headerlink" title="find"></a>find</h2><blockquote>
+<p>查找命令</p>
+</blockquote>
+<ol>
+<li>find . -name ".java" 在当前文件夹下面找java文件</li>
+<li>find /it -name ".java" 在 it 文件夹下面找java文件</li>
+</ol>
+<h2 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h2><blockquote>
+<p>从指定文件中查找指定的文本内容</p>
+</blockquote>
+<ol>
+<li>grep hello 1.txt    查找1.txt文件中出现hello 字符串的位置</li>
+<li>grep hello .java   查找当前目录中所有.java结尾的文件中包含 hello 的位置</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://risingrode.github.io">fcw</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://risingrode.github.io/post/%E9%A1%B9%E7%9B%AE/%E9%A1%B9%E7%9B%AE%E5%9F%BA%E7%A1%80/Linux.html">https://risingrode.github.io/post/项目/项目基础/Linux.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://risingrode.github.io" target="_blank">代码有点萌</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Linux/">Linux</a></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2023/11/22/vn34S5LkA1BwDgH.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer=""></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/wechat.jpg" alt="微信"></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/alipay.jpg" alt="支付宝"></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/%E9%A1%B9%E7%9B%AE/%E9%A1%B9%E7%9B%AE%E5%9F%BA%E7%A1%80/nginx.html" title="nginx"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/11/22/Y65fK7QPnFLEzjs.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">nginx</div></div></a></div><div class="next-post pull-right"><a href="/post/%E5%B7%A5%E5%85%B7%E8%AF%AD%E6%B3%95/Typora%E8%AF%B4%E6%98%8E.html" title="Typora说明"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/11/22/vn34S5LkA1BwDgH.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Typora说明</div></div></a></div></nav><hr><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/girl.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="author-info__name">fcw</div><div class="author-info__description">一个收藏回忆与分享技术的地方！</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">87</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">73</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">40</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Risingrode"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到cwRising的博客</div></div><div class="card-widget"><div class="item-headline"><i></i><span></span></div><div class="item-content"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%F0%9F%98%81"><span class="toc-number">1.</span> <span class="toc-text">学习😁</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#vim%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE"><span class="toc-number">1.1.</span> <span class="toc-text">vim修改配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Xshell"><span class="toc-number">1.2.</span> <span class="toc-text">Xshell</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">1.3.</span> <span class="toc-text">Linux常用命令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E8%AF%AD%E8%A8%80%E4%B8%BA%E8%8B%B1%E8%AF%AD%EF%BC%88%E7%BE%8E%E5%9B%BD%EF%BC%89%E5%B9%B6%E4%BD%BF%E7%94%A8UTF-8%E7%BC%96%E7%A0%81%E3%80%82"><span class="toc-number">2.</span> <span class="toc-text">默认语言为英语（美国）并使用UTF-8编码。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%87%8D%E6%96%B0%E5%8A%A0%E8%BD%BD%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">3.</span> <span class="toc-text">重新加载配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7"><span class="toc-number">3.1.</span> <span class="toc-text">命令使用技巧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ls"><span class="toc-number">3.2.</span> <span class="toc-text">ls</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cat"><span class="toc-number">3.3.</span> <span class="toc-text">cat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#more"><span class="toc-number">3.4.</span> <span class="toc-text">more</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tail"><span class="toc-number">3.5.</span> <span class="toc-text">tail</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mkdir"><span class="toc-number">3.6.</span> <span class="toc-text">mkdir</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rmdir"><span class="toc-number">3.7.</span> <span class="toc-text">rmdir</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rm"><span class="toc-number">3.8.</span> <span class="toc-text">rm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cp"><span class="toc-number">3.9.</span> <span class="toc-text">cp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mv"><span class="toc-number">3.10.</span> <span class="toc-text">mv</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tar"><span class="toc-number">3.11.</span> <span class="toc-text">tar</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%93%E5%8C%85%E5%91%BD%E4%BB%A4-%E5%8D%81%E5%88%86%E9%87%8D%E8%A6%81"><span class="toc-number">3.11.0.1.</span> <span class="toc-text">打包命令,十分重要</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%BB%84%E5%90%88-%EF%BC%9A"><span class="toc-number">3.11.0.2.</span> <span class="toc-text">常用组合 ：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vi-%E5%92%8C-vim"><span class="toc-number">3.12.</span> <span class="toc-text">vi 和 vim</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.12.0.1.</span> <span class="toc-text">命令模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%92%E5%85%A5%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.12.0.2.</span> <span class="toc-text">插入模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%95%E8%A1%8C%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.12.0.3.</span> <span class="toc-text">底行模式</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#find"><span class="toc-number">3.13.</span> <span class="toc-text">find</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#grep"><span class="toc-number">3.14.</span> <span class="toc-text">grep</span></a></li></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B%E6%9C%9F%E6%9C%AB%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%B8%89%E4%B8%8A-%E5%90%8E%E6%9C%9F/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80.html" title="汇编语言"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingimage.oss-cn-beijing.aliyuncs.com/img/102449qZEI8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="汇编语言"></a><div class="content"><a class="title" href="/post/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B%E6%9C%9F%E6%9C%AB%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%B8%89%E4%B8%8A-%E5%90%8E%E6%9C%9F/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80.html" title="汇编语言">汇编语言</a><time datetime="2023-12-01T08:51:18.000Z" title="发表于 2023-12-01 16:51:18">2023-12-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B%E6%9C%9F%E6%9C%AB%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%B8%89%E4%B8%8A-%E5%90%8E%E6%9C%9F/%E9%AB%98%E7%BA%A7%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.html" title="高级操作系统"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingimage.oss-cn-beijing.aliyuncs.com/img/083940e7k0Q.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="高级操作系统"></a><div class="content"><a class="title" href="/post/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B%E6%9C%9F%E6%9C%AB%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%B8%89%E4%B8%8A-%E5%90%8E%E6%9C%9F/%E9%AB%98%E7%BA%A7%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.html" title="高级操作系统">高级操作系统</a><time datetime="2023-12-01T08:50:53.000Z" title="发表于 2023-12-01 16:50:53">2023-12-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/Image.html" title="无题"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a><div class="content"><a class="title" href="/post/Image.html" title="无题">无题</a><time datetime="2023-12-01T08:39:59.645Z" title="发表于 2023-12-01 16:39:59">2023-12-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/%E9%A1%B9%E7%9B%AE/%E9%A1%B9%E7%9B%AE%E5%9F%BA%E7%A1%80/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.html" title="设计模式"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingimage.oss-cn-beijing.aliyuncs.com/img/080437z7c8v.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="设计模式"></a><div class="content"><a class="title" href="/post/%E9%A1%B9%E7%9B%AE/%E9%A1%B9%E7%9B%AE%E5%9F%BA%E7%A1%80/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.html" title="设计模式">设计模式</a><time datetime="2023-12-01T04:06:04.000Z" title="发表于 2023-12-01 12:06:04">2023-12-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B%E6%9C%9F%E6%9C%AB%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%B8%89%E4%B8%8A-%E5%90%8E%E6%9C%9F/os_class.html" title="操作系统复习题"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/11/22/zqOfwxa3tAsn2Hp.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="操作系统复习题"></a><div class="content"><a class="title" href="/post/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B%E6%9C%9F%E6%9C%AB%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%B8%89%E4%B8%8A-%E5%90%8E%E6%9C%9F/os_class.html" title="操作系统复习题">操作系统复习题</a><time datetime="2023-12-01T00:27:55.000Z" title="发表于 2023-12-01 08:27:55">2023-12-01</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">©2023 By fcw</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a><br>
+<imgsrc="https: haiyong.site="" img="" icp.png"="">
+<a href="https://beian.miit.gov.cn/#/Integrated/index" style="color:white" target="_blank">豫ICP备2023032527号</a></imgsrc="https:></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div></div><hr><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'https://risingrode.github.io/post/%E9%A1%B9%E7%9B%AE/%E9%A1%B9%E7%9B%AE%E5%9F%BA%E7%A1%80/Linux.html'
+    this.page.identifier = '/post/%E9%A1%B9%E7%9B%AE/%E9%A1%B9%E7%9B%AE%E5%9F%BA%E7%A1%80/Linux.html'
+    this.page.title = 'Linux'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+
+  document.getElementById('darkmode').addEventListener('click', () => {
+    setTimeout(() => window.disqusReset(), 200)
+  })
+}
+
+if ('Valine' === 'Disqus' || !false) {
+  if (false) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script></div><link rel="stylesheet" href="/dist/APlayer.min.css"> <div id="aplayer"></div> <script type="text/javascript" src="/dist/APlayer.min.js"></script> <script type="text/javascript" src="/js/aplayer/music.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zindex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script async="" data-pjax="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

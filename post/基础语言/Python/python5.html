@@ -1,0 +1,320 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>python模块 | 代码有点萌</title><meta name="author" content="fcw,3185087246@protonmail.com"><meta name="copyright" content="fcw"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="python模块import sys print(&amp;#x27;命令行参数如下:&amp;#x27;)for i in sys.argv:   print(i) print(&amp;#x27;\n\nPython 路径为：&amp;#x27;, sys.path, &amp;#x27;\n&amp;#x27;) 引用几个指定函数 from fibo import fib, fib2   fib(500)   内置的函数 dir() 可以">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python模块">
+<meta property="og:url" content="https://risingrode.github.io/post/%E5%9F%BA%E7%A1%80%E8%AF%AD%E8%A8%80/Python/python5.html">
+<meta property="og:site_name" content="代码有点萌">
+<meta property="og:description" content="python模块import sys print(&amp;#x27;命令行参数如下:&amp;#x27;)for i in sys.argv:   print(i) print(&amp;#x27;\n\nPython 路径为：&amp;#x27;, sys.path, &amp;#x27;\n&amp;#x27;) 引用几个指定函数 from fibo import fib, fib2   fib(500)   内置的函数 dir() 可以">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i0.hippopx.com/photos/654/243/649/tree-field-cornfield-nature-thumb.jpg">
+<meta property="article:published_time" content="2023-06-04T14:26:26.000Z">
+<meta property="article:modified_time" content="2023-06-04T14:51:48.263Z">
+<meta property="article:author" content="fcw">
+<meta property="article:tag" content="python模块">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i0.hippopx.com/photos/654/243/649/tree-field-cornfield-nature-thumb.jpg"><link rel="shortcut icon" href="/img/favicon.jpg"><link rel="canonical" href="https://risingrode.github.io/post/%E5%9F%BA%E7%A1%80%E8%AF%AD%E8%A8%80/Python/python5.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'python模块',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-06-04 22:51:48'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = url => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      link.onload = () => resolve()
+      link.onerror = () => reject()
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script src="/live2d-widget-master/autoload.js"></script><link rel="stylesheet" href="/css/mouse.css"><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 6.3.0"></head><body><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js/themes/blue/pace-theme-minimal.min.css"><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/girl.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">87</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">73</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">40</div></a></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 优质网站链接</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 媒体</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书单</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/talk/"><i class="fa-fw far fa-comment"></i><span> 微语</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i0.hippopx.com/photos/654/243/649/tree-field-cornfield-nature-thumb.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="代码有点萌"><span class="site-name">代码有点萌</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 优质网站链接</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 媒体</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书单</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/talk/"><i class="fa-fw far fa-comment"></i><span> 微语</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">python模块</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-06-04T14:26:26.000Z" title="发表于 2023-06-04 22:26:26">2023-06-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-06-04T14:51:48.263Z" title="更新于 2023-06-04 22:51:48">2023-06-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/python/">python</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="python模块"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><div class="top-img" style="background-image: url('https://i0.hippopx.com/photos/654/243/649/tree-field-cornfield-nature-thumb.jpg');"></div><article class="post-content" id="article-container"><h1 id="python模块"><a href="#python模块" class="headerlink" title="python模块"></a>python模块</h1><figure class="highlight py"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"> </span><br><span class="line"><span class="built_in">print</span>(<span class="string">'命令行参数如下:'</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> sys.argv:</span><br><span class="line">   <span class="built_in">print</span>(i)</span><br><span class="line"> </span><br><span class="line"><span class="built_in">print</span>(<span class="string">'\n\nPython 路径为：'</span>, sys.path, <span class="string">'\n'</span>)</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="引用几个指定函数"><a href="#引用几个指定函数" class="headerlink" title="引用几个指定函数"></a>引用几个指定函数</h2><blockquote>
+<p>from fibo import fib, fib2<br>   fib(500)</p>
+</blockquote>
+<blockquote>
+<p>内置的函数 dir() 可以找到模块内定义的所有名称</p>
+</blockquote>
+<ul>
+<li>str()： 函数返回一个用户易读的表达形式。 </li>
+<li>repr()： 产生一个解释器易读的表达形式。</li>
+</ul>
+<figure class="highlight py"><table><tbody><tr><td class="code"><pre><span class="line">&gt;&gt; s = <span class="string">'Hello, Runoob'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">str</span>(s)</span><br><span class="line"><span class="string">'Hello, Runoob'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">repr</span>(s)</span><br><span class="line"><span class="string">"'Hello, Runoob'"</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">str</span>(<span class="number">1</span>/<span class="number">7</span>)</span><br><span class="line"><span class="string">'0.14285714285714285'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x = <span class="number">10</span> * <span class="number">3.25</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y = <span class="number">200</span> * <span class="number">200</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s = <span class="string">'x 的值为： '</span> + <span class="built_in">repr</span>(x) + <span class="string">',  y 的值为：'</span> + <span class="built_in">repr</span>(y) + <span class="string">'...'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span>(s)</span><br><span class="line">x 的值为： <span class="number">32.5</span>,  y 的值为：<span class="number">40000.</span>..</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment">#  repr() 函数可以转义字符串中的特殊字符</span></span><br><span class="line"><span class="meta">... </span>hello = <span class="string">'hello, runoob\n'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>hellos = <span class="built_in">repr</span>(hello)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span>(hellos)</span><br><span class="line"><span class="string">'hello, runoob\n'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment"># repr() 的参数可以是 Python 的任何对象</span></span><br><span class="line"><span class="meta">... </span><span class="built_in">repr</span>((x, y, (<span class="string">'Google'</span>, <span class="string">'Runoob'</span>)))</span><br><span class="line"><span class="string">"(32.5, 40000, ('Google', 'Runoob'))"</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>rjust()</code> 方法, 它可以将字符串靠右, 并在左边填充空格。</p>
+<figure class="highlight py"><table><tbody><tr><td class="code"><pre><span class="line">&gt;&gt; <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">11</span>):</span><br><span class="line"><span class="meta">... </span>    <span class="built_in">print</span>(<span class="built_in">repr</span>(x).rjust(<span class="number">2</span>), <span class="built_in">repr</span>(x*x).rjust(<span class="number">3</span>), end=<span class="string">' '</span>)</span><br><span class="line"><span class="meta">... </span>    <span class="comment"># 注意前一行 'end' 的使用</span></span><br><span class="line"><span class="meta">... </span>    <span class="built_in">print</span>(<span class="built_in">repr</span>(x*x*x).rjust(<span class="number">4</span>))</span><br><span class="line">...</span><br><span class="line"> <span class="number">1</span>   <span class="number">1</span>    <span class="number">1</span></span><br><span class="line"> <span class="number">2</span>   <span class="number">4</span>    <span class="number">8</span></span><br><span class="line"> <span class="number">3</span>   <span class="number">9</span>   <span class="number">27</span></span><br><span class="line"> <span class="number">4</span>  <span class="number">16</span>   <span class="number">64</span></span><br><span class="line"> <span class="number">5</span>  <span class="number">25</span>  <span class="number">125</span></span><br><span class="line"> <span class="number">6</span>  <span class="number">36</span>  <span class="number">216</span></span><br><span class="line"> <span class="number">7</span>  <span class="number">49</span>  <span class="number">343</span></span><br><span class="line"> <span class="number">8</span>  <span class="number">64</span>  <span class="number">512</span></span><br><span class="line"> <span class="number">9</span>  <span class="number">81</span>  <span class="number">729</span></span><br><span class="line"><span class="number">10</span> <span class="number">100</span> <span class="number">1000</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight py"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span>(<span class="string">'{}网址： "{}!"'</span>.<span class="built_in">format</span>(<span class="string">'菜鸟教程'</span>, <span class="string">'www.runoob.com'</span>))</span><br><span class="line">菜鸟教程网址： <span class="string">"www.runoob.com!"</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span>(<span class="string">'{0} 和 {1}'</span>.<span class="built_in">format</span>(<span class="string">'Google'</span>, <span class="string">'Runoob'</span>))</span><br><span class="line">Google 和 Runoob</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span>(<span class="string">'{1} 和 {0}'</span>.<span class="built_in">format</span>(<span class="string">'Google'</span>, <span class="string">'Runoob'</span>))</span><br><span class="line">Runoob 和 Google</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>在 : 后传入一个整数, 可以保证该域至少有这么多的宽度。 用于美化表格时很有用。</p>
+</blockquote>
+<figure class="highlight py"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>table = {<span class="string">'Google'</span>: <span class="number">1</span>, <span class="string">'Runoob'</span>: <span class="number">2</span>, <span class="string">'Taobao'</span>: <span class="number">3</span>}</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> name, number <span class="keyword">in</span> table.items():</span><br><span class="line"><span class="meta">... </span>    <span class="built_in">print</span>(<span class="string">'{0:10} ==&gt; {1:10d}'</span>.<span class="built_in">format</span>(name, number))</span><br><span class="line">...</span><br><span class="line">Google     ==&gt;          <span class="number">1</span></span><br><span class="line">Runoob     ==&gt;          <span class="number">2</span></span><br><span class="line">Taobao     ==&gt;          <span class="number">3</span></span><br></pre></td></tr></tbody></table></figure>
+<p><code>读取键盘输入</code></p>
+<blockquote>
+<p>str = input(“请输入：”);</p>
+</blockquote>
+<p><code>读和写文件</code></p>
+<blockquote>
+<p>open(filename, mode)</p>
+</blockquote>
+<ul>
+<li>r   以只读方式打开文件。文件的指针将会放在文件的开头。这是默认模式。</li>
+<li>w<br>打开一个文件只用于写入。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。</li>
+<li>a<br>打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。</li>
+</ul>
+<h2 id="打开一个文件"><a href="#打开一个文件" class="headerlink" title="打开一个文件"></a>打开一个文件</h2><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">f = open("/tmp/foo.txt", "w")</span><br><span class="line">f.write( "Python 是一个非常好的语言。\n是的，的确非常好!!\n" )</span><br><span class="line">str = f.read()//用 f.read(size), 这将读取一定数目的数据, 然后作为字符串或字节对象返回。</span><br><span class="line">print(str)</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="关闭打开的文件"><a href="#关闭打开的文件" class="headerlink" title="关闭打开的文件"></a>关闭打开的文件</h2><p><code>f.close()</code></p>
+<blockquote>
+<p>f.readline() 会从文件中读取单独的一行。换行符为 ‘\n’。f.readline() 如果返回一个空字符串, 说明已经已经读取到最后一行。<br>如果设置可选参数 sizehint, 则读取指定长度的字节, 并且将这些字节按行分割。<br>str = f.readline()<br>print(str)</p>
+</blockquote>
+<ul>
+<li>f.tell() 返回文件对象当前所处的位置, 它是从文件开头开始算起的字节数。<br>f.seek() 如果要改变文件指针当前的位置, 可以使用 f.seek(offset, from_what) 函数。<br> from_what<br>的值, 如果是 0 表示开头, 如果是 1 表示当前位置, 2 表示文件的结尾，</li>
+</ul>
+<figure class="highlight py"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = <span class="built_in">open</span>(<span class="string">'/tmp/foo.txt'</span>, <span class="string">'rb+'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.write(<span class="string">b'0123456789abcdef'</span>)</span><br><span class="line"><span class="number">16</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.seek(<span class="number">5</span>)     <span class="comment"># 移动到文件的第六个字节</span></span><br><span class="line"><span class="number">5</span></span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>当处理一个文件对象时, 使用 with 关键字是非常好的方式。<br>文件自动close</p>
+</blockquote>
+<blockquote>
+<p>with open(‘/tmp/foo.txt’, ‘r’) as f:<br>        read_data = f.read()</p>
+</blockquote>
+<p><code>writelines()</code> 方法用于向文件中写入一序列的字符串。</p>
+<figure class="highlight py"><table><tbody><tr><td class="code"><pre><span class="line">fo = <span class="built_in">open</span>(<span class="string">"test.txt"</span>, <span class="string">"w"</span>)</span><br><span class="line"><span class="built_in">print</span> (<span class="string">"文件名为: "</span>, fo.name)</span><br><span class="line">seq = [<span class="string">"菜鸟教程 1\n"</span>, <span class="string">"菜鸟教程 2"</span>]</span><br><span class="line">fo.writelines( seq )</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="关闭文件"><a href="#关闭文件" class="headerlink" title="关闭文件"></a>关闭文件</h2><blockquote>
+<p>fo.close()</p>
+</blockquote>
+<p><code>read() </code></p>
+<ul>
+<li>如果未给定参数 size 或 size 为负数则读取文件所有内容。</li>
+</ul>
+<figure class="highlight py"><table><tbody><tr><td class="code"><pre><span class="line">fo = <span class="built_in">open</span>(<span class="string">"runoob.txt"</span>, <span class="string">"r+"</span>)</span><br><span class="line"><span class="built_in">print</span> (<span class="string">"文件名为: "</span>, fo.name)</span><br><span class="line"></span><br><span class="line">line = fo.read(<span class="number">10</span>)</span><br><span class="line"><span class="built_in">print</span> (<span class="string">"读取的字符串: %s"</span> % (line))</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight py"><table><tbody><tr><td class="code"><pre><span class="line"></span><br><span class="line">fo = <span class="built_in">open</span>(<span class="string">"runoob.txt"</span>, <span class="string">"r"</span>)</span><br><span class="line"><span class="built_in">print</span> (<span class="string">"文件名为: "</span>, fo.name)</span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> fo.readlines():                          <span class="comment">#依次读取每行  </span></span><br><span class="line">    line = line.strip()                             <span class="comment">#去掉每行头尾空白  </span></span><br><span class="line">    <span class="built_in">print</span> (<span class="string">"读取的数据为: %s"</span> % (line))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭文件</span></span><br><span class="line">fo.close()</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>tell() 方法返回文件的当前位置，即文件指针当前位置。<br>truncate() 方法用于从文件的首行首字节开始截断，截断文件为 size 个字节，<br> 无 size 表示从当前位置截断； 截断之后 V<br>后面的所有字节被删除，其中 Widnows 系统下的换行代表2个字节大小。 。</li>
+</ul>
+<h2 id="捕获异常"><a href="#捕获异常" class="headerlink" title="捕获异常"></a>捕获异常</h2><figure class="highlight py"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        x = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">"请输入一个数字: "</span>))</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">except</span> ValueError:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"您输入的不是数字，请再次尝试输入！"</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>以下实例在 try 语句中判断文件是否可以打开，如果打开文件时正常的没有发生异常则执行 else 部分的语句，读取文件内容</p>
+<figure class="highlight py"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> arg <span class="keyword">in</span> sys.argv[<span class="number">1</span>:]:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        f = <span class="built_in">open</span>(arg, <span class="string">'r'</span>)</span><br><span class="line">    <span class="keyword">except</span> IOError:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'cannot open'</span>, arg)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(arg, <span class="string">'has'</span>, <span class="built_in">len</span>(f.readlines()), <span class="string">'lines'</span>)</span><br><span class="line">        f.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    runoob()</span><br><span class="line"><span class="keyword">except</span> AssertionError <span class="keyword">as</span> error:</span><br><span class="line">    <span class="built_in">print</span>(error)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">'file.log'</span>) <span class="keyword">as</span> file:</span><br><span class="line">            read_data = file.read()</span><br><span class="line">    <span class="keyword">except</span> FileNotFoundError <span class="keyword">as</span> fnf_error:</span><br><span class="line">        <span class="built_in">print</span>(fnf_error)</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'这句话，无论异常是否发生都会执行。'</span>)</span><br><span class="line"></span><br><span class="line"> <span class="keyword">raise</span> 语句抛出一个指定的异常。</span><br></pre></td></tr></tbody></table></figure>
+
+
+<h2 id="字符串操作"><a href="#字符串操作" class="headerlink" title="字符串操作"></a>字符串操作</h2><figure class="highlight py"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">list</span>=[<span class="string">'a'</span>,<span class="string">'mmmm'</span>,<span class="string">'iope'</span>,<span class="string">'hero'</span>,<span class="string">'koplk'</span>]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">','</span>.join(<span class="built_in">list</span>))</span><br><span class="line">s=<span class="string">','</span>.join(<span class="built_in">list</span>)</span><br><span class="line"><span class="built_in">print</span>(s.split(<span class="string">','</span>))</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://risingrode.github.io">fcw</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://risingrode.github.io/post/%E5%9F%BA%E7%A1%80%E8%AF%AD%E8%A8%80/Python/python5.html">https://risingrode.github.io/post/基础语言/Python/python5.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://risingrode.github.io" target="_blank">代码有点萌</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/python%E6%A8%A1%E5%9D%97/">python模块</a></div><div class="post_share"><div class="social-share" data-image="https://i0.hippopx.com/photos/654/243/649/tree-field-cornfield-nature-thumb.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer=""></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/wechat.jpg" alt="微信"></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/alipay.jpg" alt="支付宝"></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/%E5%9F%BA%E7%A1%80%E8%AF%AD%E8%A8%80/Python/python6.html" title="python面向对象"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://i0.hippopx.com/photos/965/714/472/tree-sunlight-background-relaxation-thumb.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">python面向对象</div></div></a></div><div class="next-post pull-right"><a href="/post/%E5%9F%BA%E7%A1%80%E8%AF%AD%E8%A8%80/Python/python3.html" title="python基本语法"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://i0.hippopx.com/photos/179/171/625/sparkler-holding-hands-firework-thumb.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">python基本语法</div></div></a></div></nav><hr><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/girl.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="author-info__name">fcw</div><div class="author-info__description">一个收藏回忆与分享技术的地方！</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">87</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">73</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">40</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Risingrode"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到cwRising的博客</div></div><div class="card-widget"><div class="item-headline"><i></i><span></span></div><div class="item-content"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#python%E6%A8%A1%E5%9D%97"><span class="toc-number">1.</span> <span class="toc-text">python模块</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E5%87%A0%E4%B8%AA%E6%8C%87%E5%AE%9A%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.</span> <span class="toc-text">引用几个指定函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%93%E5%BC%80%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6"><span class="toc-number">1.2.</span> <span class="toc-text">打开一个文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E9%97%AD%E6%89%93%E5%BC%80%E7%9A%84%E6%96%87%E4%BB%B6"><span class="toc-number">1.3.</span> <span class="toc-text">关闭打开的文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E9%97%AD%E6%96%87%E4%BB%B6"><span class="toc-number">1.4.</span> <span class="toc-text">关闭文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8D%95%E8%8E%B7%E5%BC%82%E5%B8%B8"><span class="toc-number">1.5.</span> <span class="toc-text">捕获异常</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C"><span class="toc-number">1.6.</span> <span class="toc-text">字符串操作</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B%E6%9C%9F%E6%9C%AB%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%B8%89%E4%B8%8A-%E5%90%8E%E6%9C%9F/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80.html" title="汇编语言"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingimage.oss-cn-beijing.aliyuncs.com/img/102449qZEI8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="汇编语言"></a><div class="content"><a class="title" href="/post/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B%E6%9C%9F%E6%9C%AB%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%B8%89%E4%B8%8A-%E5%90%8E%E6%9C%9F/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80.html" title="汇编语言">汇编语言</a><time datetime="2023-12-01T08:51:18.000Z" title="发表于 2023-12-01 16:51:18">2023-12-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B%E6%9C%9F%E6%9C%AB%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%B8%89%E4%B8%8A-%E5%90%8E%E6%9C%9F/%E9%AB%98%E7%BA%A7%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.html" title="高级操作系统"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingimage.oss-cn-beijing.aliyuncs.com/img/083940e7k0Q.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="高级操作系统"></a><div class="content"><a class="title" href="/post/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B%E6%9C%9F%E6%9C%AB%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%B8%89%E4%B8%8A-%E5%90%8E%E6%9C%9F/%E9%AB%98%E7%BA%A7%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.html" title="高级操作系统">高级操作系统</a><time datetime="2023-12-01T08:50:53.000Z" title="发表于 2023-12-01 16:50:53">2023-12-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/Image.html" title="无题"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a><div class="content"><a class="title" href="/post/Image.html" title="无题">无题</a><time datetime="2023-12-01T08:39:59.645Z" title="发表于 2023-12-01 16:39:59">2023-12-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/%E9%A1%B9%E7%9B%AE/%E9%A1%B9%E7%9B%AE%E5%9F%BA%E7%A1%80/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.html" title="设计模式"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingimage.oss-cn-beijing.aliyuncs.com/img/080437z7c8v.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="设计模式"></a><div class="content"><a class="title" href="/post/%E9%A1%B9%E7%9B%AE/%E9%A1%B9%E7%9B%AE%E5%9F%BA%E7%A1%80/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.html" title="设计模式">设计模式</a><time datetime="2023-12-01T04:06:04.000Z" title="发表于 2023-12-01 12:06:04">2023-12-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B%E6%9C%9F%E6%9C%AB%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%B8%89%E4%B8%8A-%E5%90%8E%E6%9C%9F/os_class.html" title="操作系统复习题"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/11/22/zqOfwxa3tAsn2Hp.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="操作系统复习题"></a><div class="content"><a class="title" href="/post/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B%E6%9C%9F%E6%9C%AB%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%B8%89%E4%B8%8A-%E5%90%8E%E6%9C%9F/os_class.html" title="操作系统复习题">操作系统复习题</a><time datetime="2023-12-01T00:27:55.000Z" title="发表于 2023-12-01 08:27:55">2023-12-01</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">©2023 By fcw</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a><br>
+<imgsrc="https: haiyong.site="" img="" icp.png"="">
+<a href="https://beian.miit.gov.cn/#/Integrated/index" style="color:white" target="_blank">豫ICP备2023032527号</a></imgsrc="https:></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div></div><hr><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'https://risingrode.github.io/post/%E5%9F%BA%E7%A1%80%E8%AF%AD%E8%A8%80/Python/python5.html'
+    this.page.identifier = '/post/%E5%9F%BA%E7%A1%80%E8%AF%AD%E8%A8%80/Python/python5.html'
+    this.page.title = 'python模块'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+
+  document.getElementById('darkmode').addEventListener('click', () => {
+    setTimeout(() => window.disqusReset(), 200)
+  })
+}
+
+if ('Valine' === 'Disqus' || !false) {
+  if (false) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script></div><link rel="stylesheet" href="/dist/APlayer.min.css"> <div id="aplayer"></div> <script type="text/javascript" src="/dist/APlayer.min.js"></script> <script type="text/javascript" src="/js/aplayer/music.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zindex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script async="" data-pjax="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

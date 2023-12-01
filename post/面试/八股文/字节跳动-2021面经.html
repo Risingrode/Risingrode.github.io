@@ -1,0 +1,844 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>byteDance | 代码有点萌</title><meta name="author" content="fcw,3185087246@protonmail.com"><meta name="copyright" content="fcw"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一、Java基础面试题  String 能被继承吗？为什么？ 不可以，因为 String 类有 final 修饰符，而 final 修饰的类是不能被继承的。实现细节不允许改变。平常我们定义的 String str=”abc”（直接赋一个字面量）和 String str=new String(“abc”)（通过构造器构造）还是有差异的。String str=“abc” 和 String str=ne">
+<meta property="og:type" content="article">
+<meta property="og:title" content="byteDance">
+<meta property="og:url" content="https://risingrode.github.io/post/%E9%9D%A2%E8%AF%95/%E5%85%AB%E8%82%A1%E6%96%87/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8-2021%E9%9D%A2%E7%BB%8F.html">
+<meta property="og:site_name" content="代码有点萌">
+<meta property="og:description" content="一、Java基础面试题  String 能被继承吗？为什么？ 不可以，因为 String 类有 final 修饰符，而 final 修饰的类是不能被继承的。实现细节不允许改变。平常我们定义的 String str=”abc”（直接赋一个字面量）和 String str=new String(“abc”)（通过构造器构造）还是有差异的。String str=“abc” 和 String str=ne">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cwrisingimage.oss-cn-beijing.aliyuncs.com/img/1103542juAw.jpg">
+<meta property="article:published_time" content="2023-11-25T08:13:09.000Z">
+<meta property="article:modified_time" content="2023-12-01T03:30:50.051Z">
+<meta property="article:author" content="fcw">
+<meta property="article:tag" content="byteDance">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cwrisingimage.oss-cn-beijing.aliyuncs.com/img/1103542juAw.jpg"><link rel="shortcut icon" href="/img/favicon.jpg"><link rel="canonical" href="https://risingrode.github.io/post/%E9%9D%A2%E8%AF%95/%E5%85%AB%E8%82%A1%E6%96%87/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8-2021%E9%9D%A2%E7%BB%8F.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'byteDance',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-12-01 11:30:50'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = url => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      link.onload = () => resolve()
+      link.onerror = () => reject()
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script src="/live2d-widget-master/autoload.js"></script><link rel="stylesheet" href="/css/mouse.css"><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 6.3.0"></head><body><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js/themes/blue/pace-theme-minimal.min.css"><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/girl.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">87</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">73</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">40</div></a></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 优质网站链接</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 媒体</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书单</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/talk/"><i class="fa-fw far fa-comment"></i><span> 微语</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cwrisingimage.oss-cn-beijing.aliyuncs.com/img/1103542juAw.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="代码有点萌"><span class="site-name">代码有点萌</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 优质网站链接</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 媒体</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书单</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/talk/"><i class="fa-fw far fa-comment"></i><span> 微语</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">byteDance</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-11-25T08:13:09.000Z" title="发表于 2023-11-25 16:13:09">2023-11-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-12-01T03:30:50.051Z" title="更新于 2023-12-01 11:30:50">2023-12-01</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/byteDance/">byteDance</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">17.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>57分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="byteDance"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><div class="top-img" style="background-image: url('https://cwrisingimage.oss-cn-beijing.aliyuncs.com/img/1103542juAw.jpg');"></div><article class="post-content" id="article-container"><p><strong>一、Java基础面试题</strong></p>
+<ol>
+<li><p><strong>String 能被继承吗？为什么？</strong></p>
+<p>不可以，因为 String 类有 final 修饰符，而 final 修饰的类是不能被继承的。实现细节不允许改变。平常我们定义的 <code>String str=”abc”</code>（直接赋一个字面量）和 <code>String str=new String(“abc”)</code>（通过构造器构造）还是有差异的。<code>String str=“abc”</code> 和 <code>String str=new String(“abc”);</code> 产生几个对象？</p>
+<ol>
+<li><p>前者 1 或 0，后者 2 或 1。先看字符串常量池，如果字符串常量池中没有，都在常量池中创建一个。如果有，前者直接引用，后者在堆内存中还需创建一个“abc”实例对象。</p>
+</li>
+<li><p>对于基础类型的变量和常量：变量和引用存储在栈中，常量存储在常量池中。</p>
+</li>
+<li><p>为了提升 JVM（Java 虚拟机）性能和减少内存开销，避免字符的重复创建，项目中最好不要使用 <code>new String</code> 去创建字符串，最好使用 String 直接赋值。</p>
+</li>
+</ol>
+</li>
+<li><p><strong>String，StringBuffer，StringBuilder 的区别。</strong></p>
+<ul>
+<li><p><strong>String：</strong> 字符串常量（final 修饰，不可被继承），不可更改。通过 StringBuffer 和 StringBuilder 可以创建 String 对象。</p>
+</li>
+<li><p><strong>StringBuffer：</strong> 字符串变量（线程安全），final 类别，不允许被继承。大多数方法进行了同步处理。toString 方法进行对象缓存以减少元素复制开销。</p>
+ <figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">synchronized</span> String <span class="title function_">toString</span><span class="params">()</span> {</span><br><span class="line">    <span class="keyword">if</span> (toStringCache == <span class="literal">null</span>) {</span><br><span class="line">        toStringCache = Arrays.copyOfRange(value, <span class="number">0</span>, count);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">String</span>(toStringCache, <span class="literal">true</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p><strong>StringBuilder：</strong> 字符串变量（非线程安全），自 JDK 1.5 起出现。与 StringBuffer 一样继承和实现了同样的接口和类，方法基本一致，区别在于最后 toString 的时候，会直接返回一个新对象。</p>
+ <figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> {</span><br><span class="line">    <span class="comment">// Create a copy, don’t share the array</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">String</span>(value, <span class="number">0</span>, count);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+</ul>
+</li>
+</ol>
+<h1 id="3-说一说常见的输入输出流"><a href="#3-说一说常见的输入输出流" class="headerlink" title="3. 说一说常见的输入输出流"></a>3. 说一说常见的输入输出流</h1><p><strong>计算机的存储器按用途可以分为主存储器和辅助存储器。</strong></p>
+<p><strong>a.</strong> <strong>主存储器又称内存</strong>，是 CPU 能直接寻址的存储空间，它的特点是存取速率快。内存一般采用半导体存储单元，包括随机存储器（RAM）、只读存储器（ROM）和高级缓存（Cache）。</p>
+<p><strong>b.</strong> <strong>辅助存储器又称外存储器（简称外存</strong>），就是那些磁盘、硬盘、光盘，也就是你在电脑上看到的 C、D、E、F 盘。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/20231201110443.png" alt="Storage"></p>
+<p>根据处理数据类型的不同分为：字符流和字节流。</p>
+<p>字节流和字符流的区别：</p>
+<ul>
+<li>读写单位不同：字节流以字节（8bit）为单位，字符流以字符为单位，根据码表映射字符，一次可能读多个字节。</li>
+<li>处理对象不同：字节流能处理所有类型的数据（如图片、avi 等），而字符流只能处理字符类型的数据。</li>
+<li>字节流：一次读入或读出是 8 位二进制。字符流：一次读入或读出是 16 位二进制。</li>
+</ul>
+<p><strong>设备上的数据无论是图片或者视频，文字，它们都以二进制存储的。二进制的最终都是以一个 8 位为数据单元进行体现，所以计算机中的最小数据单元就是字节。意味着，字节流可以处理设备上的所有数据，所以字节流一样可以处理字符数据。</strong></p>
+<p><strong>结论：只要是处理纯文本数据，就优先考虑使用字符流。除此之外都使用字节流。</strong></p>
+<p>输入流只能进行读操作，输出流只能进行写操作，程序中需要根据待传输数据的不同特性而使用不同的流。</p>
+<h2 id="4-说一说-Java-中的文件类-File"><a href="#4-说一说-Java-中的文件类-File" class="headerlink" title="4. 说一说 Java 中的文件类 File"></a>4. 说一说 Java 中的文件类 File</h2><p>在 Java 语言的 java.io 包中，由 File 类提供了描述文件和目录的操作与管理方法。<strong>File 类不同于输入输出流，它不负责数据的输入输出，而专门用来管理磁盘文件与目录。</strong></p>
+<p>File 类共提供了三个不同的构造函数，以不同的参数形式灵活地接收文件和目录名信息。构造函数：</p>
+<ol>
+<li><p><strong>File (String pathname)</strong> 例:File f1=new File(“FileTest1.txt”); //创建文件对象 f1，f1 所指的文件是在当前目录下创建的 FileTest1.txt</p>
+</li>
+<li><p><strong>File (String parent , String child)</strong> 例:File f2 = new File(“D:\dir1”,”FileTest2.txt”) ; // 注意：D:\dir1 目录事先必</p>
+<p>须存在，否则异常</p>
+</li>
+<li><p><strong>File (File parent , String child)</strong> 例:File f4=new File(“\dir3”);</p>
+<p>File f5=new File(f4,”FileTest5.txt”); // 在如果   \dir3 目录不存在使用</p>
+<p>f4.mkdir()先创建</p>
+</li>
+</ol>
+<p><strong>一个对应于某磁盘文件或目录的 File 对象一经创建， 就可以通过调用它的方法来获得文件或目录的属性。</strong></p>
+<table>
+<thead>
+<tr>
+<th>1）public boolean exists( )</th>
+<th>判断文件或目录是否存在</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2）public boolean isFile( )</td>
+<td>判断是文件还是目录</td>
+</tr>
+<tr>
+<td>3）public boolean isDirectory( )</td>
+<td>判断是文件还是目录</td>
+</tr>
+<tr>
+<td>4）public String getName( )</td>
+<td>返回文件名或目录名</td>
+</tr>
+<tr>
+<td>5）public String getPath( )</td>
+<td>返回文件或目录的路径。</td>
+</tr>
+<tr>
+<td>6）public long length( )</td>
+<td>获取文件的长度</td>
+</tr>
+<tr>
+<td>7）public String[ ] list ( )  返回。</td>
+<td>将目录中所有文件名保存在字符串数组中</td>
+</tr>
+</tbody></table>
+<p><strong>File</strong> <strong>类中还定义了一些对文件或目录进行管理、操作的方法，常用的方法有：</strong></p>
+<table>
+<thead>
+<tr>
+<th>1） public boolean renameTo( File newFile );</th>
+<th>重命名文件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2） public void  delete( );</td>
+<td>删除文件</td>
+</tr>
+<tr>
+<td>3） public boolean  mkdir( );</td>
+<td>创建目录</td>
+</tr>
+</tbody></table>
+<h3 id="5-如何选择-IO-流："><a href="#5-如何选择-IO-流：" class="headerlink" title="5. 如何选择 IO 流："></a>5. 如何选择 IO 流：</h3><p><strong>1）确定是输入还是输出</strong></p>
+<p>输入流： InputStream, Reader</p>
+<p>输出流： OutputStream, Writer</p>
+<p><strong>2）明确操作的数据对象是否是纯文本</strong></p>
+<p>是: 字符流 (Reader, Writer)</p>
+<p>否: 字节流 (InputStream, OutputStream)</p>
+<p><strong>3）明确具体的设备</strong></p>
+<ul>
+<li>硬盘文件：  <ul>
+<li>读取：FileInputStream, FileReader</li>
+<li>写入：FileOutputStream, FileWriter</li>
+</ul>
+</li>
+<li>内存用数组：  <ul>
+<li>byte[]：ByteArrayInputStream, ByteArrayOutputStream </li>
+<li>char[]：CharArrayReader, CharArrayWriter</li>
+</ul>
+</li>
+<li>键盘：  <ul>
+<li>用 System.in（是一个 InputStream 对象）读取，用 System.out（是一个 OutputStream 对象）打印</li>
+</ul>
+</li>
+</ul>
+<p><strong>4）是否需要缓冲提高效率</strong></p>
+<p>加上 Buffered：BufferedInputStream, BufferedOutputStream, BufferedReader, BufferedWriter</p>
+<h2 id="6-两个对象的-hashCode-相同，则-equals-也一定为-true，对吗？"><a href="#6-两个对象的-hashCode-相同，则-equals-也一定为-true，对吗？" class="headerlink" title="6. 两个对象的 hashCode() 相同，则 equals() 也一定为 true，对吗？"></a>6. 两个对象的 hashCode() 相同，则 equals() 也一定为 true，对吗？</h2><p>不对，两个对象的 hashCode() 相同，equals() 不一定为 true。</p>
+<p>代码示例：</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str1</span> <span class="operator">=</span> <span class="string">"通话"</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">str2</span> <span class="operator">=</span> <span class="string">"重地"</span>;</span><br><span class="line">System.out.println(String.format(<span class="string">"str1: %d, str2: %d"</span>, str1.hashCode(), str2.hashCode()));</span><br><span class="line">System.out.println(str1.equals(str2));</span><br></pre></td></tr></tbody></table></figure>
+
+<p>执行的结果：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">str1: 1179395, str2: 1179395</span><br><span class="line">false</span><br></pre></td></tr></tbody></table></figure>
+
+<p>代码解读：很显然，“通话”和“重地”的 hashCode() 相同，然而 equals() 则为 false。在散列表中，hashCode() 相等即两个键值对的哈希值相等，然而哈希值相等，并不一定能得出键值对相等。</p>
+<h3 id="7-String-类的常用方法都有哪些？"><a href="#7-String-类的常用方法都有哪些？" class="headerlink" title="7. String 类的常用方法都有哪些？"></a>7. String 类的常用方法都有哪些？</h3><ul>
+<li><code>indexOf()</code>: 返回指定字符的索引。</li>
+<li><code>charAt()</code>: 返回指定索引处的字符。</li>
+<li><code>replace()</code>: 字符串替换。</li>
+<li><code>trim()</code>: 去除字符串两端空白。</li>
+<li><code>split()</code>: 分割字符串，返回一个分割后的字符串数组。</li>
+<li><code>getBytes()</code>: 返回字符串的 byte 类型数组。</li>
+<li><code>length()</code>: 返回字符串长度。</li>
+<li><code>toLowerCase()</code>: 将字符串转成小写字母。</li>
+<li><code>toUpperCase()</code>: 将字符串转成大写字符。</li>
+<li><code>substring()</code>: 截取字符串。</li>
+<li><code>equals()</code>: 字符串比较。</li>
+</ul>
+<h2 id="8-BIO、NIO、AIO-有什么区别？"><a href="#8-BIO、NIO、AIO-有什么区别？" class="headerlink" title="8. BIO、NIO、AIO 有什么区别？"></a>8. BIO、NIO、AIO 有什么区别？</h2><p><strong>BIO (Block IO)</strong>: 同步阻塞式 IO，是传统的 IO 模型，每个连接都会创建一个线程进行处理，因此并发处理能力较低。</p>
+<p><strong>NIO (New IO)</strong>: 同步非阻塞 IO，引入了 Channel（通道）的概念，通过 Selector 进行多路复用，可以在单线程中处理多个连接，提高并发处理能力。</p>
+<p><strong>AIO (Asynchronous IO)</strong>: 异步非阻塞 IO，是 NIO 的升级，也称为 NIO2，通过异步 IO 的操作基于事件和回调机制，实现更高效的 IO 操作。</p>
+<hr>
+<h2 id="Java-集合框架"><a href="#Java-集合框架" class="headerlink" title="Java 集合框架"></a>Java 集合框架</h2><h3 id="1-请先介绍一下-Java-集合框架"><a href="#1-请先介绍一下-Java-集合框架" class="headerlink" title="1. 请先介绍一下 Java 集合框架"></a>1. 请先介绍一下 Java 集合框架</h3><p><strong>1. List（有序、可重复）</strong></p>
+<p>List 存放的对象是有序的，可以重复。List 关注索引，查询速度快，但插入删除数据速度相对慢。</p>
+<p><strong>2. Set（无序、不能重复）</strong></p>
+<p>Set 存放的对象是无序的，不能重复。集合中的对象不按特定的方式排序。</p>
+<p><strong>3. Map（键值对、键唯一、值不唯一）</strong></p>
+<p>Map 存储键值对，键不能重复，值可以重复。根据键得到值，遍历时先得到键的 Set 集合。</p>
+<h3 id="1-1-Interface-Iterable"><a href="#1-1-Interface-Iterable" class="headerlink" title="1.1 Interface Iterable"></a>1.1 Interface Iterable</h3><ul>
+<li><strong>Iterable 接口</strong>: 迭代器接口，提供 forEach 可遍历性。</li>
+</ul>
+<h3 id="1-1-Collection"><a href="#1-1-Collection" class="headerlink" title="1.1 Collection"></a>1.1 Collection</h3><ul>
+<li><strong>Collection 接口</strong>: 最基本的集合接口，不能被实例化，提供规范定义。</li>
+</ul>
+<h4 id="1-1-1-Set"><a href="#1-1-1-Set" class="headerlink" title="1.1.1 Set"></a>1.1.1 Set</h4><ul>
+<li><p><strong>Set 接口</strong>: 无序、不能重复。</p>
+<ul>
+<li><p><strong>HashSet</strong>: 使用 HASH 算法存储集合元素，判断相等通过 equals 和 hashCode。</p>
+</li>
+<li><p><strong>LinkedHashSet</strong>: 使用链表维护元素插入顺序，遍历按插入顺序访问。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-1-2-SortedSet"><a href="#1-1-2-SortedSet" class="headerlink" title="1.1.2 SortedSet"></a>1.1.2 SortedSet</h4><ul>
+<li><p><strong>SortedSet 接口</strong>: 用于排序操作。</p>
+<ul>
+<li><strong>TreeSet</strong>: SortedSet 接口的实现类，可以确保集合元素处于排序状态。</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-1-3-EnumSet"><a href="#1-1-3-EnumSet" class="headerlink" title="1.1.3 EnumSet"></a>1.1.3 EnumSet</h4><ul>
+<li><strong>EnumSet</strong>: 专门为枚举类设计的集合类，集合元素有序。</li>
+</ul>
+<h2 id="2-List"><a href="#2-List" class="headerlink" title="2. List"></a>2. List</h2><p>List集合代表一个元素有序、可重复的集合，集合中每个元素都有其对应的顺序索引。</p>
+<p>List集合允许加入重复元素，因为它可以通过索引来访问指定位置的集合元素。List集合默认按元素的添加顺序设置元素的索引。</p>
+<h3 id="2-1-ArrayList"><a href="#2-1-ArrayList" class="headerlink" title="2.1. ArrayList"></a>2.1. ArrayList</h3><p>ArrayList是基于数组实现的List类，它封装了一个动态的增长的、允许再分配的Object[]数组。</p>
+<h3 id="2-2-Vector"><a href="#2-2-Vector" class="headerlink" title="2.2. Vector"></a>2.2. Vector</h3><p>Vector和ArrayList在用法上几乎完全相同，但由于Vector是一个古老的集合，所以Vector提供了一些方法名很长的方法。然而，在JDK 1.2以后，Java提供了系统的集合框架，将Vector改为实现List接口，统一归入集合框架体系中。</p>
+<h4 id="2-2-1-Stack"><a href="#2-2-1-Stack" class="headerlink" title="2.2.1. Stack"></a>2.2.1. Stack</h4><p>Stack是Vector提供的一个子类，用于模拟“栈”这种数据结构（LIFO后进先出）。</p>
+<h3 id="2-3-LinkedList"><a href="#2-3-LinkedList" class="headerlink" title="2.3. LinkedList"></a>2.3. LinkedList</h3><p>LinkedList实现了List接口和Deque接口。它既可以进行队列操作，即可以根据索引来随机访问集合中的元素，同时也实现了Deque接口，即可以将LinkedList当作双端队列使用。因此，它可以被当作“栈”来使用。</p>
+<h2 id="3-Queue"><a href="#3-Queue" class="headerlink" title="3. Queue"></a>3. Queue</h2><p>Queue用于模拟“队列”这种数据结构（先进先出FIFO）。队列的头部保存着队列中存放时间最长的元素，队列的尾部保存着队列中存放时间最短的元素。新元素插入（offer）到队列的尾部，访问元素（poll）操作会返回队列头部的元素，队列不允许随机访问队列中的元素。</p>
+<h3 id="3-1-PriorityQueue"><a href="#3-1-PriorityQueue" class="headerlink" title="3.1. PriorityQueue"></a>3.1. PriorityQueue</h3><p>PriorityQueue并不是一个比较标准的队列实现，PriorityQueue保存队列元素的顺序并不是按照加入队列的顺序，而是按照队列元素的大小进行重新排序。</p>
+<h3 id="3-2-Deque"><a href="#3-2-Deque" class="headerlink" title="3.2. Deque"></a>3.2. Deque</h3><p>Deque接口代表一个“双端队列”，双端队列可以同时从两端来添加、删除元素，因此Deque的实现类既可以当成队列使用，也可以当成栈使用。</p>
+<h4 id="3-2-1-ArrayDeque"><a href="#3-2-1-ArrayDeque" class="headerlink" title="3.2.1. ArrayDeque"></a>3.2.1. ArrayDeque</h4><p>ArrayDeque是一个基于数组的双端队列，和ArrayList类似，它们的底层都采用一个动态的、可重分配的Object[]数组来存储集合元素。当集合元素超出该数组的容量时，系统会在底层重新分配一个Object[]数组来存储集合元素。</p>
+<h4 id="3-2-2-LinkedList"><a href="#3-2-2-LinkedList" class="headerlink" title="3.2.2. LinkedList"></a>3.2.2. LinkedList</h4><h2 id="1-2-Map"><a href="#1-2-Map" class="headerlink" title="1.2. Map"></a>1.2. Map</h2><p>Map用于保存具有“映射关系”的数据，即键值对。Map集合里保存着两组值，一组值用于保存Map里的key，另外一组值用于保存Map里的value。key和value都可以是任何引用类型的数据。Map的key不允许重复，即同一个Map对象的任何两个key通过equals方法比较结果总是返回false。</p>
+<h3 id="1-HashMap"><a href="#1-HashMap" class="headerlink" title="1. HashMap"></a>1. HashMap</h3><p>HashMap不能保证元素的顺序，且判断两个key是否相等的标准是：两个key通过equals()方法比较返回true，同时两个key的hashCode值也必须相等。</p>
+<h4 id="1-1-LinkedHashMap"><a href="#1-1-LinkedHashMap" class="headerlink" title="1.1. LinkedHashMap"></a>1.1. LinkedHashMap</h4><p>LinkedHashMap使用双向链表来维护key-value对的次序，该链表负责维护Map的迭代顺序，与key-value对的插入顺序一致。</p>
+<h3 id="2-Hashtable"><a href="#2-Hashtable" class="headerlink" title="2. Hashtable"></a>2. Hashtable</h3><p>Hashtable是一个古老的Map实现类。</p>
+<h4 id="2-1-Properties"><a href="#2-1-Properties" class="headerlink" title="2.1. Properties"></a>2.1. Properties</h4><p>Properties对象在处理属性文件时特别方便，可以将Map对象和属性文件关联起来，实现key-value对的读写。</p>
+<h3 id="3-SortedMap"><a href="#3-SortedMap" class="headerlink" title="3. SortedMap"></a>3. SortedMap</h3><p>SortedMap是Map接口的子接口，它有一个TreeMap实现类.</p>
+<h4 id="3-1-TreeMap"><a href="#3-1-TreeMap" class="headerlink" title="3.1. TreeMap"></a>3.1. TreeMap</h4><p>TreeMap是一个红黑树数据结构，每个key-value对即作为红黑树的一个节点。TreeMap存储key-value对时，需要根据key对节点进行排序。TreeMap可以保证所有的key-value对处于有序状态，有自然排序和定制排序两种方式.</p>
+<h3 id="4-WeakHashMap"><a href="#4-WeakHashMap" class="headerlink" title="4. WeakHashMap"></a>4. WeakHashMap</h3><p>WeakHashMap与HashMap的用法基本相似，但其key保留了对实际对象的“弱引用”，当key所引用的对象没有其他强引用时，可能被垃圾回收，WeakHashMap也可能自动删除相应的key-value对.</p>
+<h3 id="5-IdentityHashMap"><a href="#5-IdentityHashMap" class="headerlink" title="5. IdentityHashMap"></a>5. IdentityHashMap</h3><p>IdentityHashMap的实现机制与HashMap相似，但当且仅当两个key严格相等（key1 == key2）时，IdentityHashMap才认为两个key相等.</p>
+<h3 id="6-EnumMap"><a href="#6-EnumMap" class="headerlink" title="6. EnumMap"></a>6. EnumMap</h3><p>EnumMap是一个与枚举类一起使用的Map实现，其中所有key都必须是单个枚举类的枚举值。创建EnumMap时必须显式或隐式指定它对应的枚举类。EnumMap根据key的自然顺序进行排序.</p>
+<h1 id="2-Vector和ArrayList的区别"><a href="#2-Vector和ArrayList的区别" class="headerlink" title="2 Vector和ArrayList的区别"></a>2 Vector和ArrayList的区别</h1><p>1，vector 是线程同步的，所以它也是线程安全的，而 arraylist 是线程异步的，是不安全的。如果不考虑到线程的安全因素，一般用 arraylist 效率比较高。</p>
+<p>2，如果集合中的元素的数目大于目前集合数组的长度时，vector 增长率为目前数组长度的</p>
+<p>100%，而 arraylist 增长率为目前数组长度的 50%。如果在集合中使用数据量比较大的数据，用 vector 有一定的优势。</p>
+<p>3，如果查找一个指定位置的数据，vector 和 arraylist 使用的时间是相同的，如果频繁的访问数据，这个时候使用 vector 和 arraylist 都可以。而如果移动一个指定位置会导致后面的元素都发生移动，这个时候就应该考虑到使用 linkedlist,因为它移动一个指定位置的数据时其它元素不移动。</p>
+<p>ArrayList 和 Vector 是采用数组方式存储数据，此数组元素数大于实际存储的数据以便增加和插入元素，都允许直接序号索引元素，但是插入数据要涉及到数组元素移动等内存操作，所以索引数据快，插入数据慢，Vector 由于使用了 synchronized 方法（线程安全）所以性能上比 ArrayList 要差，LinkedList 使用双向链表实现存储，按序号索引数据需要进行向前或向后遍历，但是插入数据时只需要记录本项的前后项即可，所以插入数度较快。</p>
+<h1 id="3-arraylist和linkedlist的区别"><a href="#3-arraylist和linkedlist的区别" class="headerlink" title="3  arraylist和linkedlist的区别"></a>3  arraylist和linkedlist的区别</h1><p>1.ArrayList 是实现了基于动态数组的数据结构，LinkedList 基于链表的数据结构。</p>
+<p>2.对于随机访问 get 和 set，ArrayList 觉得优于 LinkedList，因为 LinkedList 要移动指针。</p>
+<p>3.对于新增和删除操作 add 和 remove，LinedList 比较占优势，因为 ArrayList 要移动数据。 这一点要看实际情况的。若只对单条数据插入或删除，ArrayList 的速度反而优于</p>
+<p>LinkedList。但若是批量随机的插入删除数据，LinkedList 的速度大大优于 ArrayList. 因为</p>
+<p>ArrayList 每插入一条数据，要移动插入点及之后的所有数据。</p>
+<h1 id="4-HashMap与TreeMap的区别"><a href="#4-HashMap与TreeMap的区别" class="headerlink" title="4 HashMap与TreeMap的区别"></a>4 HashMap与TreeMap的区别</h1><p>1、 HashMap 通过 hashcode 对其内容进行快速查找，而 TreeMap 中所有的元素都保持着某种固定的顺序，如果你需要得到一个有序的结果你就应该使用 TreeMap（HashMap 中元素的排列顺序是不固定的）。</p>
+<p>2、 在 Map 中插入、删除和定位元素，HashMap 是最好的选择。但如果您要按自然顺序或自定义顺序遍历键，那么 TreeMap 会更好。使用 HashMap 要求添加的键类明确定义了 hashCode()和 equals()的实现。</p>
+<p>两个 map 中的元素一样，但顺序不一样，导致 hashCode()不一样。</p>
+<p>同样做测试：</p>
+<p>在 HashMap 中，同样的值的 map,顺序不同，equals 时，false;</p>
+<p>而在 treeMap 中，同样的值的 map,顺序不同,equals 时，true，说明，treeMap 在 equals() 时是整理了顺序了的。</p>
+<h1 id="5-HashTable与HashMap的区别"><a href="#5-HashTable与HashMap的区别" class="headerlink" title="5 HashTable与HashMap的区别"></a>5 HashTable与HashMap的区别</h1><p>1、同步性:Hashtable 是线程安全的，也就是说是同步的，而 HashMap 是线程序不安全的，</p>
+<p>不是同步的。</p>
+<p>2、HashMap 允许存在一个为 null 的 key，多个为 null 的 value 。</p>
+<p>3、hashtable 的 key 和 value 都不允许为 null。</p>
+<h1 id="6-常用的集合类有哪些？"><a href="#6-常用的集合类有哪些？" class="headerlink" title="6. 常用的集合类有哪些？"></a>6. 常用的集合类有哪些？</h1><p>Map 接口和 Collection 接口是所有集合框架的父接口：</p>
+<p>Collection 接口的子接口包括：Set 接口和 List 接口</p>
+<p>Map 接口的实现类主要有：HashMap、TreeMap、Hashtable、ConcurrentHashMap 以及 Properties 等</p>
+<p>Set 接口的实现类主要有：HashSet、TreeSet、LinkedHashSet 等</p>
+<p>List 接口的实现类主要有：ArrayList、LinkedList、Stack 以及 Vector 等</p>
+<p>7.List，Set，Map三者的区别？List、Set、Map 是否继承自 Collection 接口？List、Map、Set 三个接口存取元素时，各有什么特点?</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="file:///C:/Users/烟雨蒙蒙/AppData/Local/Temp/msohtmlclip1/01/clip_image012.jpg" alt="img"></p>
+<p>Java 容器分为 Collection 和 Map 两大类，Collection 集合的子接口有 Set、List、Queue 三种子接口。我们比较常用的是 Set、List，Map 接口不是 collection 的子接口。</p>
+<p>Collection 集合主要有 List 和 Set 两大接口</p>
+<p>List：一个有序（元素存入集合的顺序和取出的顺序一致）容器，元素可以重复，可以插入多个 null 元素，元素都有索引。常用的实现类有 ArrayList、LinkedList 和 Vector。</p>
+<p>Set：一个无序（存入和取出顺序有可能不一致）容器，不可以存储重复元素，只允许存入一个 null 元素，必须保证元素唯一性。Set 接口常用实现类是 HashSet、LinkedHashSet 以及 TreeSet。</p>
+<p>Map 是一个键值对集合，存储键、值和之间的映射。 Key 无序，唯一；value 不要求有序，允许重复。Map 没有继承于 Collection 接口，从 Map 集合中检索元素时，只要给出键对象，就会返回对应的值对象。</p>
+<p>Map   的 常 用 实 现 类 ： HashMap 、 TreeMap 、 HashTable 、 LinkedHashMap 、 ConcurrentHashMap</p>
+<h1 id="8-集合框架底层数据结构"><a href="#8-集合框架底层数据结构" class="headerlink" title="8. 集合框架底层数据结构"></a>8. 集合框架底层数据结构</h1><p>Collection</p>
+<p>List</p>
+<p>Arraylist： Object 数组</p>
+<p>Vector： Object 数组</p>
+<p>LinkedList： 双向循环链表</p>
+<p>Set</p>
+<p>HashSet（无序，唯一）：基于 HashMap 实现的，底层采用 HashMap 来保存元素</p>
+<p>LinkedHashSet ：  LinkedHashSet  继 承 与 HashSet ， 并 且 其 内 部 是 通 过</p>
+<p>LinkedHashMap 来实现的。有点类似于我们之前说的 LinkedHashMap 其内部是基于</p>
+<p>Hashmap 实现一样，不过还是有一点点区别的。</p>
+<p>TreeSet（有序，唯一）： 红黑树(自平衡的排序二叉树。)</p>
+<p>Map</p>
+<p>HashMap： JDK1.8 之前 HashMap 由数组+链表组成的，数组是 HashMap 的主体，链表则是主要为了解决哈希冲突而存在的（“拉链法”解决冲突）.JDK1.8 以后在解决哈希冲突时有了较大的变化，当链表长度大于阈值（默认为 8）时，将链表转化为红黑树，以减少搜索时间</p>
+<p>LinkedHashMap：LinkedHashMap 继承自 HashMap，所以它的底层仍然是基于拉链式散列结构即由数组和链表或红黑树组成。另外，LinkedHashMap 在上面结构的基础上，增加了一条双向链表，使得上面的结构可以保持键值对的插入顺序。同时通过对链表进行相应的操作，实现了访问顺序相关逻辑。</p>
+<p>HashTable： 数组+链表组成的，数组是 HashMap 的主体，链表则是主要为了解决哈希冲突而存在的</p>
+<p>TreeMap： 红黑树（自平衡的排序二叉树）</p>
+<h1 id="9-哪些集合类是线程安全的？"><a href="#9-哪些集合类是线程安全的？" class="headerlink" title="9. 哪些集合类是线程安全的？"></a>9. 哪些集合类是线程安全的？</h1><p>vector：就比 arraylist 多了个同步化机制（线程安全），因为效率较低，现在已经不太建</p>
+<p>议使用。在 web 应用中，特别是前台页面，往往效率（页面响应速度）是优先考虑的。</p>
+<p>statck：堆栈类，先进后出。</p>
+<p>hashtable：就比 hashmap 多了个线程安全。</p>
+<p>enumeration：枚举，相当于迭代器。</p>
+<h1 id="10-怎么确保一个集合不能被修改？"><a href="#10-怎么确保一个集合不能被修改？" class="headerlink" title="10. 怎么确保一个集合不能被修改？"></a>10. 怎么确保一个集合不能被修改？</h1><p>可以使用 Collections. unmodifiableCollection(Collection c) 方法来创建一个只读集合，这样改变集合的任何操作都会抛出 Java. lang. UnsupportedOperationException 异常。</p>
+<p>示例代码如下：</p>
+<p>List<string> list = new ArrayList&lt;&gt;(); list. add(“x”);</string></p>
+<p>Collection<string> clist = Collections. unmodifiableCollection(list); clist. add(“y”); // 运行时此行报错</string></p>
+<p>System. out. println(list. size());</p>
+<h1 id="11-迭代器-Iterator-是什么？"><a href="#11-迭代器-Iterator-是什么？" class="headerlink" title="11. 迭代器 Iterator 是什么？"></a>11. 迭代器 Iterator 是什么？</h1><p>Iterator 接口提供遍历任何 Collection 的接口。我们可以从一个 Collection 中使用迭代器方法来获取迭代器实例。迭代器取代了 Java 集合框架中的 Enumeration，迭代器允许调用者在迭代过程中移除元素。</p>
+<p><strong>Iterator</strong> <strong>使用代码如下：</strong></p>
+<p>List<string> list = new ArrayList&lt;&gt;(); Iterator<string> it = list. iterator(); while(it. hasNext()){</string></string></p>
+<p>String obj = it. next();</p>
+<p>System. out. println(obj);</p>
+<p>}</p>
+<p>Iterator 的特点是只能单向遍历，但是更加安全，因为它可以确保，在当前遍历的集合元素被更改的时候，就会抛出 ConcurrentModificationException 异常。</p>
+<h1 id="12-说一下-ArrayList-的优缺点"><a href="#12-说一下-ArrayList-的优缺点" class="headerlink" title="12 说一下 ArrayList 的优缺点"></a>12 说一下 ArrayList 的优缺点</h1><p>ArrayList 的优点如下：</p>
+<p>ArrayList 底层以数组实现，是一种随机访问模式。ArrayList 实现了 RandomAccess 接口，因此查找的时候非常快。</p>
+<p>ArrayList 在顺序添加一个元素的时候非常方便。</p>
+<p>ArrayList 的缺点如下：</p>
+<p>删除元素的时候，需要做一次元素复制操作。如果要复制的元素很多，那么就会比较耗费性能。</p>
+<p>插入元素的时候，也需要做一次元素复制操作，缺点同上。</p>
+<p>ArrayList 比较适合顺序添加、随机访问的场景。</p>
+<h1 id="13-如何实现数组和-List-之间的转换？"><a href="#13-如何实现数组和-List-之间的转换？" class="headerlink" title="13. 如何实现数组和 List 之间的转换？"></a>13. 如何实现数组和 List 之间的转换？</h1><p>数组转 List：使用 Arrays. asList(array) 进行转换。</p>
+<p>List 转数组：使用 List 自带的 toArray() 方法。</p>
+<p>代码示例：</p>
+<p>// list to array</p>
+<p>List<string> list = new ArrayList<string>(); list.add(“123”); list.add(“456”); list.toArray();</string></string></p>
+<p>// array to list</p>
+<p>String[] array = new String[]{“123”,”456”};</p>
+<p>Arrays.asList(array);</p>
+<h1 id="14-插入数据时，ArrayList、LinkedList、Vector-谁速度较快？阐述-ArrayList、Vector、LinkedList-的存储性能和特性？"><a href="#14-插入数据时，ArrayList、LinkedList、Vector-谁速度较快？阐述-ArrayList、Vector、LinkedList-的存储性能和特性？" class="headerlink" title="14. 插入数据时，ArrayList、LinkedList、Vector 谁速度较快？阐述 ArrayList、Vector、LinkedList 的存储性能和特性？"></a>14. 插入数据时，ArrayList、LinkedList、Vector 谁速度较快？阐述 ArrayList、Vector、LinkedList 的存储性能和特性？</h1><p>ArrayList、LinkedList、Vector 底层的实现都是使用数组方式存储数据。数组元素数大于</p>
+<p>实际存储的数据以便增加和插入元素，它们都允许直接按序号索引元素，但是插入元素要涉及数组元素移动等内存操作，所以索引数据快而插入数据慢。</p>
+<p>Vector 中的方法由于加了 synchronized 修饰，因此 Vector 是线程安全容器，但性能上</p>
+<p>较 ArrayList 差。</p>
+<p>LinkedList 使用双向链表实现存储，按序号索引数据需要进行前向或后向遍历，但插入数据时只需要记录当前项的前后项即可，所以 LinkedList 插入速度较快。</p>
+<h1 id="15-多线程场景下如何使用-ArrayList？"><a href="#15-多线程场景下如何使用-ArrayList？" class="headerlink" title="15. 多线程场景下如何使用 ArrayList？"></a>15. 多线程场景下如何使用 ArrayList？</h1><p>ArrayList 不 是 线 程 安 全 的 ， 如 果 遇 到 多 线 程 场 景 ， 可 以 通 过 Collections 的 synchronizedList 方法将其转换成线程安全的容器后再使用。例如像下面这样：</p>
+<p>  List<string>  synchronizedList = Collections.synchronizedList(list);  synchronizedList.add(“aaa”); synchronizedList.add(“bbb”);  for  (int i = 0; i &lt; synchronizedList.size(); i++) {  System.out.println(synchronizedList.get(i));  }  </string></p>
+<h1 id="16-HashSet如何检查重复？HashSet是如何保证数据不可重复的？"><a href="#16-HashSet如何检查重复？HashSet是如何保证数据不可重复的？" class="headerlink" title="16.HashSet如何检查重复？HashSet是如何保证数据不可重复的？"></a>16.HashSet如何检查重复？HashSet是如何保证数据不可重复的？</h1><p>向 HashSet 中 add ()元素时，判断元素是否存在的依据，不仅要比较 hash 值，同时还要结合 equles 方法比较。</p>
+<p>HashSet 中的 add ()方法会使用 HashMap 的 put()方法。</p>
+<p>HashMap 的    key 是唯一的，由源码可以看出     HashSet 添加进去的值就是作为</p>
+<p>HashMap 的 key，并且在 HashMap 中如果 K/V 相同时，会用新的 V 覆盖掉旧的 V，然后返回旧的 V。所以不会重复（ HashMap 比较 key 是否相等是先比较 hashcode 再比较 equals ）。</p>
+<p>以下是 HashSet 部分源码：</p>
+<p>  private static final Object  PRESENT = new Object(); private transient HashMap&lt;E,Object&gt; map;  public  HashSet() {  map = new HashMap&lt;&gt;();  }  public  boolean add(E e) {  // 调用 HashMap 的 put 方法,PRESENT 是一个至始至终都相同的虚值  return map.put(e, PRESENT)==null;  }  </p>
+<p><strong>hashCode****（）与 equals（）的相关规定：</strong></p>
+<p>如果两个对象相等，则 hashcode 一定也是相同的两个对象相等,对两个 equals 方法返回 true 两个对象有相同的 hashcode 值，它们也不一定是相等的综上，equals 方法被覆盖过，则 hashCode 方法也必须被覆盖</p>
+<p>hashCode()的默认行为是对堆上的对象产生独特值。如果没有重写 hashCode()，则该 class 的两个对象无论如何都不会相等（即使这两个对象指向相同的数据）。</p>
+<p>**==**<strong>与 equals 的区别</strong></p>
+<p>==是判断两个变量或实例是不是指向同一个内存空间 equals 是判断两个变量或实例所指向的内存空间的值是不是相同</p>
+<p>==是指对内存地址进行比较 equals()是对字符串的内容进行比较 3.==指引用是否相同 equals()指的是值是否相同</p>
+<h1 id="17-BlockingQueue是什么？"><a href="#17-BlockingQueue是什么？" class="headerlink" title="17.BlockingQueue是什么？"></a>17.BlockingQueue是什么？</h1><p>Java.util.concurrent.BlockingQueue 是一个队列，在进行检索或移除一个元素的时候，它会等待队列变为非空；当在添加一个元素时，它会等待队列中的可用空间。BlockingQueue 接口是 Java 集合框架的一部分，主要用于实现生产者-消费者模式。我们不需要担心等待生产者有可用的空间，或消费者有可用的对象，因为它都在 BlockingQueue 的实现类中被处理 了 。 Java 提 供 了 集 中 BlockingQueue 的 实 现 ， 比 如 ArrayBlockingQueue 、</p>
+<p>LinkedBlockingQueue、PriorityBlockingQueue,、SynchronousQueue 等。</p>
+<h1 id="18-说一下-HashMap-的实现原理？"><a href="#18-说一下-HashMap-的实现原理？" class="headerlink" title="18. 说一下 HashMap 的实现原理？"></a>18. 说一下 HashMap 的实现原理？</h1><p>HashMap 概述： HashMap 是基于哈希表的 Map 接口的非同步实现。此实现提供所有可选的映射操作，并允许使用 null 值和 null 键。此类不保证映射的顺序，特别是它不保证该顺序恒久不变。</p>
+<p>HashMap 的数据结构： 在 Java 编程语言中，最基本的结构就是两种，一个是数组，另外一个是模拟指针（引用），所有的数据结构都可以用这两个基本结构来构造的，HashMap 也不例外。HashMap 实际上是一个“链表散列”的数据结构，即数组和链表的结合体。</p>
+<p>HashMap 基于 Hash 算法实现的</p>
+<p>当我们往 Hashmap 中 put 元素时，利用 key 的 hashCode 重新 hash 计算出当前对象的元素在数组中的下标存储时，如果出现 hash 值相同的 key，此时有两种情况。(1)如果 key 相同，则覆盖原始值；</p>
+<p>(2)如果 key 不同（出现冲突），则将当前的 key-value 放入链表中获取时，直接找到 hash 值对应的下标，在进一步判断 key 是否相同，从而找到对应值。</p>
+<p>理解了以上过程就不难明白 HashMap 是如何解决 hash 冲突的问题，核心就是使用了数组的存储方式，然后将冲突的 key 的对象放入链表中，一旦发现冲突就在链表中做进一步的对比。</p>
+<p>需要注意 Jdk 1.8 中对 HashMap 的实现做了优化，当链表中的节点数据超过八个之后，该链表会转为红黑树来提高查询效率，从原来的 O(n)到 O(logn)</p>
+<h1 id="19-HashMap在JDK1-7和JDK1-8中有哪些不同？-HashMap的底层实现"><a href="#19-HashMap在JDK1-7和JDK1-8中有哪些不同？-HashMap的底层实现" class="headerlink" title="19. HashMap在JDK1.7和JDK1.8中有哪些不同？ HashMap的底层实现"></a>19. HashMap在JDK1.7和JDK1.8中有哪些不同？ HashMap的底层实现</h1><p>在 Java 中，保存数据有两种比较简单的数据结构：数组和链表。<strong>数组的特点是：寻址容易，插入和删除困难；链表的特点是：寻址困难，但插入和删除容易；所以我们将数组和链表结合在一起，发挥两者各自的优势，使用一种叫做拉链法的方式可以解决哈希冲突。</strong></p>
+<p>JDK1.8 之前</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="file:///C:/Users/烟雨蒙蒙/AppData/Local/Temp/msohtmlclip1/01/clip_image013.jpg" alt="img"></p>
+<p>JDK1.8 之前采用的是拉链法。<strong>拉链法</strong>：将链表和数组相结合。也就是说创建一个链表数组，数组中每一格就是一个链表。若遇到哈希冲突，则将冲突的值加到链表中即可。</p>
+<p>JDK1.8 之后</p>
+<p>相比于之前的版本，jdk1.8 在解决哈希冲突时有了较大的变化，当链表长度大于阈值（默认为 8）时，将链表转化为红黑树，以减少搜索时间。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="file:///C:/Users/烟雨蒙蒙/AppData/Local/Temp/msohtmlclip1/01/clip_image014.jpg" alt="img"></p>
+<p>JDK1.7 VS JDK1.8 比较</p>
+<p>JDK1.8 主要解决或优化了一下问题： resize 扩容优化</p>
+<p>引入了红黑树，目的是避免单条链表过长而影响查询效率，红黑树算法请参考解决了多线程死循环问题，但仍是非线程安全的，多线程时可能会造成数据丢失问题。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="file:///C:/Users/烟雨蒙蒙/AppData/Local/Temp/msohtmlclip1/01/clip_image016.jpg" alt="img"></p>
+<h1 id="20-HashMap是怎么解决哈希冲突的？"><a href="#20-HashMap是怎么解决哈希冲突的？" class="headerlink" title="20. HashMap是怎么解决哈希冲突的？"></a>20. HashMap是怎么解决哈希冲突的？</h1><p>答：在解决这个问题之前，我们首先需要知道<strong>什么是哈希冲突</strong>，而在了解哈希冲突之前我们还要知道<strong>什么是哈希</strong>才行；什么是哈希？</p>
+<p><strong>Hash****，一般翻译为“散列”，也有直接音译为“哈希”的，这就是把任意长度的输入通过散列算法，变换成固定长度的输出，该输出就是散列值（哈希值）</strong>；这种转换是一种压缩映射，也就是，散列值的空间通常远小于输入的空间，不同的输入可能会散列成相同的输出，所以不可能从散列值来唯一的确定输入值。<strong>简单的说就是一种将任意长度的消息压缩到某一固定长度的消息摘要的函数。</strong></p>
+<p>所有散列函数都有如下一个基本特性**：根据同一散列函数计算出的散列值如果不同，那么输入值肯定也不同。但是，根据同一散列函数计算出的散列值如果相同，输入值不一定相同</p>
+<p>**。</p>
+<p>什么是哈希冲突？<strong>当两个不同的输入值，根据同一散列函数计算出相同的散列值的现象，我们就把它叫做碰撞</strong></p>
+<p><strong>（哈希碰撞）。</strong></p>
+<p>HashMap 的数据结构在 Java 中，保存数据有两种比较简单的数据结构：数组和链表。<strong>数组的特点是：寻址容易，插入和删除困难；链表的特点是：寻址困难，但插入和删除容易</strong>；所以我们将数组和链表结合在一起，发挥两者各自的优势，使用一种叫做链地址法的方式可以解决哈希冲突：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="file:///C:/Users/烟雨蒙蒙/AppData/Local/Temp/msohtmlclip1/01/clip_image018.jpg" alt="img"></p>
+<p>这样我们就可以将拥有相同哈希值的对象组织成一个链表放在hash值所对应的bucket下，<strong>但 相 比 于 hashCode 返 回 的 int 类 型 ， 我 们 HashMap 初 始 的 容 量 大 小</strong></p>
+<p><strong>DEFAULT_INITIAL_CAPACITY = 1 &lt;&lt; 4****（即 2 的四次方 16）要远小于 int 类型的范围，所以我们如果只是单纯的用 hashCode 取余来获取对应的 bucket 这将会大大增加哈希碰撞的概率，并且最坏情况下还会将 HashMap 变成一个单链表</strong>，所以我们还需要对 hashCode 作一定的优化</p>
+<p>hash()函数</p>
+<p>上面提到的问题，主要是因为如果使用 hashCode 取余，那么相当于<strong>参与运算的只有 hashCode 的低位</strong>，高位是没有起到任何作用的，所以我们的思路就是让 hashCode 取值出的高位也参与运算，进一步降低 hash 碰撞的概率，使得数据分布更平均，我们把这样的操作称为扰动，在 JDK 1.8 中的 hash()函数如下：</p>
+<p>  static final int hash(Object key)  { int h;  return  (key == null) ? 0 : (h = key.hashCode()) ^ (h &gt;&gt;&gt; 16);// 与自己右移 16 位  进行异或运算（高低位异或）  }  </p>
+<p>这比在 JDK 1.7 中，更为简洁，<strong>相比在 1.7 中的 4 次位运算，5 次异或运算（9 次扰动），在 1.8 中，只进行了 1 次位运算和 1 次异或运算（2 次扰动）；</strong></p>
+<p>JDK1.8 新增红</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="file:///C:/Users/烟雨蒙蒙/AppData/Local/Temp/msohtmlclip1/01/clip_image020.jpg" alt="img"></p>
+<p>通过上面的链地址法（使用散列表）和扰动函数我们成功让我们的数据分布更平均，哈希碰撞减少，但是当我们的 HashMap 中存在大量数据时，加入我们某个 bucket 下对应的链表有 n 个元素，那么遍历时间复杂度就为 O(n)，为了针对这个问题，JDK1.8 在 HashMap 中新增了红黑树的数据结构，进一步使得遍历复杂度降低至 O(logn)；总结简单总结一下 HashMap 是使用了哪些方法来有效解决哈希冲突的：</p>
+<ol>
+<li>使用链地址法（使用散列表）来链接拥有相同 hash 值的数据；</li>
+<li>使用 2 次扰动函数（hash 函数）来降低哈希冲突的概率，使得数据分布更平均；</li>
+<li>引入红黑树进一步降低遍历的时间复杂度，使得遍历更快；</li>
+</ol>
+<h1 id="21-如果使用Object作为HashMap的Key，应该怎么办呢？"><a href="#21-如果使用Object作为HashMap的Key，应该怎么办呢？" class="headerlink" title="21. 如果使用Object作为HashMap的Key，应该怎么办呢？"></a>21. 如果使用Object作为HashMap的Key，应该怎么办呢？</h1><p>答：重写 hashCode()和 equals()方法</p>
+<p><strong>重写 hashCode()是因为需要计算存储数据的存储位置</strong>，需要注意不要试图从散列码计算中排除掉一个对象的关键部分来提高性能，这样虽然能更快但可能会导致更多的 Hash 碰撞；重写 equals()方法，需要遵守自反性、对称性、传递性、一致性以及对于任何非 null 的引用值 x，x.equals(null)必须返回 false 的这几个特性，目的是<strong>为了保证 key 在哈希表中的唯一性；</strong></p>
+<h1 id="22-HashMap-与-HashTable-有什么区别？"><a href="#22-HashMap-与-HashTable-有什么区别？" class="headerlink" title="22. HashMap 与 HashTable 有什么区别？"></a>22. HashMap 与 HashTable 有什么区别？</h1><p><strong>线程安全</strong>： HashMap 是非线程安全的，HashTable 是线程安全的；HashTable 内部的方 法 基 本 都 经 过 synchronized 修 饰 。 （ 如 果 你 要 保 证 线 程 安 全 的 话 就 使 用</p>
+<p>ConcurrentHashMap 吧！）；</p>
+<p><strong>效率</strong>： 因为线程安全的问题，HashMap 要比 HashTable 效率高一点。另外，HashTable 基本被淘汰，不要在代码中使用它；</p>
+<p>对 Null key 和 Null value 的支持： HashMap 中，null 可以作为键，这样的键只有一个，可以有一个或多个键所对应的值为 null。但是在 HashTable 中 put 进的键值只要有一个 null，直接抛 NullPointerException。</p>
+<p>**初始容量大小和每次扩充容量大小的不同 **： ①创建时如果不指定容量初始值，</p>
+<p>Hashtable 默认的初始大小为 11，之后每次扩充，容量变为原来的 2n+1。HashMap 默认的初始化大小为 16。之后每次扩充，容量变为原来的 2 倍。②创建时如果给定了容量初始值，那么 Hashtable 会直接使用你给定的大小，而 HashMap 会将其扩充为 2 的幂次方大小。也就是说 HashMap 总是使用 2 的幂作为哈希表的大小，后面会介绍到为什么是</p>
+<p>2 的幂次方。</p>
+<p><strong>底层数据结构</strong>： JDK1.8 以后的 HashMap 在解决哈希冲突时有了较大的变化，当链表长度大于阈值（默认为 8）时，将链表转化为红黑树，以减少搜索时间。Hashtable 没有这样的机制。</p>
+<p><strong>推荐使用</strong>：在 Hashtable 的类注释可以看到，Hashtable 是保留类不建议使用，推荐在单线程环境下使用 HashMap 替代，如果需要多线程使用则用 ConcurrentHashMap 替代。</p>
+<h1 id="23-ConcurrentHashMap-和-Hashtable-的区别？"><a href="#23-ConcurrentHashMap-和-Hashtable-的区别？" class="headerlink" title="23. ConcurrentHashMap 和 Hashtable 的区别？"></a>23. ConcurrentHashMap 和 Hashtable 的区别？</h1><p>ConcurrentHashMap 和 Hashtable 的区别主要体现在实现线程安全的方式上不同。</p>
+<p><strong>底层数据结构</strong>： JDK1.7 的 ConcurrentHashMap 底层采用 分段的数组+链表 实现，</p>
+<p>JDK1.8 采用的数据结构跟 HashMap1.8 的结构一样，数组+链表/红黑二叉树。Hashtable 和 JDK1.8 之前的 HashMap 的底层数据结构类似都是采用 数组+链表 的形式，数组是</p>
+<p>HashMap 的主体，链表则是主要为了解决哈希冲突而存在的；</p>
+<p><strong>实现线程安全的方式（重要）</strong>： ① 在 JDK1.7 的时候，ConcurrentHashMap（分段锁）对整个桶数组进行了分割分段(Segment)，每一把锁只锁容器其中一部分数据，多线程访问容器里不同数据段的数据，就不会存在锁竞争，提高并发访问率。（默认分配 16 个 Segment，比 Hashtable 效率提高 16 倍。） 到了 JDK1.8 的时候已经摒弃了 Segment 的概念，而是直接用 Node 数组+链表+红黑树的数据结构来实现，并发控制使用 synchronized 和 CAS 来操作。（JDK1.6 以后 对 synchronized 锁做了很多优化） 整个看起来就像是优化过且线程安全的 HashMap，虽然在 JDK1.8 中还能看到 Segment 的数据结构，但是已经简化了属性，只是为了兼容旧版本；② Hashtable(同一把锁) :使用 synchronized 来保证线程安全，效率非常低下。当一个线程访问同步方法时，其他线程也访问同步方法，可能会进入阻塞或轮询状态，如使用 put 添加元素，另一个线程不能使用 put 添加元素，也不能使用 get，竞争会越来越激烈效率越低。</p>
+<p>两者的对比图：</p>
+<p>HashTable:</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="file:///C:/Users/烟雨蒙蒙/AppData/Local/Temp/msohtmlclip1/01/clip_image022.jpg" alt="img"></p>
+<p>JDK1.7 的 ConcurrentHashMap：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="file:///C:/Users/烟雨蒙蒙/AppData/Local/Temp/msohtmlclip1/01/clip_image024.jpg" alt="img"></p>
+<p>JDK1.8 的 ConcurrentHashMap（TreeBin: 红黑二叉树节点 Node: 链表节点）：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="file:///C:/Users/烟雨蒙蒙/AppData/Local/Temp/msohtmlclip1/01/clip_image026.jpg" alt="img"></p>
+<p>答：</p>
+<p>ConcurrentHashMap 结合了 HashMap 和 HashTable 二者的优势。</p>
+<p>HashMap 没有考虑同步，HashTable 考虑了同步的问题。</p>
+<p>但是 HashTable 在每次同步执行时都要锁住整个结构。 ConcurrentHashMap 锁的方式是稍微细粒度的。</p>
+<h1 id="24-TreeMap-和-TreeSet-在排序时如何比较元素？-Collections-工具类中的-sort-方法如何比较元素？"><a href="#24-TreeMap-和-TreeSet-在排序时如何比较元素？-Collections-工具类中的-sort-方法如何比较元素？" class="headerlink" title="24. TreeMap 和 TreeSet 在排序时如何比较元素？ Collections 工具类中的 sort()方法如何比较元素？"></a>24. TreeMap 和 TreeSet 在排序时如何比较元素？ Collections 工具类中的 sort()方法如何比较元素？</h1><p>TreeSet 要求存放的对象所属的类必须实现 Comparable 接口，该接口提供了比较元素的 compareTo()方法，当插入元素时会回调该方法比较元素的大小。TreeMap 要求存放的键值对映射的键必须实现 Comparable 接口从而根据键对元素进行排序。</p>
+<p>Collections 工具类的 sort 方法有两种重载的形式，</p>
+<p>第一种要求传入的待排序容器中存放的对象比较实现 Comparable 接口以实现元素的比较；</p>
+<p>第二种不强制性的要求容器中的元素必须可比较，但是要求传入第二个参数，参数是</p>
+<p>Comparator 接口的子类型（需要重写 compare 方法实现元素的比较），相当于一个临时定义的排序规则，其实就是通过接口注入比较元素大小的算法，也是对回调模式的应用</p>
+<p>（Java 中对函数式编程的支持）。</p>
+<p>三、Linux 常用指令</p>
+<h2 id="1-常见命令"><a href="#1-常见命令" class="headerlink" title="1. 常见命令"></a><strong>1.</strong> 常见命令</h2><p>  ctrl c 退出当前执行 cd .. 返回到上一级目录中 cd ~ 返回到根目录中 或者是 cd (加个空格)  cd  - 返回进入此目录之前所在的目录 exit 退出  </p>
+<h2 id="2-常见的操作文件，文件夹的命令"><a href="#2-常见的操作文件，文件夹的命令" class="headerlink" title="2. 常见的操作文件，文件夹的命令"></a><strong>2.</strong> 常见的操作文件，文件夹的命令</h2><p># ls — List ： 列举出当前工作目录的内容（文件或文件夹） ls -l # 查看文件名称和 文件的权限 ls -a # 显示全部的文件，包括隐藏的文件 #  clear ： 清除当前命令</p>
+<p>#  mkdir — Make Directory ： 创建一个新文件夹</p>
+<p>#  rmdir— Remove Directory ： 删除一个文件夹</p>
+<p>#  pwd — Print Working Directory ： 显示当前目录</p>
+<hr>
+<p> cd — Change Directory: 切换文件路径，cd将给定的文件夹（或目录）设置成当前工作目录<br> rm — Remove: 删除指定的文件。在Linux没有回收站，删除之后无法恢复<br> rm -rf 文件（r递归删除，f直接强行删除）<br> sudo rm -r hadoop # 删除文件夹下的所有文件<br> vi: 创建一个文件 vi test.txt # 一种比较方便打开文件的方式 sudo gedit + 文件 &gt;是覆盖，&gt;&gt; 是追加<br> echo &gt;: 向已有的文件中增加内容， echo “added contents” &gt;&gt;test.txt<br> echo &gt;&gt;: 覆盖文件内容，若不存在则创建一个新的文件 echo “new file” &gt;newFile.txt<br> cat — concatenate and print files: 显示一个文件 cat test.txt<br> less, more: 如果文件太大，分页显示一个文件，按 Q 结束浏览</p>
+<p>tail: 显示文件的最后10行， tail -n 5 test.txt 显示最后5行<br> touch: 创建一个新的空的文件，不直接进行编辑<br> cp — Copy: 对文件进行复制；例子： cp test.txt ../jun2<br> mv — Move: 对文件或文件夹进行移动 mv hello.csv ./python：把当前目录的 hello.csv 剪切到当前目的 python 文件夹里<br> grep: 在文件中查找指定的字符; grep fun test.txt<br> tar: tar命令能创建、查看和提取 tar 压缩文件。 tar -cvf 是创建对应压缩文件， tar -cvf test.tar test.txt # 将 test.txt 压缩为 test.tar<br> tar -tvf 来查看对应压缩文件， tar -xvf 来提取对应压缩文件<br> mkdir — Make Directory: 创建一个新目录<br> mkdir — Make Directory: 创建一个新目录<br> mkdir — Make Directory: 创建一个新目录</p>
+<h2 id="3-软件下载安装"><a href="#3-软件下载安装" class="headerlink" title="3. 软件下载安装"></a><strong>3.</strong> 软件下载安装</h2><p>sudo apt-get update   # 更新一下软件源，获取最新软件的列表</p>
+<p>sudo apt-get install gedit(软件名)   # 安装软件</p>
+<h2 id="4-系统重启和关机指令"><a href="#4-系统重启和关机指令" class="headerlink" title="4. 系统重启和关机指令"></a><strong>4.</strong> 系统重启和关机指令</h2><p>#  reboot ： 立刻进行重启</p>
+<p>#  shutdown -r now ： 立刻进行重启</p>
+<p># shutdown -r 10 ： 10 分钟后进行重启</p>
+<p># 关机命令</p>
+<p>#  halt ： 立刻关机</p>
+<p>#  poweroff ： 立刻关机</p>
+<p>#  shutdown -h now ： 立刻关机</p>
+<h2 id="5-文件模式和访问权限"><a href="#5-文件模式和访问权限" class="headerlink" title="5. 文件模式和访问权限"></a><strong>5.</strong> 文件模式和访问权限</h2><p>  -rwxr-xr– : 含义表示  第一列的字符可以分为三组，每一组有三个，每个字符都代表不同的权限，分别为读取(r) 写入(w)和执行(x)： u 第一组字符(2-4)表示文件所有者的权限，-rwxr-xr– 表示所有者拥有读取(r)、写入(w) 和执行(x)的权限。  g 第二组字符(5-7)表示文件所属用户组的权限，-rwxr-xr– 表示该组拥有读取(r)和执行(x) 的权限，但没有写入权限。  o  第三组字符(8-10)表示所有其他用户的权限，rwxr-xr– 表示其他用户只能读取(r)文件。  目录的访问模式为：读取：用户可以查看目录中的文件写入：用户可以在当前目录中删除文件或创建文件  执行：执行权限赋予用户遍历目录的权利，例如执行 cd 和 ls 命令。（只是对于目录而言  #  chmod o=rwx anoterDir ：  设置其他用户的权限，o,  - 表示删除权限， + 表示增加权限  </p>
+<p>#   chmod (change mode) ：命令来改变文件或目录的访问权限、</p>
+<p>）</p>
+<h2 id="6-环境变量"><a href="#6-环境变量" class="headerlink" title="6. 环境变量"></a><strong>6.</strong> 环境变量</h2><p># 常见的环境环境变量。 输入的形式为： echo $Home</p>
+<p>#— 使用 env 显示所有的环境变量</p>
+<p>HOME：指定用户的主工作目录  ，如： echo $Home</p>
+<p>LOGNAME：指当前用户的登录名</p>
+<p>HOSTNAME：指主机的名称 LANG/LANGUGE：和语言相关的环境变量 vim ~/.bashrc #进行环境配置 source ~/.bashrc  # 使配置立即生效 export 设置一个新的环境变量 export HELLO=”hello” (可以无引号) unset 清除环境变量 unset HELLO</p>
+<h2 id="7-ubuntu-登陆到-mysql"><a href="#7-ubuntu-登陆到-mysql" class="headerlink" title="7. ubuntu 登陆到 mysql"></a><strong>7. ubuntu</strong> 登陆到 <strong>mysql</strong></h2><p>（登陆到 mysql 中）</p>
+<p>#—启动和终止 mysql—–</p>
+<p>service mysql start</p>
+<p>service mysql restart service mysql stop</p>
+<p>#—打开 mysql 的 shell 命令 mysql -u root -p</p>
+<p>四、MySQL 基础面试</p>
+<h1 id="1-三个范式是什么"><a href="#1-三个范式是什么" class="headerlink" title="1. 三个范式是什么"></a>1. 三个范式是什么</h1><p>第一范式（1NF）：数据库表中的字段都是单一属性的，不可再分。这个单一属性由基本类型构成，包括整型、实数、字符型、逻辑型、日期型等。</p>
+<p>第二范式（2NF）：数据库表中不存在非关键字段对任一候选关键字段的部分函数依赖（部分函数依赖指的是存在组合关键字中的某些字段决定非关键字段的情况），也即所有非关键字段都完全依赖于任意一组候选关键字。</p>
+<p>第三范式（3NF）：在第二范式的基础上，数据表中如果不存在非关键字段对任一候选关键字段的传递函数依赖则符合第三范式。所谓传递函数依赖，指的是如果存在”A → B → C” 的决定关系，则 C 传递函数依赖于 A。因此，满足第三范式的数据库表应该不存在如下依赖关系： 关键字段 → 非关键字段 x → 非关键字段 y</p>
+<p>上面的文字我们肯定是看不懂的，也不愿意看下去的。接下来我就总结一下：</p>
+<p>首先要明确的是：<strong>满足着第三范式，那么就一定满足第二范式、满足着第二范式就一定满足第一范式</strong>第一范式：<strong>字段是最小的的单元不可再分</strong></p>
+<p>学生信息组成学生信息表，有年龄、性别、学号等信息组成。这些字段都不可再分，所以它是满足第一范式的第二范式：<strong>满足第一范式,表中的字段必须完全依赖于全部主键而非部分主键。其他字段组成的这行记录和主键表示的是同一个东西，而主键是唯一的，它们只需要依赖于主键，也就成了唯一的</strong>学号为 1024 的同学，姓名为 Java3y，年龄是 22 岁。姓名和年龄字段都依赖着学号主键。</p>
+<p>第三范式：满足第二范式，<strong>非主键外的所有字段必须互不依赖就是数据只在一个地方存储，不重复出现在多张表中，可以认为就是消除传递依赖</strong>比如，我们大学分了很多系（中文系、英语系、计算机系……），这个系别管理表信息有以下字段组成：系编号，系主任，系简介，系架构。那我们能不能在学生信息表添加系编号，系主任，系简介，系架构字段呢？不行的，因为这样就冗余了，非主键外的字段形成了依赖关系(依赖到学生信息表了)！正确的做法是：学生表就只能增加一个系编号字段。</p>
+<h1 id="2-什么是事务？"><a href="#2-什么是事务？" class="headerlink" title="2. 什么是事务？"></a>2. 什么是事务？</h1><p>事务简单来说：<strong>一个 Session 中所进行所有的操作，要么同时成功，要么同时失败</strong></p>
+<p><strong>ACID —</strong> <strong>数据库事务正确执行的四个基本要素</strong></p>
+<p>包含：原子性（Atomicity）、一致性（Consistency）、隔离性（Isolation）、持久性（Durability）。<strong>一个支持事务（Transaction）中的数据库系统，必需要具有这四种特性，否则在事务过程</strong></p>
+<p><strong>（Transaction processing）当中无法保证数据的正确性，交易过程极可能达不到交易。</strong></p>
+<p>举个例子:A 向 B 转账，转账这个流程中如果出现问题，事务可以让数据恢复成原来一样【A 账户的钱没变，B 账户的钱也没变】。</p>
+<p>事例说明：</p>
+<p>  /*  *    我们来模拟 A 向 B 账号转账的场景  *    A  和 B 账户都有 1000 块，现在我让 A 账户向 B 账号转 500 块钱  *  *    */  //JDBC  默认的情况下是关闭事务的，下面我们看看关闭事务去操作转账操作有什么问题  //A 账户减去 500 块  String  sql = “UPDATE a SET money=money-500 “; preparedStatement =  connection.prepareStatement(sql); preparedStatement.executeUpdate();  //B 账户多了 500 块  String sql2 = “UPDATE b SET  money=money+500”; preparedStatement = connection.prepareStatement(sql2);  preparedStatement.executeUpdate();  </p>
+<p>从上面看，我们的确可以发现 <strong>A 向 B 转账，成功了。可是如果 A 向 B 转账的过程中出现了问题呢？</strong>下面模拟一下</p>
+<p>//A 账户减去 500 块</p>
+<p>String sql = “UPDATE a SET money=money-500 “; preparedStatement = connection.prepareStatement(sql); preparedStatement.executeUpdate();</p>
+<p>//这里模拟出现问题</p>
+<p>int a = 3 / 0;</p>
+<p>String sql2 = “UPDATE b SET money=money+500”; preparedStatement = connection.prepareStatement(sql2); preparedStatement.executeUpdate();</p>
+<p>显然，上面<strong>代码是会抛出异常的</strong>，我们再来查询一下数据。<strong>A 账户少了 500 块钱，B 账户的钱没有增加。这明显是不合理的。</strong></p>
+<p>我们可以通过事务来解决上面出现的问题</p>
+<p>//开启事务,对数据的操作就不会立即生效。</p>
+<p>connection.setAutoCommit(false);</p>
+<table>
+<thead>
+<tr>
+<th>//A 账户减去 500 块  String sql = “UPDATE a SET  money=money-500 “; preparedStatement = connection.prepareStatement(sql);  preparedStatement.executeUpdate();  //在转账过程中出现问题  int a = 3 / 0;  //B 账户多 500 块  String sql2 = “UPDATE b SET  money=money+500”; preparedStatement = connection.prepareStatement(sql2);  preparedStatement.executeUpdate();  //如果程序能执行到这里，没有抛出异常，我们就提交数据  connection.commit();  //关闭事务【自动提交】  connection.setAutoCommit(true);  } catch (SQLException e) { try {</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>//如果出现了异常，就会进到这里来，我们就把事务回滚【将数据变成原  来那样】  connection.rollback();  //关闭事务【自动提交】  connection.setAutoCommit(true);  } catch (SQLException e1) {  e1.printStackTrace();  }</td>
+</tr>
+</tbody></table>
+<p>上面的程序也一样抛出了异常，A 账户钱没有减少，B 账户的钱也没有增加。</p>
+<p>注意：当 Connection 遇到一个未处理的 SQLException 时，系统会非正常退出，事务也会自动回滚，但<strong>如果程序捕获到了异常，是需要在 catch 中显式回滚事务的。</strong></p>
+<h1 id="3-事务隔离级别"><a href="#3-事务隔离级别" class="headerlink" title="3. 事务隔离级别"></a>3. 事务隔离级别</h1><p>数据库定义了 4 个隔离级别：</p>
+<p>Serializable【可避免脏读，不可重复读，虚读】</p>
+<p>Repeatable read【可避免脏读，不可重复读】</p>
+<p>Read committed【可避免脏读】</p>
+<p>Read uncommitted【级别最低，什么都避免不了】</p>
+<p>分别对应 Connection 类中的 4 个常量</p>
+<p><strong>TRANSACTION_READ_UNCOMMITTED</strong></p>
+<p><strong>TRANSACTION_READ_COMMITTED</strong></p>
+<p><strong>TRANSACTION_REPEATABLE_READ</strong></p>
+<p><strong>TRANSACTION_SERIALIZABLE</strong></p>
+<p>脏读：<strong>一个事务读取到另外一个事务未提交的数据</strong></p>
+<p>例子：<strong>A 向 B 转账，A 执行了转账语句，但 A 还没有提交事务，B 读取数据，发现自己账户钱变多了！</strong>B 跟 A 说，我已经收到钱了。A 回滚事务【rollback】，等 B 再查看账户的钱时，发现钱并没有多。</p>
+<p>不可重复读：<strong>一个事务读取到另外一个事务已经提交的数据，也就是说一个事务可以看到其他事务所做的修改</strong>注：<strong>A 查询数据库得到数据，B 去修改数据库的数据，导致 A 多次查询数据库的结果都不一样【危害：A 每次查询的结果都是受 B 的影响的，那么 A 查询出来的信息就没有意思了】</strong></p>
+<p>虚读(幻读)：<strong>是指在一个事务内读取到了别的事务插入的数据，导致前后读取不一致。</strong></p>
+<p>注：<strong>和不可重复读类似，但虚读(幻读)会读到其他事务的插入的数据，导致前后读取不一致</strong></p>
+<p>简单总结：<strong>脏读是不可容忍的，不可重复读和虚读在一定的情况下是可以的【做统计的肯定就不行】。</strong></p>
+<h1 id="4-数据库的乐观锁和悲观锁是什么？"><a href="#4-数据库的乐观锁和悲观锁是什么？" class="headerlink" title="4. 数据库的乐观锁和悲观锁是什么？"></a>4. 数据库的乐观锁和悲观锁是什么？</h1><p>确保在多个事务同时存取数据库中同一数据时不破坏事务的隔离性和统一性以及数据库的统一性，<strong>乐观锁和悲观锁是并发控制主要采用的技术手段。</strong></p>
+<p>悲观锁：假定会发生并发冲突，屏蔽一切可能违反数据完整性的操作</p>
+<p><strong>在查询完数据的时候就把事务锁起来，直到提交事务</strong>实现方式：使用数据库中的锁机制乐观锁：假设不会发生并发冲突，只在提交操作时检查是否违反数据完整性。</p>
+<p><strong>在修改数据的时候把事务锁起来，通过 version 的方式来进行锁定</strong>实现方式：使用 version 版本或者时间戳悲观锁：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="file:///C:/Users/烟雨蒙蒙/AppData/Local/Temp/msohtmlclip1/01/clip_image028.jpg" alt="img"></p>
+<p>乐观锁：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="file:///C:/Users/烟雨蒙蒙/AppData/Local/Temp/msohtmlclip1/01/clip_image030.jpg" alt="img"></p>
+<p>可以参考：</p>
+<p><strong><a target="_blank" rel="noopener" href="http://www.open-open.com/lib/view/open1452046967245.html">http://www.open-open.com/lib/view/open1452046967245.html</a></strong></p>
+<h1 id="5-超键、候选键、主键、外键分别是什么？"><a href="#5-超键、候选键、主键、外键分别是什么？" class="headerlink" title="5. 超键、候选键、主键、外键分别是什么？"></a>5. 超键、候选键、主键、外键分别是什么？</h1><p>超键：<strong>在关系中能唯一标识元组的属性集称为关系模式的超键</strong>。一个属性可以为作为一个超键，多个属性组合在一起也可以作为一个超键<strong>。超键包含候选键和主键。</strong></p>
+<p><strong>候选键(候选码)：是最小超键，即没有冗余元素的超键。主键(主码)：数据库表中对储存数据对象予以唯一和完整标识的数据列或属性的组合</strong>。一个数据列只能有一个主键，且主键的取值不能缺失，即不能为空值（Null）。</p>
+<p><strong>外键：在一个表中存在的另一个表的主键称此表的外键。</strong></p>
+<p><strong>候选码和主码：</strong>例子：邮寄地址（城市名，街道名，邮政编码，单位名，收件人）<strong>它有两个候选键:{城市名，街道名} 和 {街道名，邮政编码} 如果我选取{城市名，街道名}作为唯一标识实体的属性，那么{城市名，街道名} 就是主码(主</strong></p>
+<p><strong>键)</strong></p>
+<h1 id="6-SQL-约束有哪几种？"><a href="#6-SQL-约束有哪几种？" class="headerlink" title="6. SQL 约束有哪几种？"></a>6. SQL 约束有哪几种？</h1><p>NOT NULL: 用于控制字段的内容一定不能为空（NULL）。</p>
+<p>UNIQUE: 控件字段内容不能重复，一个表允许有多个 Unique 约束。</p>
+<p>PRIMARY KEY: 也是用于控件字段内容不能重复，但它在一个表只允许出现一个。</p>
+<p>FOREIGN KEY: 用于预防破坏表之间连接的动作，也能防止非法数据插入外键列，因为它必须是它指向的那个表中的值之一。</p>
+<p>CHECK: 用于控制字段的值范围。</p>
+<h1 id="7-drop、delete与truncate分别在什么场景之下使用？"><a href="#7-drop、delete与truncate分别在什么场景之下使用？" class="headerlink" title="7.drop、delete与truncate分别在什么场景之下使用？"></a>7.drop、delete与truncate分别在什么场景之下使用？</h1><p>我们来对比一下他们的区别：</p>
+<p>drop table</p>
+<p>1)属于 DDL</p>
+<p>2)不可回滚</p>
+<p>3)不可带 where</p>
+<p>4)表内容和结构删除</p>
+<p>5)删除速度快</p>
+<p>truncate table</p>
+<p>1)属于 DDL</p>
+<p>2)不可回滚</p>
+<p>3)不可带 where</p>
+<p>4)表内容删除</p>
+<p>5)删除速度快 delete from</p>
+<p>1)属于 DML</p>
+<p>2)可回滚</p>
+<p>3)可带 where</p>
+<p>4)表结构在，表内容要看 where 执行的情况</p>
+<p>5)删除速度慢,需要逐行删除<strong>不再需要一张表的时候，用 drop 想删除部分数据行时候，用 delete，并且带上 where 子句保留表而删除所有数据的时候用 truncate</strong></p>
+<h1 id="8-索引特点"><a href="#8-索引特点" class="headerlink" title="8. 索引特点"></a>8. 索引特点</h1><p><strong>索引的特点</strong></p>
+<p>（1）    索引一旦建立, Oracle 管理系统会对其进行自动维护, 而且由 O<strong>racle</strong> <strong>管理系统决定何时使用索引</strong></p>
+<p>（2）    用户不用在查询语句中指定使用哪个索引</p>
+<p>（3）    <strong>在定义 primary key 或 unique 约束后系统自动在相应的列上创建索引</strong></p>
+<p>（4）    用户也能按自己的需求，对指定单个字段或多个字段，添加索引需要注意的是：<strong>Oracle 是自动帮我们管理索引的，并且如果我们指定了 primary key 或者 unique 约束，系统会自动在对应的列上创建索引..</strong></p>
+<p><strong>什么时候【要】创建索引</strong></p>
+<p>（1）    表经常进行 SELECT 操作</p>
+<p>（2）    表很大(记录超多)，记录内容分布范围很广</p>
+<p>（3）    列名经常在 WHERE 子句或连接条件中出现<strong>什么时候【不要】创建索引</strong></p>
+<p>（1）    表经常进行 INSERT/UPDATE/DELETE 操作</p>
+<p>（2）    表很小(记录超少)</p>
+<p>（3）    列名不经常作为连接条件或出现在 WHERE 子句中</p>
+<p><strong>索引优缺点：</strong></p>
+<p>索引加快数据库的检索速度索引降低了插入、删除、修改等维护任务的速度(虽然索引可以提高查询速度，但是它们也会导致数据库系统更新数据的性能下降，<strong>因为大部分数据更新需要同时更新索引)</strong> 唯一索引可以确保每一行数据的唯一性，通过使用索引，可以在查询的过程中使用优化隐藏器，提高系统的性能索引需要占物理和数据空间索引分类：</p>
+<p><strong>唯一索引</strong>：唯一索引不允许两行具有相同的索引值<strong>主键索引</strong>：为表定义一个主键将自动创建主键索引，主键索引是唯一索引的特殊类型。主键索引要求主键中的每个值是唯一的，并且不能为空</p>
+<p>**聚集索引(Clustered)**：表中各行的物理顺序与键值的逻辑（索引）顺序相同，每个表只能有一个</p>
+<p>**非聚集索引(Non-clustered)**：非聚集索引指定表的逻辑顺序。数据存储在一个位置，索引存储在另一个位置，索引中包含指向数据存储位置的指针。可以有多个，小于 249 个</p>
+<ol start="9">
+<li>非关系型数据库和关系型数据库区别，优势比较?</li>
+</ol>
+<p>非关系型数据库的优势：<strong>性能</strong>：NOSQL 是基于键值对的，可以想象成表中的主键和值的对应关系，而且不需要经过</p>
+<p>SQL 层的解析，所以性能非常高。<strong>可扩展性</strong>：同样也是因为基于键值对，数据之间没有耦合性，所以非常容易水平扩展。</p>
+<p>关系型数据库的优势：<strong>复杂查询</strong>：可以用 SQL 语句方便的在一个表以及多个表之间做非常复杂的数据查询。</p>
+<p><strong>事务支持</strong>：使得对于安全性能很高的数据访问要求得以实现。</p>
+<p><strong>其他</strong>：</p>
+<p>1.对于这两类数据库，对方的优势就是自己的弱势，反之亦然。</p>
+<p>2.NOSQL 数据库慢慢开始具备 SQL 数据库的一些复杂查询功能，比如 MongoDB。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="file:///C:/Users/烟雨蒙蒙/AppData/Local/Temp/msohtmlclip1/01/clip_image032.gif" alt="img"></td>
+</tr>
+</tbody></table>
+<p>3.对于事务的支持也可以用一些系统级的原子操作来实现例如乐观锁之类的方法来曲线救国，比如 Redis set nx。</p>
+<p>10.MYSQL的两种存储引擎区别（事务、锁级别等等），各自的适用场景</p>
+<h1 id="11-索引有B-索引和hash索引"><a href="#11-索引有B-索引和hash索引" class="headerlink" title="11.索引有B+索引和hash索引"></a>11.索引有B+索引和hash索引</h1><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="file:///C:/Users/烟雨蒙蒙/AppData/Local/Temp/msohtmlclip1/01/clip_image034.jpg" alt="img"></p>
+<h1 id="12-为什么设计红黑树"><a href="#12-为什么设计红黑树" class="headerlink" title="12 为什么设计红黑树"></a>12 为什么设计红黑树</h1><p>红黑树通过它规则的设定，确保了插入和删除的最坏的时间复杂度是 O(log N) 。</p>
+<p>红黑树解决了 AVL 平衡二叉树的维护起来比较麻烦的问题，红黑树，读取略逊于 AVL，维护强于 AVL，每次插入和删除的平均旋转次数应该是远小于平衡树。</p>
+<p>因此：相对于要求严格的 AVL 树来说，红黑树的旋转次数少，所以对于插入、删除操作较多的情况下，我们就用红黑树。但是，只是对查找要求较高,那么 AVL 还是较优于红黑树.</p>
+<h1 id="13-B树的作用"><a href="#13-B树的作用" class="headerlink" title="13 B树的作用"></a>13 B树的作用</h1><p>B 树大多用在磁盘上用于查找磁盘的地址。因为磁盘会有大量的数据，有可能没有办法一次将需要的所有数据加入到内存中，所以只能逐一加载磁盘页，每个磁盘页就对应一个节点，而对于 B 树来说，B 树很好的将树的高度降低了，这样就会减少 IO 查询次数，虽然一次加载到内存的数据变多了，但速度绝对快于 AVL 或是红黑树的。</p>
+<h1 id="14-B树和-B-树的区别"><a href="#14-B树和-B-树的区别" class="headerlink" title="14 B树和 B+树的区别"></a>14 B树和 B+树的区别</h1><p>B/B+树用在磁盘文件组织、数据索引和数据库索引中。其中 B+树比 B 树更适合实际应用中操作系统的文件索引和数据库索引，因为：</p>
+<p><strong>1、</strong> **B+**<strong>树的磁盘读写代价更低</strong> B+树的内部结点并没有指向关键字具体信息的指针。因此其内部结点相对 B 树更小。如果把所有同一内部结点的关键字存放在同一盘块中，那么盘块所能容纳的关键字数量也越多。</p>
+<p>一次性读入内存中的需要查找的关键字也就越多。相对来说 IO 读写次数也就降低了。</p>
+<p>举个例子，假设磁盘中的一个盘块容纳 16bytes，而一个关键字 2bytes，一个关键字具体信息指针 2bytes。一棵 9 阶 B-tree(一个结点最多 8 个关键字)的内部结点需要 2 个盘快。而 B+ 树内部结点只需要 1 个盘快。当需要把内部结点读入内存中的时候，B 树就比 B+ 树多一次盘块查找时间(在磁盘中就是盘片旋转的时间)。</p>
+<p><strong>2、</strong> <strong>B+-tree</strong> <strong>的查询效率更加稳定</strong></p>
+<p>由于非终结点并不是最终指向文件内容的结点，而只是叶子结点中关键字的索引。所以任何关键字的查找必须走一条从根结点到叶子结点的路。所有关键字查询的路径长度相同，导致每一个数据的查询效率相当。</p>
+<p><strong>3****、B 树在元素遍历的时候效率较低</strong>由于 B+树的数据都存储在叶子结点中，分支结点均为索引，方便扫库，只需要扫一遍叶子结点即可，但是 B 树因为其分支结点同样存储着数据，我们要找到具体的数据，需要进行一次中序遍历按序来扫，所以 B+树更加适合在区间查询的情况，所以通常 B+树用于数据库索引。在数据库中基于范围的查询相对频繁，所以此时 B+树优于 B 树。</p>
+<h1 id="15-B树和红黑树的区别"><a href="#15-B树和红黑树的区别" class="headerlink" title="15 B树和红黑树的区别"></a>15 B树和红黑树的区别</h1><p>最大的区别就是树的深度较高，在磁盘 I/O 方面的表现不如 B 树。</p>
+<p>要获取磁盘上数据，必须先通过磁盘移动臂移动到数据所在的柱面，然后找到指定盘面，接着旋转盘面找到数据所在的磁道，最后对数据进行读写。磁盘 IO 代价主要花费在查找所需的柱面上，树的深度过大会造成磁盘 IO 频繁读写。根据磁盘查找存取的次数往往由树的高度所决定。</p>
+<p>所以，在大规模数据存储的时候，红黑树往往出现由于树的深度过大而造成磁盘 IO 读写过于频繁，进而导致效率低下。在这方面，B 树表现相对优异，B 树可以有多个子女，从几十到上千，可以降低树的高度。</p>
+<h1 id="16-AVL树和红黑树的区别"><a href="#16-AVL树和红黑树的区别" class="headerlink" title="16 AVL树和红黑树的区别"></a>16 AVL树和红黑树的区别</h1><p>红黑树的算法时间复杂度和 AVL 相同，但统计性能比 AVL 树更高。</p>
+<p>1、 红黑树和 AVL 树都能够以 O(log2 n)的时间复杂度进行搜索、插入、删除操作。</p>
+<p>2、 由于设计，红黑树的任何不平衡都会在三次旋转之内解决。AVL 树增加和删除可能需要通过一次或多次树旋转来重新平衡这个树。</p>
+<p>在查找方面：</p>
+<p>红黑树的性质(最长路径长度不超过最短路径长度的 2 倍)，其查找代价基本维持在</p>
+<p>O(logN)左右，但在最差情况下(最长路径是最短路径的 2 倍少 1)，比 AVL 要略逊色一点。</p>
+<p>  AVL 是严格平衡的二叉查找树（平衡因子不超过 1）。查找过程中不会出现最差情况的单支树。因此查找效率最好，最坏情况都是 O(logN)数量级的。</p>
+<p>所以，综上：</p>
+<p>  AVL 比 RBtree 更加平衡，但是 AVL 的插入和删除会带来大量的旋转。 所以如果插入和删除比较多的情况，应该使用 RBtree, 如果查询操作比较多，应该使用 AVL。</p>
+<p>AVL 是一种高度平衡的二叉树，维护这种高度平衡所付出的代价比从中获得的效率收益还大，故而实际的应用不多，更多的地方是用追求局部而不是非常严格整体平衡的红黑树。当然，如果场景中对插入删除不频繁，只是对查找特别有要求，AVL 还是优于红黑的。</p>
+<h1 id="17-数据库为什么使用B树，而不使用AVL或者红黑树"><a href="#17-数据库为什么使用B树，而不使用AVL或者红黑树" class="headerlink" title="17 数据库为什么使用B树，而不使用AVL或者红黑树"></a>17 数据库为什么使用B树，而不使用AVL或者红黑树</h1><p>我们假设 B+树一个节点可以有 100 个关键字，那么 3 层的 B 树可以容纳大概 1000000 多个关键字（100+101<em>100+101</em>101*100）。而红黑树要存储这么多至少要 20 层。所以使用 B 树相对于红黑树和 AVL 可以减少 IO 操作</p>
+<h1 id="18-mysql的Innodb引擎为什么采用的是B-树的索引方式"><a href="#18-mysql的Innodb引擎为什么采用的是B-树的索引方式" class="headerlink" title="18 mysql的Innodb引擎为什么采用的是B+树的索引方式"></a>18 mysql的Innodb引擎为什么采用的是B+树的索引方式</h1><p>B+树只有叶子节点存放数据，而其他节点只存放索引，而 B 树每个节点都有 Data 域。所以相同大小的节点 B+树包含的索引比 B 树的索引更多（因为 B 树每个节点还有 Data 域）还有就是 B+树的叶子节点是通过链表连接的，所以找到下限后能很快进行区间查询，比 B 树中序遍历快</p>
+<h1 id="19-红黑树-和-b-树的用途有什么区别？"><a href="#19-红黑树-和-b-树的用途有什么区别？" class="headerlink" title="19 红黑树 和 b+树的用途有什么区别？"></a>19 红黑树 和 b+树的用途有什么区别？</h1><p>红黑树多用在内部排序，即全放在内存中的，STL 的 map 和 set 的内部实现就是红黑树。</p>
+<p>B+树多用于外存上时，B+也被成为一个磁盘友好的数据结构。</p>
+<h1 id="20-为什么B-树比B树更为友好"><a href="#20-为什么B-树比B树更为友好" class="headerlink" title="20 为什么B+树比B树更为友好"></a>20 为什么B+树比B树更为友好</h1><p><strong>磁盘读写代价更低</strong>树的非叶子结点里面没有数据，这样索引比较小，可以放在一个 blcok（或者尽可能少的 blcok）里面。避免了树形结构不断的向下查找，然后磁盘不停的寻道，读数据。这样的设计，可以降低 io 的次数。</p>
+<p><strong>查询效率更加稳定</strong>非终结点并不是最终指向文件内容的结点，而只是叶子结点中关键字的索引。所以任何关键字的查找必须走一条从根结点到叶子结点的路。所有关键字查询的路径长度相同，导致每一个数据的查询效率相当。</p>
+<p><strong>遍历所有的数据更方便</strong></p>
+<p>B+树只要遍历叶子节点就可以实现整棵树的遍历，而其他的树形结构 要中序遍历才可以访问所有的数据。</p>
+<h1 id="21-数据库优化"><a href="#21-数据库优化" class="headerlink" title="21. 数据库优化"></a>21. 数据库优化</h1><p><strong>在我们书写 SQL 语句的时候，其实书写的顺序、策略会影响到 SQL 的性能，虽然实现的功能是一样的，但是它们的性能会有些许差别。</strong></p>
+<p>因此，下面就讲解在书写 SQL 的时候，怎么写比较好。</p>
+<p>①选择最有效率的表名顺序数据库的解析器<strong>按照从右到左的顺序处理 FROM 子句中的表名，FROM 子句中写在最后的表将被最先处理</strong>在 FROM 子句中包含多个表的情况下：<strong>如果三个表是完全无关系的话，将记录和列名最少的表，写在最后，然后依次类推也就是说：选择记录条数最少的表放在最后</strong>如果有 3 个以上的表连接查询：<strong>如果三个表是有关系的话，将引用最多的表，放在最后，然后依次类推。</strong></p>
+<p><strong>也就是说：被其他表所引用的表放在最后</strong>例如：查询员工的编号，姓名，工资，工资等级，部门名</p>
+<p><strong>emp</strong> <strong>表被引用得最多，记录数也是最多，因此放在 form 字句的最后面</strong></p>
+<p>select emp.empno,emp.ename,emp.sal,salgrade.grade,dept.dname from salgrade,dept,emp</p>
+<p>where (emp.deptno = dept.deptno) and (emp.sal between salgrade.losal and salgrade.hisal)</p>
+<p>②WHERE 子句中的连接顺序</p>
+<p>数据库采用<strong>自右而左的顺序解析</strong> WHERE 子句,根据这个原理,<strong>表之间的连接必须写在其他</strong></p>
+<p><strong>WHERE</strong> <strong>条件之左,那些可以过滤掉最大数量记录的条件必须写在 WHERE 子句的之右。</strong></p>
+<p>emp.sal 可以过滤多条记录，写在 WHERE 字句的最右边</p>
+<p>select emp.empno,emp.ename,emp.sal,dept.dname from dept,emp</p>
+<p>where (emp.deptno = dept.deptno) and (emp.sal &gt; 1500)</p>
+<p>③SELECT 子句中避免使用*号</p>
+<p>我们当时学习的时候，“*”号是可以获取表中全部的字段数据的。</p>
+<p><strong>但是它要通过查询数据字典完成的，这意味着将耗费更多的时间</strong>使用*号写出来的 SQL 语句也不够直观。</p>
+<p>④用 TRUNCATE 替代 DELETE</p>
+<p>这里仅仅是：<strong>删除表的全部记录，除了表结构才这样做。</strong></p>
+<p><strong>DELETE</strong> <strong>是一条一条记录的删除，而 Truncate 是将整个表删除，保留表结构，这样比</strong></p>
+<p><strong>DELETE</strong> <strong>快</strong></p>
+<p>⑤多使用内部函数提高 SQL 效率<strong>例如使用 mysql 的 concat()函数会比使用||来进行拼接快，因为 concat()函数已经被 mysql 优化过了。</strong></p>
+<p>⑥使用表或列的别名<strong>如果表或列的名称太长了，使用一些简短的别名也能稍微提高一些 SQL 的性能。毕竟要扫描的字符长度就变少了。。。</strong></p>
+<p>⑦多使用 commit</p>
+<p>comiit 会释放回滚点…</p>
+<p>⑧善用索引索引就是为了提高我们的查询数据的，当表的记录量非常大的时候，我们就可以使用索引了。</p>
+<p>⑨SQL 写大写我们在编写 SQL 的时候，官方推荐的是使用大写来写关键字，<strong>因为 Oracle 服务器总是先将小写字母转成大写后，才执行</strong></p>
+<p>⑩避免在索引列上使用 NOT 因为 Oracle 服务器遇到 NOT 后，他就会停止目前的工作，转而执行全表扫描</p>
+<p>①①避免在索引列上使用计算</p>
+<p>WHERE 子句中，<strong>如果索引列是函数的一部分，优化器将不使用索引而使用全表扫描，这样会变得变慢</strong></p>
+<p>①②用 &gt;= 替代 &gt;</p>
+<p>低效：</p>
+<p>SELECT * FROM EMP WHERE DEPTNO &gt; 3</p>
+<p>首先定位到 DEPTNO=3 的记录并且扫描到第一个 DEPT 大于 3 的记录高效：</p>
+<p>SELECT * FROM EMP WHERE DEPTNO &gt;= 4</p>
+<p>直接跳到第一个 DEPT 等于 4 的记录</p>
+<p>①③用 IN 替代 OR</p>
+<p>select * from emp where sal = 1500 or sal = 3000 or sal = 800;</p>
+<p>select * from emp where sal in (1500,3000,800);</p>
+<p>①④总是使用索引的第一个列如果索引是建立在多个列上，只有在它的第一个列被 WHERE 子句引用时，优化器才会选择使用该索引。 当只引用索引的第二个列时，不引用索引的第一个列时，优化器使用了全表扫描而忽略了索引</p>
+<p>  create  index emp_sal_job_idex on emp(sal,job);  ———————————select  *  from  emp where job != ‘SALES’;  </p>
+<p>上边就不使用索引了。</p>
+<p><strong>数据库结构优化</strong></p>
+<p>1） 范式优化： 比如消除冗余（节省空间。。）</p>
+<p>2） 反范式优化：比如适当加冗余等（减少 join）</p>
+<p>3） 拆分表： 垂直拆分和水平拆分</p>
+<p>————————————————</p>
+<p>本文为 CSDN 博主「蜘蛛侠不会飞」的原创文章</p>
+<p>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40587575/article/details/114488339">https://blog.csdn.net/qq_40587575/article/details/114488339</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://risingrode.github.io">fcw</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://risingrode.github.io/post/%E9%9D%A2%E8%AF%95/%E5%85%AB%E8%82%A1%E6%96%87/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8-2021%E9%9D%A2%E7%BB%8F.html">https://risingrode.github.io/post/面试/八股文/字节跳动-2021面经.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://risingrode.github.io" target="_blank">代码有点萌</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/byteDance/">byteDance</a></div><div class="post_share"><div class="social-share" data-image="https://cwrisingimage.oss-cn-beijing.aliyuncs.com/img/1103542juAw.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer=""></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/wechat.jpg" alt="微信"></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/alipay.jpg" alt="支付宝"></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B%E6%9C%9F%E6%9C%AB%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%B8%89%E4%B8%8A-%E5%90%8E%E6%9C%9F/os_class.html" title="操作系统复习题"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/11/22/zqOfwxa3tAsn2Hp.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">操作系统复习题</div></div></a></div><div class="next-post pull-right"><a href="/post/%E9%A1%B9%E7%9B%AE/%E9%A1%B9%E7%9B%AE%E5%9F%BA%E7%A1%80/%E7%BC%93%E5%AD%98%E4%BC%98%E5%8C%96.html" title="缓存优化"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/11/22/QUNpGAm1nozKJ7s.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">缓存优化</div></div></a></div></nav><hr><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/girl.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="author-info__name">fcw</div><div class="author-info__description">一个收藏回忆与分享技术的地方！</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">87</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">73</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">40</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Risingrode"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到cwRising的博客</div></div><div class="card-widget"><div class="item-headline"><i></i><span></span></div><div class="item-content"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E8%AF%B4%E4%B8%80%E8%AF%B4%E5%B8%B8%E8%A7%81%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%B5%81"><span class="toc-number">1.</span> <span class="toc-text">3. 说一说常见的输入输出流</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E8%AF%B4%E4%B8%80%E8%AF%B4-Java-%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6%E7%B1%BB-File"><span class="toc-number">1.1.</span> <span class="toc-text">4. 说一说 Java 中的文件类 File</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9-IO-%E6%B5%81%EF%BC%9A"><span class="toc-number">1.1.1.</span> <span class="toc-text">5. 如何选择 IO 流：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E4%B8%A4%E4%B8%AA%E5%AF%B9%E8%B1%A1%E7%9A%84-hashCode-%E7%9B%B8%E5%90%8C%EF%BC%8C%E5%88%99-equals-%E4%B9%9F%E4%B8%80%E5%AE%9A%E4%B8%BA-true%EF%BC%8C%E5%AF%B9%E5%90%97%EF%BC%9F"><span class="toc-number">1.2.</span> <span class="toc-text">6. 两个对象的 hashCode() 相同，则 equals() 也一定为 true，对吗？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-String-%E7%B1%BB%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E9%83%BD%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-number">1.2.1.</span> <span class="toc-text">7. String 类的常用方法都有哪些？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-BIO%E3%80%81NIO%E3%80%81AIO-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.3.</span> <span class="toc-text">8. BIO、NIO、AIO 有什么区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java-%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6"><span class="toc-number">1.4.</span> <span class="toc-text">Java 集合框架</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%AF%B7%E5%85%88%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B-Java-%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6"><span class="toc-number">1.4.1.</span> <span class="toc-text">1. 请先介绍一下 Java 集合框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-Interface-Iterable"><span class="toc-number">1.4.2.</span> <span class="toc-text">1.1 Interface Iterable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-Collection"><span class="toc-number">1.4.3.</span> <span class="toc-text">1.1 Collection</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-1-Set"><span class="toc-number">1.4.3.1.</span> <span class="toc-text">1.1.1 Set</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-2-SortedSet"><span class="toc-number">1.4.3.2.</span> <span class="toc-text">1.1.2 SortedSet</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-3-EnumSet"><span class="toc-number">1.4.3.3.</span> <span class="toc-text">1.1.3 EnumSet</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-List"><span class="toc-number">1.5.</span> <span class="toc-text">2. List</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-ArrayList"><span class="toc-number">1.5.1.</span> <span class="toc-text">2.1. ArrayList</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-Vector"><span class="toc-number">1.5.2.</span> <span class="toc-text">2.2. Vector</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-1-Stack"><span class="toc-number">1.5.2.1.</span> <span class="toc-text">2.2.1. Stack</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-LinkedList"><span class="toc-number">1.5.3.</span> <span class="toc-text">2.3. LinkedList</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Queue"><span class="toc-number">1.6.</span> <span class="toc-text">3. Queue</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-PriorityQueue"><span class="toc-number">1.6.1.</span> <span class="toc-text">3.1. PriorityQueue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-Deque"><span class="toc-number">1.6.2.</span> <span class="toc-text">3.2. Deque</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-ArrayDeque"><span class="toc-number">1.6.2.1.</span> <span class="toc-text">3.2.1. ArrayDeque</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2-LinkedList"><span class="toc-number">1.6.2.2.</span> <span class="toc-text">3.2.2. LinkedList</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-Map"><span class="toc-number">1.7.</span> <span class="toc-text">1.2. Map</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-HashMap"><span class="toc-number">1.7.1.</span> <span class="toc-text">1. HashMap</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-LinkedHashMap"><span class="toc-number">1.7.1.1.</span> <span class="toc-text">1.1. LinkedHashMap</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Hashtable"><span class="toc-number">1.7.2.</span> <span class="toc-text">2. Hashtable</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-Properties"><span class="toc-number">1.7.2.1.</span> <span class="toc-text">2.1. Properties</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-SortedMap"><span class="toc-number">1.7.3.</span> <span class="toc-text">3. SortedMap</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-TreeMap"><span class="toc-number">1.7.3.1.</span> <span class="toc-text">3.1. TreeMap</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-WeakHashMap"><span class="toc-number">1.7.4.</span> <span class="toc-text">4. WeakHashMap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-IdentityHashMap"><span class="toc-number">1.7.5.</span> <span class="toc-text">5. IdentityHashMap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-EnumMap"><span class="toc-number">1.7.6.</span> <span class="toc-text">6. EnumMap</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Vector%E5%92%8CArrayList%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">2.</span> <span class="toc-text">2 Vector和ArrayList的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-arraylist%E5%92%8Clinkedlist%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">3.</span> <span class="toc-text">3  arraylist和linkedlist的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-HashMap%E4%B8%8ETreeMap%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">4.</span> <span class="toc-text">4 HashMap与TreeMap的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-HashTable%E4%B8%8EHashMap%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">5.</span> <span class="toc-text">5 HashTable与HashMap的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-%E5%B8%B8%E7%94%A8%E7%9A%84%E9%9B%86%E5%90%88%E7%B1%BB%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-number">6.</span> <span class="toc-text">6. 常用的集合类有哪些？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E5%BA%95%E5%B1%82%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">7.</span> <span class="toc-text">8. 集合框架底层数据结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9-%E5%93%AA%E4%BA%9B%E9%9B%86%E5%90%88%E7%B1%BB%E6%98%AF%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%EF%BC%9F"><span class="toc-number">8.</span> <span class="toc-text">9. 哪些集合类是线程安全的？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#10-%E6%80%8E%E4%B9%88%E7%A1%AE%E4%BF%9D%E4%B8%80%E4%B8%AA%E9%9B%86%E5%90%88%E4%B8%8D%E8%83%BD%E8%A2%AB%E4%BF%AE%E6%94%B9%EF%BC%9F"><span class="toc-number">9.</span> <span class="toc-text">10. 怎么确保一个集合不能被修改？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#11-%E8%BF%AD%E4%BB%A3%E5%99%A8-Iterator-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">10.</span> <span class="toc-text">11. 迭代器 Iterator 是什么？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#12-%E8%AF%B4%E4%B8%80%E4%B8%8B-ArrayList-%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-number">11.</span> <span class="toc-text">12 说一下 ArrayList 的优缺点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#13-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E6%95%B0%E7%BB%84%E5%92%8C-List-%E4%B9%8B%E9%97%B4%E7%9A%84%E8%BD%AC%E6%8D%A2%EF%BC%9F"><span class="toc-number">12.</span> <span class="toc-text">13. 如何实现数组和 List 之间的转换？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#14-%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE%E6%97%B6%EF%BC%8CArrayList%E3%80%81LinkedList%E3%80%81Vector-%E8%B0%81%E9%80%9F%E5%BA%A6%E8%BE%83%E5%BF%AB%EF%BC%9F%E9%98%90%E8%BF%B0-ArrayList%E3%80%81Vector%E3%80%81LinkedList-%E7%9A%84%E5%AD%98%E5%82%A8%E6%80%A7%E8%83%BD%E5%92%8C%E7%89%B9%E6%80%A7%EF%BC%9F"><span class="toc-number">13.</span> <span class="toc-text">14. 插入数据时，ArrayList、LinkedList、Vector 谁速度较快？阐述 ArrayList、Vector、LinkedList 的存储性能和特性？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#15-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%9C%BA%E6%99%AF%E4%B8%8B%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-ArrayList%EF%BC%9F"><span class="toc-number">14.</span> <span class="toc-text">15. 多线程场景下如何使用 ArrayList？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#16-HashSet%E5%A6%82%E4%BD%95%E6%A3%80%E6%9F%A5%E9%87%8D%E5%A4%8D%EF%BC%9FHashSet%E6%98%AF%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E6%95%B0%E6%8D%AE%E4%B8%8D%E5%8F%AF%E9%87%8D%E5%A4%8D%E7%9A%84%EF%BC%9F"><span class="toc-number">15.</span> <span class="toc-text">16.HashSet如何检查重复？HashSet是如何保证数据不可重复的？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#17-BlockingQueue%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">16.</span> <span class="toc-text">17.BlockingQueue是什么？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#18-%E8%AF%B4%E4%B8%80%E4%B8%8B-HashMap-%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%EF%BC%9F"><span class="toc-number">17.</span> <span class="toc-text">18. 说一下 HashMap 的实现原理？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#19-HashMap%E5%9C%A8JDK1-7%E5%92%8CJDK1-8%E4%B8%AD%E6%9C%89%E5%93%AA%E4%BA%9B%E4%B8%8D%E5%90%8C%EF%BC%9F-HashMap%E7%9A%84%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0"><span class="toc-number">18.</span> <span class="toc-text">19. HashMap在JDK1.7和JDK1.8中有哪些不同？ HashMap的底层实现</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#20-HashMap%E6%98%AF%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%E5%93%88%E5%B8%8C%E5%86%B2%E7%AA%81%E7%9A%84%EF%BC%9F"><span class="toc-number">19.</span> <span class="toc-text">20. HashMap是怎么解决哈希冲突的？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#21-%E5%A6%82%E6%9E%9C%E4%BD%BF%E7%94%A8Object%E4%BD%9C%E4%B8%BAHashMap%E7%9A%84Key%EF%BC%8C%E5%BA%94%E8%AF%A5%E6%80%8E%E4%B9%88%E5%8A%9E%E5%91%A2%EF%BC%9F"><span class="toc-number">20.</span> <span class="toc-text">21. 如果使用Object作为HashMap的Key，应该怎么办呢？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#22-HashMap-%E4%B8%8E-HashTable-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">21.</span> <span class="toc-text">22. HashMap 与 HashTable 有什么区别？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#23-ConcurrentHashMap-%E5%92%8C-Hashtable-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">22.</span> <span class="toc-text">23. ConcurrentHashMap 和 Hashtable 的区别？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#24-TreeMap-%E5%92%8C-TreeSet-%E5%9C%A8%E6%8E%92%E5%BA%8F%E6%97%B6%E5%A6%82%E4%BD%95%E6%AF%94%E8%BE%83%E5%85%83%E7%B4%A0%EF%BC%9F-Collections-%E5%B7%A5%E5%85%B7%E7%B1%BB%E4%B8%AD%E7%9A%84-sort-%E6%96%B9%E6%B3%95%E5%A6%82%E4%BD%95%E6%AF%94%E8%BE%83%E5%85%83%E7%B4%A0%EF%BC%9F"><span class="toc-number">23.</span> <span class="toc-text">24. TreeMap 和 TreeSet 在排序时如何比较元素？ Collections 工具类中的 sort()方法如何比较元素？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4"><span class="toc-number">23.1.</span> <span class="toc-text">1. 常见命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%B8%B8%E8%A7%81%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%87%E4%BB%B6%EF%BC%8C%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E5%91%BD%E4%BB%A4"><span class="toc-number">23.2.</span> <span class="toc-text">2. 常见的操作文件，文件夹的命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85"><span class="toc-number">23.3.</span> <span class="toc-text">3. 软件下载安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%B3%BB%E7%BB%9F%E9%87%8D%E5%90%AF%E5%92%8C%E5%85%B3%E6%9C%BA%E6%8C%87%E4%BB%A4"><span class="toc-number">23.4.</span> <span class="toc-text">4. 系统重启和关机指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%96%87%E4%BB%B6%E6%A8%A1%E5%BC%8F%E5%92%8C%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90"><span class="toc-number">23.5.</span> <span class="toc-text">5. 文件模式和访问权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">23.6.</span> <span class="toc-text">6. 环境变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-ubuntu-%E7%99%BB%E9%99%86%E5%88%B0-mysql"><span class="toc-number">23.7.</span> <span class="toc-text">7. ubuntu 登陆到 mysql</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E4%B8%89%E4%B8%AA%E8%8C%83%E5%BC%8F%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">24.</span> <span class="toc-text">1. 三个范式是什么</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E4%BB%80%E4%B9%88%E6%98%AF%E4%BA%8B%E5%8A%A1%EF%BC%9F"><span class="toc-number">25.</span> <span class="toc-text">2. 什么是事务？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB"><span class="toc-number">26.</span> <span class="toc-text">3. 事务隔离级别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%B9%90%E8%A7%82%E9%94%81%E5%92%8C%E6%82%B2%E8%A7%82%E9%94%81%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">27.</span> <span class="toc-text">4. 数据库的乐观锁和悲观锁是什么？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E8%B6%85%E9%94%AE%E3%80%81%E5%80%99%E9%80%89%E9%94%AE%E3%80%81%E4%B8%BB%E9%94%AE%E3%80%81%E5%A4%96%E9%94%AE%E5%88%86%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">28.</span> <span class="toc-text">5. 超键、候选键、主键、外键分别是什么？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-SQL-%E7%BA%A6%E6%9D%9F%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%EF%BC%9F"><span class="toc-number">29.</span> <span class="toc-text">6. SQL 约束有哪几种？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-drop%E3%80%81delete%E4%B8%8Etruncate%E5%88%86%E5%88%AB%E5%9C%A8%E4%BB%80%E4%B9%88%E5%9C%BA%E6%99%AF%E4%B9%8B%E4%B8%8B%E4%BD%BF%E7%94%A8%EF%BC%9F"><span class="toc-number">30.</span> <span class="toc-text">7.drop、delete与truncate分别在什么场景之下使用？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-%E7%B4%A2%E5%BC%95%E7%89%B9%E7%82%B9"><span class="toc-number">31.</span> <span class="toc-text">8. 索引特点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#11-%E7%B4%A2%E5%BC%95%E6%9C%89B-%E7%B4%A2%E5%BC%95%E5%92%8Chash%E7%B4%A2%E5%BC%95"><span class="toc-number">32.</span> <span class="toc-text">11.索引有B+索引和hash索引</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#12-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AE%BE%E8%AE%A1%E7%BA%A2%E9%BB%91%E6%A0%91"><span class="toc-number">33.</span> <span class="toc-text">12 为什么设计红黑树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#13-B%E6%A0%91%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">34.</span> <span class="toc-text">13 B树的作用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#14-B%E6%A0%91%E5%92%8C-B-%E6%A0%91%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">35.</span> <span class="toc-text">14 B树和 B+树的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#15-B%E6%A0%91%E5%92%8C%E7%BA%A2%E9%BB%91%E6%A0%91%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">36.</span> <span class="toc-text">15 B树和红黑树的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#16-AVL%E6%A0%91%E5%92%8C%E7%BA%A2%E9%BB%91%E6%A0%91%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">37.</span> <span class="toc-text">16 AVL树和红黑树的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#17-%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8B%E6%A0%91%EF%BC%8C%E8%80%8C%E4%B8%8D%E4%BD%BF%E7%94%A8AVL%E6%88%96%E8%80%85%E7%BA%A2%E9%BB%91%E6%A0%91"><span class="toc-number">38.</span> <span class="toc-text">17 数据库为什么使用B树，而不使用AVL或者红黑树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#18-mysql%E7%9A%84Innodb%E5%BC%95%E6%93%8E%E4%B8%BA%E4%BB%80%E4%B9%88%E9%87%87%E7%94%A8%E7%9A%84%E6%98%AFB-%E6%A0%91%E7%9A%84%E7%B4%A2%E5%BC%95%E6%96%B9%E5%BC%8F"><span class="toc-number">39.</span> <span class="toc-text">18 mysql的Innodb引擎为什么采用的是B+树的索引方式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#19-%E7%BA%A2%E9%BB%91%E6%A0%91-%E5%92%8C-b-%E6%A0%91%E7%9A%84%E7%94%A8%E9%80%94%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">40.</span> <span class="toc-text">19 红黑树 和 b+树的用途有什么区别？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#20-%E4%B8%BA%E4%BB%80%E4%B9%88B-%E6%A0%91%E6%AF%94B%E6%A0%91%E6%9B%B4%E4%B8%BA%E5%8F%8B%E5%A5%BD"><span class="toc-number">41.</span> <span class="toc-text">20 为什么B+树比B树更为友好</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#21-%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96"><span class="toc-number">42.</span> <span class="toc-text">21. 数据库优化</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B%E6%9C%9F%E6%9C%AB%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%B8%89%E4%B8%8A-%E5%90%8E%E6%9C%9F/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80.html" title="汇编语言"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingimage.oss-cn-beijing.aliyuncs.com/img/102449qZEI8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="汇编语言"></a><div class="content"><a class="title" href="/post/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B%E6%9C%9F%E6%9C%AB%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%B8%89%E4%B8%8A-%E5%90%8E%E6%9C%9F/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80.html" title="汇编语言">汇编语言</a><time datetime="2023-12-01T08:51:18.000Z" title="发表于 2023-12-01 16:51:18">2023-12-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B%E6%9C%9F%E6%9C%AB%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%B8%89%E4%B8%8A-%E5%90%8E%E6%9C%9F/%E9%AB%98%E7%BA%A7%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.html" title="高级操作系统"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingimage.oss-cn-beijing.aliyuncs.com/img/083940e7k0Q.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="高级操作系统"></a><div class="content"><a class="title" href="/post/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B%E6%9C%9F%E6%9C%AB%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%B8%89%E4%B8%8A-%E5%90%8E%E6%9C%9F/%E9%AB%98%E7%BA%A7%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.html" title="高级操作系统">高级操作系统</a><time datetime="2023-12-01T08:50:53.000Z" title="发表于 2023-12-01 16:50:53">2023-12-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/Image.html" title="无题"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a><div class="content"><a class="title" href="/post/Image.html" title="无题">无题</a><time datetime="2023-12-01T08:39:59.645Z" title="发表于 2023-12-01 16:39:59">2023-12-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/%E9%A1%B9%E7%9B%AE/%E9%A1%B9%E7%9B%AE%E5%9F%BA%E7%A1%80/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.html" title="设计模式"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingimage.oss-cn-beijing.aliyuncs.com/img/080437z7c8v.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="设计模式"></a><div class="content"><a class="title" href="/post/%E9%A1%B9%E7%9B%AE/%E9%A1%B9%E7%9B%AE%E5%9F%BA%E7%A1%80/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.html" title="设计模式">设计模式</a><time datetime="2023-12-01T04:06:04.000Z" title="发表于 2023-12-01 12:06:04">2023-12-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B%E6%9C%9F%E6%9C%AB%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%B8%89%E4%B8%8A-%E5%90%8E%E6%9C%9F/os_class.html" title="操作系统复习题"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/11/22/zqOfwxa3tAsn2Hp.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="操作系统复习题"></a><div class="content"><a class="title" href="/post/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B%E6%9C%9F%E6%9C%AB%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%B8%89%E4%B8%8A-%E5%90%8E%E6%9C%9F/os_class.html" title="操作系统复习题">操作系统复习题</a><time datetime="2023-12-01T00:27:55.000Z" title="发表于 2023-12-01 08:27:55">2023-12-01</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">©2023 By fcw</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a><br>
+<imgsrc="https: haiyong.site="" img="" icp.png"="">
+<a href="https://beian.miit.gov.cn/#/Integrated/index" style="color:white" target="_blank">豫ICP备2023032527号</a></imgsrc="https:></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div></div><hr><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'https://risingrode.github.io/post/%E9%9D%A2%E8%AF%95/%E5%85%AB%E8%82%A1%E6%96%87/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8-2021%E9%9D%A2%E7%BB%8F.html'
+    this.page.identifier = '/post/%E9%9D%A2%E8%AF%95/%E5%85%AB%E8%82%A1%E6%96%87/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8-2021%E9%9D%A2%E7%BB%8F.html'
+    this.page.title = 'byteDance'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+
+  document.getElementById('darkmode').addEventListener('click', () => {
+    setTimeout(() => window.disqusReset(), 200)
+  })
+}
+
+if ('Valine' === 'Disqus' || !false) {
+  if (false) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script></div><link rel="stylesheet" href="/dist/APlayer.min.css"> <div id="aplayer"></div> <script type="text/javascript" src="/dist/APlayer.min.js"></script> <script type="text/javascript" src="/js/aplayer/music.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zindex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script async="" data-pjax="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
