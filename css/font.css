@@ -1,0 +1,22 @@
+/* 标题字体：马善政，只保留站内标题/菜单出现的字符（约 190KB woff2） */
+@font-face {
+    font-family: 'Main';
+    font-display: swap;
+    src: url('/font/mashan.woff2') format('woff2');
+}
+
+/* 代码字体：Fira Code，只保留 ASCII（约 22KB woff2） */
+@font-face {
+    font-family: 'Fira';
+    font-display: swap;
+    src: url('/font/fira.woff2') format('woff2');
+}
+
+/* 正文使用系统字体，零流量；手写体只用在标题上，缺字时自动回退 */
+h1, h2, h3, #site-title, #site-subtitle, .article-title, .post-title, #nav .menus_items .site-page {
+    font-family: 'Main', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+code, pre, .highlight, .hljs {
+    font-family: 'Fira', Consolas, Menlo, monospace;
+}

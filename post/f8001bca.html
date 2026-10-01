@@ -1,0 +1,555 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>DEX 池子数据解析 | 代码有点萌</title><meta name="author" content="fcw,3185087246@protonmail.com"><meta name="copyright" content="fcw"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="各个池子的数据解析Raydiumv4 amm 3Q7HjrET6GHxPp8ETeY9o7jN88SQUnRiFYF6zxgzjtrNJPVKT9CuLn9Q8rVJALmSNT2EB5Q8P74cH2D32rJB7gWJ  8033023b00000000 // 09 8033023b00000000 0000000000000000 buyhttps://solscan.i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DEX 池子数据解析">
+<meta property="og:url" content="https://risingrode.github.io/post/f8001bca.html">
+<meta property="og:site_name" content="代码有点萌">
+<meta property="og:description" content="各个池子的数据解析Raydiumv4 amm 3Q7HjrET6GHxPp8ETeY9o7jN88SQUnRiFYF6zxgzjtrNJPVKT9CuLn9Q8rVJALmSNT2EB5Q8P74cH2D32rJB7gWJ  8033023b00000000 // 09 8033023b00000000 0000000000000000 buyhttps://solscan.i">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://risingrode.github.io/img/covers/c03.svg">
+<meta property="article:published_time" content="2025-07-06T12:16:43.678Z">
+<meta property="article:modified_time" content="2026-10-01T03:32:21.387Z">
+<meta property="article:author" content="fcw">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://risingrode.github.io/img/covers/c03.svg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://risingrode.github.io/post/f8001bca.html"><link rel="preconnect" href="//registry.npmmirror.com"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://registry.npmmirror.com/@fortawesome/fontawesome-free/6.2.1/files/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://registry.npmmirror.com/@fancyapps/ui/4.0.31/files/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://registry.npmmirror.com/flickr-justified-gallery/2.1.2/files/dist/fjGallery.min.js',
+      css: 'https://registry.npmmirror.com/flickr-justified-gallery/2.1.2/files/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'DEX 池子数据解析',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-10-01 11:32:21'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = url => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      link.onload = () => resolve()
+      link.onerror = () => reject()
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script src="/live2d-widget-master/autoload.js"></script><link rel="stylesheet" href="/css/mouse.css"><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/font.css"><meta name="generator" content="Hexo 6.3.0"></head><body><link rel="stylesheet" href="https://registry.npmmirror.com/pace-js/1.2.4/files/themes/blue/pace-theme-minimal.css"><script src="https://registry.npmmirror.com/pace-js/1.2.4/files/pace.min.js"></script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/girl.webp" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">135</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">94</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">61</div></a></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 优质网站链接</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 媒体</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书单</span></a></li><li><a class="site-page child" href="/songs/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/games/"><i class="fa-fw fa fa-gamepad"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/talk/"><i class="fa-fw far fa-comment"></i><span> 微语</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/covers/c03.svg')"><nav id="nav"><span id="blog-info"><a href="/" title="代码有点萌"><span class="site-name">代码有点萌</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 优质网站链接</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 媒体</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书单</span></a></li><li><a class="site-page child" href="/songs/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/games/"><i class="fa-fw fa fa-gamepad"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/talk/"><i class="fa-fw far fa-comment"></i><span> 微语</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">DEX 池子数据解析</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-07-06T12:16:43.678Z" title="发表于 2025-07-06 20:16:43">2025-07-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-10-01T03:32:21.387Z" title="更新于 2026-10-01 11:32:21">2026-10-01</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="DEX 池子数据解析"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><div class="top-img" style="background-image: url('/img/covers/c03.svg');"></div><article class="post-content" id="article-container"><h1 id="各个池子的数据解析"><a href="#各个池子的数据解析" class="headerlink" title="各个池子的数据解析"></a>各个池子的数据解析</h1><h2 id="Raydium"><a href="#Raydium" class="headerlink" title="Raydium"></a>Raydium</h2><h3 id="v4-amm"><a href="#v4-amm" class="headerlink" title="v4 amm"></a>v4 amm</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250711202054388.png" alt="image-20250711202054388"></p>
+<p>3Q7HjrET6GHxPp8ETeY9o7jN88SQUnRiFYF6zxgzjtrNJPVKT9CuLn9Q8rVJALmSNT2EB5Q8P74cH2D32rJB7gWJ</p>
+<p> 8033023b00000000</p>
+<p>// 09 8033023b00000000 0000000000000000</p>
+<h4 id="buy"><a href="#buy" class="headerlink" title="buy"></a>buy</h4><p><a target="_blank" rel="noopener" href="https://solscan.io/tx/3SjAXLPdZggtaeJue4bj5NJPiLM6BWyrBrFC41EFYhi9MbnWEk67iPa4mXbAo7bEmW3GcXE5sBrDKAiQ3vyAyDyQ">https://solscan.io/tx/3SjAXLPdZggtaeJue4bj5NJPiLM6BWyrBrFC41EFYhi9MbnWEk67iPa4mXbAo7bEmW3GcXE5sBrDKAiQ3vyAyDyQ</a></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250717200957092.png" alt="image-20250717200957092"></p>
+<h4 id="sell"><a href="#sell" class="headerlink" title="sell"></a>sell</h4><p><a target="_blank" rel="noopener" href="https://solscan.io/tx/4eXULtdFkmWt7XTUDr5er2Sym9tg7DS9dgV2VAF7QirqEZDw2iAMAAaWLQVQWqkvMrGKc2xWY8FzZ3KMYwK3YrTA">https://solscan.io/tx/4eXULtdFkmWt7XTUDr5er2Sym9tg7DS9dgV2VAF7QirqEZDw2iAMAAaWLQVQWqkvMrGKc2xWY8FzZ3KMYwK3YrTA</a></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250717201029102.png" alt="image-20250717201029102"></p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<p>卖和买 ata 交换一下位置即可</p>
+</blockquote>
+<h3 id="clmm"><a href="#clmm" class="headerlink" title="clmm"></a>clmm</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250707103445647.png" alt="image-20250707103445647"></p>
+<p>B4XWAtSvuG1beXv7sH8kP2o7KgT66m8iyX1MYwYHz3vmfdQtDTpBF111wLrntLR2nmSrqfymt4t8Hfkxq41KAjE</p>
+<figure class="highlight json"><table><tbody><tr><td class="code"><pre><span class="line"><span class="punctuation">{</span></span><br><span class="line">  <span class="attr">"amount"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">    <span class="attr">"type"</span><span class="punctuation">:</span> <span class="string">"u64"</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"data"</span><span class="punctuation">:</span> <span class="string">"674225020"</span></span><br><span class="line">  <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">"other_amount_threshold"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">    <span class="attr">"type"</span><span class="punctuation">:</span> <span class="string">"u64"</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"data"</span><span class="punctuation">:</span> <span class="string">"0"</span></span><br><span class="line">  <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">"sqrt_price_limit_x64"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">    <span class="attr">"type"</span><span class="punctuation">:</span> <span class="string">"u128"</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"data"</span><span class="punctuation">:</span> <span class="string">"0"</span></span><br><span class="line">  <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">"is_base_input"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">    <span class="attr">"type"</span><span class="punctuation">:</span> <span class="string">"bool"</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"data"</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">  <span class="punctuation">}</span></span><br><span class="line"><span class="punctuation">}</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p>f8c69e91e17587c8 7cdb2f2800000000 00000000000000000000000000000000 0000000000000000 01</p>
+<h4 id="buy-1"><a href="#buy-1" class="headerlink" title="buy"></a>buy</h4><p><a target="_blank" rel="noopener" href="https://solscan.io/tx/PtHCnCWRRHL4btsNurCyB8Wxj66j5eTUGfbm93xvfTTX6VDuD4osgznYM5Dt3cKdnCzxUS9eou2qhmdJvoLMLaC">https://solscan.io/tx/PtHCnCWRRHL4btsNurCyB8Wxj66j5eTUGfbm93xvfTTX6VDuD4osgznYM5Dt3cKdnCzxUS9eou2qhmdJvoLMLaC</a></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250717200501728.png" alt="image-20250717200501728"></p>
+<h4 id="sell-1"><a href="#sell-1" class="headerlink" title="sell"></a>sell</h4><p><a target="_blank" rel="noopener" href="https://solscan.io/tx/XLESmqfVZs441m27PXAwEUvJSqMW8okY6SFkwP4xhm6DeM47fuLKfnorD1QwJAJLs5my2Q4TreZEhMvk9FPz4K2">https://solscan.io/tx/XLESmqfVZs441m27PXAwEUvJSqMW8okY6SFkwP4xhm6DeM47fuLKfnorD1QwJAJLs5my2Q4TreZEhMvk9FPz4K2</a></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250717200559362.png" alt="image-20250717200559362"></p>
+<h4 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<p>note ： 2 个 pool 账户要换一下 2 个 ata 也需要换一下</p>
+</blockquote>
+<h3 id="swap-v2"><a href="#swap-v2" class="headerlink" title="swap v2"></a>swap v2</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250714221318753.png" alt="image-20250714221318753"></p>
+<p><a target="_blank" rel="noopener" href="https://solscan.io/tx/37mjJuDTi77sZ8qvsHSUQYzu5NLhNLsXMedsTCFD4xB37KpqGwBxcRUjNzRCRXTvQeDfthfCmQqs63cXRee4ugbi">https://solscan.io/tx/37mjJuDTi77sZ8qvsHSUQYzu5NLhNLsXMedsTCFD4xB37KpqGwBxcRUjNzRCRXTvQeDfthfCmQqs63cXRee4ugbi</a></p>
+<p>2b04ed0b1ac91e62a0b34d350100000001000000000000000000000000000000000000000000000001</p>
+<h3 id="cpmm"><a href="#cpmm" class="headerlink" title="cpmm"></a>cpmm</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250711210947331.png" alt="image-20250711210947331"></p>
+<p><a target="_blank" rel="noopener" href="https://solscan.io/tx/57PUAF7fihfrmhkEL96EMPVu5kcqx4gzLuXQdPz4g1nTd4Db5qzj3aUxoPk7aKyFaqCjvHc7ePbyYhj5xJgGwGic">https://solscan.io/tx/57PUAF7fihfrmhkEL96EMPVu5kcqx4gzLuXQdPz4g1nTd4Db5qzj3aUxoPk7aKyFaqCjvHc7ePbyYhj5xJgGwGic</a></p>
+<p>8fbe5adac41e33de 7ecf2d0000000000 0000000000000000</p>
+<h4 id="固定参数"><a href="#固定参数" class="headerlink" title="固定参数"></a>固定参数</h4><figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line"><span class="string">"amm_config"</span>: <span class="string">"D4FPEruKEHrG5TenZ2mpDGEfu1iUvTiqBxvpU8HLBvC2"</span>,</span><br><span class="line"><span class="string">"authority"</span>: <span class="string">"GpMZbSM2GgvTKHJirzeGfMFoaZ8UR2X7F4v8vHTvxFbL"</span>,</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="buy-2"><a href="#buy-2" class="headerlink" title="buy"></a>buy</h4><p><a target="_blank" rel="noopener" href="https://solscan.io/tx/UsomXxue53ZH9gvuBAoEHT1efxYkHGCpqb2Qg3ySHmpdoxtMSdt2dVWKhCC3AQ4HNLTBcqAc1WmdNnMstpTfCDS">https://solscan.io/tx/UsomXxue53ZH9gvuBAoEHT1efxYkHGCpqb2Qg3ySHmpdoxtMSdt2dVWKhCC3AQ4HNLTBcqAc1WmdNnMstpTfCDS</a></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250717201445587.png" alt="image-20250717201445587"></p>
+<h4 id="sell-2"><a href="#sell-2" class="headerlink" title="sell"></a>sell</h4><p><a target="_blank" rel="noopener" href="https://solscan.io/tx/5jxUsC5cyPZNqf8Y5tv2ExXqax4Z9MuVTQQuJjwPcrZoLKQbiuMbzGrmpzNHF3UDsqJ3yc5Yod8JF8vseeeq5zLt">https://solscan.io/tx/5jxUsC5cyPZNqf8Y5tv2ExXqax4Z9MuVTQQuJjwPcrZoLKQbiuMbzGrmpzNHF3UDsqJ3yc5Yod8JF8vseeeq5zLt</a></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250717201532044.png" alt="image-20250717201532044"></p>
+<h4 id="总结-2"><a href="#总结-2" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<p>卖出的时候 要有三对进行替换 ata vault mint</p>
+</blockquote>
+<h2 id="Meteora-dlmm"><a href="#Meteora-dlmm" class="headerlink" title="Meteora dlmm"></a>Meteora dlmm</h2><h3 id="buy-3"><a href="#buy-3" class="headerlink" title="buy"></a>buy</h3><p><a target="_blank" rel="noopener" href="https://solscan.io/tx/EVtv9fYJ7xYA76GZ8aKgqoPLrTdwABv81LjSHX7C3DNEz3S9cMKSL1gqCoaH3SHByRdA6ncFMYoC9UTo6hsc167">https://solscan.io/tx/EVtv9fYJ7xYA76GZ8aKgqoPLrTdwABv81LjSHX7C3DNEz3S9cMKSL1gqCoaH3SHByRdA6ncFMYoC9UTo6hsc167</a></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250717202208297.png" alt="image-20250717202208297"></p>
+<h3 id="sell-3"><a href="#sell-3" class="headerlink" title="sell"></a>sell</h3><p><a target="_blank" rel="noopener" href="https://solscan.io/tx/5v2AVLYWEpsJYkhNx1TUqwWayGoekd1oNedkAfBmVX8wrHqZjLkyexCkGrers2jEiJHkcyC8ekM8jGVBEbKruee2">https://solscan.io/tx/5v2AVLYWEpsJYkhNx1TUqwWayGoekd1oNedkAfBmVX8wrHqZjLkyexCkGrers2jEiJHkcyC8ekM8jGVBEbKruee2</a></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250717202241082.png" alt="image-20250717202241082"></p>
+<h3 id="总结-3"><a href="#总结-3" class="headerlink" title="总结"></a>总结</h3><blockquote>
+<p>ata 互换一下 tick 互换一下</p>
+</blockquote>
+<h3 id="swap-v2-1"><a href="#swap-v2-1" class="headerlink" title="swap v2"></a>swap v2</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250706221928150.png" alt="image-20250706221928150"></p>
+<blockquote>
+<p>3Fnw2mN7ghYNDsjxZbvtFCyr9Eve1kmaB1VxAJR1RYYfiqZJEi4RLzYv3ND2JgA3HeSd2GBeXPfdzJxFhXZt6kC8</p>
+</blockquote>
+<blockquote>
+<p>data : 414b3f4ceb5b5b88 128e9d64cb000000 000000000000000000000000</p>
+</blockquote>
+<h3 id="swap"><a href="#swap" class="headerlink" title="swap"></a>swap</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250706222447983.png" alt="image-20250706222447983"></p>
+<blockquote>
+<p>yYXYbcMXMiuAG9tjsoiQVbkJMk4zregyALTCJbj4aL176cckdG7tcZowVDda447mN7xqYNnnG8W51m5vsyzJJG5</p>
+</blockquote>
+<blockquote>
+<p> f8c69e91e17587c8 00ca9a3b00000000 0000000000000000</p>
+</blockquote>
+<h2 id="Meteora-damm-v2"><a href="#Meteora-damm-v2" class="headerlink" title="Meteora damm v2"></a>Meteora damm v2</h2><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250706224629961.png" alt="image-20250706224629961"></p>
+<p><a target="_blank" rel="noopener" href="https://solscan.io/tx/yYXYbcMXMiuAG9tjsoiQVbkJMk4zregyALTCJbj4aL176cckdG7tcZowVDda447mN7xqYNnnG8W51m5vsyzJJG5">https://solscan.io/tx/yYXYbcMXMiuAG9tjsoiQVbkJMk4zregyALTCJbj4aL176cckdG7tcZowVDda447mN7xqYNnnG8W51m5vsyzJJG5</a></p>
+<blockquote>
+<p> f8c69e91e17587c8 5194d20800000000 0000000000000000</p>
+</blockquote>
+<h3 id="buy-4"><a href="#buy-4" class="headerlink" title="buy"></a>buy</h3><p><a target="_blank" rel="noopener" href="https://solscan.io/tx/43L2XgV9nYn3N4odXRigBJCdx12V1oYyxv9wmrCTyCNy91u1xzypipPBAgyy1MkweShrTT7Hk1nZ78s5QsUqj232">https://solscan.io/tx/43L2XgV9nYn3N4odXRigBJCdx12V1oYyxv9wmrCTyCNy91u1xzypipPBAgyy1MkweShrTT7Hk1nZ78s5QsUqj232</a></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250717201146330.png" alt="image-20250717201146330"></p>
+<h3 id="sell-4"><a href="#sell-4" class="headerlink" title="sell"></a>sell</h3><p><a target="_blank" rel="noopener" href="https://solscan.io/tx/2pmngu253TCmX1UCSNFoAdL37gqLYye6SwGVczDMd8fmDktzKZCVdYM7xF5WFNffNpPGf7typDcnH1hXUfSLoX8t">https://solscan.io/tx/2pmngu253TCmX1UCSNFoAdL37gqLYye6SwGVczDMd8fmDktzKZCVdYM7xF5WFNffNpPGf7typDcnH1hXUfSLoX8t</a></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250717201216946.png" alt="image-20250717201216946"></p>
+<h3 id="总结-4"><a href="#总结-4" class="headerlink" title="总结"></a>总结</h3><blockquote>
+<p> 卖和买 ata 交换一下位置即可</p>
+</blockquote>
+<h2 id="Meteora-pools"><a href="#Meteora-pools" class="headerlink" title="Meteora pools"></a>Meteora pools</h2><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250707113106358.png" alt="image-20250707113106358"></p>
+<p><a target="_blank" rel="noopener" href="https://solscan.io/tx/5wR4o9MuS7wwcBy57pMcC3rNJsuAjH65WiZgd3mraaQwT2m64m8dqrEa2FVs95BjAPrDXf4UNkgvMwQz34i5z6DD">https://solscan.io/tx/5wR4o9MuS7wwcBy57pMcC3rNJsuAjH65WiZgd3mraaQwT2m64m8dqrEa2FVs95BjAPrDXf4UNkgvMwQz34i5z6DD</a></p>
+<p>f8c69e91e17587c8 7fe7532400000000 0000000000000000</p>
+<h3 id="sell-5"><a href="#sell-5" class="headerlink" title="sell"></a>sell</h3><p><a target="_blank" rel="noopener" href="https://solscan.io/tx/5iAixtJNw7SP7GzagWcUwHGBhktm3LeNFXuBiGNdM5Z2sZMRQypZpSHFK1w7oEb2NEB8J9qvSeiBvV8Dk4VwP1f">https://solscan.io/tx/5iAixtJNw7SP7GzagWcUwHGBhktm3LeNFXuBiGNdM5Z2sZMRQypZpSHFK1w7oEb2NEB8J9qvSeiBvV8Dk4VwP1f</a></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250717202311697.png" alt="image-20250717202311697"></p>
+<h3 id="buy-5"><a href="#buy-5" class="headerlink" title="buy"></a>buy</h3><p><a target="_blank" rel="noopener" href="https://solscan.io/tx/5Pf8ZraQ61mi444dZe4LsAexFzeMhWnXxegtz1qB9UVK9K7fWkGfJ3pBHXqRHGPQ4Mvx4fQFRZ3h2q9TKbg1dq4M">https://solscan.io/tx/5Pf8ZraQ61mi444dZe4LsAexFzeMhWnXxegtz1qB9UVK9K7fWkGfJ3pBHXqRHGPQ4Mvx4fQFRZ3h2q9TKbg1dq4M</a></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250717202353670.png" alt="image-20250717202353670"></p>
+<h3 id="总结-5"><a href="#总结-5" class="headerlink" title="总结"></a>总结</h3><blockquote>
+<p>买和卖的 fee 账户不一样 注意还有最后一位可有可无的 这个太特殊了 后面要改</p>
+</blockquote>
+<h2 id="SolFi"><a href="#SolFi" class="headerlink" title="SolFi"></a>SolFi</h2><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250706225455225.png" alt="image-20250706225455225"></p>
+<blockquote>
+<p>wZrMdDJjsvn4HH39eFdsBdwGFmDyaphFfhnCtH6JJkCdqf9TWLQqaXJEfe8emLSVgfuht3cqcjerxffQgNrtYB7</p>
+</blockquote>
+<blockquote>
+<p>07 28920b2000000000 0000000000000000 01</p>
+</blockquote>
+<p><code>最后一位，0是buy 1 是sell</code></p>
+<table>
+<thead>
+<tr>
+<th>字节范围</th>
+<th>十六进制数据</th>
+<th>数值 / 含义</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>0</code></td>
+<td><code>0x07</code></td>
+<td>Discriminator = 7</td>
+<td>Swap 指令的 variant index</td>
+</tr>
+<tr>
+<td><code>1–8</code></td>
+<td><code>28 92 0b 20 00 00 00 00</code></td>
+<td><code>u64 = 0x00000000020b9228 = 537,629,224</code></td>
+<td><code>amountIn</code>（lamports，约等于 537.629224 USDC）</td>
+</tr>
+<tr>
+<td><code>9–15</code></td>
+<td><code>00 00 00 00 00 00 00 01</code></td>
+<td><code>minimumAmountOut = 0</code>; <code>aToB = true (1)</code></td>
+<td>最低可接受输出量（0 表示不限）及方向标志（从 a→b）</td>
+</tr>
+</tbody></table>
+<h3 id="buy-6"><a href="#buy-6" class="headerlink" title="buy"></a>buy</h3><p><a target="_blank" rel="noopener" href="https://solscan.io/tx/5yeSK4BkyiJuzS4f7Myg2erbWattLGBGrz3URAEQKgx9zwUZxXyrBzHQXuHYCf8sVH49sw3iehfs11PdMhVkKZGW">https://solscan.io/tx/5yeSK4BkyiJuzS4f7Myg2erbWattLGBGrz3URAEQKgx9zwUZxXyrBzHQXuHYCf8sVH49sw3iehfs11PdMhVkKZGW</a></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250717200824757.png" alt="image-20250717200824757"></p>
+<h3 id="sell-6"><a href="#sell-6" class="headerlink" title="sell"></a>sell</h3><p><a target="_blank" rel="noopener" href="https://solscan.io/tx/2nUxEtL6wFfce5GLAfCAGheQBLRLuWLr7wweJ5Udhh171d9ZcqBjP4SLvMESZdwMirANt1HZLP6FzBBCFtjAaPhg">https://solscan.io/tx/2nUxEtL6wFfce5GLAfCAGheQBLRLuWLr7wweJ5Udhh171d9ZcqBjP4SLvMESZdwMirANt1HZLP6FzBBCFtjAaPhg</a></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250717200851496.png" alt="image-20250717200851496"></p>
+<h3 id="总结-6"><a href="#总结-6" class="headerlink" title="总结"></a>总结</h3><blockquote>
+<p>最后一位，0 是 buy 1 是 sell  看来要改一下合约了 其他的不需要改</p>
+</blockquote>
+<h2 id="Orca"><a href="#Orca" class="headerlink" title="Orca"></a>Orca</h2><h3 id="swap-v2-2"><a href="#swap-v2-2" class="headerlink" title="swap v2"></a>swap v2</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250707092657393.png" alt="image-20250707092657393"></p>
+<p><a target="_blank" rel="noopener" href="https://solscan.io/tx/5xNtS6BWhVbBHvHKeryLNMQXCVA2jfdQUZrZba7JqV6NduWBjAnVPFU1i6Ue8c47ggBgpchLHTx5oehLMmQ2btV">https://solscan.io/tx/5xNtS6BWhVbBHvHKeryLNMQXCVA2jfdQUZrZba7JqV6NduWBjAnVPFU1i6Ue8c47ggBgpchLHTx5oehLMmQ2btV</a></p>
+<p>长度：43</p>
+<p>// 2b04ed0b1ac91e62 e595ed6f00000000 0100000000000000 503b010001000000000000000000000001 0100</p>
+<h3 id="swap-1"><a href="#swap-1" class="headerlink" title="swap"></a>swap</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="C:\Users\烟雨蒙蒙\AppData\Roaming\Typora\typora-user-images\image-20250707110910379.png" alt="image-20250707110910379"></p>
+<p><a target="_blank" rel="noopener" href="https://solscan.io/tx/4QQygPf7sm3ZuYcku1hyqpSmPsJX1ursr4D2KHcNo9mGXGbo4eyuUB4pm9NXi1PtRiTpgW5qzWfjBJcLyygN3Vzk">https://solscan.io/tx/4QQygPf7sm3ZuYcku1hyqpSmPsJX1ursr4D2KHcNo9mGXGbo4eyuUB4pm9NXi1PtRiTpgW5qzWfjBJcLyygN3Vzk</a></p>
+<p>长度：42</p>
+<p>f8c69e91e17587c8 2e6bfc0f00000000 00000000000000008f96c0bd173d8c5f 0000000000000000 01 01</p>
+<h3 id="buy-7"><a href="#buy-7" class="headerlink" title="buy"></a>buy</h3><p><a target="_blank" rel="noopener" href="https://solscan.io/tx/57dWL6tt8omzRkgqdoaVdPks6XvVDRLo91k6dzaTG8Q9vCVCqviudEWFitCAoDXcD2baFNRCkV1vnPhcdArLu42y">https://solscan.io/tx/57dWL6tt8omzRkgqdoaVdPks6XvVDRLo91k6dzaTG8Q9vCVCqviudEWFitCAoDXcD2baFNRCkV1vnPhcdArLu42y</a></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250717202920680.png" alt="image-20250717202920680"></p>
+<h3 id="sell-7"><a href="#sell-7" class="headerlink" title="sell"></a>sell</h3><p><a target="_blank" rel="noopener" href="https://solscan.io/tx/3oRZxhQBHMwc1HMN4MzcqCyPKJibmg4XqQjQFLqiSHBmxBzVPiR7ygxjkVGEiQk5hM8PYyU6c3UDS5qC7fEMfshS">https://solscan.io/tx/3oRZxhQBHMwc1HMN4MzcqCyPKJibmg4XqQjQFLqiSHBmxBzVPiR7ygxjkVGEiQk5hM8PYyU6c3UDS5qC7fEMfshS</a></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250717202959683.png" alt="image-20250717202959683"></p>
+<h3 id="总结-7"><a href="#总结-7" class="headerlink" title="总结"></a>总结</h3><blockquote>
+<p>售卖的话 aTob 参数修改成 false tick 换成 对应的 sell tick</p>
+</blockquote>
+<h2 id="Linfinity"><a href="#Linfinity" class="headerlink" title="Linfinity"></a>Linfinity</h2><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250707102955092.png" alt="image-20250707102955092"></p>
+<p><a target="_blank" rel="noopener" href="https://solscan.io/tx/5y9Ps52USi13jcv8qdJc3cKy1Q9AfEYvnuUgbcXcvtnBSw3NWuDGw2gBQbZEFiuMiUJGZKwPu19Y2q5rJHSdwKHB">https://solscan.io/tx/5y9Ps52USi13jcv8qdJc3cKy1Q9AfEYvnuUgbcXcvtnBSw3NWuDGw2gBQbZEFiuMiUJGZKwPu19Y2q5rJHSdwKHB</a></p>
+<p>f8c69e91e17587c8 9a9bd83e00000000 0100000000000000</p>
+<h3 id="buy-8"><a href="#buy-8" class="headerlink" title="buy"></a>buy</h3><p><a target="_blank" rel="noopener" href="https://solscan.io/tx/4jWQSmrXS6g3oCquU88m3vyEEQV4FkEJ4BitWoXvo4LeRhsXuW38TZTGkwVTnjnUVR5LcRLHT2Gm2eKJ1vwx6ZL9">https://solscan.io/tx/4jWQSmrXS6g3oCquU88m3vyEEQV4FkEJ4BitWoXvo4LeRhsXuW38TZTGkwVTnjnUVR5LcRLHT2Gm2eKJ1vwx6ZL9</a></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250717202042741.png" alt="image-20250717202042741"></p>
+<h3 id="sell-8"><a href="#sell-8" class="headerlink" title="sell"></a>sell</h3><p><a target="_blank" rel="noopener" href="https://solscan.io/tx/575pQUyTG2SZFpPEfot6kZp5BjNuYXW9qvBwDLJPBPgBZyhguVeLcpo7JwA7odZw5b1wxSgtnRajXhf2SJUtwTTu">https://solscan.io/tx/575pQUyTG2SZFpPEfot6kZp5BjNuYXW9qvBwDLJPBPgBZyhguVeLcpo7JwA7odZw5b1wxSgtnRajXhf2SJUtwTTu</a></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250717202116801.png" alt="image-20250717202116801"></p>
+<h3 id="总结-8"><a href="#总结-8" class="headerlink" title="总结"></a>总结</h3><blockquote>
+<p>买卖的时候 swap_source 和 swap_destination 要换一下位置 ata 也换位 就 ok 了</p>
+</blockquote>
+<h2 id="pamm"><a href="#pamm" class="headerlink" title="pamm"></a>pamm</h2><h3 id="sell-9"><a href="#sell-9" class="headerlink" title="sell"></a>sell</h3><p><a target="_blank" rel="noopener" href="https://solscan.io/tx/5pP8VVaQ9n9dEU5FmRSdTBrA6bZvMUn9Xr98KzaPrP7HqYVRkv1tJZhTfcChmBmtGJGtmmv6BgYeSpbzeANLbMSf">https://solscan.io/tx/5pP8VVaQ9n9dEU5FmRSdTBrA6bZvMUn9Xr98KzaPrP7HqYVRkv1tJZhTfcChmBmtGJGtmmv6BgYeSpbzeANLbMSf</a></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250717201816219.png" alt="image-20250717201816219"></p>
+<p>33e685a4017f83ad40420f00000000000000000000000000</p>
+<h3 id="buy-9"><a href="#buy-9" class="headerlink" title="buy"></a>buy</h3><p><a target="_blank" rel="noopener" href="https://solscan.io/tx/5j8iL9zp9TfbaMNRi11HAsJ6K41Ckzr8tDrjJLmx7edSpQzzB4Kki3tTKbPTKjqYNoBFjyBSpSFxzWaHB3dQN2d8">https://solscan.io/tx/5j8iL9zp9TfbaMNRi11HAsJ6K41Ckzr8tDrjJLmx7edSpQzzB4Kki3tTKbPTKjqYNoBFjyBSpSFxzWaHB3dQN2d8</a></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250717201733470.png" alt="image-20250717201733470"></p>
+<p>66063d1201daebea40420f0000000000c80f000000000000</p>
+<h3 id="总结-9"><a href="#总结-9" class="headerlink" title="总结"></a>总结</h3><blockquote>
+<p>buy 需要链上计算汇率 sell 不需要  交易的时候 ata 互换即可</p>
+</blockquote>
+<h3 id="固定数据"><a href="#固定数据" class="headerlink" title="固定数据"></a>固定数据</h3><figure class="highlight rust"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">pub</span> <span class="keyword">const</span> PAMM_PROGRAM_ID: Pubkey = pubkey!(<span class="string">"pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">pub</span> <span class="keyword">const</span> PAMM_FEE_ACCOUNT: Pubkey = pubkey!(<span class="string">"62qc2CNXwrYqQScmEdiZFFAnJR262PxWEuNQtxfafNgV"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">pub</span> <span class="keyword">const</span> PAMM_FEE_RECEIVER_ACCOUNT: Pubkey = pubkey!(<span class="string">"94qWNrtmfn42h3ZjUZwWvK1MEo9uVmmrBPd2hpNjYDjb"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">pub</span> <span class="keyword">const</span> PAMM_GLOBAL_CONFIG: Pubkey = pubkey!(<span class="string">"ADyA8hdefvWN2dbGGWFotbzWxrAvLW83WG6QCVXvJKqw"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">pub</span> <span class="keyword">const</span> PAMM_EVENT_AUTHORITY: Pubkey = pubkey!(<span class="string">"GS4CU59F31iL7aR2Q8zVS8DRrcRnXX1yjQ66TqNVQnaR"</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="闪电贷"><a href="#闪电贷" class="headerlink" title="闪电贷"></a>闪电贷</h2><blockquote>
+<p>抽取十万分之一的利息</p>
+</blockquote>
+<h3 id="WSOL"><a href="#WSOL" class="headerlink" title="WSOL"></a>WSOL</h3><p><a target="_blank" rel="noopener" href="https://solscan.io/tx/5dmQQ1mqRs7ZRztYdejuvKiApzTurEjUwTrip2r9kXgPytn1vknWePmA9emyEpshHpaukmotcHzBwCaq8AcnuHYo">https://solscan.io/tx/5dmQQ1mqRs7ZRztYdejuvKiApzTurEjUwTrip2r9kXgPytn1vknWePmA9emyEpshHpaukmotcHzBwCaq8AcnuHYo</a></p>
+<h3 id="USDC"><a href="#USDC" class="headerlink" title="USDC"></a>USDC</h3><p><a target="_blank" rel="noopener" href="https://solscan.io/tx/3vsRR1CBJfzAzTXuFMKqNmtLCCcu9LPZdVnNrn2RdFddHCWbwrnxVPZKgwyRTb1QG9YawJxfKJPAQBqgUn5AAQW1">https://solscan.io/tx/3vsRR1CBJfzAzTXuFMKqNmtLCCcu9LPZdVnNrn2RdFddHCWbwrnxVPZKgwyRTb1QG9YawJxfKJPAQBqgUn5AAQW1</a></p>
+<h2 id="bonk-内盘"><a href="#bonk-内盘" class="headerlink" title="bonk 内盘"></a>bonk 内盘</h2><h3 id="sell-10"><a href="#sell-10" class="headerlink" title="sell"></a>sell</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250709212406557.png" alt="image-20250709212406557"></p>
+<p>4UtLc7bysv6nmVKLzBUC8GMgRUBiDZJ7W8NcEKNdkkeDXgAT9uvTFKLSkk5DKackM4d5mMNQZsAei9QpCJFrUXEW</p>
+<p>9527de9bd37c981a965a2b3cc008000000000000000000000000000000000000</p>
+<h3 id="buy-10"><a href="#buy-10" class="headerlink" title="buy"></a>buy</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250709212446006.png" alt="image-20250709212446006"></p>
+<p>32ewiPAiUGCcjmXw2iCrAwcvFrw9mfYqssVakb4QBkhyUq2CMkt9vJWfYBWdWWvpwCueotBozZTVCVRycGA8V73J</p>
+<p>faea0d7bd59c13ec40420f000000000000000000000000000000000000000000</p>
+<h2 id="TESS"><a href="#TESS" class="headerlink" title="TESS"></a>TESS</h2><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250712150046217.png" alt="image-20250712150046217"></p>
+<p>TessVdML9pBGgG9yGks7o4HewRaXVAMuoVj4x83GLQH</p>
+<p>3xpSuPDzpVZVk6RPtDe4dKYDQAE83YeNBgJwEMAEmaWnR4uExBs8u7FV1GZqAAPZbssxJFDoVwmdVxvVJ9AAvPgT</p>
+<h2 id="humi"><a href="#humi" class="headerlink" title="humi"></a>humi</h2><h3 id="buy-11"><a href="#buy-11" class="headerlink" title="buy"></a>buy</h3><p><a target="_blank" rel="noopener" href="https://solscan.io/tx/3X3Jpw1MiMA1YAbnG2FHDPKovWq23szxN6DuyKfgA7hFe9hUZtUowcnSaDLMdQMeNEEbvZLJ3p4e76SCV69cW1zZ">Transaction 3X3Jpw1MiMA1YAbnG2FHDPKovWq23szxN6DuyKfgA7hFe9hUZtUowcnSaDLMdQMeNEEbvZLJ3p4e76SCV69cW1zZ</a></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250823232844804.png" alt="image-20250823232844804"></p>
+<p>100fca134b30f38c7fdd9dbfe3baeac338ff2dffe0bae9c33d</p>
+<h3 id="sell-11"><a href="#sell-11" class="headerlink" title="sell"></a>sell</h3><p><a target="_blank" rel="noopener" href="https://solscan.io/tx/4hNvUxycc7eD7RudZErUdRL8jSASe5PVMieHv3kJFTNjCR5CmbxcFZKtn4AX57j74BnrFbNq9KTUPV3bEXd8okps">Transaction 4hNvUxycc7eD7RudZErUdRL8jSASe5PVMieHv3kJFTNjCR5CmbxcFZKtn4AX57j74BnrFbNq9KTUPV3bEXd8okps</a></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250823233506682.png" alt="image-20250823233506682"></p>
+<p>18951582e2baebc33bd046a6e3baeac339ff2dffe0bae9c33d</p>
+<h2 id="fusion"><a href="#fusion" class="headerlink" title="fusion"></a>fusion</h2><h3 id="sell-12"><a href="#sell-12" class="headerlink" title="sell"></a>sell</h3><p><a target="_blank" rel="noopener" href="https://solscan.io/tx/5QL5exjLn87BdbumF6NaCHRdHrx7qfVr57etF5PxAaxqzWu2qNRSnbH6vws9Z5PHSGh1CTnvA13doJZWVmyHjyos">https://solscan.io/tx/5QL5exjLn87BdbumF6NaCHRdHrx7qfVr57etF5PxAaxqzWu2qNRSnbH6vws9Z5PHSGh1CTnvA13doJZWVmyHjyos</a></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250921000102824.png" alt="image-20250921000102824"></p>
+<h3 id="buy-12"><a href="#buy-12" class="headerlink" title="buy"></a>buy</h3><p><a target="_blank" rel="noopener" href="https://solscan.io/tx/2HJeEt2ezcjLL9PkNKx95tFPJfCpj8vwfQdnWsXJDBPuw2T72kUUChetvoUNs5ptdVtdpRgbCn3PUnR5sFGF64EV">https://solscan.io/tx/2HJeEt2ezcjLL9PkNKx95tFPJfCpj8vwfQdnWsXJDBPuw2T72kUUChetvoUNs5ptdVtdpRgbCn3PUnR5sFGF64EV</a></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250921000141820.png" alt="image-20250921000141820"></p>
+<blockquote>
+<p>swap的本质是指令里面的 a_to_b 字段</p>
+</blockquote>
+<h2 id="sv2"><a href="#sv2" class="headerlink" title="sv2"></a>sv2</h2><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20250830094929211.png" alt="image-20250830094929211"></p>
+<p><a target="_blank" rel="noopener" href="https://solscan.io/tx/66nYK7UehEiQg2NAjnDqMvcyBiTBW6jcEgyaP4jDBvwNPeK1iN5UZsFUqXzuq3rLESzu3bm1fd3vnUtcARh4kuBH">https://solscan.io/tx/66nYK7UehEiQg2NAjnDqMvcyBiTBW6jcEgyaP4jDBvwNPeK1iN5UZsFUqXzuq3rLESzu3bm1fd3vnUtcARh4kuBH</a></p>
+<p>0700bca06501000000000000000000000000</p>
+<h2 id="jup"><a href="#jup" class="headerlink" title="jup"></a>jup</h2><p><a target="_blank" rel="noopener" href="https://solscan.io/tx/GK2PwP776gpJ4LmAPa7hYLC9hmNKHJddiGTbZpWZvQfUQCrxAxZmBbPabesavop2jvJ4dpX494emzU6q2eQBFSC">https://solscan.io/tx/GK2PwP776gpJ4LmAPa7hYLC9hmNKHJddiGTbZpWZvQfUQCrxAxZmBbPabesavop2jvJ4dpX494emzU6q2eQBFSC</a></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20251014144532848.png" alt="image-20251014144532848"></p>
+<h2 id="perp"><a href="#perp" class="headerlink" title="perp"></a>perp</h2><p><a target="_blank" rel="noopener" href="https://solscan.io/tx/4PHaHUDgpDoJuoxGX9JmRkaLJjcJpAx53PQGQuCq2iWecMdQ4FQy2ys4Uk21caaTVMia6pyLw5nvJvCq939toaM1">https://solscan.io/tx/4PHaHUDgpDoJuoxGX9JmRkaLJjcJpAx53PQGQuCq2iWecMdQ4FQy2ys4Uk21caaTVMia6pyLw5nvJvCq939toaM1</a></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20251014160445878.png" alt="image-20251014160445878"></p>
+<p>添加流动性</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20251014160516805.png" alt="image-20251014160516805"></p>
+<h2 id="panswap"><a href="#panswap" class="headerlink" title="panswap"></a>panswap</h2><p><a target="_blank" rel="noopener" href="https://solscan.io/tx/2Q1LS6FzMGeiMwg9DtP4mT61DUn2b6QDc93Q5eBWegahCwFPf88BacTY133hHZrGBYj85K3aMVeHijmAsRhoojzi">https://solscan.io/tx/2Q1LS6FzMGeiMwg9DtP4mT61DUn2b6QDc93Q5eBWegahCwFPf88BacTY133hHZrGBYj85K3aMVeHijmAsRhoojzi</a></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20251015220105688.png" alt="image-20251015220105688"></p>
+<p><a target="_blank" rel="noopener" href="https://solscan.io/tx/jd47C8dXHQ4Yk7wiDqsQKrMXNQ4QK19GJcEBnnxpp866BzESeifN8hMpp6kLXS8fAET2ToNpcdGFwdKdSvZz3oK">https://solscan.io/tx/jd47C8dXHQ4Yk7wiDqsQKrMXNQ4QK19GJcEBnnxpp866BzESeifN8hMpp6kLXS8fAET2ToNpcdGFwdKdSvZz3oK</a></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20251015220144271.png" alt="image-20251015220144271"></p>
+<h2 id="meteora-DBC"><a href="#meteora-DBC" class="headerlink" title="meteora DBC"></a>meteora DBC</h2><p><a target="_blank" rel="noopener" href="https://solscan.io/tx/34R1yRghMjuUyzJqNHKzYGznDSq59XdFQbx8uX55K1YsdY7dVxUqeGsDbySG3rrtrUTL5Bzfv6UUFAgBr8fsjCu6">https://solscan.io/tx/34R1yRghMjuUyzJqNHKzYGznDSq59XdFQbx8uX55K1YsdY7dVxUqeGsDbySG3rrtrUTL5Bzfv6UUFAgBr8fsjCu6</a></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20251015210236750.png" alt="image-20251015210236750"></p>
+<h3 id="swap2"><a href="#swap2" class="headerlink" title="swap2"></a>swap2</h3><p><a target="_blank" rel="noopener" href="https://solscan.io/tx/4K26Ypfn6Apo2L8GdoPofR9v5Dhu32mNi31nq7czqGiiYapxs1saNCTe3TfygWvgtHC8BANdXwGJo8KKV4k8jxjb">https://solscan.io/tx/4K26Ypfn6Apo2L8GdoPofR9v5Dhu32mNi31nq7czqGiiYapxs1saNCTe3TfygWvgtHC8BANdXwGJo8KKV4k8jxjb</a></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20251015210319401.png" alt="image-20251015210319401"></p>
+<h2 id="stabswap"><a href="#stabswap" class="headerlink" title="stabswap"></a>stabswap</h2><p><a target="_blank" rel="noopener" href="https://solscan.io/tx/2YzCjcbwahdqaWAnSN7TR8EeepxqsMJdwztG79hi14J89ftRwxFcVGywLma9DZmR6GqchpARATmJuWhVF8uiCWFy">https://solscan.io/tx/2YzCjcbwahdqaWAnSN7TR8EeepxqsMJdwztG79hi14J89ftRwxFcVGywLma9DZmR6GqchpARATmJuWhVF8uiCWFy</a></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20251016170634435.png" alt="image-20251016170634435"></p>
+<h2 id="Zerofi"><a href="#Zerofi" class="headerlink" title="Zerofi"></a>Zerofi</h2><p><a target="_blank" rel="noopener" href="https://solscan.io/tx/5nnqxQWSjMdCeEvTcqgXLBWVCgKSuTAwBYYHcm4ugpcvjjCMwnwXgx8Q8a5BqPbA4kp6W2H39SrXoeC4JvsNxCCG">https://solscan.io/tx/5nnqxQWSjMdCeEvTcqgXLBWVCgKSuTAwBYYHcm4ugpcvjjCMwnwXgx8Q8a5BqPbA4kp6W2H39SrXoeC4JvsNxCCG</a></p>
+<p>注意 第6第7位是ata</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20251015153103603.png" alt="image-20251015153103603"></p>
+<p><a target="_blank" rel="noopener" href="https://solscan.io/tx/3BMksExVKktBjKvocLRwWrPUwShk23N74F6ipMuxE3HUdUgnBi9z5BivotfEzv8BwcTSKMwq2pzM1enE6nBsDApU">https://solscan.io/tx/3BMksExVKktBjKvocLRwWrPUwShk23N74F6ipMuxE3HUdUgnBi9z5BivotfEzv8BwcTSKMwq2pzM1enE6nBsDApU</a></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20251016170701276.png" alt="image-20251016170701276"></p>
+<h2 id="Goonfi"><a href="#Goonfi" class="headerlink" title="Goonfi"></a>Goonfi</h2><p><a target="_blank" rel="noopener" href="https://solscan.io/tx/1xmCBVmTZcXrjtgP7N5wTQAa96MFHdyaowxJU3JpS7nP1dEq2zu3Pxkx26jkc4y8MKQMzJ6ZxQMiTgrfq21KKmJ">https://solscan.io/tx/1xmCBVmTZcXrjtgP7N5wTQAa96MFHdyaowxJU3JpS7nP1dEq2zu3Pxkx26jkc4y8MKQMzJ6ZxQMiTgrfq21KKmJ</a></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20251015143630264.png" alt="image-20251015143630264"></p>
+<h2 id="phox"><a href="#phox" class="headerlink" title="phox"></a>phox</h2><h3 id="buy-13"><a href="#buy-13" class="headerlink" title="buy"></a>buy</h3><p><a target="_blank" rel="noopener" href="https://solscan.io/tx/s6n8qpqNAdVAZnAqAYQ46HPqcQDEhb4xMFZPC6PMs1SthcuXDb8g3padVtfwgBW8FWXKNUBiCgem8HVUAcc79F2">Transaction s6n8qpqNAdVAZnAqAYQ46HPqcQDEhb4xMFZPC6PMs1SthcuXDb8g3padVtfwgBW8FWXKNUBiCgem8HVUAcc79F2</a></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20251014221005035.png" alt="image-20251014221005035"></p>
+<h3 id="sell-13"><a href="#sell-13" class="headerlink" title="sell"></a>sell</h3><p><a target="_blank" rel="noopener" href="https://solscan.io/tx/4aPa9Je3EAiVzKvHCAheFMmFqfsEEop8no89PbE4qyeLq4X3yG7HsGQzZY9rNFPa4uuDPLjuVdr2nfzA1nL64yFF">Transaction 4aPa9Je3EAiVzKvHCAheFMmFqfsEEop8no89PbE4qyeLq4X3yG7HsGQzZY9rNFPa4uuDPLjuVdr2nfzA1nL64yFF</a></p>
+<blockquote>
+<p>交换一下ata就可以了</p>
+</blockquote>
+<p>data参数需要修改</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cwrisingblog.oss-cn-beijing.aliyuncs.com/blog/image-20251014221508886.png" alt="image-20251014221508886"></p>
+<h2 id="bonk-外盘"><a href="#bonk-外盘" class="headerlink" title="bonk 外盘"></a>bonk 外盘</h2><blockquote>
+<p>这个是 raydium cpmm 这个东西</p>
+</blockquote>
+<h2 id="池子分析"><a href="#池子分析" class="headerlink" title="池子分析"></a>池子分析</h2><h3 id="需要-tick-的池子"><a href="#需要-tick-的池子" class="headerlink" title="需要 tick 的池子"></a>需要 tick 的池子</h3><ul>
+<li>orca</li>
+<li>meteora dlmm</li>
+<li>raydium cpmm</li>
+</ul>
+<blockquote>
+<p>这里抓取一下 account 数据流，进行实时更新</p>
+</blockquote>
+<h3 id="tx-的-account-里面没有-token-地址的池子"><a href="#tx-的-account-里面没有-token-地址的池子" class="headerlink" title="tx 的 account 里面没有 token 地址的池子"></a>tx 的 account 里面没有 token 地址的池子</h3><ul>
+<li>raydium v4 amm</li>
+<li>raydium camm</li>
+<li>meteora pools</li>
+<li>solfi</li>
+<li>linfinity</li>
+<li>orca swap</li>
+</ul>
+<blockquote>
+<p>需要实现这些池子的 buffer 切片来获取 token 直接使用 rpc 查询即可 查到之后存起来进行映射</p>
+</blockquote>
+<blockquote>
+<p>一个 dex 对应一个池子的全数据 开 2 个 grpc 数据流</p>
+</blockquote>
+<h4 id="token-数据字节定位"><a href="#token-数据字节定位" class="headerlink" title="token 数据字节定位"></a>token 数据字节定位</h4><ol>
+<li>// 101, 181 Whirlpools</li>
+<li>// 400, 432 Raydium amm</li>
+<li>// ray clmm  73, 105</li>
+<li>// solfi  2664 2696</li>
+<li>// lifinity_v2 254 286</li>
+<li>// meteora pool 40 72</li>
+</ol>
+<h2 id="数据库如何写"><a href="#数据库如何写" class="headerlink" title="数据库如何写"></a>数据库如何写</h2><ol>
+<li>数据要全 解析各种事件啥的  重点是每一个池子的初始化池子的 tx</li>
+<li>1-&gt; n 多交易发送 （盲狙） 合约还是要写的</li>
+<li>key 值按照 A-&gt; B 来写</li>
+</ol>
+<h2 id="TASK"><a href="#TASK" class="headerlink" title="TASK"></a>TASK</h2><ul>
+<li><input checked="" disabled="" type="checkbox"> 写合约</li>
+<li><input disabled="" type="checkbox"> 写数据库</li>
+<li><input disabled="" type="checkbox"> 交易构建</li>
+<li><input disabled="" type="checkbox"> 加入 wsol 到 usdc 的 swap</li>
+<li><input checked="" disabled="" type="checkbox"> 写成 rust 代码</li>
+<li><input disabled="" type="checkbox"> tick 也需要从 grpc 里面抓取</li>
+</ul>
+<h2 id="Bonk"><a href="#Bonk" class="headerlink" title="Bonk"></a>Bonk</h2><ul>
+<li><p><input checked="" disabled="" type="checkbox"> 
+数据库优化，那些不必要的进行精简</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+token 数量啥的存入 redis</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+多线程试一试</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+简单使用一点策略啥的</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+直接修改成 rust 得了</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+交易量 交易数目 大额卖出 大额买入</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+严格控制好止损 设置 2 个止损点</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+翻倍必出本</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+计算价格 </p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+本地计算自己购买了多少 token</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+购买之后 获取到购买到的数量 然后计算价格塞入进去 </p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+购买数量走 rpc 通道</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+使用这个 alt FHPu14ZCs6R7Rn6ayAcszxBy6J4GL7EcYJELY2oVMhWe</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+外盘只负责售卖 购买都是内盘的事情</p>
+</li>
+</ul>
+<h2 id="合约"><a href="#合约" class="headerlink" title="合约"></a>合约</h2><ul>
+<li><input disabled="" type="checkbox"> signer 的过滤</li>
+<li><input disabled="" type="checkbox"> 其他池子的合约整理一下</li>
+</ul>
+<h3 id="合约进度"><a href="#合约进度" class="headerlink" title="合约进度"></a>合约进度</h3><ul>
+<li><input checked="" disabled="" type="checkbox"> pamm<ul>
+<li><input checked="" disabled="" type="checkbox"> sell</li>
+<li><input checked="" disabled="" type="checkbox"> buy</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> raydium</li>
+<li><input checked="" disabled="" type="checkbox"> meteora</li>
+<li><input checked="" disabled="" type="checkbox"> orca</li>
+<li><input checked="" disabled="" type="checkbox"> solfi</li>
+<li><input checked="" disabled="" type="checkbox"> 闪电贷</li>
+<li><input checked="" disabled="" type="checkbox"> linfinity</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://risingrode.github.io">fcw</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://risingrode.github.io/post/f8001bca.html">https://risingrode.github.io/post/f8001bca.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://risingrode.github.io" target="_blank">代码有点萌</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/covers/c03.svg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://registry.npmmirror.com/butterfly-extsrc/1.1.3/files/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://registry.npmmirror.com/butterfly-extsrc/1.1.3/files/sharejs/dist/js/social-share.min.js" defer=""></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.webp" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/wechat.webp" alt="微信"></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.webp" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/alipay.webp" alt="支付宝"></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/2f0ad72.html" title="套利规划"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/covers/c01.svg" onerror="onerror=null;src='/img/404.svg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">套利规划</div></div></a></div><div class="next-post pull-right"><a href="/post/7aeac66.html" title="养生小贴士"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/covers/c09.svg" onerror="onerror=null;src='/img/404.svg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">养生小贴士</div></div></a></div></nav><hr><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/girl.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="author-info__name">fcw</div><div class="author-info__description">一个收藏回忆与分享技术的地方！</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">135</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">94</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">61</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Risingrode"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到cwRising的博客</div></div><div class="card-widget"><div class="item-headline"><i></i><span></span></div><div class="item-content"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%84%E4%B8%AA%E6%B1%A0%E5%AD%90%E7%9A%84%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90"><span class="toc-number">1.</span> <span class="toc-text">各个池子的数据解析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Raydium"><span class="toc-number">1.1.</span> <span class="toc-text">Raydium</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#v4-amm"><span class="toc-number">1.1.1.</span> <span class="toc-text">v4 amm</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#buy"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">buy</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sell"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">sell</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.1.1.3.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#clmm"><span class="toc-number">1.1.2.</span> <span class="toc-text">clmm</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#buy-1"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">buy</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sell-1"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">sell</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-1"><span class="toc-number">1.1.2.3.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#swap-v2"><span class="toc-number">1.1.3.</span> <span class="toc-text">swap v2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cpmm"><span class="toc-number">1.1.4.</span> <span class="toc-text">cpmm</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%BA%E5%AE%9A%E5%8F%82%E6%95%B0"><span class="toc-number">1.1.4.1.</span> <span class="toc-text">固定参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#buy-2"><span class="toc-number">1.1.4.2.</span> <span class="toc-text">buy</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sell-2"><span class="toc-number">1.1.4.3.</span> <span class="toc-text">sell</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-2"><span class="toc-number">1.1.4.4.</span> <span class="toc-text">总结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Meteora-dlmm"><span class="toc-number">1.2.</span> <span class="toc-text">Meteora dlmm</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#buy-3"><span class="toc-number">1.2.1.</span> <span class="toc-text">buy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sell-3"><span class="toc-number">1.2.2.</span> <span class="toc-text">sell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-3"><span class="toc-number">1.2.3.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#swap-v2-1"><span class="toc-number">1.2.4.</span> <span class="toc-text">swap v2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#swap"><span class="toc-number">1.2.5.</span> <span class="toc-text">swap</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Meteora-damm-v2"><span class="toc-number">1.3.</span> <span class="toc-text">Meteora damm v2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#buy-4"><span class="toc-number">1.3.1.</span> <span class="toc-text">buy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sell-4"><span class="toc-number">1.3.2.</span> <span class="toc-text">sell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-4"><span class="toc-number">1.3.3.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Meteora-pools"><span class="toc-number">1.4.</span> <span class="toc-text">Meteora pools</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sell-5"><span class="toc-number">1.4.1.</span> <span class="toc-text">sell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#buy-5"><span class="toc-number">1.4.2.</span> <span class="toc-text">buy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-5"><span class="toc-number">1.4.3.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SolFi"><span class="toc-number">1.5.</span> <span class="toc-text">SolFi</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#buy-6"><span class="toc-number">1.5.1.</span> <span class="toc-text">buy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sell-6"><span class="toc-number">1.5.2.</span> <span class="toc-text">sell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-6"><span class="toc-number">1.5.3.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Orca"><span class="toc-number">1.6.</span> <span class="toc-text">Orca</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#swap-v2-2"><span class="toc-number">1.6.1.</span> <span class="toc-text">swap v2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#swap-1"><span class="toc-number">1.6.2.</span> <span class="toc-text">swap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#buy-7"><span class="toc-number">1.6.3.</span> <span class="toc-text">buy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sell-7"><span class="toc-number">1.6.4.</span> <span class="toc-text">sell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-7"><span class="toc-number">1.6.5.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linfinity"><span class="toc-number">1.7.</span> <span class="toc-text">Linfinity</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#buy-8"><span class="toc-number">1.7.1.</span> <span class="toc-text">buy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sell-8"><span class="toc-number">1.7.2.</span> <span class="toc-text">sell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-8"><span class="toc-number">1.7.3.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pamm"><span class="toc-number">1.8.</span> <span class="toc-text">pamm</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sell-9"><span class="toc-number">1.8.1.</span> <span class="toc-text">sell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#buy-9"><span class="toc-number">1.8.2.</span> <span class="toc-text">buy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-9"><span class="toc-number">1.8.3.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BA%E5%AE%9A%E6%95%B0%E6%8D%AE"><span class="toc-number">1.8.4.</span> <span class="toc-text">固定数据</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AA%E7%94%B5%E8%B4%B7"><span class="toc-number">1.9.</span> <span class="toc-text">闪电贷</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#WSOL"><span class="toc-number">1.9.1.</span> <span class="toc-text">WSOL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#USDC"><span class="toc-number">1.9.2.</span> <span class="toc-text">USDC</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bonk-%E5%86%85%E7%9B%98"><span class="toc-number">1.10.</span> <span class="toc-text">bonk 内盘</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sell-10"><span class="toc-number">1.10.1.</span> <span class="toc-text">sell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#buy-10"><span class="toc-number">1.10.2.</span> <span class="toc-text">buy</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TESS"><span class="toc-number">1.11.</span> <span class="toc-text">TESS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#humi"><span class="toc-number">1.12.</span> <span class="toc-text">humi</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#buy-11"><span class="toc-number">1.12.1.</span> <span class="toc-text">buy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sell-11"><span class="toc-number">1.12.2.</span> <span class="toc-text">sell</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fusion"><span class="toc-number">1.13.</span> <span class="toc-text">fusion</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sell-12"><span class="toc-number">1.13.1.</span> <span class="toc-text">sell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#buy-12"><span class="toc-number">1.13.2.</span> <span class="toc-text">buy</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sv2"><span class="toc-number">1.14.</span> <span class="toc-text">sv2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jup"><span class="toc-number">1.15.</span> <span class="toc-text">jup</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#perp"><span class="toc-number">1.16.</span> <span class="toc-text">perp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#panswap"><span class="toc-number">1.17.</span> <span class="toc-text">panswap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#meteora-DBC"><span class="toc-number">1.18.</span> <span class="toc-text">meteora DBC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#swap2"><span class="toc-number">1.18.1.</span> <span class="toc-text">swap2</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#stabswap"><span class="toc-number">1.19.</span> <span class="toc-text">stabswap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Zerofi"><span class="toc-number">1.20.</span> <span class="toc-text">Zerofi</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Goonfi"><span class="toc-number">1.21.</span> <span class="toc-text">Goonfi</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#phox"><span class="toc-number">1.22.</span> <span class="toc-text">phox</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#buy-13"><span class="toc-number">1.22.1.</span> <span class="toc-text">buy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sell-13"><span class="toc-number">1.22.2.</span> <span class="toc-text">sell</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bonk-%E5%A4%96%E7%9B%98"><span class="toc-number">1.23.</span> <span class="toc-text">bonk 外盘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B1%A0%E5%AD%90%E5%88%86%E6%9E%90"><span class="toc-number">1.24.</span> <span class="toc-text">池子分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9C%80%E8%A6%81-tick-%E7%9A%84%E6%B1%A0%E5%AD%90"><span class="toc-number">1.24.1.</span> <span class="toc-text">需要 tick 的池子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tx-%E7%9A%84-account-%E9%87%8C%E9%9D%A2%E6%B2%A1%E6%9C%89-token-%E5%9C%B0%E5%9D%80%E7%9A%84%E6%B1%A0%E5%AD%90"><span class="toc-number">1.24.2.</span> <span class="toc-text">tx 的 account 里面没有 token 地址的池子</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#token-%E6%95%B0%E6%8D%AE%E5%AD%97%E8%8A%82%E5%AE%9A%E4%BD%8D"><span class="toc-number">1.24.2.1.</span> <span class="toc-text">token 数据字节定位</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A6%82%E4%BD%95%E5%86%99"><span class="toc-number">1.25.</span> <span class="toc-text">数据库如何写</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TASK"><span class="toc-number">1.26.</span> <span class="toc-text">TASK</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bonk"><span class="toc-number">1.27.</span> <span class="toc-text">Bonk</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%88%E7%BA%A6"><span class="toc-number">1.28.</span> <span class="toc-text">合约</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%88%E7%BA%A6%E8%BF%9B%E5%BA%A6"><span class="toc-number">1.28.1.</span> <span class="toc-text">合约进度</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/559881a9.html" title="other"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/covers/c09.svg" onerror="this.onerror=null;this.src='/img/404.svg'" alt="other"></a><div class="content"><a class="title" href="/post/559881a9.html" title="other">other</a><time datetime="2026-03-07T05:55:13.084Z" title="发表于 2026-03-07 13:55:13">2026-03-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/c915e425.html" title="Alpha 脚本"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/covers/c06.svg" onerror="this.onerror=null;this.src='/img/404.svg'" alt="Alpha 脚本"></a><div class="content"><a class="title" href="/post/c915e425.html" title="Alpha 脚本">Alpha 脚本</a><time datetime="2025-10-06T08:07:43.286Z" title="发表于 2025-10-06 16:07:43">2025-10-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/cd1f98a1.html" title="人生修炼指南"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/covers/c06.svg" onerror="this.onerror=null;this.src='/img/404.svg'" alt="人生修炼指南"></a><div class="content"><a class="title" href="/post/cd1f98a1.html" title="人生修炼指南">人生修炼指南</a><time datetime="2025-09-14T08:04:15.816Z" title="发表于 2025-09-14 16:04:15">2025-09-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/2b4a76a2.html" title="套利每日任务记录"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/covers/c03.svg" onerror="this.onerror=null;this.src='/img/404.svg'" alt="套利每日任务记录"></a><div class="content"><a class="title" href="/post/2b4a76a2.html" title="套利每日任务记录">套利每日任务记录</a><time datetime="2025-09-01T09:09:03.506Z" title="发表于 2025-09-01 17:09:03">2025-09-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/70399a86.html" title="infp进阶指南"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/covers/c10.svg" onerror="this.onerror=null;this.src='/img/404.svg'" alt="infp进阶指南"></a><div class="content"><a class="title" href="/post/70399a86.html" title="infp进阶指南">infp进阶指南</a><time datetime="2025-08-11T14:58:49.000Z" title="发表于 2025-08-11 22:58:49">2025-08-11</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">©2023 - 2026 By fcw</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a><br>
+<imgsrc="https: haiyong.site="" img="" icp.png"="">
+<a href="https://beian.miit.gov.cn/#/Integrated/index" style="color:white" target="_blank">豫ICP备2023032527号</a></imgsrc="https:></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div></div><hr><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://registry.npmmirror.com/@fancyapps/ui/4.0.31/files/dist/fancybox.umd.js"></script><script src="https://registry.npmmirror.com/vanilla-lazyload/17.8.3/files/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://registry.npmmirror.com/valine/1.5.1/files/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'https://risingrode.github.io/post/f8001bca.html'
+    this.page.identifier = '/post/f8001bca.html'
+    this.page.title = 'DEX 池子数据解析'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+
+  document.getElementById('darkmode').addEventListener('click', () => {
+    setTimeout(() => window.disqusReset(), 200)
+  })
+}
+
+if ('Valine' === 'Disqus' || !false) {
+  if (false) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script></div><link rel="stylesheet" href="/dist/APlayer.min.css"><div id="aplayer"></div><script type="text/javascript" src="/dist/APlayer.min.js"></script><script type="text/javascript" src="/js/aplayer/music.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://registry.npmmirror.com/butterfly-extsrc/1.1.3/files/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zindex="-1" count="99" mobile="false" src="https://registry.npmmirror.com/butterfly-extsrc/1.1.3/files/dist/canvas-nest.min.js"></script><link rel="stylesheet" href="https://registry.npmmirror.com/aplayer/1.10.1/files/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://registry.npmmirror.com/aplayer/1.10.1/files/dist/APlayer.min.js"></script><script src="https://registry.npmmirror.com/butterfly-extsrc/1.1.3/files/metingjs/dist/Meting.min.js"></script><script async="" data-pjax="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

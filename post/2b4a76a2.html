@@ -1,0 +1,732 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>套利每日任务记录 | 代码有点萌</title><meta name="author" content="fcw,3185087246@protonmail.com"><meta name="copyright" content="fcw"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="任务记录9-1  grpc_tick 多线程优化  tokio:: spawn 系统整体性多线程优化  使用 jup 的网页连接套取对应 token 的 alt - 不可取  指令优化 - 提前做的（建 ATA、批准、账户创建）预先做  使用jup提前抓取alt数据 - 不可取 放弃  使用 astra 啥的直接进行 ddos - 开始收费了 放弃  如果遇到超大额交易 进行多池子 arb 不要直">
+<meta property="og:type" content="article">
+<meta property="og:title" content="套利每日任务记录">
+<meta property="og:url" content="https://risingrode.github.io/post/2b4a76a2.html">
+<meta property="og:site_name" content="代码有点萌">
+<meta property="og:description" content="任务记录9-1  grpc_tick 多线程优化  tokio:: spawn 系统整体性多线程优化  使用 jup 的网页连接套取对应 token 的 alt - 不可取  指令优化 - 提前做的（建 ATA、批准、账户创建）预先做  使用jup提前抓取alt数据 - 不可取 放弃  使用 astra 啥的直接进行 ddos - 开始收费了 放弃  如果遇到超大额交易 进行多池子 arb 不要直">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://risingrode.github.io/img/covers/c03.svg">
+<meta property="article:published_time" content="2025-09-01T09:09:03.506Z">
+<meta property="article:modified_time" content="2026-10-01T03:32:21.395Z">
+<meta property="article:author" content="fcw">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://risingrode.github.io/img/covers/c03.svg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://risingrode.github.io/post/2b4a76a2.html"><link rel="preconnect" href="//registry.npmmirror.com"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://registry.npmmirror.com/@fortawesome/fontawesome-free/6.2.1/files/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://registry.npmmirror.com/@fancyapps/ui/4.0.31/files/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://registry.npmmirror.com/flickr-justified-gallery/2.1.2/files/dist/fjGallery.min.js',
+      css: 'https://registry.npmmirror.com/flickr-justified-gallery/2.1.2/files/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '套利每日任务记录',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-10-01 11:32:21'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = url => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      link.onload = () => resolve()
+      link.onerror = () => reject()
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script src="/live2d-widget-master/autoload.js"></script><link rel="stylesheet" href="/css/mouse.css"><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/font.css"><meta name="generator" content="Hexo 6.3.0"></head><body><link rel="stylesheet" href="https://registry.npmmirror.com/pace-js/1.2.4/files/themes/blue/pace-theme-minimal.css"><script src="https://registry.npmmirror.com/pace-js/1.2.4/files/pace.min.js"></script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/girl.webp" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">135</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">94</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">61</div></a></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 优质网站链接</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 媒体</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书单</span></a></li><li><a class="site-page child" href="/songs/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/games/"><i class="fa-fw fa fa-gamepad"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/talk/"><i class="fa-fw far fa-comment"></i><span> 微语</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/covers/c03.svg')"><nav id="nav"><span id="blog-info"><a href="/" title="代码有点萌"><span class="site-name">代码有点萌</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 优质网站链接</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 媒体</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书单</span></a></li><li><a class="site-page child" href="/songs/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/games/"><i class="fa-fw fa fa-gamepad"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/talk/"><i class="fa-fw far fa-comment"></i><span> 微语</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">套利每日任务记录</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-09-01T09:09:03.506Z" title="发表于 2025-09-01 17:09:03">2025-09-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-10-01T03:32:21.395Z" title="更新于 2026-10-01 11:32:21">2026-10-01</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="套利每日任务记录"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><div class="top-img" style="background-image: url('/img/covers/c03.svg');"></div><article class="post-content" id="article-container"><h1 id="任务记录"><a href="#任务记录" class="headerlink" title="任务记录"></a>任务记录</h1><h2 id="9-1"><a href="#9-1" class="headerlink" title="9-1"></a>9-1</h2><ul>
+<li><input checked="" disabled="" type="checkbox"> grpc_tick 多线程优化</li>
+<li><input checked="" disabled="" type="checkbox"> tokio:: spawn 系统整体性多线程优化</li>
+<li><input checked="" disabled="" type="checkbox"> 使用 jup 的网页连接套取对应 token 的 alt - 不可取</li>
+<li><input checked="" disabled="" type="checkbox"> 指令优化 - 提前做的（建 ATA、批准、账户创建）<strong>预先做</strong></li>
+<li><input checked="" disabled="" type="checkbox"> 使用jup提前抓取alt数据 - 不可取 放弃</li>
+<li><input checked="" disabled="" type="checkbox"> 使用 astra 啥的直接进行 ddos - 开始收费了 放弃</li>
+<li><input checked="" disabled="" type="checkbox"> 如果遇到超大额交易 进行多池子 arb 不要直接找最小的 直接发多笔交易</li>
+<li><input disabled="" type="checkbox"> 搭建 grpc 节点</li>
+<li><input checked="" disabled="" type="checkbox"> 查看是否丢失数据  - 不需要看 丢失数据也没有办法</li>
+<li><input checked="" disabled="" type="checkbox"> 解析其它的陌生交易 - 比如加池子 初始化池子交易</li>
+<li><input checked="" disabled="" type="checkbox"> 发现初始化交易的话 只需要少量 sol 可以换取大量 sol   - 提交初始化池子识别</li>
+<li><input disabled="" type="checkbox"> 数据库查询优化  bincode</li>
+<li><input checked="" disabled="" type="checkbox"> 引入 usdc 交易</li>
+<li><input checked="" disabled="" type="checkbox"> http2 的连接复用</li>
+<li><input checked="" disabled="" type="checkbox"> udp 数据发送优化</li>
+<li><input checked="" disabled="" type="checkbox"> 解决抓取数据时的 panic 问题</li>
+<li><input checked="" disabled="" type="checkbox"> 做一下 pinic 过滤</li>
+<li><input checked="" disabled="" type="checkbox"> 合约里面写上日志 </li>
+<li><input checked="" disabled="" type="checkbox"> nhtop 那里的 account len 可以取消了  meteora pool 这个可以换 2 种方式</li>
+<li><input checked="" disabled="" type="checkbox"> 指令的精准拼接</li>
+<li><input checked="" disabled="" type="checkbox"> pump交易修改</li>
+<li><input checked="" disabled="" type="checkbox"> 交易金额设定函数 - 基础框架搭建完毕</li>
+<li><input checked="" disabled="" type="checkbox"> pumm_amm的价格计算索引有问题</li>
+<li><input checked="" disabled="" type="checkbox"> 每一个池子的细化合约日志</li>
+<li><input checked="" disabled="" type="checkbox"> 研究“初始化交易”的还在搞一个grpc分析流</li>
+<li><input checked="" disabled="" type="checkbox"> CU setdatasize 啥的应该是合约做好之后在搞的</li>
+<li><input disabled="" type="checkbox"> 账户静态数据必须精确 必须是 sol或者usdc作为第一token的 如果不是这两个 那么就随机</li>
+<li><input checked="" disabled="" type="checkbox"> 系统账户再过几遍 进行价格审查</li>
+<li><input checked="" disabled="" type="checkbox"> 先把合约搞明白得了</li>
+<li><input checked="" disabled="" type="checkbox"> pamm 的account先是token 再是sol   ata 啥的不需要交换</li>
+<li><input disabled="" type="checkbox"> 如果tick不存在的话就自动返回啥的 防止panic</li>
+<li><input checked="" disabled="" type="checkbox"> 收集信息 - arb常用池子<ul>
+<li><input checked="" disabled="" type="checkbox"> 维持原来的池子即可</li>
+</ul>
+</li>
+</ul>
+<h2 id="明天任务"><a href="#明天任务" class="headerlink" title="明天任务"></a>明天任务</h2><ul>
+<li><p><input checked="" disabled="" type="checkbox"> 
+tick 优化 - 有待商榷</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+数据初始化tx解析</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+n 发策略</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+price 的那个查找的key 统一化 sol-token usdc-token</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+加强指令构建</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+强化系统</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+grpc_account 和 grpc_init 账户啥的好好看一下</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+实现双dex 交易</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+系统强化 性能优化</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+V0 交易</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+amount 函数添加 sol计算和 usdc 计算</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+合约修改 </p>
+<ul>
+<li><input disabled="" type="checkbox"> 有些最小值输出的地方需要标记为1</li>
+</ul>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+借贷指令优化一下</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+process 那个文件优化一下</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+tick 账户再优化一下</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+引入 alt 每一个market存一下alt数据</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+性能查询测试 就是那么多数据 性能会不会有什莫问题 - 已经优化 加入黑名单机制</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+最重要的就是多并发交易解析这个方面 不要阻塞</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+全局数量初始化的时候 也需要进行 key 值无序化操作</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+如何判断sol买还是sol卖？ 就是看那个amount是第一个terfer指令大还是第二个</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 这样还需要引入小数位数 - 不需要引入 特殊点就那几个</li>
+</ul>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+如何判断usdc买还是usdc卖?</p>
+<ul>
+<li><p><input checked="" disabled="" type="checkbox"> 
+就是看那个amount是第一个transferChecked指令大还是第二个 其实不一定了 有的token 笔usdc价值大</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+有且只有一个特例 就是trump 这个 token 单独处理？？？</p>
+</li>
+</ul>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+现在最大的问题是 tokenA-tokenB的情况 已经解决 目的是无序化</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+目前任务</p>
+<ul>
+<li><input disabled="" type="checkbox"> <ol>
+<li>写一下主要数据接收架构</li>
+<li>准确解析某笔交易谁买了或者卖了多少稳定币</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+如何分析这笔交易是谁换成了谁？</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+做一下3hop交易啥的</p>
+<ul>
+<li><p><input checked="" disabled="" type="checkbox"> 
+保证每一个token对里面必须有sol或者usdc</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+还需要检查最终的首尾token是什么 如果首尾token不对 那就添加第三笔交易</p>
+</li>
+</ul>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+标准统一</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 以sol或者usdc作为基础 </li>
+<li><input disabled="" type="checkbox"> 起点和初始点是 sol或者usdc 不一样的时候才可以进行3hop套用</li>
+</ul>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+tess solfi  这两个池子直接套用jup合约</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+添加 perp</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+动态最优优先费</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+获取slot的方式需要优化</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+尝试 DF1ow4tspfHX9JwWJsAb9epbkA8hmpSEAtxXy1V27QBH 这个聚合合约 - 这个不考虑了暂时使用jup</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+添加这个池子 dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+meteora_dlmm 的mint地址互换对交易有什么影响</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+走jito的sendTx 不需要bundle了</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+存在相同交易对 不同market地址的池子</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+一笔tx需要检测会使用到哪些池子，如果都是jup指定池子，那就使用jup</p>
+<ul>
+<li><input disabled="" type="checkbox"> 如果一个Jup，一个自己的合约，那就一半一半</li>
+</ul>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+分析优秀的交易以及池子 <a target="_blank" rel="noopener" href="https://sandwiched.me/arbitrages">https://sandwiched.me/arbitrages</a></p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+遇到超大额交易的话 优先费也一定要大(尽量大吧，毕竟没有什么本金)</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+超大交易的事件，使用N发送策略，如果遇到带有tick的池子，应该进行单Hop套利</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+单tick池子arb</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+搞定那几个大池子的精确解析-所有tx(添加池子或者减少池子等)</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+需要测试 大数据的全局变量和小数据的全局变量数据查找速度是否一样</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+只要dex里面存在必须是jup的 那么全部就要使用jup 此时3hop交易对需要进行考虑</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+添加池子 AQU1FRd7papthgdrwPTTq5JacJh8YtwEXaBfKU3bTz45</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+添加池子 swapNyd8XiQwJ6ianp9snpu4brUqFxadzvHebnAXjJZ</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+添加池子 HpNfyc2Saw7RKkQd8nEL4khUcuPhQ7WwY1B2qjx8jxFq</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+添加池子 zerofi phonix goonfi</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+添加池子 dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+开一个rust性能测试小项目</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+fire_process 应该加入是哪个dex发送的交易</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+需要重新构建一个抓取小数位数的函数 如果存在则不抓取 不存在 则抓取 那么全局一口气拉去所有token小数位数可不可以呢</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+对应的合约搞好</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+match 里面的判断条件可以精细化一下 -  研究 match 的判断条件对于性能的影响</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+amm config 这个配置不一定是固定的 以后需要修改</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+tick_array和tick是否需要分开 必须精细化</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+PROGRAM_RAYDIUM_CLMM_U8 这里小问题</p>
+</li>
+</ul>
+<p>那些池子都写完，正常写</p>
+<p>特殊情况，相同交易对不同market</p>
+<p><a target="_blank" rel="noopener" href="https://solscan.io/tx/3byMzXqMoZeGUjZ9Qt726Jvz5rwz6w8sF4PG3Zir6fTwanMqV4ai6X7pNy2CDuL3HMzTPNa4ZoS2x6hmDYDFp74B">https://solscan.io/tx/3byMzXqMoZeGUjZ9Qt726Jvz5rwz6w8sF4PG3Zir6fTwanMqV4ai6X7pNy2CDuL3HMzTPNa4ZoS2x6hmDYDFp74B</a></p>
+<p>注意这个特殊交易，需要解决</p>
+<p><a target="_blank" rel="noopener" href="https://solscan.io/tx/5y9Ps52USi13jcv8qdJc3cKy1Q9AfEYvnuUgbcXcvtnBSw3NWuDGw2gBQbZEFiuMiUJGZKwPu19Y2q5rJHSdwKHB">https://solscan.io/tx/5y9Ps52USi13jcv8qdJc3cKy1Q9AfEYvnuUgbcXcvtnBSw3NWuDGw2gBQbZEFiuMiUJGZKwPu19Y2q5rJHSdwKHB</a></p>
+<p>学习资源：keep-alive保活</p>
+<p><a target="_blank" rel="noopener" href="https://astralane.gitbook.io/docs/products-wiki-zh/di-yan-chi-jiao-yi/ti-jiao-jiao-yi/fu-jia-you-hua">https://astralane.gitbook.io/docs/products-wiki-zh/di-yan-chi-jiao-yi/ti-jiao-jiao-yi/fu-jia-you-hua</a></p>
+<p>这种交易如何组装？</p>
+<p><a target="_blank" rel="noopener" href="https://www.circular.bot/tx/5N5WsV54mGaAnc3TQ5AzAKVp2dMJAXcWQWDYn3VoWhvGynuCWQEsq8yWNCsRMdfi2ocrCU4hQL5buREt5EXinFoF">https://www.circular.bot/tx/5N5WsV54mGaAnc3TQ5AzAKVp2dMJAXcWQWDYn3VoWhvGynuCWQEsq8yWNCsRMdfi2ocrCU4hQL5buREt5EXinFoF</a></p>
+<h2 id="需要做的"><a href="#需要做的" class="headerlink" title="需要做的"></a>需要做的</h2><ul>
+<li><input checked="" disabled="" type="checkbox"> process构建</li>
+<li><input checked="" disabled="" type="checkbox"> alt构建</li>
+<li><input disabled="" type="checkbox"> 无await 发送</li>
+<li><input checked="" disabled="" type="checkbox"> nonce发送 - n 服务商发送</li>
+<li><input disabled="" type="checkbox"> 修修补补代码 - 代码检查</li>
+<li><input disabled="" type="checkbox"> 性能优化</li>
+<li><input disabled="" type="checkbox"> 高精度指令构建</li>
+<li><input disabled="" type="checkbox"> 强化系统架构</li>
+<li><input disabled="" type="checkbox"> 3hop 策略</li>
+</ul>
+<h2 id="今日任务"><a href="#今日任务" class="headerlink" title="今日任务"></a>今日任务</h2><ul>
+<li><input disabled="" type="checkbox"> grpc_account 必须OK</li>
+<li><input disabled="" type="checkbox"> process 必须OK</li>
+</ul>
+<h2 id="各个池子长度"><a href="#各个池子长度" class="headerlink" title="各个池子长度"></a>各个池子长度</h2><table>
+<thead>
+<tr>
+<th align="center">池子</th>
+<th align="center">account长度（不包括program）</th>
+<th>简化版长度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">meteora_dlmm</td>
+<td align="center">19-4tick</td>
+<td>16（优化3个）</td>
+</tr>
+<tr>
+<td align="center">meteora_pool</td>
+<td align="center">15/16</td>
+<td>15/16</td>
+</tr>
+<tr>
+<td align="center">meteora_damm</td>
+<td align="center">14</td>
+<td>12（优化2个）</td>
+</tr>
+<tr>
+<td align="center">raydium_amm</td>
+<td align="center">17</td>
+<td>8（优化9个）</td>
+</tr>
+<tr>
+<td align="center">raydium_clmm</td>
+<td align="center">13-4tick</td>
+<td>13</td>
+</tr>
+<tr>
+<td align="center">raydium_cpmm</td>
+<td align="center">13</td>
+<td>12（优化1个）</td>
+</tr>
+<tr>
+<td align="center">pamm_buy</td>
+<td align="center">23</td>
+<td>22</td>
+</tr>
+<tr>
+<td align="center">pamm_sell</td>
+<td align="center">21</td>
+<td>20</td>
+</tr>
+<tr>
+<td align="center">orca</td>
+<td align="center">11-3tick</td>
+<td>11</td>
+</tr>
+<tr>
+<td align="center">solfi</td>
+<td align="center">8</td>
+<td>8</td>
+</tr>
+<tr>
+<td align="center">lifinity</td>
+<td align="center">13</td>
+<td>13</td>
+</tr>
+<tr>
+<td align="center">humi</td>
+<td align="center">9</td>
+<td>9</td>
+</tr>
+<tr>
+<td align="center">fusion</td>
+<td align="center">14-3tick</td>
+<td>14</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="合约测试"><a href="#合约测试" class="headerlink" title="合约测试"></a>合约测试</h2><table>
+<thead>
+<tr>
+<th align="center">dex buy/sell</th>
+<th align="center">CU</th>
+<th align="center">setdata</th>
+<th align="center">备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">solfi</td>
+<td align="center">55123/55085</td>
+<td align="center">137649</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">lifinity</td>
+<td align="center">78305/78538</td>
+<td align="center">142631</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">orca</td>
+<td align="center">54412/51016</td>
+<td align="center">165466</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">ray_amm</td>
+<td align="center">29751/29761</td>
+<td align="center">135601</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">ray_cpmm</td>
+<td align="center">43614/43616</td>
+<td align="center">139961</td>
+<td align="center">sell最低是1</td>
+</tr>
+<tr>
+<td align="center">mete_pool</td>
+<td align="center">133663/133248</td>
+<td align="center">147968</td>
+<td align="center">16位的那个还没测试</td>
+</tr>
+<tr>
+<td align="center">pamm</td>
+<td align="center">109346/69006</td>
+<td align="center">243756/244493</td>
+<td align="center">啥也不需要换，保证静态数据稳定即可</td>
+</tr>
+<tr>
+<td align="center">mete_dlmm</td>
+<td align="center">47277/47009</td>
+<td align="center">169557</td>
+<td align="center">换个ata即可</td>
+</tr>
+<tr>
+<td align="center">ray_clmm</td>
+<td align="center">79310/70940</td>
+<td align="center">153065</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">mete_damm</td>
+<td align="center">42942/41540</td>
+<td align="center">136125</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">fusion</td>
+<td align="center">58639/54334</td>
+<td align="center">240200</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">humi</td>
+<td align="center">38881/37194</td>
+<td align="center">136617</td>
+<td align="center">CU:33589</td>
+</tr>
+<tr>
+<td align="center">mete_pool-16</td>
+<td align="center">170287/174689</td>
+<td align="center">160027</td>
+<td align="center">第12位账户需要换一下地址</td>
+</tr>
+</tbody></table>
+<h2 id="方向买入情况（terfer顺序根据买卖是否一样）"><a href="#方向买入情况（terfer顺序根据买卖是否一样）" class="headerlink" title="方向买入情况（terfer顺序根据买卖是否一样）"></a>方向买入情况（terfer顺序根据买卖是否一样）</h2><table>
+<thead>
+<tr>
+<th>dex</th>
+<th>是否买卖顺序和terfer顺序一样</th>
+<th>备注</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>mete_dlmm</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>mete_pool</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>mete_damm</td>
+<td>是</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>pamm</td>
+<td>否</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>ray_amm</td>
+<td>是</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>ray_clmm</td>
+<td>是</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>ray_cpmm</td>
+<td>是</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>orca</td>
+<td>是</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>linfity</td>
+<td>是</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>humi</td>
+<td>是</td>
+<td>1</td>
+<td>交易方向需要注意</td>
+</tr>
+<tr>
+<td>fusion</td>
+<td>是</td>
+<td>1</td>
+<td>交易方向需要注意</td>
+</tr>
+</tbody></table>
+<h2 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h2><p>raydium cpmm 的tx读取mint的时候需要识别一下 不需要，只需要指令构建的时候进行检测就可以了</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://risingrode.github.io">fcw</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://risingrode.github.io/post/2b4a76a2.html">https://risingrode.github.io/post/2b4a76a2.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://risingrode.github.io" target="_blank">代码有点萌</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/covers/c03.svg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://registry.npmmirror.com/butterfly-extsrc/1.1.3/files/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://registry.npmmirror.com/butterfly-extsrc/1.1.3/files/sharejs/dist/js/social-share.min.js" defer=""></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.webp" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/wechat.webp" alt="微信"></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.webp" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/alipay.webp" alt="支付宝"></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/cd1f98a1.html" title="人生修炼指南"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/covers/c06.svg" onerror="onerror=null;src='/img/404.svg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">人生修炼指南</div></div></a></div><div class="next-post pull-right"><a href="/post/70399a86.html" title="infp进阶指南"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/covers/c10.svg" onerror="onerror=null;src='/img/404.svg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">infp进阶指南</div></div></a></div></nav><hr><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/girl.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="author-info__name">fcw</div><div class="author-info__description">一个收藏回忆与分享技术的地方！</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">135</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">94</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">61</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Risingrode"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到cwRising的博客</div></div><div class="card-widget"><div class="item-headline"><i></i><span></span></div><div class="item-content"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E8%AE%B0%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text">任务记录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#9-1"><span class="toc-number">1.1.</span> <span class="toc-text">9-1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%8E%E5%A4%A9%E4%BB%BB%E5%8A%A1"><span class="toc-number">1.2.</span> <span class="toc-text">明天任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9C%80%E8%A6%81%E5%81%9A%E7%9A%84"><span class="toc-number">1.3.</span> <span class="toc-text">需要做的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8A%E6%97%A5%E4%BB%BB%E5%8A%A1"><span class="toc-number">1.4.</span> <span class="toc-text">今日任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%84%E4%B8%AA%E6%B1%A0%E5%AD%90%E9%95%BF%E5%BA%A6"><span class="toc-number">1.5.</span> <span class="toc-text">各个池子长度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%88%E7%BA%A6%E6%B5%8B%E8%AF%95"><span class="toc-number">1.6.</span> <span class="toc-text">合约测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E5%90%91%E4%B9%B0%E5%85%A5%E6%83%85%E5%86%B5%EF%BC%88terfer%E9%A1%BA%E5%BA%8F%E6%A0%B9%E6%8D%AE%E4%B9%B0%E5%8D%96%E6%98%AF%E5%90%A6%E4%B8%80%E6%A0%B7%EF%BC%89"><span class="toc-number">1.7.</span> <span class="toc-text">方向买入情况（terfer顺序根据买卖是否一样）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Other"><span class="toc-number">1.8.</span> <span class="toc-text">Other</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/559881a9.html" title="other"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/covers/c09.svg" onerror="this.onerror=null;this.src='/img/404.svg'" alt="other"></a><div class="content"><a class="title" href="/post/559881a9.html" title="other">other</a><time datetime="2026-03-07T05:55:13.084Z" title="发表于 2026-03-07 13:55:13">2026-03-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/c915e425.html" title="Alpha 脚本"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/covers/c06.svg" onerror="this.onerror=null;this.src='/img/404.svg'" alt="Alpha 脚本"></a><div class="content"><a class="title" href="/post/c915e425.html" title="Alpha 脚本">Alpha 脚本</a><time datetime="2025-10-06T08:07:43.286Z" title="发表于 2025-10-06 16:07:43">2025-10-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/cd1f98a1.html" title="人生修炼指南"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/covers/c06.svg" onerror="this.onerror=null;this.src='/img/404.svg'" alt="人生修炼指南"></a><div class="content"><a class="title" href="/post/cd1f98a1.html" title="人生修炼指南">人生修炼指南</a><time datetime="2025-09-14T08:04:15.816Z" title="发表于 2025-09-14 16:04:15">2025-09-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/2b4a76a2.html" title="套利每日任务记录"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/covers/c03.svg" onerror="this.onerror=null;this.src='/img/404.svg'" alt="套利每日任务记录"></a><div class="content"><a class="title" href="/post/2b4a76a2.html" title="套利每日任务记录">套利每日任务记录</a><time datetime="2025-09-01T09:09:03.506Z" title="发表于 2025-09-01 17:09:03">2025-09-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/70399a86.html" title="infp进阶指南"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/covers/c10.svg" onerror="this.onerror=null;this.src='/img/404.svg'" alt="infp进阶指南"></a><div class="content"><a class="title" href="/post/70399a86.html" title="infp进阶指南">infp进阶指南</a><time datetime="2025-08-11T14:58:49.000Z" title="发表于 2025-08-11 22:58:49">2025-08-11</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">©2023 - 2026 By fcw</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a><br>
+<imgsrc="https: haiyong.site="" img="" icp.png"="">
+<a href="https://beian.miit.gov.cn/#/Integrated/index" style="color:white" target="_blank">豫ICP备2023032527号</a></imgsrc="https:></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div></div><hr><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://registry.npmmirror.com/@fancyapps/ui/4.0.31/files/dist/fancybox.umd.js"></script><script src="https://registry.npmmirror.com/vanilla-lazyload/17.8.3/files/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://registry.npmmirror.com/valine/1.5.1/files/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'https://risingrode.github.io/post/2b4a76a2.html'
+    this.page.identifier = '/post/2b4a76a2.html'
+    this.page.title = '套利每日任务记录'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+
+  document.getElementById('darkmode').addEventListener('click', () => {
+    setTimeout(() => window.disqusReset(), 200)
+  })
+}
+
+if ('Valine' === 'Disqus' || !false) {
+  if (false) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script></div><link rel="stylesheet" href="/dist/APlayer.min.css"><div id="aplayer"></div><script type="text/javascript" src="/dist/APlayer.min.js"></script><script type="text/javascript" src="/js/aplayer/music.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://registry.npmmirror.com/butterfly-extsrc/1.1.3/files/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zindex="-1" count="99" mobile="false" src="https://registry.npmmirror.com/butterfly-extsrc/1.1.3/files/dist/canvas-nest.min.js"></script><link rel="stylesheet" href="https://registry.npmmirror.com/aplayer/1.10.1/files/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://registry.npmmirror.com/aplayer/1.10.1/files/dist/APlayer.min.js"></script><script src="https://registry.npmmirror.com/butterfly-extsrc/1.1.3/files/metingjs/dist/Meting.min.js"></script><script async="" data-pjax="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
